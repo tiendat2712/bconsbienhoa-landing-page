@@ -6,7 +6,7 @@ const cards = [
     kind: 'Chi tiết dự án',
     title: 'Mặt bằng Bcons Central Park',
     desc: 'Mặt bằng tổng thể 5 block và thiết kế chi tiết căn hộ 43 – 86 m².',
-    href: '/#mat-bang',
+    href: '/mat-bang',
   },
   {
     kind: 'Chi tiết dự án',
@@ -31,7 +31,7 @@ const cards = [
 const chips = [
   { label: 'Tổng quan dự án', href: '/#tong-quan' },
   { label: 'Giá bán', href: '/gia-ban' },
-  { label: 'Mặt bằng', href: '/#mat-bang' },
+  { label: 'Mặt bằng', href: '/mat-bang' },
   { label: 'Tiện ích', href: '/#tien-ich' },
   { label: 'Pháp lý', href: '/#phap-ly' },
   { label: 'Chủ đầu tư', href: '/#chu-dau-tu' },

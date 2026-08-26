@@ -65,7 +65,7 @@ export function LocationDetail() {
                   giá bán Bcons Central Park
                 </a>{' '}
                 và{' '}
-                <a href="/#mat-bang" className="text-primary underline underline-offset-4">
+                <a href="/mat-bang" className="text-primary underline underline-offset-4">
                   mặt bằng căn hộ 43 – 86 m²
                 </a>{' '}
                 để hoàn thiện bức tranh về dự án trước khi quyết định.

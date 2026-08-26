@@ -4,34 +4,34 @@ import { Reveal } from '@/components/reveal'
 const cards = [
   {
     kind: 'Chi tiết dự án',
-    title: 'Mặt bằng Bcons Central Park',
-    desc: 'Mặt bằng tổng thể và thiết kế chi tiết căn hộ 43 – 86 m².',
-    href: '/mat-bang',
+    title: 'Giá bán Bcons Central Park',
+    desc: 'Bảng giá 1 – 3 phòng ngủ, chính sách thanh toán và ưu đãi hiện hành.',
+    href: '/gia-ban',
   },
   {
     kind: 'Chi tiết dự án',
-    title: 'Tiện ích nội khu',
-    desc: 'Công viên xanh, hồ bơi, gym và không gian thương mại khối đế.',
+    title: 'Tiện ích Bcons Central Park',
+    desc: 'Công viên nội khu 7.700+ m², hồ bơi, gym/yoga và tiện ích ngoại khu.',
     href: '/#tien-ich',
   },
   {
     kind: 'Chi tiết dự án',
-    title: 'Pháp lý Bcons Tam Hiệp',
-    desc: 'Sở hữu lâu dài, hồ sơ dự án và thông tin quy hoạch.',
-    href: '/#phap-ly',
+    title: 'Nhà mẫu Bcons Central Park',
+    desc: 'Không gian thực tế căn hộ mẫu, vật liệu và phong cách bàn giao.',
+    href: '/#nha-mau',
   },
   {
     kind: 'Chi tiết dự án',
-    title: 'Tiến độ Bcons Central Park',
-    desc: 'Các mốc triển khai và thời điểm bàn giao dự kiến.',
-    href: '/#tien-do',
+    title: 'Vị trí Bcons Phan Trung, Tam Hiệp',
+    desc: 'Toạ độ 236 Phan Trung, kết nối vùng và khoảng cách tới các khu công nghiệp.',
+    href: '/vi-tri',
   },
 ]
 
 const chips = [
   { label: 'Tổng quan dự án', href: '/#tong-quan' },
+  { label: 'Giá bán', href: '/gia-ban' },
   { label: 'Vị trí', href: '/vi-tri' },
-  { label: 'Mặt bằng', href: '/mat-bang' },
   { label: 'Tiện ích', href: '/#tien-ich' },
   { label: 'Pháp lý', href: '/#phap-ly' },
   { label: 'Nhà mẫu', href: '/#nha-mau' },
@@ -39,7 +39,7 @@ const chips = [
   { label: 'Tin tức', href: '/#tin-tuc' },
 ]
 
-export function PricingRelated() {
+export function FloorPlanRelated() {
   return (
     <section className="bg-background py-20 lg:py-24">
       <div className="mx-auto max-w-5xl px-4 lg:px-8">
@@ -48,8 +48,8 @@ export function PricingRelated() {
             Xem thêm về Bcons Central Park Tam Hiệp
           </h2>
           <p className="mt-4 max-w-xl leading-relaxed text-pretty text-muted-foreground">
-            Những nội dung thường đi kèm giá bán, giúp bạn hoàn thiện bức tranh về dự án trước khi
-            quyết định.
+            Những nội dung thường đi kèm mặt bằng Bcons Central Park, giúp bạn hoàn thiện bức tranh
+            về dự án trước khi quyết định.
           </p>
         </Reveal>
 
