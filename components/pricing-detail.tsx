@@ -42,7 +42,7 @@ export function PricingDetail() {
                 Dự án áp dụng chính sách thanh toán chia nhỏ theo tiến độ xây dựng, hỗ trợ vay ngân
                 hàng và các ưu đãi cho khách thanh toán nhanh — chi tiết ở bảng bên dưới. Bạn cũng
                 có thể tham khảo{' '}
-                <a href="/#mat-bang" className="text-primary underline underline-offset-4">
+                <a href="/mat-bang" className="text-primary underline underline-offset-4">
                   mặt bằng Bcons Central Park
                 </a>{' '}
                 để chọn loại căn phù hợp trước khi so sánh giá.

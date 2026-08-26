@@ -6,13 +6,13 @@ const cards = [
     kind: 'Chi tiết dự án',
     title: 'Mặt bằng Bcons Central Park',
     desc: 'Mặt bằng tổng thể và thiết kế chi tiết căn hộ 43 – 86 m².',
-    href: '/#mat-bang',
+    href: '/mat-bang',
   },
   {
     kind: 'Chi tiết dự án',
     title: 'Tiện ích nội khu',
     desc: 'Công viên xanh, hồ bơi, gym và không gian thương mại khối đế.',
-    href: '/#tien-ich',
+    href: '/tien-ich',
   },
   {
     kind: 'Chi tiết dự án',
@@ -31,8 +31,8 @@ const cards = [
 const chips = [
   { label: 'Tổng quan dự án', href: '/#tong-quan' },
   { label: 'Vị trí', href: '/vi-tri' },
-  { label: 'Mặt bằng', href: '/#mat-bang' },
-  { label: 'Tiện ích', href: '/#tien-ich' },
+  { label: 'Mặt bằng', href: '/mat-bang' },
+  { label: 'Tiện ích', href: '/tien-ich' },
   { label: 'Pháp lý', href: '/#phap-ly' },
   { label: 'Nhà mẫu', href: '/#nha-mau' },
   { label: 'Tiến độ', href: '/#tien-do' },

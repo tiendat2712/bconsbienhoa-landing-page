@@ -15,8 +15,8 @@ export function SiteHeader() {
   const [detailOpen, setDetailOpen] = useState(false)
   useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 16); onScroll(); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll) }, [])
 
-  const navLinks = [[t.nav.overview,'#tong-quan'],[t.nav.location,'/vi-tri'],[t.nav.amenities,'#tien-ich'],[t.nav.plans,'#mat-bang'],[t.nav.legal,'#phap-ly'],[t.nav.showUnit,'#nha-mau'],[t.nav.pricing,'/gia-ban']] as const
-  const detailLinks = [[t.nav.pricing,'/gia-ban'],[t.nav.location,'/vi-tri'],[t.nav.plans,'#mat-bang'],[t.nav.amenities,'#tien-ich'],[t.nav.legal,'#phap-ly'],[t.nav.investor,'#chu-dau-tu'],[t.nav.progress,'#tien-do']] as const
+  const navLinks = [[t.nav.overview,'#tong-quan'],[t.nav.location,'/vi-tri'],[t.nav.amenities,'/tien-ich'],[t.nav.plans,'/mat-bang'],[t.nav.legal,'#phap-ly'],[t.nav.showUnit,'#nha-mau'],[t.nav.pricing,'/gia-ban']] as const
+  const detailLinks = [[t.nav.pricing,'/gia-ban'],[t.nav.location,'/vi-tri'],[t.nav.plans,'/mat-bang'],[t.nav.amenities,'/tien-ich'],[t.nav.legal,'#phap-ly'],[t.nav.investor,'#chu-dau-tu'],[t.nav.progress,'#tien-do']] as const
   const controlClass = 'flex h-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-secondary'
 
   return <header className="fixed inset-x-0 top-0 z-50">
