@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏢 Bcons Central Park - Real Estate Landing Page
 
-## Getting Started
+Landing Page giới thiệu dự án căn hộ cao cấp **Bcons Central Park Tam Hiệp** (Biên Hòa, Đồng Nai).
 
-First, run the development server:
+---
+
+## 📖 Cấu trúc dự án
+👉 Xem chi tiết toàn bộ cấu trúc mã nguồn và danh sách components tại: **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)**
+
+---
+
+## 🚀 Khởi chạy dự án
+
+Cài đặt dependencies và chạy môi trường dev:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở trình duyệt tại [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🖼️ Nạp hình ảnh dự án
+Bạn chỉ cần copy toàn bộ file hình ảnh (`.jpg`, `.png`) vào thư mục:
+```text
+public/images/uploads/
+```
+*(Đọc file `public/images/uploads/HD_THEM_ANH.txt` để xem hướng dẫn chi tiết).*

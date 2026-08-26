@@ -1,0 +1,18 @@
+{
+  "name": "light",
+  "colors": {
+    "background": "#ffffff",
+    "surface": "#f7faf7",
+    "text": "#0f172a",
+    "muted": "#6b7280",
+    "primary": "#064e3b",
+    "accent": "#d6a961",
+    "headerBg": "rgba(255,255,255,0.75)",
+    "buttonBg": "#064e3b",
+    "buttonText": "#ffffff"
+  },
+  "font": {
+    "base": "Inter, Arial, sans-serif",
+    "serif": "Merriweather, serif"
+  }
+}
