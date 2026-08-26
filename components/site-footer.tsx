@@ -2,26 +2,26 @@ const columns = [
   {
     title: 'Dự án',
     links: [
-      { label: 'Tổng quan', href: '#tong-quan' },
-      { label: 'Vị trí', href: '#vi-tri' },
-      { label: 'Tiện ích', href: '#tien-ich' },
-      { label: 'Mặt bằng', href: '#mat-bang' },
+      { label: 'Tổng quan', href: '/#tong-quan' },
+      { label: 'Vị trí', href: '/#vi-tri' },
+      { label: 'Tiện ích', href: '/#tien-ich' },
+      { label: 'Mặt bằng', href: '/#mat-bang' },
     ],
   },
   {
     title: 'Thông tin',
     links: [
-      { label: 'Giá bán', href: '#gia-ban' },
-      { label: 'Pháp lý', href: '#phap-ly' },
-      { label: 'Chủ đầu tư', href: '#chu-dau-tu' },
-      { label: 'Tiến độ', href: '#tien-do' },
+      { label: 'Giá bán', href: '/gia-ban' },
+      { label: 'Pháp lý', href: '/#phap-ly' },
+      { label: 'Chủ đầu tư', href: '/#chu-dau-tu' },
+      { label: 'Tiến độ', href: '/#tien-do' },
     ],
   },
   {
     title: 'Hỗ trợ',
     links: [
-      { label: 'Nhà mẫu', href: '#nha-mau' },
-      { label: 'Tin tức', href: '#tin-tuc' },
+      { label: 'Nhà mẫu', href: '/#nha-mau' },
+      { label: 'Tin tức', href: '/#tin-tuc' },
       { label: 'Đăng ký tư vấn', href: '#dang-ky' },
     ],
   },
