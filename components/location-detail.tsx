@@ -141,11 +141,11 @@ export function LocationDetail() {
                 Kết nối vùng Bcons Central Park
               </h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-pretty text-muted-foreground">
-                Bản đồ liên kết vùng cho thấy dự án nằm trên đường Phan Trung — trục nối trực tiếp
+                Bản đồ liên kết vùng cho thấy dự án nằm trên đường Phan Trung — trục nối tr��c tiếp
                 hai đại lộ Nguyễn Ái Quốc và Phạm Văn Thuận, trong bán kính 15 phút tới sân bay
                 Biên Hòa, các khu công nghiệp Amata, Biên Hòa, Agtex Long Bình và hướng tuyến Metro
                 Bến Thành – Suối Tiên – Đồng Nai. Vùng bán kính này cũng bao trọn hệ{' '}
-                <a href="/#tien-ich" className="text-primary underline underline-offset-4">
+                <a href="/tien-ich" className="text-primary underline underline-offset-4">
                   tiện ích Bcons Central Park Tam Hiệp
                 </a>{' '}
                 cả nội khu lẫn ngoại khu.

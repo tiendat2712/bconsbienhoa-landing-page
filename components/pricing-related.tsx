@@ -12,7 +12,7 @@ const cards = [
     kind: 'Chi tiết dự án',
     title: 'Tiện ích nội khu',
     desc: 'Công viên xanh, hồ bơi, gym và không gian thương mại khối đế.',
-    href: '/#tien-ich',
+    href: '/tien-ich',
   },
   {
     kind: 'Chi tiết dự án',
@@ -32,7 +32,7 @@ const chips = [
   { label: 'Tổng quan dự án', href: '/#tong-quan' },
   { label: 'Vị trí', href: '/vi-tri' },
   { label: 'Mặt bằng', href: '/mat-bang' },
-  { label: 'Tiện ích', href: '/#tien-ich' },
+  { label: 'Tiện ích', href: '/tien-ich' },
   { label: 'Pháp lý', href: '/#phap-ly' },
   { label: 'Nhà mẫu', href: '/#nha-mau' },
   { label: 'Tiến độ', href: '/#tien-do' },

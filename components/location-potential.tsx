@@ -17,7 +17,7 @@ const factors = [
     ],
     links: [
       { label: 'giá bán Bcons Central Park Tam Hiệp', href: '/gia-ban' },
-      { label: 'tiện ích nội khu dự án', href: '/#tien-ich' },
+      { label: 'tiện ích nội khu dự án', href: '/tien-ich' },
     ],
   },
   {
@@ -54,7 +54,7 @@ const factors = [
       },
     ],
     links: [
-      { label: 'tiện ích Bcons Central Park Tam Hiệp', href: '/#tien-ich' },
+      { label: 'tiện ích Bcons Central Park Tam Hiệp', href: '/tien-ich' },
       { label: 'mặt bằng Bcons Central Park', href: '/mat-bang' },
     ],
   },

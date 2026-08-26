@@ -12,7 +12,7 @@ const cards = [
     kind: 'Chi tiết dự án',
     title: 'Tiện ích Bcons Central Park',
     desc: 'Công viên nội khu 7.700+ m², hồ bơi, gym/yoga và tiện ích ngoại khu.',
-    href: '/#tien-ich',
+    href: '/tien-ich',
   },
   {
     kind: 'Chi tiết dự án',
@@ -32,7 +32,7 @@ const chips = [
   { label: 'Tổng quan dự án', href: '/#tong-quan' },
   { label: 'Giá bán', href: '/gia-ban' },
   { label: 'Vị trí', href: '/vi-tri' },
-  { label: 'Tiện ích', href: '/#tien-ich' },
+  { label: 'Tiện ích', href: '/tien-ich' },
   { label: 'Pháp lý', href: '/#phap-ly' },
   { label: 'Nhà mẫu', href: '/#nha-mau' },
   { label: 'Tiến độ', href: '/#tien-do' },
