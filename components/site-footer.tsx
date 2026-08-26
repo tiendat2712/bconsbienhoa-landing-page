@@ -3,7 +3,7 @@ const columns = [
     title: 'Dự án',
     links: [
       { label: 'Tổng quan', href: '/#tong-quan' },
-      { label: 'Vị trí', href: '/#vi-tri' },
+      { label: 'Vị trí', href: '/vi-tri' },
       { label: 'Tiện ích', href: '/#tien-ich' },
       { label: 'Mặt bằng', href: '/#mat-bang' },
     ],
