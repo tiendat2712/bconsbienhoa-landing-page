@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/reveal'
 
 const rows = [
@@ -58,6 +58,13 @@ export function Pricing() {
                 </tbody>
               </table>
             </div>
+            <a
+              href="/gia-ban"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
+            >
+              Xem chi tiết giá bán và chính sách thanh toán
+              <ArrowRight className="size-4" />
+            </a>
           </Reveal>
 
           <Reveal delay={0.12}>
