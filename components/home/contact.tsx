@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import {
   Building2,
   Check,
@@ -33,6 +33,7 @@ interface FormErrors {
 }
 
 const unitIcons: Record<string, any> = {
+  studio: Home,
   '1pn': Home,
   '2pn': Building2,
   '3pn': Sparkles,
@@ -40,7 +41,7 @@ const unitIcons: Record<string, any> = {
 }
 
 export function Contact() {
-  const { theme, t } = useSitePreferences()
+  const { theme, t, locale } = useSitePreferences()
   const isDark = theme === 'dark'
 
   const [formData, setFormData] = useState({
@@ -101,6 +102,29 @@ export function Contact() {
     }
   }
 
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      const nextErrors: FormErrors = {}
+      if (errors.name) {
+        const res = validateName(formData.name, locale)
+        nextErrors.name = res.error || (locale === 'en' ? 'Please enter your full name' : 'Vui lòng nhập họ và tên')
+      }
+      if (errors.phone) {
+        const res = validatePhone(formData.phone, locale)
+        nextErrors.phone = res.error || (locale === 'en' ? 'Please enter your phone number' : 'Vui lòng nhập số điện thoại')
+      }
+      if (errors.type) {
+        const res = validateUnitType(formData.type, locale)
+        nextErrors.type = res.error || (locale === 'en' ? 'Please select your preferred unit type' : 'Vui lòng chọn loại căn quan tâm')
+      }
+      if (errors.note && formData.note) {
+        const res = validateNote(formData.note, locale)
+        nextErrors.note = res.error
+      }
+      setErrors(nextErrors)
+    }
+  }, [locale])
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const filtered = filterPhoneInput(e.target.value)
     setFormData((prev) => ({ ...prev, phone: filtered }))
@@ -108,7 +132,7 @@ export function Contact() {
       if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }))
       return
     }
-    const validation = validatePhone(filtered)
+    const validation = validatePhone(filtered, locale)
     if (!validation.isValid) {
       setErrors((prev) => ({ ...prev, phone: validation.error }))
     } else {
@@ -117,7 +141,7 @@ export function Contact() {
   }
 
   const handleSelectUnit = (val: string) => {
-    const validation = validateUnitType(val)
+    const validation = validateUnitType(val, locale)
     if (!validation.isValid) {
       setErrors((prev) => ({ ...prev, type: validation.error }))
       return
@@ -140,10 +164,10 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const nameResult = validateName(formData.name)
-    const phoneResult = validatePhone(formData.phone)
-    const typeResult = validateUnitType(formData.type)
-    const noteResult = validateNote(formData.note)
+    const nameResult = validateName(formData.name, locale)
+    const phoneResult = validatePhone(formData.phone, locale)
+    const typeResult = validateUnitType(formData.type, locale)
+    const noteResult = validateNote(formData.note, locale)
 
     const nextErrors: FormErrors = {}
     if (!nameResult.isValid) nextErrors.name = nameResult.error
@@ -168,7 +192,7 @@ export function Contact() {
           phone: phoneResult.sanitized,
           type: formData.type,
           note: noteResult.sanitized,
-          source: 'Trang chủ - Form Đăng ký tư vấn chi tiết',
+          source: locale === 'en' ? 'Home Page - Detailed Consultation Form' : 'Trang chủ - Form Đăng ký tư vấn chi tiết',
         }),
       })
 
@@ -176,10 +200,10 @@ export function Contact() {
       if (res.ok && data.success) {
         setSent(true)
       } else {
-        setErrors({ phone: data.error || 'Có lỗi xảy ra khi gửi thông tin, vui lòng thử lại' })
+        setErrors({ phone: data.error || (locale === 'en' ? 'An error occurred while submitting, please try again' : 'Có lỗi xảy ra khi gửi thông tin, vui lòng thử lại') })
       }
     } catch {
-      setErrors({ phone: 'Lỗi kết nối máy chủ, vui lòng thử lại sau' })
+      setErrors({ phone: locale === 'en' ? 'Server connection error, please try again later' : 'Lỗi kết nối máy chủ, vui lòng thử lại sau' })
     } finally {
       setSubmitting(false)
     }

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Be_Vietnam_Pro } from 'next/font/google'
-import Script from 'next/script'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { RealEstateProjectSchema, RealEstateAgentSchema } from '@/components/seo/json-ld'
 import './globals.css'
@@ -111,9 +110,8 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning className={`bg-background ${display.variable} ${body.variable}`}>
       <head>
-        <Script
+        <script
           id="bcons-theme-init"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {

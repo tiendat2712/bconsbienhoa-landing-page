@@ -12,14 +12,16 @@ export function PricingDetail() {
 
   const rows = isEn
     ? [
-        { type: '1-Bedroom', area: '43 – 45 sqm', price: '2.0 – 2.3 B VND' },
-        { type: '2-Bedroom', area: '51 – 58 sqm', price: '2.5 – 2.8 B VND' },
-        { type: '3-Bedroom', area: '85 – 86 sqm', price: '3.4 – 3.8 B VND' },
+        { type: 'Studio', area: '37 – 40 sqm', price: '1.9 – 2.0 B VND' },
+        { type: '1-Bedroom', area: '42 – 43 sqm', price: '2.0 – 2.3 B VND' },
+        { type: '2-Bedroom', area: '53 – 73 sqm', price: '2.5 – 2.8 B VND' },
+        { type: '3-Bedroom', area: '87 – 88 sqm', price: '3.4 – 3.8 B VND' },
       ]
     : [
-        { type: '1 Phòng ngủ', area: '43 – 45 m²', price: '2,0 – 2,3 tỷ đồng' },
-        { type: '2 Phòng ngủ', area: '51 – 58 m²', price: '2,5 – 2,8 tỷ đồng' },
-        { type: '3 Phòng ngủ', area: '85 – 86 m²', price: '3,4 – 3,8 tỷ đồng' },
+        { type: 'Studio', area: '37 – 40 m²', price: '1,9 – 2,0 tỷ đồng' },
+        { type: '1 Phòng ngủ', area: '42 – 43 m²', price: '2,0 – 2,3 tỷ đồng' },
+        { type: '2 Phòng ngủ', area: '53 – 73 m²', price: '2,5 – 2,8 tỷ đồng' },
+        { type: '3 Phòng ngủ', area: '87 – 88 m²', price: '3,4 – 3,8 tỷ đồng' },
       ]
 
   const payments = isEn
@@ -58,8 +60,8 @@ export function PricingDetail() {
               {isEn ? (
                 <>
                   <p>
-                    Bcons Central Park prices currently range from 2.0 to 3.8 billion VND depending on unit layout
-                    (1 to 3 bedrooms, 43 – 86 sqm), floor elevation, orientation, and official promotional schemes.
+                    Bcons Central Park prices currently range from 1.9 to 3.8 billion VND depending on unit layout
+                    (Studio, 1 to 3 bedrooms, 37 – 88 sqm), floor elevation, orientation, and official promotional schemes.
                   </p>
                   <p>
                     The project provides flexible installment payments tied to construction milestones and preferential
@@ -73,8 +75,8 @@ export function PricingDetail() {
               ) : (
                 <>
                   <p>
-                    Bcons Central Park giá hiện dao động từ 2,0 đến 3,8 tỷ đồng, tuỳ loại căn hộ (1 – 3
-                    phòng ngủ, diện tích 43 – 86 m²), tầng, hướng view và chính sách áp dụng tại thời
+                    Bcons Central Park giá hiện dao động từ 1,9 đến 3,8 tỷ đồng, tuỳ loại căn hộ (Studio, 1 – 3
+                    phòng ngủ, diện tích 37 – 88 m²), tầng, hướng view và chính sách áp dụng tại thời
                     điểm mở bán chính thức từ chủ đầu tư. Đây là mức giá tham khảo trong giai đoạn giới
                     thiệu dự án.
                   </p>
@@ -98,7 +100,7 @@ export function PricingDetail() {
         <div className="mx-auto max-w-5xl px-4 lg:px-8">
           <SectionHeading
             eyebrow={t.pricing.eyebrow}
-            title={isEn ? 'Estimated Pricing Starting from 2.0 B VND' : 'Giá bán dự kiến từ 2,0 tỷ đồng'}
+            title={isEn ? 'Expected Pricing Starting from 1.9 B VND' : 'Giá bán dự kiến từ 1,9 tỷ đồng'}
           />
 
           <Reveal delay={0.1}>

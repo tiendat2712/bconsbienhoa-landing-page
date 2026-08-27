@@ -33,12 +33,14 @@ export function LeadNotificationEmail({
 
   const getUnitTypeName = (type: string) => {
     switch (type) {
+      case 'studio':
+        return 'Căn hộ Studio (37 – 40 m²)'
       case '1pn':
-        return '1 phòng ngủ (43 – 45 m²)'
+        return '1 phòng ngủ (42 – 43 m²)'
       case '2pn':
-        return '2 phòng ngủ (51 – 58 m²)'
+        return '2 phòng ngủ (53 – 73 m²)'
       case '3pn':
-        return '3 phòng ngủ (85 – 86 m²)'
+        return '3 phòng ngủ (87 – 88 m²)'
       case 'shop':
         return 'Shophouse thương mại khối đế'
       default:

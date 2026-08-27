@@ -12,14 +12,14 @@ import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
-  title: 'Bảng Giá Bcons Central Park Tam Hiệp — Chính Sách Trả Góp 0% Mới Nhất 2026',
+  title: 'Bảng Giá Bcons Central Park Tam Hiệp — Giá Từ 1,9 Tỷ & Trả Góp 0% Mới Nhất 2026',
   description:
-    'Bảng giá căn hộ Bcons Central Park Tam Hiệp từ 2,0 tỷ (1PN) đến 3,8 tỷ (3PN). Thanh toán đợt đầu 15%, ngân hàng hỗ trợ vay 70%, ân hạn nợ gốc và lãi suất 0% đến khi nhận nhà.',
+    'Bảng giá căn hộ Bcons Central Park Tam Hiệp từ 1,9 tỷ (Studio) đến 3,8 tỷ (3PN). Thanh toán đợt đầu 15%, ngân hàng hỗ trợ vay 70%, ân hạn nợ gốc và lãi suất 0% đến khi nhận nhà.',
   alternates: { canonical: '/gia-ban' },
   openGraph: {
     title: 'Bảng Giá & Chính Sách Thanh Toán Bcons Central Park Tam Hiệp',
     description:
-      'Cập nhật bảng giá gốc từ chủ đầu tư Bcons Group. Giá từ 2,0 tỷ/căn, chiết khấu thanh toán sớm hấp dẫn.',
+      'Cập nhật bảng giá gốc từ chủ đầu tư Bcons Group. Giá dự kiến từ 1,9 tỷ/căn, chiết khấu thanh toán sớm hấp dẫn.',
     url: 'https://canhobconstamhiep.com/gia-ban',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Bảng giá Bcons Central Park' }],
   },
@@ -29,7 +29,7 @@ const pricingFaqs = [
   {
     question: 'Giá bán Bcons Central Park Tam Hiệp từ bao nhiêu?',
     answer:
-      'Giá bán dự kiến từ 2,0 tỷ đồng cho căn 1 phòng ngủ (43 – 45 m²), tương đương khoảng 45 – 50 triệu/m² tuỳ vị trí, tầng và hướng view.',
+      'Giá bán dự kiến từ 1,9 tỷ đồng cho căn hộ Studio (37 – 40 m²), 2,0 – 2,3 tỷ cho căn 1PN (42 – 43 m²), 2,5 – 2,8 tỷ cho căn 2PN (53 – 73 m²) và 3,4 – 3,8 tỷ cho căn 3PN (87 – 88 m²).',
   },
   {
     question: 'Phương thức thanh toán Bcons Phan Trung thế nào?',

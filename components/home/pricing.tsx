@@ -9,7 +9,7 @@ export function Pricing() {
   const isDark = theme === 'dark'
 
   return (
-    <section id="gia-ban" className="scroll-mt-24 bg-secondary/40 dark:bg-card/40 py-20 lg:py-28 transition-colors">
+    <section id="gia-ban" className="scroll-mt-24 bg-secondary/40 dark:bg-card/40 py-20 lg:py-28 transition-colors duration-500">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
           eyebrow={t.pricing.eyebrow}
@@ -18,6 +18,7 @@ export function Pricing() {
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          {/* CỘT TRÁI: BẢNG GIÁ DỰ KIẾN */}
           <Reveal>
             <div
               className={`overflow-hidden rounded-3xl border shadow-xl transition-all duration-500 ${
@@ -68,9 +69,13 @@ export function Pricing() {
               </table>
             </div>
 
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              {t.pricing.priceNote}
+            </p>
+
             <a
               href="/gia-ban"
-              className={`mt-5 inline-flex items-center gap-2 text-sm font-bold transition-colors duration-300 ${
+              className={`mt-4 inline-flex items-center gap-2 text-sm font-bold transition-colors duration-300 ${
                 isDark ? 'text-[#e6c887] hover:text-[#f7e4b5]' : 'text-primary hover:text-emerald-700'
               }`}
             >
@@ -79,6 +84,7 @@ export function Pricing() {
             </a>
           </Reveal>
 
+          {/* CỘT PHẢI: GÓI ƯU ĐÃI & CHÍNH SÁCH THANH TOÁN */}
           <Reveal delay={0.12}>
             <div className="h-full rounded-3xl bg-[#072018] dark:bg-[#071712] p-8 text-white shadow-2xl border border-white/10 flex flex-col justify-between">
               <div>
@@ -99,7 +105,7 @@ export function Pricing() {
               </div>
               <a
                 href="#dang-ky"
-                className="mt-8 flex items-center justify-center rounded-full bg-gradient-to-r from-[#e6c887] via-[#f7e4b5] to-[#e6c887] text-[#072018] font-bold px-6 py-3.5 text-sm transition-all duration-300 hover:scale-[1.02] shadow-[0_10px_25px_-5px_rgba(230,200,135,0.4)]"
+                className="mt-8 flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#e6c887] via-[#f7e4b5] to-[#e6c887] py-4 text-xs font-bold tracking-[0.16em] text-[#072018] uppercase shadow-lg transition-all duration-300 hover:opacity-90 active:scale-[0.98]"
               >
                 {t.pricing.cta}
               </a>

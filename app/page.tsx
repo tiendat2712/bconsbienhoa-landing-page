@@ -6,6 +6,7 @@ import { Amenities } from '@/components/home/amenities'
 import { FloorPlans } from '@/components/home/floor-plans'
 import { ShowUnit } from '@/components/home/show-unit'
 import { Pricing } from '@/components/home/pricing'
+import { FinancialCalculator } from '@/components/home/financial-calculator'
 import { LegalProgress } from '@/components/home/legal-progress'
 import { News } from '@/components/home/news'
 import { Contact } from '@/components/home/contact'
@@ -27,6 +28,7 @@ export default function Page() {
         <FloorPlans />
         <ShowUnit />
         <Pricing />
+        <FinancialCalculator />
         <LegalProgress />
         <News />
         <Contact />
