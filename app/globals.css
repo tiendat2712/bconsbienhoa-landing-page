@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+@variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
@@ -73,8 +74,8 @@
   --foreground: oklch(0.96 0.008 250);
   --card-foreground: oklch(0.96 0.008 250);
   --popover-foreground: oklch(0.96 0.008 250);
-  --primary: oklch(0.68 0.14 160);
-  --primary-foreground: oklch(0.12 0.025 260);
+  --primary: oklch(0.60 0.14 160);
+  --primary-foreground: oklch(0.985 0.004 120);
   --secondary: oklch(0.235 0.028 257);
   --secondary-foreground: oklch(0.94 0.01 250);
   --muted: oklch(0.225 0.025 257);
@@ -83,7 +84,7 @@
   --accent-foreground: oklch(0.15 0.02 258);
   --border: oklch(0.31 0.025 257);
   --input: oklch(0.31 0.025 257);
-  --ring: oklch(0.68 0.14 160);
+  --ring: oklch(0.60 0.14 160);
 }
 
 @layer base {
@@ -101,4 +102,33 @@
 
 @utility text-shadow-hero {
   text-shadow: 0 2px 24px rgb(0 0 0 / 0.45);
+}
+
+/* Luxury Gold Classes for Header */
+.dark-gold-logo {
+  filter: none;
+}
+
+.dark .dark-gold-logo {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(988%) hue-rotate(344deg) brightness(97%) contrast(92%) drop-shadow(0 0 10px rgba(230,200,135,0.45));
+}
+
+.gold-cta-btn {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.dark .gold-cta-btn {
+  background: linear-gradient(to right, #e6c887, #f7e4b5, #e6c887) !important;
+  color: #072018 !important;
+  box-shadow: 0 8px 20px -4px rgba(230, 200, 135, 0.45) !important;
+}
+
+.dark .gold-text-active {
+  color: #e6c887 !important;
+}
+
+.dark .gold-bg-active {
+  background-color: rgba(230, 200, 135, 0.15) !important;
+  color: #e6c887 !important;
 }
