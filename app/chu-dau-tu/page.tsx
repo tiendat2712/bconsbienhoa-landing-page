@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Chủ Đầu Tư Bcons Group — Cam Kết Làm Thật, Giao Thật, Sổ Hồng Nhanh',
     description:
       'Tìm hiểu năng lực triển khai dự án và chuỗi thành tích bàn giao sổ hồng vượt tiến độ của Tập đoàn Bcons.',
-    url: 'https://canhobconstamhiep.com/chu-dau-tu',
+    url: 'https://www.canhobconstamhiep.com/chu-dau-tu',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Chủ đầu tư Tập đoàn Bcons' }],
   },
 }
@@ -48,8 +48,8 @@ export default function InvestorPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Chủ đầu tư', url: 'https://canhobconstamhiep.com/chu-dau-tu' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Chủ đầu tư', url: 'https://www.canhobconstamhiep.com/chu-dau-tu' },
         ]}
       />
       <FAQSchema faqs={investorFaqs} />

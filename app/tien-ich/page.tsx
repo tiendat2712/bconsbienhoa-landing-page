@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Hệ Sinh Thái Tiện Ích Chuẩn Sống Xanh — Bcons Central Park Tam Hiệp',
     description:
       'Hồ bơi tràn bờ, công viên trung tâm 7.700m², phòng gym, sân chơi trẻ em và khu shophouse thương mại sầm uất.',
-    url: 'https://canhobconstamhiep.com/tien-ich',
+    url: 'https://www.canhobconstamhiep.com/tien-ich',
     images: [{ url: '/images/project-pool.jpg', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
   },
 }
@@ -48,8 +48,8 @@ export default function AmenityPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Tiện ích', url: 'https://canhobconstamhiep.com/tien-ich' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Tiện ích', url: 'https://www.canhobconstamhiep.com/tien-ich' },
         ]}
       />
       <FAQSchema faqs={amenityFaqs} />

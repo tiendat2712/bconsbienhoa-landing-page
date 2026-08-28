@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Cập Nhật Tiến Độ Xây Dựng Bcons Central Park Tam Hiệp 2026',
     description:
       'Theo dõi sát sao từng mốc thi công từ khởi công đến bàn giao nhà cho cư dân Bcons Central Park.',
-    url: 'https://canhobconstamhiep.com/tien-do',
+    url: 'https://www.canhobconstamhiep.com/tien-do',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Tiến độ Bcons Central Park' }],
   },
 }
@@ -48,8 +48,8 @@ export default function ProgressPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Tiến độ', url: 'https://canhobconstamhiep.com/tien-do' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Tiến độ', url: 'https://www.canhobconstamhiep.com/tien-do' },
         ]}
       />
       <FAQSchema faqs={progressFaqs} />

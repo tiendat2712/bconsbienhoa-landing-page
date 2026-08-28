@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Tin Tức & Cẩm Nang Bất Động Sản Bcons Central Park',
     description:
       'Góc nhìn chuyên gia, cập nhật thị trường và cẩm nang kiểm tra pháp lý căn hộ hình thành trong tương lai.',
-    url: 'https://canhobconstamhiep.com/tin-tuc',
+    url: 'https://www.canhobconstamhiep.com/tin-tuc',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Tin tức Bcons Central Park' }],
   },
 }
@@ -29,8 +29,8 @@ export default function NewsPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Tin tức', url: 'https://canhobconstamhiep.com/tin-tuc' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Tin tức', url: 'https://www.canhobconstamhiep.com/tin-tuc' },
         ]}
       />
       <SiteHeader />

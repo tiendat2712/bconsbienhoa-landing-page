@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Mặt Bằng Tổng Thể & Layout Căn Hộ Bcons Central Park Tam Hiệp',
     description:
       'Khám phá layout căn hộ 1PN, 2PN, 3PN thông minh, đón gió và ánh sáng tự nhiên tại Bcons Central Park.',
-    url: 'https://canhobconstamhiep.com/mat-bang',
+    url: 'https://www.canhobconstamhiep.com/mat-bang',
     images: [{ url: '/images/masterplan.png', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
   },
 }
@@ -48,8 +48,8 @@ export default function FloorPlanPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Mặt bằng', url: 'https://canhobconstamhiep.com/mat-bang' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Mặt bằng', url: 'https://www.canhobconstamhiep.com/mat-bang' },
         ]}
       />
       <FAQSchema faqs={floorPlanFaqs} />

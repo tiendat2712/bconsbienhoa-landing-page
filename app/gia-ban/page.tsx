@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Bảng Giá & Chính Sách Thanh Toán Bcons Central Park Tam Hiệp',
     description:
       'Cập nhật bảng giá gốc từ chủ đầu tư Bcons Group. Giá dự kiến từ 1,9 tỷ/căn, chiết khấu thanh toán sớm hấp dẫn.',
-    url: 'https://canhobconstamhiep.com/gia-ban',
+    url: 'https://www.canhobconstamhiep.com/gia-ban',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Bảng giá Bcons Central Park' }],
   },
 }
@@ -48,8 +48,8 @@ export default function PricingPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Giá bán', url: 'https://canhobconstamhiep.com/gia-ban' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Giá bán', url: 'https://www.canhobconstamhiep.com/gia-ban' },
         ]}
       />
       <FAQSchema faqs={pricingFaqs} />

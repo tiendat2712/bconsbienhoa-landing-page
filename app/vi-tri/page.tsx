@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Vị Trí Vàng 236 Phan Trung — Bcons Central Park Tam Hiệp',
     description:
       'Toạ lạc giữa trung tâm sầm uất Biên Hòa, liền kề Vincom, chợ Tam Hiệp, bệnh viện Đa khoa Đồng Nai và các trường đại học.',
-    url: 'https://canhobconstamhiep.com/vi-tri',
+    url: 'https://www.canhobconstamhiep.com/vi-tri',
     images: [{ url: '/images/aerial-location.png', width: 1200, height: 630, alt: 'Vị trí Bcons Central Park' }],
   },
 }
@@ -49,8 +49,8 @@ export default function LocationPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Vị trí', url: 'https://canhobconstamhiep.com/vi-tri' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Vị trí', url: 'https://www.canhobconstamhiep.com/vi-tri' },
         ]}
       />
       <FAQSchema faqs={locationFaqs} />

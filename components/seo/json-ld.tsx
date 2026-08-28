@@ -4,11 +4,19 @@ export function RealEstateProjectSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ApartmentComplex',
-    name: 'Bcons Central Park Tam Hiệp',
-    alternateName: ['Bcons Tam Hiệp', 'Bcons Phan Trung', 'Bcons Biên Hòa'],
+    name: 'Căn Hộ Bcons Tam Hiệp',
+    alternateName: [
+      'Bacons Tam Hiệp',
+      'Bcons Central Park Tam Hiệp',
+      'Bcons Tam Hiệp',
+      'Bcons Phan Trung',
+      'Bcons Biên Hòa',
+      'Căn hộ Bacons Tam Hiệp',
+      'Chung cư Bcons Tam Hiệp',
+    ],
     description:
-      'Dự án căn hộ cao cấp và shophouse thương mại quy mô gần 3 ha tại 236 Phan Trung, Phường Tam Hiệp, TP. Biên Hòa, Đồng Nai do Tập đoàn Bcons phát triển.',
-    url: 'https://canhobconstamhiep.com',
+      'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bacons Tam Hiệp Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
+    url: 'https://www.canhobconstamhiep.com',
     telephone: '+84376671776',
     address: {
       '@type': 'PostalAddress',
@@ -37,7 +45,7 @@ export function RealEstateProjectSchema() {
       },
       {
         '@type': 'LocationFeatureSpecification',
-        name: 'Shophouse thương mại 113 căn',
+        name: 'Shophouse thương mại khối đế',
         value: true,
       },
       {
@@ -54,7 +62,7 @@ export function RealEstateProjectSchema() {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'VND',
-      lowPrice: '2000000000',
+      lowPrice: '1900000000',
       highPrice: '3800000000',
       offerCount: '2820',
     },
@@ -78,11 +86,11 @@ export function RealEstateAgentSchema() {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Lê Ngọc Long',
-    jobTitle: 'Chuyên viên tư vấn dự án Bcons Central Park Tam Hiệp',
+    jobTitle: 'Chuyên viên tư vấn dự án Căn Hộ Bcons Tam Hiệp',
     telephone: '+84376671776',
     email: 'longqt2701@gmail.com',
-    url: 'https://canhobconstamhiep.com',
-    image: 'https://canhobconstamhiep.com/images/cr7_goat.jpg',
+    url: 'https://www.canhobconstamhiep.com',
+    image: 'https://www.canhobconstamhiep.com/images/cr7_goat.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '236 Phan Trung',
@@ -90,7 +98,7 @@ export function RealEstateAgentSchema() {
       addressRegion: 'Đồng Nai',
       addressCountry: 'VN',
     },
-    priceRange: '2.0 tỷ - 3.8 tỷ VND',
+    priceRange: '1.9 tỷ - 3.8 tỷ VND',
   }
 
   return (

@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY
     const recipientEmail = process.env.NOTIFICATION_EMAIL || 'longqt2701@gmail.com'
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'Bcons Central Park <onboarding@resend.dev>'
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://canhobconstamhiep.com'
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.canhobconstamhiep.com'
 
     // 4. Check if Resend API key is configured
     if (!apiKey) {

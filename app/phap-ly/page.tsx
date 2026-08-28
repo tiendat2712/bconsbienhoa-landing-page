@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Pháp Lý Minh Bạch & Vững Chắc — Bcons Central Park Tam Hiệp',
     description:
       'Sổ hồng sở hữu lâu dài, đầy đủ giấy phép xây dựng và bảo lãnh tài chính từ các ngân hàng uy tín.',
-    url: 'https://canhobconstamhiep.com/phap-ly',
+    url: 'https://www.canhobconstamhiep.com/phap-ly',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
   },
 }
@@ -48,8 +48,8 @@ export default function LegalPage() {
     <SitePreferencesProvider>
       <BreadcrumbSchema
         items={[
-          { name: 'Trang chủ', url: 'https://canhobconstamhiep.com' },
-          { name: 'Pháp lý', url: 'https://canhobconstamhiep.com/phap-ly' },
+          { name: 'Trang chủ', url: 'https://www.canhobconstamhiep.com' },
+          { name: 'Pháp lý', url: 'https://www.canhobconstamhiep.com/phap-ly' },
         ]}
       />
       <FAQSchema faqs={legalFaqs} />
