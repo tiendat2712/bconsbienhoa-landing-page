@@ -1,4 +1,4 @@
-﻿# BCONS CENTRAL PARK — DESIGN SYSTEM & IMPLEMENTATION RULES
+# BCONS CENTRAL PARK — DESIGN SYSTEM & IMPLEMENTATION RULES
 
 Tai lieu nay la quy chuan thiet ke va lap trinh bat buoc (Mandatory Rules) cho tat ca AI Agent va Developer khi thuc hien cac yeu cau giao dien (UI/UX), tinh chinh bo cuc, hoac trien khai tinh nang tu hinh anh tham chieu (mockups/screenshots).
 
@@ -73,3 +73,23 @@ Moi thay doi UI deu phai vuot qua 5 tieu chi:
 4. [ ] **Day du lien ket hanh dong**: Nut  Chi duong mo tab moi dan toi URL Google Maps chinh xac.
 5. [ ] **Chay 
 pm run build**: 100% routes bien dich thanh cong 0 loi.
+
+---
+
+## 5. CAU TRUC CHUAN CHO CAC TRANG CON TRONG DROPDOWN "CHI TIET" (SUBPAGES ARCHITECTURE)
+
+Hai trang `/gia-ban` va `/vi-tri` da duoc chuan hoa lam mau (Golden Reference). Tat ca cac trang con con lai (`/mat-bang`, `/tien-ich`, `/phap-ly`, `/chu-dau-tu`, `/tien-do`, `/tin-tuc`) khi chinh sua/code moi BAT BUOC phai tuan thu bo khung 2 phan:
+
+### A. Phan tren (Top Page - Hero Banner dien anh)
+- Banner anh nen `/images/project-towers.jpg` (hoac anh chuyen muc) voi scale 105%.
+- Lớp phu Cinematic Luxury Dark Gradient (`from-[#072018]/95 ...`) + Ambient Glow Vang Kim Champagne (`#e6c887/20 blur-3xl`).
+- Breadcrumb Frosted Glass co icon `<Home />` va link Vang Kim.
+- Tieu de H1 `font-serif` in hoa + Subtitle `font-serif italic` mau `#e6c887` + Mo ta ngan `font-sans`.
+- Cum the Bento Glass Highlights (Quick Facts) hoac Sub-navigation Pills.
+
+### B. Cac Section Common bat buoc o cuoi trang (Bottom Common Sections Sequence)
+Moi subpage trong `app/[slug]/page.tsx` bat buoc phai co day du 4 khoi common cuoi trang theo dung thu tu:
+1. `<DirectorConsultation id="tu-van" />`: Khoi tu van truc tiep tu chuyen gia / Giam doc F1 (kem avatar, bang thong tin va nut lien he).
+2. `<[Feature]Faq />`: Khoi cau hoi thuong gap danh rieng cho chuyen muc (Accordion tieu chuan).
+3. `<[Feature]Related />`: Khoi lien ket cac trang chuyen muc lien quan (The cards + chips chuyen huong nhanh).
+4. `<Contact />`: Form dang ky tu van & nhan bang gia goc cuoi trang (`@/components/home/contact`).

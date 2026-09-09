@@ -7,7 +7,7 @@ import { ChevronDown, Globe, Menu, Moon, Phone, Sun, X } from 'lucide-react'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
 export function SiteHeader() {
-  const { t, locale, setLocale, theme, toggleTheme } = useSitePreferences()
+  const { t, locale, setLocale, theme, toggleTheme, openConsultation } = useSitePreferences()
   const pathname = usePathname()
   const onHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
@@ -15,6 +15,45 @@ export function SiteHeader() {
   const [detailOpen, setDetailOpen] = useState(false)
 
   const [activeSection, setActiveSection] = useState<string>('#tong-quan')
+
+  // Listen for #dang-ky hash on subpages (e.g. from previous navigation or external link)
+  useEffect(() => {
+    if (!onHome && typeof window !== 'undefined' && window.location.hash === '#dang-ky') {
+      window.history.replaceState(null, '', window.location.pathname)
+      openConsultation({
+        source: `Thanh Navbar Header (${pathname})`,
+        title: locale === 'en' ? 'Register for Direct Consultation' : 'Nhận Tư Vấn Trực Tiếp Dự Án',
+        subtitle:
+          locale === 'en'
+            ? 'Leave your phone number, Le Ngoc Long will contact you within 15 minutes.'
+            : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
+      })
+    }
+  }, [onHome, pathname, locale, openConsultation])
+
+  const handleConsultClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (onHome) {
+      const el = document.getElementById('dang-ky')
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    openConsultation({
+      source: `Thanh Navbar Header (${pathname})`,
+      title: locale === 'en' ? 'Register for Direct Consultation' : 'Nhận Tư Vấn Trực Tiếp Dự Án',
+      subtitle:
+        locale === 'en'
+          ? 'Leave your phone number, Le Ngoc Long will contact you within 15 minutes.'
+          : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
+    })
+  }
+
+  const handleMobileConsultClick = (e: React.MouseEvent) => {
+    setMobileOpen(false)
+    handleConsultClick(e)
+  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -219,13 +258,14 @@ export function SiteHeader() {
             </div>
 
             {/* CTA Button */}
-            <a
-              href="#dang-ky"
-              className="gold-cta-btn hidden md:inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            <button
+              type="button"
+              onClick={handleConsultClick}
+              className="gold-cta-btn hidden md:inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <Phone className="size-3.5" />
               <span>{t.nav.consult}</span>
-            </a>
+            </button>
 
             {/* Mobile Hamburger Toggle */}
             <button
@@ -270,14 +310,14 @@ export function SiteHeader() {
                 {label}
               </Link>
             ))}
-            <a
-              href="#dang-ky"
-              onClick={() => setMobileOpen(false)}
-              className="gold-cta-btn col-span-2 mt-3 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold shadow-md"
+            <button
+              type="button"
+              onClick={handleMobileConsultClick}
+              className="gold-cta-btn col-span-2 mt-3 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold shadow-md cursor-pointer"
             >
               <Phone className="size-4" />
               <span>{t.nav.consult}</span>
-            </a>
+            </button>
           </nav>
         </div>
       </div>

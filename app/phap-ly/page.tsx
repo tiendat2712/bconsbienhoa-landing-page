@@ -7,7 +7,6 @@ import { LegalDetail } from '@/components/pages/phap-ly/legal-detail'
 import { LegalFaq } from '@/components/pages/phap-ly/legal-faq'
 import { LegalRelated } from '@/components/pages/phap-ly/legal-related'
 import { DirectorConsultation } from '@/components/shared/director-consultation'
-import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
 export const dynamic = 'force-static'
@@ -16,13 +15,31 @@ export const metadata: Metadata = {
   title: 'Pháp Lý Bcons Central Park Tam Hiệp — Sổ Hồng Lâu Dài, GPXD, Quy Hoạch 1/500',
   description:
     'Hồ sơ pháp lý minh bạch dự án Bcons Central Park Tam Hiệp: phê duyệt quy hoạch 1/500, giấy phép xây dựng, nghiệm thu PCCC và quyền sở hữu sổ hồng lâu dài cho người Việt Nam.',
+  keywords: [
+    'pháp lý bcons central park',
+    'phap ly bcons central park',
+    'sổ hồng bcons tam hiệp',
+    'giấy phép xây dựng bcons central park',
+    'quy hoạch 1 500 bcons tam hiệp',
+    'pháp lý dự án 236 phan trung',
+    'chủ đầu tư đô thị tam hiệp',
+  ],
   alternates: { canonical: '/phap-ly' },
   openGraph: {
     title: 'Hồ Sơ Pháp Lý Chuẩn Chỉnh — Bcons Central Park Tam Hiệp',
     description:
       'Quy hoạch 1/500 đã duyệt, giấy phép xây dựng đầy đủ, sở hữu lâu dài — bảo chứng uy tín từ Bcons Group.',
     url: 'https://www.canhobconstamhiep.com/phap-ly',
-    images: [{ url: '/images/hero-aerial.png', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
+    siteName: 'Bcons Central Park Tam Hiệp',
+    locale: 'vi_VN',
+    type: 'website',
+    images: [{ url: '/images/news/bcons-central-park-checklist-phap-ly.webp', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hồ Sơ Pháp Lý Chuẩn Chỉnh — Bcons Central Park Tam Hiệp',
+    description: 'Quy hoạch 1/500 đã duyệt, giấy phép xây dựng đầy đủ, sổ hồng sở hữu lâu dài.',
+    images: ['/images/news/bcons-central-park-checklist-phap-ly.webp'],
   },
 }
 
@@ -60,7 +77,6 @@ export default function LegalPage() {
         <DirectorConsultation />
         <LegalFaq />
         <LegalRelated />
-        <Contact />
       </main>
       <SiteFooter />
       <FloatingContact />

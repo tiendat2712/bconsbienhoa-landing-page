@@ -14,36 +14,46 @@ export function InvestorFaq() {
   const faqs = isEn
     ? [
         {
-          question: 'What is Bcons Group’s development track record?',
+          question: 'Who is the developer of Bcons Central Park?',
           answer:
-            'Bcons Group has over a decade of property development experience with 20+ completed condominium projects in HCMC and Binh Duong, renowned for rapid Pink Book issuance within 6–12 months.',
+            'The legal developer named on state documents is Tam Hiep Urban Development Joint Stock Company, developed by Bcons Group. These are distinct entities: all track record data of 20+ projects belongs to Bcons Group.',
         },
         {
-          question: 'Who are Bcons Group’s international strategic partners?',
+          question: 'Is Bcons Central Park the first Bcons project in Bien Hoa?',
           answer:
-            'Bcons partners closely with PPSN Japan in architectural consultation, construction management, and quality control systems.',
+            'Yes, Bcons Central Park is the first project branded by Bcons in Bien Hoa, Dong Nai, following a successful chain of over 20 projects delivered in Binh Duong and HCMC.',
         },
         {
-          question: 'Have prior Bcons projects received full ownership certificates?',
+          question: 'How can buyers independently verify Bcons Group’s capability?',
           answer:
-            'Delivered projects including Bcons Suoi Tien, Bcons Mien Dong, Bcons Garden, Bcons Green View, and Bcons Plaza have achieved 100% Pink Book issuance for homeowners.',
+            'Four ways without relying on salespeople: (1) Ask residents at delivered Bcons projects about handover punctuality, quality vs show unit, and pink book timing; (2) Compare the legal entity on the building permit, 1/500 zoning approval, and sales contract; (3) Visit the real site at 236 Phan Trung; (4) Verify bank guarantee certificates from partner banks.',
+        },
+        {
+          question: 'Have prior Bcons projects received freehold ownership certificates?',
+          answer:
+            'Delivered projects including Bcons Suoi Tien, Bcons Mien Dong, Bcons Garden, Bcons Green View, Bcons Bee, and Bcons Plaza have achieved 100% Pink Book issuance for homeowners within 6–12 months of key handover.',
         },
       ]
     : [
         {
-          question: 'Chủ đầu tư Bcons Group có uy tín không?',
+          question: 'Chủ đầu tư Bcons Central Park là ai?',
           answer:
-            'Tập đoàn Bcons là thương hiệu phát triển bất động sản uy tín với hơn 10 năm kinh nghiệm, đã bàn giao thành công hơn 20 dự án tại Bình Dương và TP.HCM, nổi bật với cam kết ra sổ hồng nhanh cho cư dân chỉ sau 6 – 12 tháng.',
+            'Chủ đầu tư đứng tên trên hồ sơ pháp lý là Công ty Cổ phần Phát triển Đô thị Tam Hiệp, dự án được phát triển bởi Tập đoàn Bcons (Bcons Group). Đây là hai pháp nhân khác nhau: mọi thông tin về lịch sử triển khai hơn 20 dự án thuộc về năng lực phát triển của Bcons Group.',
         },
         {
-          question: 'Bcons Central Park có đối tác quốc tế nào đồng hành?',
+          question: 'Bcons Biên Hòa là dự án thứ mấy của Bcons?',
           answer:
-            'Bcons có quan hệ đối tác chiến lược lâu năm với Tập đoàn PPSN (Nhật Bản) trong việc quản lý, giám sát và nâng cao tiêu chuẩn chất lượng công trình theo chuẩn mực Nhật Bản.',
+            'Bcons Central Park là dự án đầu tiên mang thương hiệu Bcons tại khu vực Biên Hòa, Đồng Nai, sau chuỗi dự án nhà ở chất lượng đã triển khai thành công tại Bình Dương (Dĩ An) và TP.HCM.',
+        },
+        {
+          question: 'Làm sao kiểm chứng năng lực chủ đầu tư Bcons?',
+          answer:
+            'Bốn cách không cần dựa vào người bán: (1) tìm cư dân của một dự án Bcons đã bàn giao và hỏi về tiến độ bàn giao, chất lượng so với nhà mẫu và thời gian ra sổ; (2) đối chiếu tên pháp nhân trên giấy phép xây dựng, quyết định quy hoạch và hợp đồng mua bán xem có trùng nhau không; (3) đến công trường tại 236 Phan Trung thay vì chỉ xem nhà mẫu; và (4) hỏi ngân hàng nào phát hành chứng thư bảo lãnh nghĩa vụ bàn giao — vì ngân hàng chỉ bảo lãnh sau khi đã tự thẩm định chủ đầu tư.',
         },
         {
           question: 'Các dự án trước đây của Bcons đã được cấp sổ hồng chưa?',
           answer:
-            'Hầu hết các dự án đã bàn giao như Bcons Suối Tiên, Bcons Miền Đông, Bcons Garden, Bcons Green View, Bcons Plaza đều đã hoàn tất cấp sổ hồng 100% cho cư dân theo đúng cam kết.',
+            'Hầu hết các dự án đã bàn giao như Bcons Suối Tiên, Bcons Miền Đông, Bcons Garden, Bcons Green View, Bcons Bee, Bcons Plaza đều đã hoàn tất cấp sổ hồng 100% cho cư dân chỉ trong vòng 6 – 12 tháng sau khi nhận nhà.',
         },
       ]
 

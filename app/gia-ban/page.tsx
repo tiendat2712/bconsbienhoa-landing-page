@@ -7,7 +7,6 @@ import { PricingDetail } from '@/components/pages/gia-ban/pricing-detail'
 import { PricingFaq } from '@/components/pages/gia-ban/pricing-faq'
 import { PricingRelated } from '@/components/pages/gia-ban/pricing-related'
 import { DirectorConsultation } from '@/components/shared/director-consultation'
-import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
 export const dynamic = 'force-static'
@@ -16,13 +15,32 @@ export const metadata: Metadata = {
   title: 'Bảng Giá Bcons Central Park Tam Hiệp — Đơn Giá 49,9 Triệu/m², Từ 1,85 Tỷ & 3 PTTT',
   description:
     'Bảng giá căn hộ Bcons Central Park Tam Hiệp từ 1,85 tỷ (Studio) đến 4,39 tỷ (3PN), đơn giá công bố 49,9 triệu/m². 3 phương thức thanh toán linh hoạt, vốn 10 – 20% đến khi ký HĐMB, vay 70%, ân hạn nợ gốc 24 tháng, chiết khấu đến 8,5%.',
+  keywords: [
+    'bảng giá bcons central park',
+    'bang gia bcons central park',
+    'giá bán bcons tam hiệp',
+    'gia ban bcons tam hiep',
+    'tiến độ thanh toán bcons central park',
+    'chính sách bán hàng bcons tam hiệp',
+    'căn hộ 1 85 tỷ biên hòa',
+    'vay ngân hàng bcons tam hiệp',
+  ],
   alternates: { canonical: '/gia-ban' },
   openGraph: {
     title: 'Bảng Giá & Chính Sách Thanh Toán Bcons Central Park Tam Hiệp',
     description:
       'Bảng giá gốc từ chủ đầu tư Bcons Group: Studio từ 1,85 tỷ, 1PN từ 2,1 tỷ, 2PN từ 2,65 tỷ, 3PN từ 4,34 tỷ. Đơn giá 49,9 triệu/m² tim tường, chiết khấu 8,5%, hỗ trợ vay 70%.',
     url: 'https://www.canhobconstamhiep.com/gia-ban',
+    siteName: 'Bcons Central Park Tam Hiệp',
+    locale: 'vi_VN',
+    type: 'website',
     images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Bảng giá Bcons Central Park' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bảng Giá & Chính Sách Thanh Toán Bcons Central Park Tam Hiệp',
+    description: 'Studio từ 1,85 tỷ, 1PN từ 2,1 tỷ, 2PN từ 2,65 tỷ, chiết khấu đến 8,5%, hỗ trợ vay 70%.',
+    images: ['/images/hero-towers.png'],
   },
 }
 
@@ -65,7 +83,6 @@ export default function PricingPage() {
         <DirectorConsultation id="tu-van" />
         <PricingFaq />
         <PricingRelated />
-        <Contact />
       </main>
       <SiteFooter />
       <FloatingContact />

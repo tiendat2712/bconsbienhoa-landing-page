@@ -14,36 +14,36 @@ export function ProgressFaq() {
   const faqs = isEn
     ? [
         {
-          question: 'When did Bcons Central Park break ground?',
+          question: 'When will Bcons Central Park be handed over?',
           answer:
-            'The project held its official groundbreaking ceremony on May 27, 2026, and is actively executing site preparation and deep foundation works.',
+            'The project broke ground on May 27, 2026, and is scheduled for completion and key handover in Quarter II/2029 following a disciplined 36-month construction timeline.',
         },
         {
-          question: 'When is the expected handover timeline?',
+          question: 'When will Bcons Central Park officially launch for sale?',
           answer:
-            'Estimated key handover to homeowners is scheduled for Quarter II/2029 with full fire-safety compliance and basic interior handover standards.',
+            'The project broke ground on May 27, 2026, and is currently in the initial consultation phase. The official sales launch with unit pricing and payment schemes will be announced directly by the developer.',
         },
         {
-          question: 'How often is construction progress updated?',
+          question: 'What is the current construction status of Bcons Central Park?',
           answer:
-            'Construction progress is updated monthly via high-resolution photos and drone video footage published directly by the developer.',
+            'Bcons Central Park Tam Hiep broke ground on May 27, 2026, completed site clearance and mass piling, and is currently constructing the foundation. Basement completion is expected in Q4/2026 – Q1/2027, superstructure in 2027 – 2028, and handover in Q2/2029.',
         },
       ]
     : [
         {
-          question: 'Dự án Bcons Central Park Tam Hiệp khởi công khi nào?',
+          question: 'Bcons Central Park khi nào bàn giao?',
           answer:
-            'Dự án chính thức làm lễ khởi công vào ngày 27/05/2026 và hiện đang khẩn trương triển khai giai đoạn ép cọc, thi công móng hầm.',
+            'Dự án chính thức khởi công ngày 27/05/2026 và dự kiến hoàn thành, bàn giao căn hộ cho cư dân vào Quý II/2029 theo đúng tiến độ kế hoạch 36 tháng.',
         },
         {
-          question: 'Dự kiến khi nào Bcons Phan Trung bàn giao nhà?',
+          question: 'Bcons Central Park bao giờ mở bán chính thức?',
           answer:
-            'Dự kiến dự án sẽ hoàn thành và bắt đầu bàn giao căn hộ cho cư dân vào Quý II/2029 theo đúng tiến độ được phê duyệt.',
+            'Dự án đã khởi công ngày 27/05/2026 và đang trong giai đoạn tiếp nhận đăng ký nguyện vọng. Thời điểm mở bán chính thức cùng bảng giá chi tiết từng đợt và chính sách ưu đãi sẽ do chủ đầu tư công bố trong thời gian tới.',
         },
         {
-          question: 'Tiến độ xây dựng được cập nhật với tần suất thế nào?',
+          question: 'Tiến độ thi công Bcons Central Park hiện tại tới đâu?',
           answer:
-            'Tiến độ được cập nhật định kỳ hằng tháng qua hình ảnh và video thực tế từ công trường trên các kênh thông tin chính thức của dự án.',
+            'Bcons Central Park Tam Hiệp khởi công ngày 27/05/2026, đã hoàn tất chuẩn bị mặt bằng và ép cọc đại trà, hiện đang tập trung thi công phần đài móng. Tầng hầm dự kiến triển khai trong Quý IV/2026 – Quý I/2027, phần thân trong 2027 – 2028 và bàn giao Quý II/2029.',
         },
       ]
 

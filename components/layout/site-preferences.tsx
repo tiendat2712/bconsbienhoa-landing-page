@@ -800,15 +800,29 @@ const copy = {
   },
 } as const
 
+export interface ConsultationModalOptions {
+  title?: string
+  subtitle?: string
+  defaultType?: string
+  unitType?: string
+  source?: string
+}
+
 type SiteContextValue = {
   locale: Locale
   setLocale: (locale: Locale) => void
   theme: Theme
   toggleTheme: () => void
   t: (typeof copy)[Locale]
+  isConsultationOpen: boolean
+  consultationOptions: ConsultationModalOptions
+  openConsultation: (options?: ConsultationModalOptions) => void
+  closeConsultation: () => void
 }
 
 const SiteContext = createContext<SiteContextValue | null>(null)
+
+import { ConsultationModal } from '@/components/shared/consultation-modal'
 
 export function SitePreferencesProvider({ children }: { children: ReactNode }) {
   const existing = useContext(SiteContext)
@@ -822,6 +836,8 @@ export function SitePreferencesProvider({ children }: { children: ReactNode }) {
 function SitePreferencesProviderInternal({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('vi')
   const [theme, setTheme] = useState<Theme>('light')
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const [consultationOptions, setConsultationOptions] = useState<ConsultationModalOptions>({})
 
   useEffect(() => {
     const savedLocale = localStorage.getItem('bcons-locale') as Locale | null
@@ -848,12 +864,37 @@ function SitePreferencesProviderInternal({ children }: { children: ReactNode }) 
       return next
     })
 
+  const openConsultation = (options?: ConsultationModalOptions) => {
+    if (options) setConsultationOptions(options)
+    else setConsultationOptions({})
+    setIsConsultationOpen(true)
+  }
+
+  const closeConsultation = () => {
+    setIsConsultationOpen(false)
+  }
+
   const value = useMemo(
-    () => ({ locale, setLocale, theme, toggleTheme, t: copy[locale] }),
-    [locale, theme]
+    () => ({
+      locale,
+      setLocale,
+      theme,
+      toggleTheme,
+      t: copy[locale],
+      isConsultationOpen,
+      consultationOptions,
+      openConsultation,
+      closeConsultation,
+    }),
+    [locale, theme, isConsultationOpen, consultationOptions]
   )
 
-  return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>
+  return (
+    <SiteContext.Provider value={value}>
+      {children}
+      <ConsultationModal />
+    </SiteContext.Provider>
+  )
 }
 
 export function useSitePreferences() {

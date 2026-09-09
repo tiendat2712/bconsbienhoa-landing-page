@@ -7,7 +7,6 @@ import { FloorPlanDetail } from '@/components/pages/mat-bang/floor-plan-detail'
 import { FloorPlanFaq } from '@/components/pages/mat-bang/floor-plan-faq'
 import { FloorPlanRelated } from '@/components/pages/mat-bang/floor-plan-related'
 import { DirectorConsultation } from '@/components/shared/director-consultation'
-import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
 export const dynamic = 'force-static'
@@ -16,13 +15,31 @@ export const metadata: Metadata = {
   title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Tổng Thể & Layout Căn 1PN, 2PN, 3PN',
   description:
     'Mặt bằng tổng thể và thiết kế chi tiết căn hộ Bcons Central Park Tam Hiệp. Layout 1PN (43 – 45 m²), 2PN (53 – 65 m²), 3PN (86 m²) tối ưu ánh sáng tự nhiên và công năng sử dụng.',
+  keywords: [
+    'mặt bằng bcons central park',
+    'mat bang bcons central park',
+    'layout căn hộ bcons tam hiệp',
+    'mặt bằng tầng bcons central park',
+    'thiết kế căn hộ 2pn bcons tam hiệp',
+    'căn hộ studio bcons biên hòa',
+    'mặt bằng tầng hầm bcons tam hiệp',
+  ],
   alternates: { canonical: '/mat-bang' },
   openGraph: {
     title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Thiết Kế Căn Hộ Hiện Đại',
     description:
       'Khám phá layout thông minh, tất cả căn hộ đều có ban công đón gió và ánh sáng tự nhiên.',
     url: 'https://www.canhobconstamhiep.com/mat-bang',
-    images: [{ url: '/images/floor-plan-master.png', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
+    siteName: 'Bcons Central Park Tam Hiệp',
+    locale: 'vi_VN',
+    type: 'website',
+    images: [{ url: '/images/floorplans/masterplan-all-blocks.webp', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Tổng Thể & Layout',
+    description: 'Layout chi tiết căn hộ 1PN, 2PN, 3PN tối ưu công năng, ban công và lô gia riêng biệt.',
+    images: ['/images/floorplans/masterplan-all-blocks.webp'],
   },
 }
 
@@ -57,10 +74,9 @@ export default function FloorPlanPage() {
       <SiteHeader />
       <main>
         <FloorPlanDetail />
-        <DirectorConsultation />
+        <DirectorConsultation id="tu-van" />
         <FloorPlanFaq />
         <FloorPlanRelated />
-        <Contact />
       </main>
       <SiteFooter />
       <FloatingContact />

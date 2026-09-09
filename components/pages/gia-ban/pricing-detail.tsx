@@ -39,7 +39,7 @@ interface PaymentMethod {
 }
 
 export function PricingDetail() {
-  const { theme, locale, t } = useSitePreferences()
+  const { theme, locale, t, openConsultation } = useSitePreferences()
   const isDark = theme === 'dark'
   const isEn = locale === 'en'
 
@@ -620,9 +620,18 @@ export function PricingDetail() {
 
             {/* CTA Button */}
             <div className="mt-8 text-center sm:text-left">
-              <a
-                href="#dang-ky"
-                className={`inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-xs sm:text-sm font-bold tracking-[0.14em] uppercase transition-all duration-300 hover:scale-[1.02] active:scale-98 shadow-lg ${
+              <button
+                type="button"
+                onClick={() =>
+                  openConsultation({
+                    source: 'Trang Giá Bán - Bảng Giá Chi Tiết',
+                    title: isEn ? 'Receive Detailed Price Sheet' : 'Nhận Bảng Giá Chi Tiết & CSBH',
+                    subtitle: isEn
+                      ? 'Leave your phone number, Le Ngoc Long will send the latest official developer price sheet.'
+                      : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ gửi trọn bộ bảng giá gốc từ Chủ đầu tư Bcons.',
+                  })
+                }
+                className={`inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-xs sm:text-sm font-bold tracking-[0.14em] uppercase transition-all duration-300 hover:scale-[1.02] active:scale-98 shadow-lg cursor-pointer ${
                   isDark
                     ? 'bg-gradient-to-r from-[#e6c887] via-[#f7e4b5] to-[#e6c887] text-[#072018] shadow-[0_10px_25px_-5px_rgba(230,200,135,0.4)]'
                     : 'bg-primary hover:bg-[#061913] text-primary-foreground shadow-md'
@@ -630,7 +639,7 @@ export function PricingDetail() {
               >
                 <span>{isEn ? 'RECEIVE DETAILED PRICE SHEET' : 'NHẬN BẢNG GIÁ CHI TIẾT'}</span>
                 <ArrowDownCircle className="size-4" />
-              </a>
+              </button>
             </div>
           </Reveal>
         </div>

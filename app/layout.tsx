@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Be_Vietnam_Pro } from 'next/font/google'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
-import { RealEstateProjectSchema, RealEstateAgentSchema } from '@/components/seo/json-ld'
+import {
+  RealEstateProjectSchema,
+  RealEstateAgentSchema,
+  OrganizationSchema,
+  LocalBusinessSchema,
+} from '@/components/seo/json-ld'
 import './globals.css'
 
 const display = Playfair_Display({
@@ -156,6 +161,8 @@ export default function RootLayout({
         />
         <RealEstateProjectSchema />
         <RealEstateAgentSchema />
+        <OrganizationSchema />
+        <LocalBusinessSchema />
       </head>
       <body className="font-sans antialiased">
         <SitePreferencesProvider>

@@ -7,7 +7,6 @@ import { LocationDetail } from '@/components/pages/vi-tri/location-detail'
 import { LocationFaq } from '@/components/pages/vi-tri/location-faq'
 import { LocationRelated } from '@/components/pages/vi-tri/location-related'
 import { DirectorConsultation } from '@/components/shared/director-consultation'
-import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
 export const dynamic = 'force-static'
@@ -16,13 +15,31 @@ export const metadata: Metadata = {
   title: 'Vị Trí Bcons Central Park 236 Phan Trung Biên Hòa — Kết Nối Vàng & Tiềm Năng',
   description:
     'Vị trí đắc địa Bcons Central Park tại 236 Phan Trung, Phường Tam Hiệp, TP. Biên Hòa, Đồng Nai. Trục phố thương mại sầm uất, kết nối nhanh Phạm Văn Đồng, QL 1K, KCN Amata và sân bay Long Thành.',
+  keywords: [
+    'vị trí bcons central park',
+    'vi tri bcons central park',
+    'bcons 236 phan trung',
+    'căn hộ đường phan trung biên hòa',
+    'vị trí dự án bcons tam hiệp',
+    'bản đồ quy hoạch bcons biên hòa',
+    'liên kết vùng bcons central park',
+  ],
   alternates: { canonical: '/vi-tri' },
   openGraph: {
     title: 'Vị Trí Vàng 236 Phan Trung — Bcons Central Park Tam Hiệp',
     description:
       'Toạ lạc giữa trung tâm sầm uất Biên Hòa, liền kề Vincom, chợ Tam Hiệp, bệnh viện Đa khoa Đồng Nai và các trường đại học.',
     url: 'https://www.canhobconstamhiep.com/vi-tri',
-    images: [{ url: '/images/aerial-location.png', width: 1200, height: 630, alt: 'Vị trí Bcons Central Park' }],
+    siteName: 'Bcons Central Park Tam Hiệp',
+    locale: 'vi_VN',
+    type: 'website',
+    images: [{ url: '/images/news/bcons-central-park-ban-do-lien-ket-vung.webp', width: 1200, height: 630, alt: 'Vị trí Bcons Central Park' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vị Trí Vàng 236 Phan Trung — Bcons Central Park Tam Hiệp',
+    description: 'Tọa lạc tâm điểm Biên Hòa, kết nối thuận tiện TP. Thủ Đức, QL 1K và sân bay Long Thành.',
+    images: ['/images/news/bcons-central-park-ban-do-lien-ket-vung.webp'],
   },
 }
 
@@ -60,7 +77,6 @@ export default function LocationPage() {
         <DirectorConsultation />
         <LocationFaq />
         <LocationRelated />
-        <Contact />
       </main>
       <SiteFooter />
       <FloatingContact />

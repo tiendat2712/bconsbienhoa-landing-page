@@ -26,24 +26,19 @@ import {
   ChevronRight,
   Sparkles,
   Send,
+  PhoneCall,
 } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
 export function LocationDetail() {
-  const { theme, locale, t } = useSitePreferences()
+  const { theme, locale, t, openConsultation } = useSitePreferences()
   const isDark = theme === 'dark'
   const isEn = locale === 'en'
 
   // Lightbox Modal for Planning Map
   const [mapModalOpen, setMapModalOpen] = useState(false)
   const [perspectiveModalOpen, setPerspectiveModalOpen] = useState(false)
-
-  // Quick Lead Capture Form State
-  const [formName, setFormName] = useState('')
-  const [formPhone, setFormPhone] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -57,32 +52,6 @@ export function LocationDetail() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [mapModalOpen, perspectiveModalOpen])
-
-  const handleQuickRegister = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formPhone.trim()) return
-    setIsSubmitting(true)
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName: formName.trim() || (isEn ? 'Guest' : 'Khách hàng'),
-          phone: formPhone.trim(),
-          source: 'Trang Vị Trí - Nhận thông tin vị trí dự án',
-          message: 'Khách đăng ký nhận sơ đồ phân tích kết nối giao thông & quy hoạch hạ tầng.',
-        }),
-      })
-      setSubmitSuccess(true)
-      setFormName('')
-      setFormPhone('')
-      setTimeout(() => setSubmitSuccess(false), 5000)
-    } catch {
-      setSubmitSuccess(true)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   // 4 Top Quick Facts (matching media_1788978018916.png)
   const quickFacts = isEn
@@ -277,7 +246,8 @@ export function LocationDetail() {
             </div>
 
             {/* Right: Quick Registration Card */}
-            <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl border border-emerald-950/40 dark:border-white/10 bg-gradient-to-br from-[#072018] via-[#0a2c21] to-[#072018] p-5 sm:p-6 text-white shadow-xl flex flex-col justify-between">
+            <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl border border-primary/20 dark:border-white/10 bg-gradient-to-br from-[#072018] via-[#0a2c21] to-[#072018] p-5 sm:p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden">
+              <div className="pointer-events-none absolute -top-12 -right-12 size-36 rounded-full bg-[#e6c887]/15 blur-2xl" />
               <div>
                 <div className="flex items-center gap-2">
                   <span className="flex size-6 items-center justify-center rounded-full bg-[#e6c887] text-[#072018]">
@@ -290,40 +260,36 @@ export function LocationDetail() {
                 <p className="mt-2 text-xs text-white/80 leading-relaxed font-sans">
                   {isEn
                     ? 'Register to receive traffic connectivity maps, regional master planning, and capital appreciation analysis based on infrastructure.'
-                    : 'Đăng ký nhận sơ đồ phân tích kết nối giao thông, quy hoạch liên vùng và tư vấn tiềm năng tăng giá theo hạ tầng!'}
+                    : 'Nhận sơ đồ phân tích kết nối giao thông, bản đồ quy hoạch liên vùng và tư vấn tiềm năng tăng giá theo hạ tầng từ chuyên viên Lê Ngọc Long.'}
                 </p>
               </div>
 
-              <form onSubmit={handleQuickRegister} className="mt-4 space-y-2.5">
-                <input
-                  type="text"
-                  placeholder={isEn ? 'Full name *' : 'Họ và tên *'}
-                  value={formName}
-                  onChange={(e) => setFormName(e.target.value)}
-                  className="w-full rounded-xl bg-white/10 border border-white/20 px-3.5 py-2 text-xs text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-[#e6c887]"
-                />
-                <input
-                  type="tel"
-                  required
-                  placeholder={isEn ? 'Phone number *' : 'Số điện thoại *'}
-                  value={formPhone}
-                  onChange={(e) => setFormPhone(e.target.value)}
-                  className="w-full rounded-xl bg-white/10 border border-white/20 px-3.5 py-2 text-xs text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-[#e6c887]"
-                />
+              <div className="mt-5 space-y-3">
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-[#e6c887] via-[#f0d8a0] to-[#e6c887] hover:brightness-105 text-[#072018] py-2.5 px-4 text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-[0.98] disabled:opacity-60 cursor-pointer"
+                  type="button"
+                  onClick={() =>
+                    openConsultation({
+                      source: 'Trang Vị Trí - Nhận thông tin vị trí dự án',
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-[#e6c887] via-[#f0d8a0] to-[#e6c887] hover:brightness-105 text-[#072018] py-3 px-4 text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-[0.98] cursor-pointer"
                 >
-                  <Send className="size-3.5" />
-                  <span>{isSubmitting ? (isEn ? 'Sending...' : 'Đang gửi...') : (isEn ? 'REGISTER NOW' : 'ĐĂNG KÝ NGAY')}</span>
+                  <span>{isEn ? 'REGISTER FOR LOCATION DOSSIER' : 'ĐĂNG KÝ NHẬN SƠ ĐỒ VỊ TRÍ'}</span>
                 </button>
-                {submitSuccess && (
-                  <p className="text-[11px] text-emerald-300 text-center font-medium mt-1">
-                    ✓ {isEn ? 'Registered successfully! Specialist will call soon.' : 'Đăng ký thành công! Chuyên viên sẽ liên hệ sớm.'}
-                  </p>
-                )}
-              </form>
+
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-white/80 font-sans">
+                  <span className="flex items-center gap-1.5">
+                    <PhoneCall className="size-3.5 text-[#e6c887]" />
+                    Hotline:
+                  </span>
+                  <a
+                    href="tel:0376671776"
+                    className="font-bold text-[#e6c887] hover:underline"
+                  >
+                    0376 671 776
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>

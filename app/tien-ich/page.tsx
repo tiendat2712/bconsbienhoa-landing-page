@@ -7,7 +7,6 @@ import { AmenityDetail } from '@/components/pages/tien-ich/amenity-detail'
 import { AmenityFaq } from '@/components/pages/tien-ich/amenity-faq'
 import { AmenityRelated } from '@/components/pages/tien-ich/amenity-related'
 import { DirectorConsultation } from '@/components/shared/director-consultation'
-import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
 export const dynamic = 'force-static'
@@ -16,13 +15,30 @@ export const metadata: Metadata = {
   title: 'Hệ Tiện Ích Đẳng Cấp Bcons Central Park — Công Viên 7.700m², Hồ Bơi Resort',
   description:
     'Khám phá chuỗi tiện ích chuẩn resort tại Bcons Central Park Tam Hiệp: công viên nội khu hơn 7.700 m², hồ bơi tràn bờ, phòng gym – yoga hiện đại, khu vui chơi trẻ em và 113 shophouse sầm uất.',
+  keywords: [
+    'tiện ích bcons central park',
+    'tien ich bcons central park',
+    'công viên 7700m2 bcons tam hiệp',
+    'hồ bơi tràn bờ bcons central park',
+    'shophouse bcons 236 phan trung',
+    'tiện ích nội khu bcons biên hòa',
+  ],
   alternates: { canonical: '/tien-ich' },
   openGraph: {
     title: 'Hệ Tiện Ích Đỉnh Cao Bcons Central Park Tam Hiệp',
     description:
       'Hơn 7.700 m² công viên nội khu, hồ bơi resort và chuỗi shophouse phục vụ trọn vẹn nhu cầu sống chuẩn nghỉ dưỡng.',
     url: 'https://www.canhobconstamhiep.com/tien-ich',
-    images: [{ url: '/images/amenities.png', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
+    siteName: 'Bcons Central Park Tam Hiệp',
+    locale: 'vi_VN',
+    type: 'website',
+    images: [{ url: '/images/amenities/masterplan-60-tien-ich.webp', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hệ Tiện Ích Đỉnh Cao Bcons Central Park Tam Hiệp',
+    description: 'Hơn 7.700 m² công viên nội khu, hồ bơi tràn bờ resort và 113 shophouse sầm uất.',
+    images: ['/images/amenities/masterplan-60-tien-ich.webp'],
   },
 }
 
@@ -60,7 +76,6 @@ export default function AmenityPage() {
         <DirectorConsultation />
         <AmenityFaq />
         <AmenityRelated />
-        <Contact />
       </main>
       <SiteFooter />
       <FloatingContact />
