@@ -4,9 +4,9 @@ import { SiteFooter } from '@/components/layout/site-footer'
 import { FloatingContact } from '@/components/layout/floating-contact'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { LocationDetail } from '@/components/pages/vi-tri/location-detail'
-import { LocationPotential } from '@/components/pages/vi-tri/location-potential'
 import { LocationFaq } from '@/components/pages/vi-tri/location-faq'
 import { LocationRelated } from '@/components/pages/vi-tri/location-related'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
@@ -57,7 +57,7 @@ export default function LocationPage() {
       <SiteHeader />
       <main>
         <LocationDetail />
-        <LocationPotential />
+        <DirectorConsultation />
         <LocationFaq />
         <LocationRelated />
         <Contact />

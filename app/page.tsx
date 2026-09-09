@@ -4,10 +4,10 @@ import { Overview } from '@/components/home/overview'
 import { Location } from '@/components/home/location'
 import { Amenities } from '@/components/home/amenities'
 import { FloorPlans } from '@/components/home/floor-plans'
-import { ShowUnit } from '@/components/home/show-unit'
+import { VirtualTour } from '@/components/home/virtual-tour'
 import { Pricing } from '@/components/home/pricing'
 import { FinancialCalculator } from '@/components/home/financial-calculator'
-import { LegalProgress } from '@/components/home/legal-progress'
+import { Progress } from '@/components/home/progress'
 import { News } from '@/components/home/news'
 import { Contact } from '@/components/home/contact'
 import { SiteFooter } from '@/components/layout/site-footer'
@@ -26,10 +26,10 @@ export default function Page() {
         <Location />
         <Amenities />
         <FloorPlans />
-        <ShowUnit />
+        <VirtualTour />
         <Pricing />
         <FinancialCalculator />
-        <LegalProgress />
+        <Progress />
         <News />
         <Contact />
       </main>

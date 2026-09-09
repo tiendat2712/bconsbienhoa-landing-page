@@ -43,6 +43,7 @@ const unitIcons: Record<string, any> = {
 export function Contact() {
   const { theme, t, locale } = useSitePreferences()
   const isDark = theme === 'dark'
+  const isEn = locale === 'en'
 
   const [formData, setFormData] = useState({
     name: '',
@@ -212,7 +213,7 @@ export function Contact() {
   return (
     <section
       id="dang-ky"
-      className="relative isolate scroll-mt-24 overflow-hidden bg-[#072018] py-20 text-white border-y border-emerald-950/40 lg:py-28 transition-colors duration-500"
+      className="relative isolate scroll-mt-24 overflow-hidden bg-[#072018] py-16 sm:py-20 lg:py-24 text-white border-y border-emerald-950/40 transition-colors duration-500"
     >
       <div
         className="absolute inset-0 -z-10 opacity-20 bg-cover bg-center"
@@ -226,7 +227,8 @@ export function Contact() {
             <SectionHeading
               tone="dark"
               eyebrow={t.contact.eyebrow}
-              title={t.contact.title}
+              title={isEn ? 'Consultation Registration' : 'Đăng Ký Tư Vấn & Báo Giá'}
+              subtitle={isEn ? 'Direct Support From Investor F1' : 'Đồng Hành Trực Tiếp Từ Chuyên Viên CĐT'}
               description={t.contact.desc}
             />
 

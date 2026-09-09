@@ -6,6 +6,7 @@ import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { FloorPlanDetail } from '@/components/pages/mat-bang/floor-plan-detail'
 import { FloorPlanFaq } from '@/components/pages/mat-bang/floor-plan-faq'
 import { FloorPlanRelated } from '@/components/pages/mat-bang/floor-plan-related'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
@@ -14,32 +15,32 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Tổng Thể & Layout Căn 1PN, 2PN, 3PN',
   description:
-    'Mặt bằng tổng thể 5 block cao 22 tầng trên quỹ đất gần 3 ha và thiết kế layout chi tiết căn hộ 1 – 3 phòng ngủ (43 – 86 m²). Tối ưu ánh sáng và gió tự nhiên, 100% căn hộ có ban công thông thoáng.',
+    'Mặt bằng tổng thể và thiết kế chi tiết căn hộ Bcons Central Park Tam Hiệp. Layout 1PN (43 – 45 m²), 2PN (53 – 65 m²), 3PN (86 m²) tối ưu ánh sáng tự nhiên và công năng sử dụng.',
   alternates: { canonical: '/mat-bang' },
   openGraph: {
-    title: 'Mặt Bằng Tổng Thể & Layout Căn Hộ Bcons Central Park Tam Hiệp',
+    title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Thiết Kế Căn Hộ Hiện Đại',
     description:
-      'Khám phá layout căn hộ 1PN, 2PN, 3PN thông minh, đón gió và ánh sáng tự nhiên tại Bcons Central Park.',
+      'Khám phá layout thông minh, tất cả căn hộ đều có ban công đón gió và ánh sáng tự nhiên.',
     url: 'https://www.canhobconstamhiep.com/mat-bang',
-    images: [{ url: '/images/masterplan.png', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
+    images: [{ url: '/images/floor-plan-master.png', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
   },
 }
 
 const floorPlanFaqs = [
   {
-    question: 'Bcons Central Park có những loại căn hộ nào?',
+    question: 'Bcons Central Park có những loại diện tích căn hộ nào?',
     answer:
-      'Dự án có các loại căn hộ 1 phòng ngủ (43 – 45 m²), 2 phòng ngủ (51 – 58 m²) và 3 phòng ngủ (85 – 86 m²), cùng 113 căn shophouse thương mại tại khối đế.',
+      'Dự án gồm căn 1PN (43 – 45 m²), căn 2PN 2WC (53 – 65 m²) và căn 3PN 2WC (86 m²), phù hợp từ người độc thân đến gia đình đa thế hệ.',
   },
   {
-    question: 'Căn hộ 2 phòng ngủ Bcons Tam Hiệp bố trí thế nào?',
+    question: 'Căn hộ có ban công và lô gia riêng không?',
     answer:
-      'Căn 2PN được thiết kế tối ưu với 2 phòng ngủ đều có cửa sổ đón sáng tự nhiên, 2 phòng vệ sinh, phòng khách liên thông ban công và khu vực bếp thông thoáng với logia phơi riêng.',
+      '100% căn hộ tại Bcons Central Park đều được thiết kế có ban công phòng khách và lô gia giặt phơi riêng biệt, đảm bảo độ thông thoáng tối đa.',
   },
   {
-    question: 'Mặt bằng tổng thể Bcons Phan Trung có bao nhiêu block?',
+    question: 'Một tầng có bao nhiêu căn hộ và bao nhiêu thang máy?',
     answer:
-      'Dự án gồm 5 block căn hộ cao 22 tầng được bố trí bao quanh công viên trung tâm hơn 7.700 m², tạo khoảng lùi thông thoáng và không gian cảnh quan xanh cho toàn khu.',
+      'Mỗi tầng bố trí mật độ hợp lý với hệ thống thang máy tốc độ cao, sảnh hành lang rộng thoáng có cửa sổ lấy sáng tự nhiên.',
   },
 ]
 
@@ -56,6 +57,7 @@ export default function FloorPlanPage() {
       <SiteHeader />
       <main>
         <FloorPlanDetail />
+        <DirectorConsultation />
         <FloorPlanFaq />
         <FloorPlanRelated />
         <Contact />

@@ -5,6 +5,7 @@ import { FloatingContact } from '@/components/layout/floating-contact'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { NewsListing } from '@/components/pages/tin-tuc/news-listing'
 import { NewsReferences } from '@/components/pages/tin-tuc/news-references'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema } from '@/components/seo/json-ld'
 
@@ -36,6 +37,7 @@ export default function NewsPage() {
       <SiteHeader />
       <main>
         <NewsListing />
+        <DirectorConsultation />
         <NewsReferences />
         <Contact />
       </main>

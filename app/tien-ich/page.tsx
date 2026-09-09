@@ -6,6 +6,7 @@ import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { AmenityDetail } from '@/components/pages/tien-ich/amenity-detail'
 import { AmenityFaq } from '@/components/pages/tien-ich/amenity-faq'
 import { AmenityRelated } from '@/components/pages/tien-ich/amenity-related'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
@@ -14,32 +15,32 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title: 'Hệ Tiện Ích Đẳng Cấp Bcons Central Park — Công Viên 7.700m², Hồ Bơi Resort',
   description:
-    'Hệ sinh thái tiện ích trọn vẹn tại Bcons Central Park Tam Hiệp: công viên xanh hơn 7.700m², hồ bơi tràn bờ resort, gym & yoga, 113 shophouse khối đế và tiện ích ngoại khu trung tâm Biên Hòa chỉ trong bán kính 1km.',
+    'Khám phá chuỗi tiện ích chuẩn resort tại Bcons Central Park Tam Hiệp: công viên nội khu hơn 7.700 m², hồ bơi tràn bờ, phòng gym – yoga hiện đại, khu vui chơi trẻ em và 113 shophouse sầm uất.',
   alternates: { canonical: '/tien-ich' },
   openGraph: {
-    title: 'Hệ Sinh Thái Tiện Ích Chuẩn Sống Xanh — Bcons Central Park Tam Hiệp',
+    title: 'Hệ Tiện Ích Đỉnh Cao Bcons Central Park Tam Hiệp',
     description:
-      'Hồ bơi tràn bờ, công viên trung tâm 7.700m², phòng gym, sân chơi trẻ em và khu shophouse thương mại sầm uất.',
+      'Hơn 7.700 m² công viên nội khu, hồ bơi resort và chuỗi shophouse phục vụ trọn vẹn nhu cầu sống chuẩn nghỉ dưỡng.',
     url: 'https://www.canhobconstamhiep.com/tien-ich',
-    images: [{ url: '/images/project-pool.jpg', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
+    images: [{ url: '/images/amenities.png', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
   },
 }
 
 const amenityFaqs = [
   {
-    question: 'Bcons Central Park có những tiện ích nội khu nổi bật nào?',
+    question: 'Công viên trung tâm Bcons Central Park rộng bao nhiêu?',
     answer:
-      'Dự án sở hữu công viên cây xanh nội khu hơn 7.700+ m², hồ bơi tràn bờ chuẩn resort, phòng gym/yoga hiện đại, 113 căn shophouse thương mại, khu vui chơi trẻ em và hệ thống an ninh 24/7.',
+      'Dự án sở hữu công viên cảnh quan nội khu rộng hơn 7.700 m² với đường dạo bộ rợp bóng cây, vườn hoa bốn mùa và khu thể thao ngoài trời.',
   },
   {
-    question: 'Công viên nội khu Bcons Tam Hiệp có quy mô thế nào?',
+    question: 'Hồ bơi tại Bcons Central Park là hồ bơi gì?',
     answer:
-      'Công viên trung tâm có diện tích hơn 7.700 m² với quảng trường nước, lối dạo bộ rợp bóng mát, mang lại không gian sống xanh hiếm hoi ngay giữa lõi đô thị trung tâm Biên Hòa.',
+      'Hồ bơi tràn bờ phong cách resort được thiết kế hiện đại với làn bơi tiêu chuẩn cho người lớn, hồ bơi nông an toàn cho trẻ em và sân phơi nắng thư giãn.',
   },
   {
-    question: 'Tiện ích ngoại khu quanh 236 Phan Trung gồm những gì?',
+    question: 'Cư dân có phải trả thêm phí sử dụng gym và hồ bơi không?',
     answer:
-      'Trong bán kính 500 m – 1 km có Chợ Tam Hiệp, siêu thị Co.opmart, Vincom Plaza, Bệnh viện Đa khoa Đồng Nai, BV Quốc tế Hoàn Mỹ và trường học từ mầm non đến đại học.',
+      'Hồ bơi, phòng gym, khu BBQ và sân chơi trẻ em là tiện ích đặc quyền dành riêng cho cư dân, chi phí vận hành được bao gồm trong phí quản lý hàng tháng.',
   },
 ]
 
@@ -56,6 +57,7 @@ export default function AmenityPage() {
       <SiteHeader />
       <main>
         <AmenityDetail />
+        <DirectorConsultation />
         <AmenityFaq />
         <AmenityRelated />
         <Contact />

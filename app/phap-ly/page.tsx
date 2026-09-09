@@ -6,6 +6,7 @@ import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { LegalDetail } from '@/components/pages/phap-ly/legal-detail'
 import { LegalFaq } from '@/components/pages/phap-ly/legal-faq'
 import { LegalRelated } from '@/components/pages/phap-ly/legal-related'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
@@ -14,32 +15,32 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title: 'Pháp Lý Bcons Central Park Tam Hiệp — Sổ Hồng Lâu Dài, GPXD, Quy Hoạch 1/500',
   description:
-    'Hồ sơ pháp lý minh bạch của dự án Bcons Central Park Tam Hiệp: Giấy phép xây dựng (GPXD), phê duyệt quy hoạch chi tiết 1/500, sổ hồng sở hữu lâu dài cho công dân Việt Nam, đất trúng đấu giá công khai.',
+    'Hồ sơ pháp lý minh bạch dự án Bcons Central Park Tam Hiệp: phê duyệt quy hoạch 1/500, giấy phép xây dựng, nghiệm thu PCCC và quyền sở hữu sổ hồng lâu dài cho người Việt Nam.',
   alternates: { canonical: '/phap-ly' },
   openGraph: {
-    title: 'Pháp Lý Minh Bạch & Vững Chắc — Bcons Central Park Tam Hiệp',
+    title: 'Hồ Sơ Pháp Lý Chuẩn Chỉnh — Bcons Central Park Tam Hiệp',
     description:
-      'Sổ hồng sở hữu lâu dài, đầy đủ giấy phép xây dựng và bảo lãnh tài chính từ các ngân hàng uy tín.',
+      'Quy hoạch 1/500 đã duyệt, giấy phép xây dựng đầy đủ, sở hữu lâu dài — bảo chứng uy tín từ Bcons Group.',
     url: 'https://www.canhobconstamhiep.com/phap-ly',
-    images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
+    images: [{ url: '/images/hero-aerial.png', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
   },
 }
 
 const legalFaqs = [
   {
+    question: 'Dự án Bcons Central Park đã có quy hoạch 1/500 chưa?',
+    answer:
+      'Dự án đã được UBND tỉnh Đồng Nai phê duyệt đồ án quy hoạch chi tiết xây dựng tỷ lệ 1/500 theo đúng trình tự và quy định pháp luật hiện hành.',
+  },
+  {
     question: 'Hình thức sở hữu căn hộ Bcons Central Park là gì?',
     answer:
-      'Căn hộ Bcons Central Park có hình thức sở hữu sổ hồng lâu dài đối với công dân Việt Nam, và 50 năm theo quy định pháp luật đối với người nước ngoài.',
+      'Khách hàng là công dân Việt Nam được cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu nhà ở (sổ hồng) với hình thức sở hữu lâu dài.',
   },
   {
-    question: 'Dự án Bcons Tam Hiệp đã có những giấy tờ pháp lý nào?',
+    question: 'Tiến độ cấp sổ hồng các dự án trước đây của Bcons thế nào?',
     answer:
-      'Dự án được phát triển trên quỹ đất đấu giá công khai, đã có quy hoạch 1/500, chấp thuận chủ trương đầu tư và đang hoàn thiện các thủ tục pháp lý để sẵn sàng ký hợp đồng mua bán theo quy định.',
-  },
-  {
-    question: 'Khi nào cư dân được nhận sổ hồng sau khi nhận nhà?',
-    answer:
-      'Theo cam kết tiến độ và uy tín của Tập đoàn Bcons qua các dự án trước đó, sổ hồng thường được bàn giao cho cư dân trong vòng 6 – 12 tháng kể từ thời điểm bàn giao nhà.',
+      'Bcons Group nổi tiếng trên thị trường về việc bàn giao sổ hồng thần tốc: đa số các dự án đã bàn giao (Bcons Suối Tiên, Miền Đông, Nha Trang, Plaza...) đều bàn giao sổ cho cư dân trong vòng 6 – 12 tháng sau khi nhận nhà.',
   },
 ]
 
@@ -56,6 +57,7 @@ export default function LegalPage() {
       <SiteHeader />
       <main>
         <LegalDetail />
+        <DirectorConsultation />
         <LegalFaq />
         <LegalRelated />
         <Contact />

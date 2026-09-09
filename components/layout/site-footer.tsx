@@ -16,45 +16,46 @@ export function SiteFooter() {
           : 'bg-[#f3f7f5] text-[#2c3e35] border-slate-200'
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Cột 1: BCONS CENTRAL PARK & Giới thiệu nhân viên (5 cols) */}
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:py-16 lg:px-8 lg:py-20">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+          {/* Cột 1: Logo Bcons Central Park & Giới thiệu chuyên viên tư vấn (5 cols) */}
           <div className="flex flex-col gap-4 lg:col-span-5">
-            <Link href="/" className="flex items-center gap-1.5 w-fit" aria-label="Bcons Central Park Logo">
-              <span
-                className={`font-serif text-2xl font-bold tracking-tight transition-colors duration-500 ${
-                  isDark ? 'text-white' : 'text-[#072018]'
-                }`}
-              >
-                BCONS{' '}
-                <span
-                  className={`font-serif transition-colors duration-500 ${
-                    isDark ? 'text-[#e6c887]' : 'text-[#b8860b]'
-                  }`}
-                >
-                  CENTRAL PARK
-                </span>
-              </span>
+            <Link href="/" className="group flex items-center gap-2.5 w-fit" aria-label="Bcons Central Park Trang chủ">
+              <img
+                src="/images/bcons-central-park-logo.png"
+                alt="Bcons Central Park Logo"
+                className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-all duration-500 group-hover:scale-105 dark-gold-logo"
+              />
             </Link>
 
             <div
-              className={`space-y-3 text-xs leading-relaxed transition-colors duration-500 ${
+              className={`space-y-2.5 text-xs sm:text-[13px] leading-relaxed transition-colors duration-500 ${
                 isDark ? 'text-[#c2d3cb]' : 'text-[#3d5348]'
               }`}
             >
               <p>{t.footer.consultantIntro}</p>
-              <p className={isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}>
+              <p className={`text-[11.5px] sm:text-xs ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
                 {t.footer.updateNote}
               </p>
             </div>
 
-            <div className={`mt-2 space-y-2 text-xs transition-colors duration-500 ${isDark ? 'text-[#a5b9b0]' : 'text-[#526a5e]'}`}>
-              <div className="flex items-start gap-2">
-                <MapPin className={`size-4 shrink-0 mt-0.5 ${isDark ? 'text-[#e6c887]' : 'text-emerald-700'}`} />
-                <span>{t.footer.address}</span>
+            <div className={`mt-1 space-y-2.5 text-xs sm:text-[13px] transition-colors duration-500 ${isDark ? 'text-[#a5b9b0]' : 'text-[#526a5e]'}`}>
+              <div className="flex items-start gap-2.5">
+                <MapPin className={`size-4 shrink-0 mt-0.5 ${isDark ? 'text-[#e6c887]' : 'text-[#b88728]'}`} />
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=236%20Phan%20Trung%2C%20Ph%C6%B0%E1%BB%9Dng%20Tam%20Hi%E1%BB%87p%2C%20Bi%C3%AAn%20H%C3%B2a%2C%20%C4%90%E1%BB%93ng%20Nai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors hover:underline ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-[#072018]'}`}
+                >
+                  <span>{t.footer.address}</span>
+                  <span className={`ml-1 font-semibold ${isDark ? 'text-[#e6c887]' : 'text-[#b88728]'}`}>
+                    ↗
+                  </span>
+                </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className={`size-4 shrink-0 ${isDark ? 'text-[#e6c887]' : 'text-emerald-700'}`} />
+              <div className="flex items-center gap-2.5">
+                <Mail className={`size-4 shrink-0 ${isDark ? 'text-[#e6c887]' : 'text-[#b88728]'}`} />
                 <a
                   href="mailto:longqt2701@gmail.com"
                   className={`transition-colors ${isDark ? 'hover:text-white' : 'hover:text-[#072018]'}`}
@@ -67,43 +68,46 @@ export function SiteFooter() {
 
           {/* Cột 2: CHI TIẾT DỰ ÁN (3 cols) */}
           <div className="flex flex-col gap-4 lg:col-span-3">
-            <p
-              className={`text-xs font-bold tracking-[0.2em] uppercase font-serif transition-colors duration-500 ${
-                isDark ? 'text-[#e6c887]' : 'text-[#b8860b]'
-              }`}
-            >
-              {t.footer.projectDetails}
-            </p>
+            <div className="flex items-center gap-2">
+              <span className="h-3.5 w-1 rounded-full bg-[#b88728] dark:bg-[#e6c887]" />
+              <p
+                className={`text-xs sm:text-[13px] font-bold tracking-[0.16em] uppercase font-sans transition-colors duration-500 ${
+                  isDark ? 'text-[#e6c887]' : 'text-[#072018]'
+                }`}
+              >
+                {t.footer.projectDetails}
+              </p>
+            </div>
             <div
-              className={`grid grid-cols-2 gap-x-6 gap-y-3 text-xs transition-colors duration-500 ${
+              className={`grid grid-cols-2 gap-x-6 gap-y-3.5 text-xs sm:text-[13px] transition-colors duration-500 ${
                 isDark ? 'text-[#c2d3cb]' : 'text-[#3d5348]'
               }`}
             >
               <div className="flex flex-col gap-3">
-                <Link href="/gia-ban" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/gia-ban" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.pricing}
                 </Link>
-                <Link href="/mat-bang" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/mat-bang" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.plans}
                 </Link>
-                <Link href="/phap-ly" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/phap-ly" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.legal}
                 </Link>
-                <Link href="/tien-do" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/tien-do" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.progress}
                 </Link>
               </div>
               <div className="flex flex-col gap-3">
-                <Link href="/vi-tri" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/vi-tri" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.location}
                 </Link>
-                <Link href="/tien-ich" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/tien-ich" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.amenities}
                 </Link>
-                <Link href="/chu-dau-tu" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/chu-dau-tu" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.investor}
                 </Link>
-                <Link href="/tin-tuc" className={`transition-colors duration-200 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-emerald-700'}`}>
+                <Link href="/tin-tuc" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.news}
                 </Link>
               </div>
@@ -112,29 +116,32 @@ export function SiteFooter() {
 
           {/* Cột 3: LIÊN HỆ TƯ VẤN (4 cols) */}
           <div className="flex flex-col gap-4 lg:col-span-4">
-            <p
-              className={`text-xs font-bold tracking-[0.2em] uppercase font-serif transition-colors duration-500 ${
-                isDark ? 'text-[#e6c887]' : 'text-[#b8860b]'
-              }`}
-            >
-              {t.footer.contactConsult}
-            </p>
+            <div className="flex items-center gap-2">
+              <span className="h-3.5 w-1 rounded-full bg-[#b88728] dark:bg-[#e6c887]" />
+              <p
+                className={`text-xs sm:text-[13px] font-bold tracking-[0.16em] uppercase font-sans transition-colors duration-500 ${
+                  isDark ? 'text-[#e6c887]' : 'text-[#072018]'
+                }`}
+              >
+                {t.footer.contactConsult}
+              </p>
+            </div>
 
-            <div className="grid grid-cols-[1fr_auto] gap-6 items-start">
+            <div className="grid grid-cols-[1fr_auto] gap-5 sm:gap-6 items-start">
               {/* Danh sách nút Hotline, Zalo, Facebook */}
-              <div className="flex flex-col gap-3.5 text-xs">
+              <div className="flex flex-col gap-3 text-xs">
                 {/* Hotline */}
                 <a
                   href="tel:0376671776"
-                  className={`group flex items-center gap-3 transition-colors ${
+                  className={`group flex items-center gap-2.5 sm:gap-3 transition-colors ${
                     isDark ? 'text-[#c2d3cb] hover:text-white' : 'text-[#3d5348] hover:text-[#072018]'
                   }`}
                 >
                   <span
-                    className={`flex size-8 shrink-0 items-center justify-center rounded-full transition-all ${
+                    className={`flex size-8.5 shrink-0 items-center justify-center rounded-xl transition-all ${
                       isDark
                         ? 'bg-white/10 text-[#e6c887] group-hover:bg-[#e6c887] group-hover:text-[#072018]'
-                        : 'bg-emerald-900/10 text-emerald-800 group-hover:bg-emerald-700 group-hover:text-white'
+                        : 'bg-emerald-900/10 text-emerald-800 group-hover:bg-primary group-hover:text-white'
                     }`}
                   >
                     <Phone className="size-4" />
@@ -143,7 +150,7 @@ export function SiteFooter() {
                     <p className={`text-[10px] tracking-wider uppercase font-semibold ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
                       {t.footer.hotline}
                     </p>
-                    <p className={`text-xs font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-emerald-700'}`}>
+                    <p className={`text-xs sm:text-[13px] font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-primary'}`}>
                       0376 671 776
                     </p>
                   </div>
@@ -154,12 +161,12 @@ export function SiteFooter() {
                   href="https://zalo.me/0376671776"
                   target="_blank"
                   rel="noreferrer"
-                  className={`group flex items-center gap-3 transition-colors ${
+                  className={`group flex items-center gap-2.5 sm:gap-3 transition-colors ${
                     isDark ? 'text-[#c2d3cb] hover:text-white' : 'text-[#3d5348] hover:text-[#072018]'
                   }`}
                 >
                   <span
-                    className={`flex size-8 shrink-0 items-center justify-center rounded-full transition-all ${
+                    className={`flex size-8.5 shrink-0 items-center justify-center rounded-xl transition-all ${
                       isDark
                         ? 'bg-white/10 text-[#e6c887] group-hover:bg-[#0068FF] group-hover:text-white'
                         : 'bg-emerald-900/10 text-emerald-800 group-hover:bg-[#0068FF] group-hover:text-white'
@@ -171,7 +178,7 @@ export function SiteFooter() {
                     <p className={`text-[10px] tracking-wider uppercase font-semibold ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
                       {t.footer.zalo}
                     </p>
-                    <p className={`text-xs font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-emerald-700'}`}>
+                    <p className={`text-xs sm:text-[13px] font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-primary'}`}>
                       {t.footer.chatDirect}
                     </p>
                   </div>
@@ -179,15 +186,15 @@ export function SiteFooter() {
 
                 {/* Facebook */}
                 <a
-                  href="https://www.facebook.com/BconscentralparkBH"
+                  href="https://www.facebook.com/people/C%C4%83n-H%E1%BB%99-Bcons-Tam-Hi%E1%BB%87p/61574269228165/"
                   target="_blank"
                   rel="noreferrer"
-                  className={`group flex items-center gap-3 transition-colors ${
+                  className={`group flex items-center gap-2.5 sm:gap-3 transition-colors ${
                     isDark ? 'text-[#c2d3cb] hover:text-white' : 'text-[#3d5348] hover:text-[#072018]'
                   }`}
                 >
                   <span
-                    className={`flex size-8 shrink-0 items-center justify-center rounded-full transition-all ${
+                    className={`flex size-8.5 shrink-0 items-center justify-center rounded-xl transition-all ${
                       isDark
                         ? 'bg-white/10 text-[#e6c887] group-hover:bg-[#1877F2] group-hover:text-white'
                         : 'bg-emerald-900/10 text-emerald-800 group-hover:bg-[#1877F2] group-hover:text-white'
@@ -201,18 +208,46 @@ export function SiteFooter() {
                     <p className={`text-[10px] tracking-wider uppercase font-semibold ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
                       {t.footer.facebook}
                     </p>
-                    <p className={`text-xs font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-emerald-700'}`}>
+                    <p className={`text-xs sm:text-[13px] font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-primary'}`}>
                       {t.footer.fanpage}
+                    </p>
+                  </div>
+                </a>
+
+                {/* Chỉ đường Google Maps */}
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=236%20Phan%20Trung%2C%20Ph%C6%B0%E1%BB%9Dng%20Tam%20Hi%E1%BB%87p%2C%20Bi%C3%AAn%20H%C3%B2a%2C%20%C4%90%E1%BB%93ng%20Nai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-2.5 sm:gap-3 transition-colors ${
+                    isDark ? 'text-[#c2d3cb] hover:text-white' : 'text-[#3d5348] hover:text-[#072018]'
+                  }`}
+                >
+                  <span
+                    className={`flex size-8.5 shrink-0 items-center justify-center rounded-xl transition-all ${
+                      isDark
+                        ? 'bg-white/10 text-[#e6c887] group-hover:bg-[#e6c887] group-hover:text-[#072018]'
+                        : 'bg-emerald-900/10 text-emerald-800 group-hover:bg-primary group-hover:text-white'
+                    }`}
+                  >
+                    <MapPin className="size-4" />
+                  </span>
+                  <div>
+                    <p className={`text-[10px] tracking-wider uppercase font-semibold ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
+                      Google Maps
+                    </p>
+                    <p className={`text-xs sm:text-[13px] font-bold transition-colors ${isDark ? 'text-white group-hover:text-[#e6c887]' : 'text-[#072018] group-hover:text-primary'}`}>
+                      {t.footer.directions}
                     </p>
                   </div>
                 </a>
               </div>
 
-              {/* Khung QR Zalo */}
+              {/* Khung QR Zalo (Double-Bezel) */}
               <div className="flex flex-col items-center gap-2">
                 <div
-                  className={`size-24 sm:size-28 overflow-hidden rounded-2xl bg-white p-2 shadow-md transition-all ${
-                    isDark ? 'border border-white/20' : 'border border-slate-200'
+                  className={`size-24 sm:size-28 overflow-hidden rounded-2xl bg-white p-2 shadow-sm transition-all ${
+                    isDark ? 'border border-white/20 ring-1 ring-white/10' : 'border border-slate-200 ring-1 ring-black/5'
                   }`}
                 >
                   <img
@@ -231,7 +266,7 @@ export function SiteFooter() {
 
         {/* Dòng phân cách & Bản quyền */}
         <div
-          className={`mt-14 flex flex-col items-center justify-between gap-4 border-t pt-8 text-xs transition-colors duration-500 sm:flex-row ${
+          className={`mt-12 sm:mt-14 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:pt-8 text-xs sm:text-[12.5px] transition-colors duration-500 sm:flex-row ${
             isDark ? 'border-white/10 text-[#8ea59b]' : 'border-slate-200 text-[#556d61]'
           }`}
         >

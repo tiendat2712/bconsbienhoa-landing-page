@@ -16,34 +16,44 @@ export function PricingFaq() {
         {
           question: 'What is the starting price for Bcons Central Park?',
           answer:
-            'Estimated starting price is from 2.0 billion VND for a 1-bedroom unit (43 – 45 sqm), approximately 45 – 50 million VND/sqm depending on location and floor tier.',
+            'The officially announced unit price is 49.9 million VND/sqm wall-center area (~54 – 56 million VND/sqm carpet area). Estimated pricing by unit type: Studio (37 – 40 sqm) from 1.85 – 2.00 billion VND; 1-Bedroom (42 – 43 sqm) from 2.10 – 2.15 billion VND; 2-Bedroom (53 – 73 sqm) from 2.65 – 3.64 billion VND; and 3-Bedroom (87 – 88 sqm) from 4.34 – 4.39 billion VND (excluding VAT & 2% maintenance fund).',
         },
         {
-          question: 'What payment methods and financial support are available?',
+          question: 'What payment methods are available for buyers?',
           answer:
-            'The developer offers flexible stage-by-stage payments of 2 – 5% per milestone, with partner banks supporting up to 70% loan value with grace periods on interest.',
+            'Bcons offers 3 flexible schemes: Method 01 (12 progress tranches, 8.5% direct discount, no bank loan); Method 02 (70% bank loan with 24-month principal grace & interest subsidy, 20% equity); and Method 03 (lowest initial equity of 10% to SPA, guaranteed 6.9%/year interest cap for 48 months). All schemes cap pre-handover payments at 70%.',
         },
         {
-          question: 'Are there discounts for early payment schedules?',
+          question: 'Which partner banks support loans for Bcons Central Park?',
           answer:
-            'Buyers choosing early lump-sum payment schedules can receive direct discounts up to 6 – 8% off total contract value.',
+            'Strategic partner banks including Vietcombank, MB Bank, ACB, and Public Bank provide mortgage financing up to 70% of apartment value with loan tenures up to 20 – 35 years, with fast-track appraisal within 24 hours.',
+        },
+        {
+          question: 'How are buyers protected legally under the 2023 Real Estate Business Law?',
+          answer:
+            'All payment schedules strictly comply with the 2023 Real Estate Business Law: collecting a maximum of 70% prior to handover, retaining 25% at handover, and the final 5% only upon ownership certificate (pink book) handover.',
         },
       ]
     : [
         {
           question: 'Giá bán Bcons Central Park Tam Hiệp từ bao nhiêu?',
           answer:
-            'Giá bán dự kiến từ 2,0 tỷ đồng cho căn 1 phòng ngủ (43 – 45 m²), tương đương khoảng 45 – 50 triệu/m² tuỳ vị trí, tầng và hướng view.',
+            'Đơn giá công bố là 49,9 triệu đồng/m² diện tích tim tường (khoảng 54 – 56 triệu đồng/m² thông thuỷ). Mức giá dự kiến theo loại căn: Studio (37 – 40 m²) từ 1,85 – 2,00 tỷ đồng; căn 1PN (42 – 43 m²) từ 2,10 – 2,15 tỷ đồng; căn 2PN (53 – 73 m²) từ 2,65 – 3,64 tỷ đồng; và căn 3PN (87 – 88 m²) từ 4,34 – 4,39 tỷ đồng (chưa gồm VAT & phí bảo trì 2%).',
         },
         {
-          question: 'Phương thức thanh toán Bcons Phan Trung thế nào?',
+          question: 'Dự án có những phương thức thanh toán nào?',
           answer:
-            'Dự án áp dụng thanh toán theo tiến độ xây dựng thực tế, mỗi đợt 2 – 5%, ngân hàng hỗ trợ vay đến 70% giá trị căn hộ với chính sách ân hạn nợ gốc.',
+            'Chủ đầu tư áp dụng 3 phương thức thanh toán linh hoạt: Phương thức 01 (theo tiến độ 12 đợt, nhận chiết khấu 8,5%); Phương thức 02 (vay ngân hàng 70%, ân hạn nợ gốc và hỗ trợ lãi suất 24 tháng, vốn tự có 20%); và Phương thức 03 (vốn ban đầu chỉ 10% đến khi ký HĐMB, chủ đầu tư cam kết bảo lãnh trần lãi suất không quá 6,9%/năm trong 48 tháng). Cả 3 phương thức đều chỉ thu tối đa 70% trước khi nhận nhà.',
         },
         {
-          question: 'Có chính sách chiết khấu khi thanh toán sớm không?',
+          question: 'Ngân hàng nào bảo lãnh và hỗ trợ cho vay tại Bcons Central Park?',
           answer:
-            'Khách hàng chọn phương thức thanh toán nhanh vượt tiến độ có thể nhận chiết khấu trực tiếp vào giá bán theo công bố chính thức từ chủ đầu tư.',
+            'Các ngân hàng đối tác chiến lược của Bcons Group gồm Vietcombank, MB Bank, ACB và Public Bank hỗ trợ vay vốn tối đa đến 70% giá trị căn hộ với thời hạn vay lên đến 20 – 35 năm, hỗ trợ thẩm định và duyệt hạn mức nhanh trong 24 giờ.',
+        },
+        {
+          question: 'Khách hàng được bảo vệ pháp lý như thế nào theo Luật Kinh doanh BĐS 2023?',
+          answer:
+            'Cả 3 phương thức thanh toán đều tuân thủ nghiêm ngặt Luật Kinh doanh Bất động sản 2023: chỉ thu tối đa 70% giá trị hợp đồng trước khi bàn giao nhà, giữ lại 25% ở mốc bàn giao và 5% cuối cùng khi có thông báo nhận Giấy chứng nhận quyền sở hữu (sổ hồng).',
         },
       ]
 

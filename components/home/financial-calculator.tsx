@@ -9,9 +9,45 @@ export function FinancialCalculator() {
   const { t, theme, locale } = useSitePreferences()
   const isDark = theme === 'dark'
 
+  const isEn = locale === 'en'
+
+  // Apartment unit types matching media_1788972105358.png
+  const apartmentUnits = [
+    {
+      id: 'studio',
+      name: 'Studio',
+      area: '37 – 40 m²',
+      priceRange: '1,85 – 2,00 tỷ',
+      defaultPrice: 1900000000,
+    },
+    {
+      id: '1pn',
+      name: isEn ? '1 Bedroom' : '1 Phòng ngủ',
+      area: '42 – 43 m²',
+      priceRange: '2,10 – 2,15 tỷ',
+      defaultPrice: 2120000000,
+    },
+    {
+      id: '2pn',
+      name: isEn ? '2 Bedrooms' : '2 Phòng ngủ',
+      area: '53 – 73 m²',
+      priceRange: '2,65 – 3,64 tỷ',
+      defaultPrice: 2650000000,
+    },
+    {
+      id: '3pn',
+      name: isEn ? '3 Bedrooms' : '3 Phòng ngủ',
+      area: '87 – 88 m²',
+      priceRange: '4,34 – 4,39 tỷ',
+      defaultPrice: 4360000000,
+    },
+  ]
+
   // State
-  const [price, setPrice] = useState<number>(2500000000)
-  const [downPayment, setDownPayment] = useState<number>(750000000)
+  const [selectedUnitId, setSelectedUnitId] = useState<string>('2pn')
+  const [price, setPrice] = useState<number>(2650000000)
+  const [downPaymentRatio, setDownPaymentRatio] = useState<number>(0.3) // Dynamic ratio (default 30%)
+  const [downPayment, setDownPayment] = useState<number>(795000000) // 30% of 2.65B
   const [interestRate, setInterestRate] = useState<number>(8.0)
   const [loanTermYears, setLoanTermYears] = useState<number>(20)
 
@@ -41,43 +77,36 @@ export function FinancialCalculator() {
     return new Intl.NumberFormat('vi-VN').format(Math.round(num))
   }
 
-  const formatShortMoney = (amount: number) => {
-    if (locale === 'en') {
-      if (amount >= 1000000000) {
-        const b = amount / 1000000000
-        return `${Number.isInteger(b) ? b : b.toFixed(2).replace(/\.?0+$/, '')} B`
-      }
-      const m = Math.round(amount / 1000000)
-      return `${m} M`
-    }
-    if (amount >= 1000000000) {
-      const ty = amount / 1000000000
-      return `${Number.isInteger(ty) ? ty : ty.toFixed(2).replace(/\.?0+$/, '')} tỷ`
-    }
-    const tr = Math.round(amount / 1000000)
-    return `${tr} tr`
-  }
-
   // Quick Preset Handlers
-  const handleSelectPricePreset = (val: number) => {
-    setPrice(val)
-    // Keep proportional down payment (e.g. 30%)
-    setDownPayment(Math.round(val * 0.3))
+  const handleSelectUnit = (unit: typeof apartmentUnits[0]) => {
+    setSelectedUnitId(unit.id)
+    setPrice(unit.defaultPrice)
+    setDownPayment(Math.round(unit.defaultPrice * downPaymentRatio))
   }
 
   const handleSelectDownPaymentPreset = (ratio: number) => {
+    setDownPaymentRatio(ratio)
     setDownPayment(Math.round(price * ratio))
   }
+
+  const downPaymentPresets = [
+    { percent: 15, ratio: 0.15 },
+    { percent: 30, ratio: 0.30 },
+    { percent: 50, ratio: 0.50 },
+    { percent: 70, ratio: 0.70 },
+    { percent: 75, ratio: 0.75 },
+  ]
 
   return (
     <section
       id="cong-cu-tai-chinh"
-      className="scroll-mt-24 bg-gradient-to-b from-secondary/30 via-background to-secondary/20 dark:from-background dark:via-card/30 dark:to-background py-20 lg:py-28 transition-colors duration-500"
+      className="scroll-mt-24 bg-gradient-to-b from-secondary/30 via-background to-secondary/20 dark:from-background dark:via-card/30 dark:to-background py-16 sm:py-20 lg:py-24 transition-colors duration-500"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
           eyebrow={t.financeTool.eyebrow}
-          title={t.financeTool.title}
+          title={isEn ? 'Financial Calculator' : 'Dự Toán Tài Chính'}
+          subtitle={isEn ? 'Cash Flow & Repayment Planning' : 'Kế Hoạch Dòng Tiền & Lịch Trả Gốc Lãi'}
           description={t.financeTool.desc}
         />
 
@@ -90,84 +119,105 @@ export function FinancialCalculator() {
                 {/* CỘT TRÁI (7 Cột): BẢNG ĐIỀU KHIỂN THAM SỐ VAY */}
                 <div className="lg:col-span-7 space-y-7 flex flex-col justify-between">
                   
-                  {/* 1. Giá căn hộ */}
-                  <div className="space-y-2.5">
-                    <div className="flex items-center justify-between">
-                      <label htmlFor="calc-price-input" className="text-xs font-bold tracking-[0.14em] uppercase text-foreground/90">
-                        {t.financeTool.priceLabel}
-                      </label>
-                      <span className="font-serif text-base font-bold text-primary dark:text-[#e6c887]">
-                        {formatVND(price)} VNĐ
-                      </span>
+                  {/* 1. CHỌN LOẠI CĂN HỘ */}
+                  <div className="space-y-3.5">
+                    <h4 className="text-sm sm:text-base font-bold tracking-wider uppercase text-primary dark:text-[#e6c887] font-sans">
+                      {isEn ? '1. SELECT APARTMENT TYPE' : '1. CHỌN LOẠI CĂN HỘ'}
+                    </h4>
+
+                    {/* 4 Apartment Option Cards matching media_1788972105358.png */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {apartmentUnits.map((unit) => {
+                        const isSelected = selectedUnitId === unit.id
+                        return (
+                          <button
+                            key={unit.id}
+                            type="button"
+                            onClick={() => handleSelectUnit(unit)}
+                            className={`rounded-2xl border p-3 sm:p-3.5 lg:p-4 text-center transition-all duration-200 cursor-pointer flex flex-col items-center justify-center ${
+                              isSelected
+                                ? 'bg-[#072018] text-white border-[#e6c887]/70 shadow-md ring-2 ring-[#e6c887]/40 dark:bg-[#0c2e22] dark:border-[#e6c887] dark:ring-2 dark:ring-[#e6c887]/50 scale-[1.02]'
+                                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-900 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:border-white/10 dark:text-white shadow-sm'
+                            }`}
+                          >
+                            <span
+                              className={`font-bold text-xs sm:text-sm lg:text-base leading-tight ${
+                                isSelected ? 'text-white' : 'text-slate-900 dark:text-white'
+                              }`}
+                            >
+                              {unit.name}
+                            </span>
+                            <span
+                              className={`text-[11px] sm:text-xs mt-1 font-sans ${
+                                isSelected
+                                  ? 'text-slate-200 dark:text-slate-300'
+                                  : 'text-slate-500 dark:text-slate-400'
+                              }`}
+                            >
+                              {unit.area}
+                            </span>
+                            <span
+                              className={`text-xs sm:text-[13px] lg:text-sm font-bold mt-1.5 font-sans whitespace-nowrap ${
+                                isSelected
+                                  ? 'text-[#e6c887]'
+                                  : 'text-[#c5a059] dark:text-[#e6c887]'
+                              }`}
+                            >
+                              {unit.priceRange}
+                            </span>
+                          </button>
+                        )
+                      })}
                     </div>
 
-                    <div className="relative">
+                    {/* Fine-tune Price Slider */}
+                    <div className="pt-2">
+                      <div className="flex items-center justify-between pt-1 mb-2">
+                        <label htmlFor="calc-price-input" className="text-xs sm:text-sm font-bold tracking-wide uppercase text-foreground/90 font-sans">
+                          {isEn ? 'Selected Apartment Price:' : 'Giá căn hộ lựa chọn:'}
+                        </label>
+                        <span className="font-serif text-lg sm:text-xl font-bold text-primary dark:text-[#e6c887]">
+                          {formatVND(price)} VNĐ
+                        </span>
+                      </div>
                       <input
                         id="calc-price-input"
                         type="range"
-                        min={1500000000}
-                        max={5000000000}
-                        step={50000000}
+                        min={1850000000}
+                        max={4500000000}
+                        step={25000000}
                         value={price}
                         onChange={(e) => {
                           const val = Number(e.target.value)
                           setPrice(val)
-                          if (downPayment > val) setDownPayment(Math.round(val * 0.3))
+                          // Dynamically detect matching unit range
+                          if (val < 2050000000) setSelectedUnitId('studio')
+                          else if (val < 2400000000) setSelectedUnitId('1pn')
+                          else if (val < 4000000000) setSelectedUnitId('2pn')
+                          else setSelectedUnitId('3pn')
+                          setDownPayment(Math.round(val * downPaymentRatio))
                         }}
-                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#b8860b] dark:accent-[#e6c887]"
+                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#e6c887]"
                       />
-                    </div>
-
-                    {/* Presets */}
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPricePreset(1900000000)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          price === 1900000000
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        {t.financeTool.presets.studio}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPricePreset(2500000000)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          price === 2500000000
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        {t.financeTool.presets.twoBed}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPricePreset(3800000000)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          price === 3800000000
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        {t.financeTool.presets.threeBed}
-                      </button>
+                      <div className="flex justify-between text-[11px] text-muted-foreground pt-1.5 font-sans">
+                        <span>{formatVND(1850000000)} VNĐ (Studio)</span>
+                        <span>{formatVND(4390000000)} VNĐ (3PN)</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* 2. Vốn tự có */}
-                  <div className="space-y-2.5 pt-4 border-t border-border/50 dark:border-white/5">
+                  {/* 2. VỐN TỰ CÓ BAN ĐẦU */}
+                  <div className="space-y-3 pt-5 border-t border-border/50 dark:border-white/5">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <label htmlFor="calc-downpayment-input" className="text-xs font-bold tracking-[0.14em] uppercase text-foreground/90">
-                          {t.financeTool.downPaymentLabel}
+                        <label htmlFor="calc-downpayment-input" className="text-xs sm:text-sm font-bold tracking-wider uppercase text-primary dark:text-[#e6c887] font-sans">
+                          {isEn ? '2. INITIAL CAPITAL / EQUITY' : '2. VỐN TỰ CÓ BAN ĐẦU'}
                         </label>
-                        <span className="rounded-full bg-emerald-100 dark:bg-emerald-950/70 px-2 py-0.5 text-[11px] font-bold text-emerald-800 dark:text-[#e6c887]">
+                        <span className="rounded-full bg-emerald-100 dark:bg-emerald-950/70 px-2.5 py-0.5 text-xs font-bold text-emerald-800 dark:text-[#e6c887]">
                           {downPaymentPercent}%
                         </span>
                       </div>
-                      <span className="font-serif text-base font-bold text-primary dark:text-[#e6c887]">
+                      <span className="font-serif text-lg sm:text-xl font-bold text-primary dark:text-[#e6c887]">
                         {formatVND(downPayment)} VNĐ
                       </span>
                     </div>
@@ -176,53 +226,48 @@ export function FinancialCalculator() {
                       id="calc-downpayment-input"
                       type="range"
                       min={Math.round(price * 0.15)}
-                      max={Math.round(price * 0.7)}
+                      max={Math.round(price * 0.80)}
                       step={25000000}
                       value={downPayment}
-                      onChange={(e) => setDownPayment(Number(e.target.value))}
-                      className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#b8860b] dark:accent-[#e6c887]"
+                      onChange={(e) => {
+                        const val = Number(e.target.value)
+                        setDownPayment(val)
+                        if (price > 0) {
+                          setDownPaymentRatio(val / price)
+                        }
+                      }}
+                      className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#e6c887]"
                     />
 
-                    {/* Presets */}
+                    {/* Presets including 15%, 30%, 50%, 70%, 75% with exact VND formatting */}
                     <div className="flex flex-wrap gap-2 pt-1">
-                      <button
-                        type="button"
-                        onClick={() => handleSelectDownPaymentPreset(0.15)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          downPaymentPercent === 15
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        15% ({formatShortMoney(price * 0.15)})
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectDownPaymentPreset(0.3)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          downPaymentPercent === 30
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        30% ({formatShortMoney(price * 0.3)})
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectDownPaymentPreset(0.5)}
-                        className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all ${
-                          downPaymentPercent === 50
-                            ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm'
-                            : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
-                        }`}
-                      >
-                        50% ({formatShortMoney(price * 0.5)})
-                      </button>
+                      {downPaymentPresets.map((preset) => {
+                        const isActive = Math.abs(downPaymentPercent - preset.percent) <= 1
+                        const amount = Math.round(price * preset.ratio)
+                        return (
+                          <button
+                            key={preset.percent}
+                            type="button"
+                            onClick={() => handleSelectDownPaymentPreset(preset.ratio)}
+                            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                              isActive
+                                ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm scale-105'
+                                : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
+                            }`}
+                          >
+                            {preset.percent}% ({formatVND(amount)} đ)
+                          </button>
+                        )
+                      })}
                     </div>
                   </div>
 
                   {/* 3 & 4: Lãi suất & Thời hạn vay (2 Cột) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 border-t border-border/50 dark:border-white/5">
+                  <div className="pt-4 border-t border-border/50 dark:border-white/5 space-y-3">
+                    <h4 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-primary dark:text-[#e6c887] font-sans">
+                      {isEn ? '3. INTEREST RATE & LOAN TERM' : '3. LÃI SUẤT & THỜI HẠN VAY'}
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Lãi suất */}
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
@@ -241,7 +286,7 @@ export function FinancialCalculator() {
                         step={0.1}
                         value={interestRate}
                         onChange={(e) => setInterestRate(Number(e.target.value))}
-                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#b8860b] dark:accent-[#e6c887]"
+                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#e6c887]"
                       />
                     </div>
 
@@ -263,11 +308,12 @@ export function FinancialCalculator() {
                         step={1}
                         value={loanTermYears}
                         onChange={(e) => setLoanTermYears(Number(e.target.value))}
-                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#b8860b] dark:accent-[#e6c887]"
+                        className="w-full h-2.5 bg-secondary dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#e6c887]"
                       />
                     </div>
                   </div>
                 </div>
+              </div>
 
                 {/* CỘT PHẢI (5 Cột): THẺ KẾT QUẢ SANG TRỌNG (AWWWARDS TIER) */}
                 <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#072018] via-[#0a2c22] to-[#041610] p-7 sm:p-9 text-white shadow-2xl border border-[#e6c887]/25 relative overflow-hidden">

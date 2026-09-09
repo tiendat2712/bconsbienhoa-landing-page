@@ -15,7 +15,7 @@ export function FloorPlanRelated() {
         {
           kind: t.related.kind,
           title: 'Pricing & Policies',
-          desc: 'Starting from 2.0 B VND with flexible installment schemes.',
+          desc: 'Starting from 1.85 B VND with flexible installment schemes.',
           href: '/gia-ban',
         },
         {
@@ -41,7 +41,7 @@ export function FloorPlanRelated() {
         {
           kind: t.related.kind,
           title: 'Giá bán Bcons Central Park',
-          desc: 'Bảng giá dự kiến từ 2,0 tỷ đồng và phương thức thanh toán.',
+          desc: 'Bảng giá dự kiến từ 1,85 tỷ đồng và 3 phương thức thanh toán.',
           href: '/gia-ban',
         },
         {

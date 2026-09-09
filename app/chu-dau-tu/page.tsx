@@ -6,6 +6,7 @@ import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import { InvestorDetail } from '@/components/pages/chu-dau-tu/investor-detail'
 import { InvestorFaq } from '@/components/pages/chu-dau-tu/investor-faq'
 import { InvestorRelated } from '@/components/pages/chu-dau-tu/investor-related'
+import { DirectorConsultation } from '@/components/shared/director-consultation'
 import { Contact } from '@/components/home/contact'
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/json-ld'
 
@@ -14,32 +15,32 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title: 'Chủ Đầu Tư Tập Đoàn Bcons — Uy Tín, Năng Lực & 20+ Dự Án Đã Trao Sổ Hồng',
   description:
-    'Hồ sơ năng lực Tập đoàn Bcons (Bcons Group) — Chủ đầu tư Bcons Central Park Tam Hiệp. Hơn 10 năm kinh nghiệm, 20+ dự án căn hộ bàn giao đúng tiến độ, đối tác chiến lược PPSN Nhật Bản.',
+    'Tìm hiểu về Tập đoàn Bcons (Bcons Group) — chủ đầu tư Bcons Central Park Tam Hiệp. 10+ năm kinh nghiệm, 15+ dự án đã bàn giao, cam kết tiến độ, chất lượng và tốc độ ra sổ hồng thần tốc.',
   alternates: { canonical: '/chu-dau-tu' },
   openGraph: {
-    title: 'Chủ Đầu Tư Bcons Group — Cam Kết Làm Thật, Giao Thật, Sổ Hồng Nhanh',
+    title: 'Tập Đoàn Bcons — Uy Tín Đã Được Chứng Thực Qua Hàng Loạt Dự Án',
     description:
-      'Tìm hiểu năng lực triển khai dự án và chuỗi thành tích bàn giao sổ hồng vượt tiến độ của Tập đoàn Bcons.',
+      'Chủ đầu tư uy tín tại thị trường TP.HCM & Bình Dương, nay tiếp tục khẳng định vị thế với Bcons Central Park Biên Hòa.',
     url: 'https://www.canhobconstamhiep.com/chu-dau-tu',
-    images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Chủ đầu tư Tập đoàn Bcons' }],
+    images: [{ url: '/images/hero-aerial.png', width: 1200, height: 630, alt: 'Chủ đầu tư Bcons Group' }],
   },
 }
 
 const investorFaqs = [
   {
-    question: 'Chủ đầu tư Bcons Group có uy tín không?',
+    question: 'Tập đoàn Bcons thành lập năm nào và đã làm những dự án nào?',
     answer:
-      'Tập đoàn Bcons là thương hiệu phát triển bất động sản uy tín với hơn 10 năm kinh nghiệm, đã bàn giao thành công hơn 20 dự án tại Bình Dương và TP.HCM, nổi bật với cam kết ra sổ hồng nhanh cho cư dân chỉ sau 6 – 12 tháng.',
+      'Thành lập từ năm 2013, Bcons đã triển khai hơn 15 dự án nhà ở chất lượng: Bcons Suối Tiên, Bcons Miền Đông, Bcons Garden, Bcons Green View, Bcons Bee, Bcons Plaza, Bcons Polygon, Bcons Sala, Bcons City...',
   },
   {
-    question: 'Bcons Central Park có đối tác quốc tế nào đồng hành?',
+    question: 'Điểm mạnh nổi bật nhất của Bcons là gì?',
     answer:
-      'Bcons có quan hệ đối tác chiến lược lâu năm với Tập đoàn PPSN (Nhật Bản) trong việc quản lý, giám sát và nâng cao tiêu chuẩn chất lượng công trình theo chuẩn mực Nhật Bản.',
+      'Bcons sở hữu chuỗi giá trị khép kín từ thiết kế, thi công (áp dụng công nghệ BIM), quản lý dự án đến phân phối và quản lý vận hành, giúp tối ưu chi phí, đảm bảo tiến độ và trao sổ hồng nhanh chóng cho cư dân.',
   },
   {
-    question: 'Các dự án trước đây của Bcons đã được cấp sổ hồng chưa?',
+    question: 'Bcons Central Park Tam Hiệp có đối tác chiến lược nào?',
     answer:
-      'Hầu hết các dự án đã bàn giao như Bcons Suối Tiên, Bcons Miền Đông, Bcons Garden, Bcons Green View, Bcons Plaza đều đã hoàn tất cấp sổ hồng 100% cho cư dân theo đúng cam kết.',
+      'Dự án hợp tác cùng các đối tác hàng đầu trong lĩnh vực tài chính (Vietcombank, MB Bank, ACB, Public Bank) và các đơn vị tư vấn giám sát chuyên nghiệp.',
   },
 ]
 
@@ -56,6 +57,7 @@ export default function InvestorPage() {
       <SiteHeader />
       <main>
         <InvestorDetail />
+        <DirectorConsultation />
         <InvestorFaq />
         <InvestorRelated />
         <Contact />

@@ -14,22 +14,51 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [detailOpen, setDetailOpen] = useState(false)
 
+  const [activeSection, setActiveSection] = useState<string>('#tong-quan')
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16)
+
+      if (onHome) {
+        const sections = [
+          '#tong-quan',
+          '#vi-tri',
+          '#tien-ich',
+          '#mat-bang',
+          '#tham-quan-3d',
+          '#gia-ban',
+          '#tien-do',
+          '#tin-tuc',
+        ]
+        let current = '#tong-quan'
+        for (const sec of sections) {
+          const el = document.querySelector(sec)
+          if (el) {
+            const rect = el.getBoundingClientRect()
+            if (rect.top <= 200) {
+              current = sec
+            }
+          }
+        }
+        setActiveSection(current)
+      }
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [onHome])
 
-  // 1. Navigation chính trên thanh Navbar: Nhảy xuống Section trên trang chủ (/#section)
+  // 1. Navigation chính trên thanh Navbar: Nhảy xuống Section trên trang chủ (/#section) theo thứ tự cuộn thực tế
   const navLinks = [
     [t.nav.overview, '#tong-quan'],
     [t.nav.location, '#vi-tri'],
     [t.nav.amenities, '#tien-ich'],
     [t.nav.plans, '#mat-bang'],
-    [t.nav.legal, '#phap-ly'],
-    [t.nav.showUnit, '#nha-mau'],
+    [t.nav.showUnit, '#tham-quan-3d'],
     [t.nav.pricing, '#gia-ban'],
+    [t.nav.progress, '#tien-do'],
+    [t.nav.news, '#tin-tuc'],
   ] as const
 
   // 2. Options trong dropdown "Chi tiết": Router điều hướng đến các Trang con độc lập (/page)
@@ -41,9 +70,10 @@ export function SiteHeader() {
     [t.nav.legal, '/phap-ly'],
     [t.nav.investor, '/chu-dau-tu'],
     [t.nav.progress, '/tien-do'],
+    [t.nav.news, '/tin-tuc'],
   ] as const
 
-  const isDetailActive = ['/gia-ban', '/vi-tri', '/mat-bang', '/tien-ich', '/phap-ly', '/chu-dau-tu', '/tien-do'].includes(pathname)
+  const isDetailActive = ['/gia-ban', '/vi-tri', '/mat-bang', '/tien-ich', '/phap-ly', '/chu-dau-tu', '/tien-do', '/tin-tuc'].includes(pathname)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -73,7 +103,7 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-1 xl:flex xl:gap-1.5" aria-label={t.nav.main}>
             {navLinks.map(([label, href]) => {
               const targetHref = onHome ? href : `/${href}`
-              const isActive = onHome && href === '#tong-quan'
+              const isActive = onHome ? activeSection === href : false
               return (
                 <a
                   key={href}
@@ -150,19 +180,6 @@ export function SiteHeader() {
                 </div>
               </div>
             </div>
-
-            {/* Tin tức */}
-            <Link
-              href="/tin-tuc"
-              aria-current={pathname === '/tin-tuc' ? 'page' : undefined}
-              className={`rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
-                pathname === '/tin-tuc'
-                  ? 'text-primary dark:text-[#e6c887] gold-text-active font-bold'
-                  : 'text-foreground/80 hover:text-primary dark:hover:text-[#e6c887]'
-              }`}
-            >
-              {t.nav.news}
-            </Link>
           </nav>
 
           {/* Right Controls: Unified Luxury Capsule + Luxury Gold CTA */}
@@ -242,8 +259,7 @@ export function SiteHeader() {
             ))}
             {[
               [t.nav.investor, '/chu-dau-tu'],
-              [t.nav.progress, '/tien-do'],
-              [t.nav.news, '/tin-tuc'],
+              [t.nav.legal, '/phap-ly'],
             ].map(([label, href]) => (
               <Link
                 key={href}

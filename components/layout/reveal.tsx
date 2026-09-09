@@ -31,13 +31,15 @@ export function Reveal({
 export function SectionHeading({
   eyebrow,
   title,
+  subtitle,
   description,
   align = 'left',
   tone = 'light',
 }: {
   eyebrow: string
-  title: string
-  description?: string
+  title: ReactNode
+  subtitle?: ReactNode
+  description?: ReactNode
   align?: 'left' | 'center'
   tone?: 'light' | 'dark'
 }) {
@@ -47,36 +49,46 @@ export function SectionHeading({
   return (
     <Reveal
       className={[
-        'flex flex-col gap-4',
+        'flex flex-col gap-3 sm:gap-4',
         align === 'center' ? 'items-center text-center' : 'items-start',
       ].join(' ')}
     >
       <span
         className={[
           'inline-flex items-center gap-2 text-xs font-semibold tracking-[0.22em] uppercase transition-colors duration-500',
-          isDark ? 'text-[#e6c887]' : 'text-primary',
+          isDark ? 'text-[#e6c887]' : 'text-[#b88728]',
         ].join(' ')}
       >
         <span
           className={[
             'h-px w-8 transition-colors duration-500',
-            isDark ? 'bg-[#e6c887]' : 'bg-primary/40',
+            isDark ? 'bg-[#e6c887]' : 'bg-[#b88728]/60',
           ].join(' ')}
         />
         {eyebrow}
       </span>
       <h2
         className={[
-          'font-serif text-3xl leading-tight text-balance md:text-4xl lg:text-[2.75rem] font-bold transition-colors duration-500',
-          isDark ? 'text-white' : 'text-foreground',
+          'font-serif text-3xl leading-tight text-balance md:text-4xl lg:text-[2.75rem] font-bold tracking-tight transition-colors duration-500',
+          isDark ? 'text-white' : 'text-[#072018]',
         ].join(' ')}
       >
         {title}
+        {subtitle ? (
+          <span
+            className={[
+              'block mt-1 sm:mt-1.5 font-serif italic font-semibold text-2xl sm:text-3xl lg:text-[2.25rem] transition-colors duration-500',
+              isDark ? 'text-[#e6c887]' : 'text-[#b88728]',
+            ].join(' ')}
+          >
+            {subtitle}
+          </span>
+        ) : null}
       </h2>
       {description ? (
         <p
           className={[
-            'max-w-2xl leading-relaxed text-pretty transition-colors duration-500',
+            'max-w-2xl leading-relaxed text-pretty text-sm sm:text-base font-sans transition-colors duration-500',
             isDark ? 'text-[#c2d3cb]' : 'text-muted-foreground',
           ].join(' ')}
         >
