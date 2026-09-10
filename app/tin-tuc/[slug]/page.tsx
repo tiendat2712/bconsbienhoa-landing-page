@@ -44,51 +44,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const publishedIso = parseVnDateToIso(article.date)
 
-  return {
-    title: `${article.title} | Bcons Central Park Tam Hiệp`,
-    description: article.description,
-    keywords: [
-      article.title,
-      article.categoryLabel,
-      'bcons central park',
-      'bcons central park tam hiệp',
-      'can ho bcons tam hiep',
-      'căn hộ bcons tam hiệp',
-      'bcons tam hiệp',
-      'tin tức bcons central park',
-      'kinh nghiệm mua căn hộ bcons',
-      'lê ngọc long',
-    ],
-    authors: [{ name: article.author || 'Lê Ngọc Long', url: 'https://www.canhobconstamhiep.com' }],
-    alternates: { canonical: `/tin-tuc/${slug}` },
-    openGraph: {
-      title: article.title,
+    const ogImageUrl = article.thumbnail.startsWith('http')
+      ? article.thumbnail
+      : `https://www.canhobconstamhiep.com${article.thumbnail}`
+
+    return {
+      title: `${article.title} | Bcons Central Park Tam Hiệp`,
       description: article.description,
-      url: `https://www.canhobconstamhiep.com/tin-tuc/${slug}`,
-      siteName: 'Bcons Central Park Tam Hiệp',
-      locale: 'vi_VN',
-      type: 'article',
-      publishedTime: publishedIso,
-      authors: [article.author || 'Lê Ngọc Long'],
-      section: article.categoryLabel,
-      images: [
-        {
-          url: article.thumbnail,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
+      keywords: [
+        article.title,
+        article.categoryLabel,
+        'bcons central park',
+        'bcons central park tam hiệp',
+        'can ho bcons tam hiep',
+        'căn hộ bcons tam hiệp',
+        'bcons tam hiệp',
+        'tin tức bcons central park',
+        'kinh nghiệm mua căn hộ bcons',
+        'lê ngọc long',
       ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: article.title,
-      description: article.description,
-      images: [article.thumbnail],
-      creator: 'Lê Ngọc Long',
-    },
+      authors: [{ name: article.author || 'Lê Ngọc Long', url: 'https://www.canhobconstamhiep.com' }],
+      alternates: { canonical: `/tin-tuc/${slug}` },
+      openGraph: {
+        title: article.title,
+        description: article.description,
+        url: `https://www.canhobconstamhiep.com/tin-tuc/${slug}`,
+        siteName: 'Bcons Central Park Tam Hiệp',
+        locale: 'vi_VN',
+        type: 'article',
+        publishedTime: publishedIso,
+        authors: [article.author || 'Lê Ngọc Long'],
+        section: article.categoryLabel,
+        images: [
+          {
+            url: ogImageUrl,
+            secureUrl: ogImageUrl,
+            width: 1200,
+            height: 630,
+            alt: article.title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: article.title,
+        description: article.description,
+        images: [ogImageUrl],
+        creator: 'Lê Ngọc Long',
+      },
+    }
   }
-}
 
 export default async function NewsDetailPage({ params }: Props) {
   const { slug } = await params

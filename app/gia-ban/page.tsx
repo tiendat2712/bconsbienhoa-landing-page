@@ -34,13 +34,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Bảng giá Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Bảng giá Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bảng Giá & Chính Sách Thanh Toán Bcons Central Park Tam Hiệp',
     description: 'Studio từ 1,85 tỷ, 1PN từ 2,1 tỷ, 2PN từ 2,65 tỷ, chiết khấu đến 8,5%, hỗ trợ vay 70%.',
-    images: ['/images/hero-towers.png'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

@@ -33,13 +33,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/news/bcons-central-park-ban-do-lien-ket-vung.webp', width: 1200, height: 630, alt: 'Vị trí Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Vị trí Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vị Trí Vàng 236 Phan Trung — Bcons Central Park Tam Hiệp',
     description: 'Tọa lạc tâm điểm Biên Hòa, kết nối thuận tiện TP. Thủ Đức, QL 1K và sân bay Long Thành.',
-    images: ['/images/news/bcons-central-park-ban-do-lien-ket-vung.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

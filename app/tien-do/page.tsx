@@ -32,13 +32,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/hero-towers.png', width: 1200, height: 630, alt: 'Tiến độ Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Tiến độ Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tiến Độ Xây Dựng Bcons Central Park Mới Nhất 2026',
     description: 'Cập nhật tiến độ thi công thực tế tại công trường 236 Phan Trung, Biên Hòa.',
-    images: ['/images/hero-towers.png'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

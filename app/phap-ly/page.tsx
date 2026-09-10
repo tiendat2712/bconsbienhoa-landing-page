@@ -33,13 +33,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/news/bcons-central-park-checklist-phap-ly.webp', width: 1200, height: 630, alt: 'Pháp lý Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Pháp lý dự án Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hồ Sơ Pháp Lý Chuẩn Chỉnh — Bcons Central Park Tam Hiệp',
     description: 'Quy hoạch 1/500 đã duyệt, giấy phép xây dựng đầy đủ, sổ hồng sở hữu lâu dài.',
-    images: ['/images/news/bcons-central-park-checklist-phap-ly.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

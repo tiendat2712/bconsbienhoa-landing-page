@@ -33,13 +33,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/floorplans/masterplan-all-blocks.webp', width: 1200, height: 630, alt: 'Mặt bằng Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Mặt bằng Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Mặt Bằng Bcons Central Park Tam Hiệp — Tổng Thể & Layout',
     description: 'Layout chi tiết căn hộ 1PN, 2PN, 3PN tối ưu công năng, ban công và lô gia riêng biệt.',
-    images: ['/images/floorplans/masterplan-all-blocks.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

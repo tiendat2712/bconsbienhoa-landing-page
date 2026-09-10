@@ -28,14 +28,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
-      images: [`${baseUrl}/images/hero-towers.png`],
+      images: [`${baseUrl}/images/og-share.jpg`],
     },
     {
       url: `${baseUrl}/gia-ban`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
-      images: [`${baseUrl}/images/hero-towers.png`],
+      images: [`${baseUrl}/images/og-share.jpg`],
     },
     {
       url: `${baseUrl}/mat-bang`,
@@ -77,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
-      images: [`${baseUrl}/images/hero-towers.png`],
+      images: [`${baseUrl}/images/og-share.jpg`],
     },
     {
       url: `${baseUrl}/tin-tuc`,

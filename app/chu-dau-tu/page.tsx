@@ -35,13 +35,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/bcons-central-park-chu-dau-tu-bcons.webp', width: 1200, height: 630, alt: 'Chủ đầu tư Bcons Group' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Chủ đầu tư Bcons Group — Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tập Đoàn Bcons — Uy Tín Đã Được Chứng Thực Qua Hàng Loạt Dự Án',
     description: 'Chủ đầu tư uy tín với hơn 15 dự án đã trao sổ hồng thần tốc cho cư dân.',
-    images: ['/images/bcons-central-park-chu-dau-tu-bcons.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

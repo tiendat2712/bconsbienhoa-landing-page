@@ -104,9 +104,11 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero-towers.png',
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
         width: 1200,
         height: 630,
+        type: 'image/jpeg',
         alt: 'Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)',
       },
     ],
@@ -116,7 +118,7 @@ export const metadata: Metadata = {
     title: 'Căn Hộ Bcons Tam Hiệp (Bcons Central Park) | Bảng Giá & Ưu Đãi CĐT',
     description:
       'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bcons Central Park Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
-    images: ['/images/hero-towers.png'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
   robots: {
     index: true,
@@ -151,6 +153,15 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning className={`bg-background ${display.variable} ${body.variable}`}>
       <head>
+        {/* Explicit Open Graph Image Fallbacks for Crawlers (Zalo, Facebook, Telegram) */}
+        <meta property="og:image" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
+        <meta property="og:image:secure_url" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)" />
+        <meta name="twitter:image" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
+
         <script
           id="bcons-theme-init"
           dangerouslySetInnerHTML={{

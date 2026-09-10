@@ -32,13 +32,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/news/bcons-central-park-tam-hiep-phoi-canh.webp', width: 1200, height: 630, alt: 'Tin tức Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Tin tức & Cẩm nang Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tin Tức & Cẩm Nang Bất Động Sản Bcons Central Park',
     description: 'Góc nhìn chuyên sâu, cẩm nang tài chính và phân tích pháp lý căn hộ Bcons Tam Hiệp.',
-    images: ['/images/news/bcons-central-park-tam-hiep-phoi-canh.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 

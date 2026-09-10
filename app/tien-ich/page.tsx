@@ -32,13 +32,22 @@ export const metadata: Metadata = {
     siteName: 'Bcons Central Park Tam Hiệp',
     locale: 'vi_VN',
     type: 'website',
-    images: [{ url: '/images/amenities/masterplan-60-tien-ich.webp', width: 1200, height: 630, alt: 'Tiện ích Bcons Central Park' }],
+    images: [
+      {
+        url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: 'Hệ tiện ích Bcons Central Park Tam Hiệp',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hệ Tiện Ích Đỉnh Cao Bcons Central Park Tam Hiệp',
     description: 'Hơn 7.700 m² công viên nội khu, hồ bơi tràn bờ resort và 113 shophouse sầm uất.',
-    images: ['/images/amenities/masterplan-60-tien-ich.webp'],
+    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
   },
 }
 
