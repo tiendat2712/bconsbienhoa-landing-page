@@ -994,7 +994,7 @@ export function AmenityDetail() {
                 <div className="relative z-10">
                   <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#e6c887]">
                     <Sparkles className="size-3.5" />
-                    {isEn ? 'Official Developer Dossier' : 'Hồ Sơ Tiện Ích Trực Tiếp F1'}
+                    {isEn ? 'Official Developer Dossier' : 'Hồ Sơ Tiện Ích Trực Tiếp Từ CĐT'}
                   </span>
 
                   <h3 className="mt-1 font-serif text-xl sm:text-2xl font-bold uppercase tracking-tight text-white">

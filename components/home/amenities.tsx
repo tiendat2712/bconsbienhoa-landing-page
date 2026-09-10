@@ -272,7 +272,7 @@ export function Amenities() {
               onClick={handlePrev}
               type="button"
               suppressHydrationWarning
-              aria-label="Ảnh trước"
+              aria-label={isEn ? 'Previous image' : 'Ảnh trước'}
               className="hidden sm:block relative w-[18vw] lg:w-[15vw] max-w-[200px] aspect-[4/5] sm:aspect-[9/16] lg:aspect-[10/14] rounded-2xl sm:rounded-3xl overflow-hidden opacity-60 hover:opacity-90 transition-all duration-500 scale-95 hover:scale-100 shrink-0 cursor-pointer shadow-md group text-left border border-border/70 dark:border-white/10"
             >
               <img
@@ -296,8 +296,8 @@ export function Amenities() {
                 onClick={() => setLightboxIndex(activeItem.id - 1)}
                 type="button"
                 suppressHydrationWarning
-                aria-label="Phóng to ảnh"
-                title="Phóng to ảnh"
+                aria-label={isEn ? 'Enlarge image' : 'Phóng to ảnh'}
+                title={isEn ? 'Enlarge image' : 'Phóng to ảnh'}
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 size-10 sm:size-12 rounded-full bg-white/95 hover:bg-white text-slate-900 shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer z-10"
               >
                 <ArrowUpRight className="size-5 sm:size-6 stroke-[2.5]" />
@@ -319,7 +319,7 @@ export function Amenities() {
               onClick={handleNext}
               type="button"
               suppressHydrationWarning
-              aria-label="Ảnh tiếp theo"
+              aria-label={isEn ? 'Next image' : 'Ảnh tiếp theo'}
               className="hidden sm:block relative w-[18vw] lg:w-[15vw] max-w-[200px] aspect-[4/5] sm:aspect-[9/16] lg:aspect-[10/14] rounded-2xl sm:rounded-3xl overflow-hidden opacity-60 hover:opacity-90 transition-all duration-500 scale-95 hover:scale-100 shrink-0 cursor-pointer shadow-md group text-left border border-border/70 dark:border-white/10"
             >
               <img
@@ -337,7 +337,7 @@ export function Amenities() {
               onClick={handlePrev}
               type="button"
               suppressHydrationWarning
-              aria-label="Previous"
+              aria-label={isEn ? 'Previous' : 'Trước'}
               className="size-9 rounded-full bg-card border border-border flex items-center justify-center shadow-sm"
             >
               <ChevronLeft className="size-4 text-foreground" />
@@ -346,7 +346,7 @@ export function Amenities() {
               onClick={handleNext}
               type="button"
               suppressHydrationWarning
-              aria-label="Next"
+              aria-label={isEn ? 'Next' : 'Tiếp theo'}
               className="size-9 rounded-full bg-card border border-border flex items-center justify-center shadow-sm"
             >
               <ChevronRight className="size-4 text-foreground" />
@@ -361,7 +361,7 @@ export function Amenities() {
                 onClick={() => setActiveIndex(idx)}
                 type="button"
                 suppressHydrationWarning
-                aria-label={`Go to slide ${idx + 1}`}
+                aria-label={isEn ? `Go to slide ${idx + 1}` : `Chuyển tới ảnh ${idx + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   idx === activeIndex
                     ? 'w-7 sm:w-8 h-2 sm:h-2.5 bg-[#e6c887]'
@@ -392,7 +392,7 @@ export function Amenities() {
                 onClick={() => setLightboxIndex(null)}
                 type="button"
                 suppressHydrationWarning
-                aria-label="Đóng phóng to"
+                aria-label={isEn ? 'Close lightbox' : 'Đóng phóng to'}
                 className="size-10 sm:size-11 rounded-full bg-[#f5b82e] hover:bg-[#e2a623] text-[#072018] flex items-center justify-center font-bold shadow-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <X className="size-5 stroke-[2.5]" />
@@ -405,7 +405,7 @@ export function Amenities() {
                 onClick={handleLightboxPrev}
                 type="button"
                 suppressHydrationWarning
-                aria-label="Ảnh trước"
+                aria-label={isEn ? 'Previous image' : 'Ảnh trước'}
                 className="shrink-0 size-11 sm:size-13 rounded-full bg-[#f5b82e] hover:bg-[#e2a623] text-[#072018] flex items-center justify-center shadow-xl transition-transform hover:scale-110 active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="size-6 stroke-[2.5]" />
@@ -427,7 +427,7 @@ export function Amenities() {
                 onClick={handleLightboxNext}
                 type="button"
                 suppressHydrationWarning
-                aria-label="Ảnh tiếp theo"
+                aria-label={isEn ? 'Next image' : 'Ảnh tiếp theo'}
                 className="shrink-0 size-11 sm:size-13 rounded-full bg-[#f5b82e] hover:bg-[#e2a623] text-[#072018] flex items-center justify-center shadow-xl transition-transform hover:scale-110 active:scale-95 cursor-pointer"
               >
                 <ChevronRight className="size-6 stroke-[2.5]" />

@@ -69,7 +69,7 @@ export function PricingDetail() {
         { label: 'PAYMENT METHODS', href: '#phuong-thuc' },
         { label: 'PAYMENT MILESTONES', href: '#cac-dot-thanh-toan' },
         { label: 'BANK LOAN SUPPORT', href: '#ho-tro-vay-ngan-hang' },
-        { label: 'F1 CONSULTATION', href: '#tu-van' },
+        { label: 'DIRECT CONSULTATION', href: '#tu-van' },
       ]
     : [
         { label: 'BẢNG GIÁ CĂN HỘ', href: '#bang-gia' },
@@ -77,7 +77,7 @@ export function PricingDetail() {
         { label: 'PHƯƠNG THỨC THANH TOÁN', href: '#phuong-thuc' },
         { label: 'CÁC ĐỢT THANH TOÁN', href: '#cac-dot-thanh-toan' },
         { label: 'HỖ TRỢ VAY NGÂN HÀNG', href: '#ho-tro-vay-ngan-hang' },
-        { label: 'TƯ VẤN CHUYÊN GIA F1', href: '#tu-van' },
+        { label: 'TƯ VẤN TRỰC TIẾP CĐT', href: '#tu-van' },
       ]
 
   // 5 Payment Milestones (from user screenshot media_1788977707771.png)

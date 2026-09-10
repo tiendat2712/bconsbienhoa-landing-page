@@ -129,7 +129,7 @@ export function SiteHeader() {
           <Link
             href={onHome ? '#top' : '/'}
             className="group flex shrink-0 items-center transition-transform hover:opacity-90"
-            aria-label="Bcons Central Park Trang chủ"
+            aria-label={locale === 'en' ? 'Bcons Central Park Home' : 'Bcons Central Park Trang chủ'}
           >
             <img
               src="/images/bcons-central-park-logo.png"
@@ -247,7 +247,7 @@ export function SiteHeader() {
                 onClick={toggleTheme}
                 aria-label={theme === 'dark' ? t.nav.light : t.nav.dark}
                 className="flex size-7 items-center justify-center rounded-full text-foreground/80 transition-all duration-300 hover:bg-secondary hover:text-primary active:scale-90 cursor-pointer"
-                title={theme === 'dark' ? 'Giao diện sáng' : 'Giao diện tối'}
+                title={theme === 'dark' ? t.nav.light : t.nav.dark}
               >
                 {theme === 'dark' ? (
                   <Sun className="size-3.5 text-[#e6c887] rotate-0 transition-transform duration-300 hover:rotate-45" />

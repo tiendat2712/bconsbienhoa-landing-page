@@ -4,18 +4,20 @@ export function RealEstateProjectSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ApartmentComplex',
-    name: 'Căn Hộ Bcons Tam Hiệp',
+    name: 'Căn Hộ Bcons Tam Hiệp (Bcons Central Park)',
     alternateName: [
-      'Bacons Tam Hiệp',
+      'Bcons Central Park',
       'Bcons Central Park Tam Hiệp',
+      'Căn Hộ Bcons Tam Hiệp',
       'Bcons Tam Hiệp',
       'Bcons Phan Trung',
       'Bcons Biên Hòa',
-      'Căn hộ Bacons Tam Hiệp',
+      'Căn hộ Bcons Central Park',
       'Chung cư Bcons Tam Hiệp',
+      'Chung cư Bcons Central Park',
     ],
     description:
-      'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bacons Tam Hiệp Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
+      'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bcons Central Park Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
     url: 'https://www.canhobconstamhiep.com',
     telephone: '+84376671776',
     address: {

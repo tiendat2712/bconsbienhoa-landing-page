@@ -228,7 +228,7 @@ export function Contact() {
               tone="dark"
               eyebrow={t.contact.eyebrow}
               title={isEn ? 'Consultation Registration' : 'Đăng Ký Tư Vấn & Báo Giá'}
-              subtitle={isEn ? 'Direct Support From Investor F1' : 'Đồng Hành Trực Tiếp Từ Chuyên Viên CĐT'}
+              subtitle={isEn ? 'Direct Support From Developer Specialist' : 'Đồng Hành Trực Tiếp Từ Chuyên Viên CĐT'}
               description={t.contact.desc}
             />
 
@@ -277,7 +277,7 @@ export function Contact() {
                     {t.contact.addressLabel}
                   </p>
                   <p className="mt-1 text-sm text-[#c2d3cb]">
-                    236 Phan Trung, P. Tam Hiệp, TP. Biên Hòa, Đồng Nai
+                    {t.location.address}
                   </p>
                 </div>
               </div>

@@ -649,7 +649,7 @@ export function LocationDetail() {
                   {isEn ? 'Official Perspective — Bcons Central Park Towers' : 'Phối Cảnh Toàn Cảnh Dự Án Bcons Central Park'}
                 </h4>
                 <p className="text-xs text-muted-foreground font-medium truncate mt-0.5">
-                  236 Phan Trung, Phường Tam Hiệp, TP. Biên Hòa, Đồng Nai
+                  {t.location.address}
                 </p>
               </div>
 
@@ -667,7 +667,7 @@ export function LocationDetail() {
             <div className="flex-1 overflow-auto bg-black p-2 sm:p-4 flex items-center justify-center overscroll-contain">
               <img
                 src="/images/project-towers.jpg"
-                alt="Phối cảnh tháp căn hộ Bcons Central Park"
+                alt={isEn ? 'Bcons Central Park Apartment Towers Perspective' : 'Phối cảnh tháp căn hộ Bcons Central Park'}
                 className="w-full max-w-[72rem] h-auto object-contain mx-auto select-none rounded-xl"
               />
             </div>

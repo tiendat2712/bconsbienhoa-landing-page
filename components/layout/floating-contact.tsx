@@ -29,7 +29,7 @@ export function FloatingContact() {
           href="https://www.facebook.com/people/C%C4%83n-H%E1%BB%99-Bcons-Tam-Hi%E1%BB%87p/61574269228165/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Fanpage Facebook"
+          aria-label={t.floating.facebook}
           className="group relative flex size-12 items-center justify-center rounded-full bg-[#1877F2] text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 dark:border dark:border-[#e6c887]/30 dark:shadow-[0_0_15px_rgba(230,200,135,0.25)]"
         >
           <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#1877F2] opacity-20 duration-1000 dark:bg-[#e6c887]/30" />
@@ -58,7 +58,7 @@ export function FloatingContact() {
           href="https://zalo.me/0376671776"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat qua Zalo Lê Ngọc Long"
+          aria-label={t.floating.zalo}
           className="group relative flex size-12 items-center justify-center rounded-full bg-[#0068FF] text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 dark:border dark:border-[#e6c887]/30 dark:shadow-[0_0_15px_rgba(230,200,135,0.25)]"
         >
           <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#0068FF] opacity-25 duration-1000 dark:bg-[#e6c887]/30" />
@@ -110,7 +110,7 @@ export function FloatingContact() {
 
         <a
           href="tel:0376671776"
-          aria-label="Gọi điện thoại tư vấn 0376 671 776 - Lê Ngọc Long"
+          aria-label={t.floating.phone}
           className="group relative flex size-14 items-center justify-center rounded-full bg-[#10B981] text-white shadow-[0_10px_25px_-5px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110 active:scale-95 dark:border dark:border-[#e6c887]/40 dark:shadow-[0_10px_25px_-5px_rgba(230,200,135,0.4)]"
         >
           <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#10B981] opacity-35 duration-1000 dark:bg-[#e6c887]/40" />

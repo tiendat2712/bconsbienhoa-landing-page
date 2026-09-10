@@ -290,15 +290,15 @@ export function ConsultationModal() {
                   <p className="mt-1 font-sans text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {consultationOptions?.subtitle ||
                       (isEn
-                        ? 'Leave your phone number, Senior Specialist Le Ngoc Long will contact you in 15 minutes.'
-                        : 'Chuyên viên F1 CĐT Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong vòng 15 phút.')}
+                        ? 'Leave your phone number, Developer Sales Director Le Ngoc Long will contact you in 15 minutes.'
+                        : 'Giám đốc Kinh doanh Bcons PS Land Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong vòng 15 phút.')}
                   </p>
                 </div>
 
                 <button
                   type="button"
                   onClick={closeConsultation}
-                  aria-label="Đóng"
+                  aria-label={isEn ? 'Close' : 'Đóng'}
                   className="size-9 rounded-full border border-border/80 dark:border-white/15 bg-background/80 hover:bg-secondary dark:hover:bg-white/10 text-foreground flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer shrink-0"
                 >
                   <X className="size-4" />
@@ -324,7 +324,7 @@ export function ConsultationModal() {
                       href="tel:0376671776"
                       className="px-5 py-2.5 rounded-full text-xs font-bold uppercase bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-md hover:opacity-90 transition-opacity"
                     >
-                      Gọi Hotline: 0376 671 776
+                      {isEn ? 'Call Hotline: 0376 671 776' : 'Gọi Hotline: 0376 671 776'}
                     </a>
                     <button
                       type="button"
@@ -524,7 +524,7 @@ export function ConsultationModal() {
                   <div className="flex items-center justify-between text-xs py-1 border-t border-border/40 dark:border-white/10 pt-3">
                     <span className="text-muted-foreground flex items-center gap-1.5">
                       <ShieldCheck className="size-3.5 text-emerald-500" />
-                      Cam kết bảo mật 100%
+                      {isEn ? '100% Privacy Guaranteed' : 'Cam kết bảo mật 100%'}
                     </span>
                     <a
                       href="tel:0376671776"

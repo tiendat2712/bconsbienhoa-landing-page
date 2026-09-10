@@ -23,227 +23,338 @@ import {
   ZoomIn,
   ZoomOut,
   RotateCcw,
-  Send,
   Building2,
   Check,
-  AlertCircle,
   PhoneCall,
 } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
 // =============================================================================
-// DATA STRUCTURES
-// =============================================================================
-
-// 1. KPI Stats (media_1788984716416.png)
-interface ProgressKpi {
-  label: string
-  value: string
-  sub?: string
-  icon: typeof Calendar
-  highlight?: boolean
-}
-
-const PROGRESS_KPIS: ProgressKpi[] = [
-  {
-    label: 'NGÀY KHỞI CÔNG',
-    value: '27/05/2026',
-    sub: 'Chính thức động thổ',
-    icon: Calendar,
-  },
-  {
-    label: 'THỜI GIAN THI CÔNG',
-    value: '36 tháng',
-    sub: 'Chuẩn tiến độ BIM',
-    icon: Clock,
-  },
-  {
-    label: 'DỰ KIẾN BÀN GIAO',
-    value: 'Quý II/2029',
-    sub: 'Nghiệm thu PCCC & Trao chìa khóa',
-    icon: Home,
-  },
-  {
-    label: 'TRẠNG THÁI HIỆN TẠI',
-    value: 'Đang thi công phần móng',
-    sub: 'Khẩn trương thi công 24/7',
-    icon: HardHat,
-    highlight: true,
-  },
-]
-
-// 2. Horizontal Timeline Steps (media_1788984726896.png)
-interface TimelineStep {
-  title: string
-  time: string
-  status: 'completed' | 'in_progress' | 'upcoming'
-  statusLabel: string
-}
-
-const TIMELINE_STEPS: TimelineStep[] = [
-  {
-    title: 'Khởi công',
-    time: '27/05/2026',
-    status: 'completed',
-    statusLabel: 'Hoàn thành',
-  },
-  {
-    title: 'Chuẩn bị mặt bằng',
-    time: '06/2026',
-    status: 'completed',
-    statusLabel: 'Hoàn thành',
-  },
-  {
-    title: 'Ép cọc đại trà',
-    time: '07/2026',
-    status: 'completed',
-    statusLabel: 'Hoàn thành',
-  },
-  {
-    title: 'Thi công móng',
-    time: '08/2026',
-    status: 'in_progress',
-    statusLabel: 'Đang thực hiện',
-  },
-  {
-    title: 'Thi công tầng hầm',
-    time: 'Dự kiến Quý IV/2026',
-    status: 'upcoming',
-    statusLabel: 'Kế hoạch',
-  },
-  {
-    title: 'Thi công phần thân',
-    time: 'Dự kiến 2027 – 2028',
-    status: 'upcoming',
-    statusLabel: 'Kế hoạch',
-  },
-  {
-    title: 'Bàn giao',
-    time: 'Dự kiến Quý II/2029',
-    status: 'upcoming',
-    statusLabel: 'Kế hoạch',
-  },
-]
-
-// 3. Hình Ảnh Tiến Độ Thực Tế (media_1788984738123.png)
-interface ProgressPhoto {
-  id: string
-  time: string
-  title: string
-  imageSrc: string
-  isLatest?: boolean
-  desc: string
-}
-
-const PROGRESS_PHOTOS: ProgressPhoto[] = [
-  {
-    id: 'photo-1',
-    time: '08/2026',
-    title: 'Thi công đài móng',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-thi-cong-mong.webp',
-    isLatest: true,
-    desc: 'Công nhân và kỹ sư tập trung buộc cốt thép và chuẩn bị đổ bê tông đài giằng móng toàn bộ các block.',
-  },
-  {
-    id: 'photo-2',
-    time: '08/2026',
-    title: 'Lắp dựng cẩu tháp',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-cau-thap.webp',
-    desc: 'Hệ thống cẩu tháp chuyên dụng công suất lớn được lắp đặt hoàn tất phục vụ vận chuyển vật tư lên cao.',
-  },
-  {
-    id: 'photo-3',
-    time: '07/2026',
-    title: 'Ép cọc đại trà',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-ep-coc.webp',
-    desc: 'Dàn máy ép cọc robot thủy lực hoàn thành 100% khối lượng cọc bê tông ly tâm dự ứng lực móng sâu.',
-  },
-  {
-    id: 'photo-4',
-    time: '07/2026',
-    title: 'Đào đất tầng hầm',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-dao-dat-tang-ham.webp',
-    desc: 'Xe cơ giới đào và vận chuyển đất tầng hầm, thi công hệ giằng chống shoring an toàn tuyệt đối.',
-  },
-  {
-    id: 'photo-5',
-    time: '06/2026',
-    title: 'Chuẩn bị mặt bằng',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-chuan-bi-mat-bang.webp',
-    desc: 'San lấp mặt bằng sạch gần 3 ha, quây hàng rào tôn bảo vệ và xây dựng văn phòng ban chỉ huy công trường.',
-  },
-  {
-    id: 'photo-6',
-    time: '27/05/2026',
-    title: 'Lễ khởi công dự án',
-    imageSrc: '/images/progress/bcons-central-park-tien-do-khoi-cong.webp',
-    desc: 'Lễ động thổ chính thức dự án Bcons Central Park Tam Hiệp với sự tham gia của lãnh đạo tỉnh và Tập đoàn Bcons.',
-  },
-]
-
-// 4. Kế Hoạch Triển Khai Tiếp Theo (media_1788984747442.png)
-interface UpcomingPhase {
-  title: string
-  time: string
-  desc: string
-  icon: typeof Building2
-}
-
-const UPCOMING_PHASES: UpcomingPhase[] = [
-  {
-    title: 'Thi công tầng hầm',
-    time: 'Quý IV/2026 – Quý I/2027',
-    desc: 'Hoàn thiện 2 tầng hầm để xe kết nối liên thông toàn bộ 5 block căn hộ.',
-    icon: Building2,
-  },
-  {
-    title: 'Thi công phần thân',
-    time: '2027 – 2028',
-    desc: 'Lên tầng lần lượt 5 block cao 22 tầng với chu kỳ đổ sàn trung bình 6–7 ngày/tầng.',
-    icon: HardHat,
-  },
-  {
-    title: 'Cất nóc',
-    time: 'Dự kiến 2028',
-    desc: 'Cất nóc toàn dự án, chuyển sang giai đoạn thi công hoàn thiện mặt ngoài và hệ thống cơ điện MEP.',
-    icon: Sparkles,
-  },
-  {
-    title: 'Hoàn thiện & bàn giao',
-    time: 'Đến Quý II/2029',
-    desc: 'Hoàn thiện nội thất tiêu chuẩn bàn giao, nghiệm thu PCCC và bàn giao nhà đón cư dân.',
-    icon: Home,
-  },
-]
-
-// 5. Tài Liệu Tiến Độ Download (media_1788984738123.png)
-interface DocumentDownload {
-  title: string
-  format: 'PDF' | 'MP4'
-  size: string
-}
-
-const PROGRESS_DOCUMENTS: DocumentDownload[] = [
-  { title: 'Báo cáo tiến độ mới nhất', format: 'PDF', size: '2.4 MB' },
-  { title: 'Kế hoạch tiến độ tổng thể', format: 'PDF', size: '4.8 MB' },
-  { title: 'Ảnh thực tế công trường', format: 'PDF', size: '12.5 MB' },
-  { title: 'Video flycam tiến độ', format: 'MP4', size: '35.0 MB' },
-]
-
-// =============================================================================
 // MAIN COMPONENT
 // =============================================================================
 
 export function ProgressDetail() {
-  const { theme, openConsultation } = useSitePreferences()
+  const { theme, openConsultation, locale } = useSitePreferences()
   const isDark = theme === 'dark'
+  const isEn = locale === 'en'
+
+  // 1. KPI Stats
+  const PROGRESS_KPIS = isEn
+    ? [
+        {
+          label: 'GROUNDBREAKING',
+          value: 'May 27, 2026',
+          sub: 'Official groundbreaking',
+          icon: Calendar,
+        },
+        {
+          label: 'CONSTRUCTION PERIOD',
+          value: '36 Months',
+          sub: 'BIM-standard schedule',
+          icon: Clock,
+        },
+        {
+          label: 'ESTIMATED HANDOVER',
+          value: 'Q2 / 2029',
+          sub: 'Fire safety approval & keys handover',
+          icon: Home,
+        },
+        {
+          label: 'CURRENT STATUS',
+          value: 'Foundation works in progress',
+          sub: 'Active 24/7 site operations',
+          icon: HardHat,
+          highlight: true,
+        },
+      ]
+    : [
+        {
+          label: 'NGÀY KHỞI CÔNG',
+          value: '27/05/2026',
+          sub: 'Chính thức động thổ',
+          icon: Calendar,
+        },
+        {
+          label: 'THỜI GIAN THI CÔNG',
+          value: '36 tháng',
+          sub: 'Chuẩn tiến độ BIM',
+          icon: Clock,
+        },
+        {
+          label: 'DỰ KIẾN BÀN GIAO',
+          value: 'Quý II/2029',
+          sub: 'Nghiệm thu PCCC & Trao chìa khóa',
+          icon: Home,
+        },
+        {
+          label: 'TRẠNG THÁI HIỆN TẠI',
+          value: 'Đang thi công phần móng',
+          sub: 'Khẩn trương thi công 24/7',
+          icon: HardHat,
+          highlight: true,
+        },
+      ]
+
+  // 2. Horizontal Timeline Steps
+  const TIMELINE_STEPS = isEn
+    ? [
+        {
+          title: 'Groundbreaking',
+          time: 'May 27, 2026',
+          status: 'completed' as const,
+          statusLabel: 'Completed',
+        },
+        {
+          title: 'Site Prep',
+          time: '06/2026',
+          status: 'completed' as const,
+          statusLabel: 'Completed',
+        },
+        {
+          title: 'Mass Piling',
+          time: '07/2026',
+          status: 'completed' as const,
+          statusLabel: 'Completed',
+        },
+        {
+          title: 'Foundation',
+          time: '08/2026',
+          status: 'in_progress' as const,
+          statusLabel: 'In Progress',
+        },
+        {
+          title: 'Basements',
+          time: 'Est. Q4/2026',
+          status: 'upcoming' as const,
+          statusLabel: 'Planned',
+        },
+        {
+          title: 'Superstructure',
+          time: 'Est. 2027 – 2028',
+          status: 'upcoming' as const,
+          statusLabel: 'Planned',
+        },
+        {
+          title: 'Handover',
+          time: 'Est. Q2/2029',
+          status: 'upcoming' as const,
+          statusLabel: 'Planned',
+        },
+      ]
+    : [
+        {
+          title: 'Khởi công',
+          time: '27/05/2026',
+          status: 'completed' as const,
+          statusLabel: 'Hoàn thành',
+        },
+        {
+          title: 'Chuẩn bị mặt bằng',
+          time: '06/2026',
+          status: 'completed' as const,
+          statusLabel: 'Hoàn thành',
+        },
+        {
+          title: 'Ép cọc đại trà',
+          time: '07/2026',
+          status: 'completed' as const,
+          statusLabel: 'Hoàn thành',
+        },
+        {
+          title: 'Thi công móng',
+          time: '08/2026',
+          status: 'in_progress' as const,
+          statusLabel: 'Đang thực hiện',
+        },
+        {
+          title: 'Thi công tầng hầm',
+          time: 'Dự kiến Quý IV/2026',
+          status: 'upcoming' as const,
+          statusLabel: 'Kế hoạch',
+        },
+        {
+          title: 'Thi công phần thân',
+          time: 'Dự kiến 2027 – 2028',
+          status: 'upcoming' as const,
+          statusLabel: 'Kế hoạch',
+        },
+        {
+          title: 'Bàn giao',
+          time: 'Dự kiến Quý II/2029',
+          status: 'upcoming' as const,
+          statusLabel: 'Kế hoạch',
+        },
+      ]
+
+  // 3. Hình Ảnh Tiến Độ Thực Tế
+  const PROGRESS_PHOTOS = isEn
+    ? [
+        {
+          id: 'photo-1',
+          time: '08/2026',
+          title: 'Foundation Cap Construction',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-thi-cong-mong.webp',
+          isLatest: true,
+          desc: 'Engineers and construction teams tying reinforcing steel and preparing concrete pour for foundation tie beams across all residential blocks.',
+        },
+        {
+          id: 'photo-2',
+          time: '08/2026',
+          title: 'Tower Crane Erection',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-cau-thap.webp',
+          desc: 'High-capacity tower crane assemblies completely erected to service vertical construction logistics.',
+        },
+        {
+          id: 'photo-3',
+          time: '07/2026',
+          title: 'Mass Foundation Piling',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-ep-coc.webp',
+          desc: 'Hydraulic robotic piling rigs completed 100% of deep prestressed spun concrete piles according to design specifications.',
+        },
+        {
+          id: 'photo-4',
+          time: '07/2026',
+          title: 'Basement Excavation',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-dao-dat-tang-ham.webp',
+          desc: 'Heavy earthmovers excavating basement footprint with certified safety retaining shoring systems.',
+        },
+        {
+          id: 'photo-5',
+          time: '06/2026',
+          title: 'Site Preparation & Hoarding',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-chuan-bi-mat-bang.webp',
+          desc: 'Leveling nearly 3 hectares of clean ground, erecting perimeter security hoarding and site executive field office.',
+        },
+        {
+          id: 'photo-6',
+          time: '27/05/2026',
+          title: 'Groundbreaking Ceremony',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-khoi-cong.webp',
+          desc: 'Official groundbreaking ceremony of Bcons Central Park Tam Hiep attended by provincial leadership and Bcons Group executives.',
+        },
+      ]
+    : [
+        {
+          id: 'photo-1',
+          time: '08/2026',
+          title: 'Thi công đài móng',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-thi-cong-mong.webp',
+          isLatest: true,
+          desc: 'Công nhân và kỹ sư tập trung buộc cốt thép và chuẩn bị đổ bê tông đài giằng móng toàn bộ các block.',
+        },
+        {
+          id: 'photo-2',
+          time: '08/2026',
+          title: 'Lắp dựng cẩu tháp',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-cau-thap.webp',
+          desc: 'Hệ thống cẩu tháp chuyên dụng công suất lớn được lắp đặt hoàn tất phục vụ vận chuyển vật tư lên cao.',
+        },
+        {
+          id: 'photo-3',
+          time: '07/2026',
+          title: 'Ép cọc đại trà',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-ep-coc.webp',
+          desc: 'Dàn máy ép cọc robot thủy lực hoàn thành 100% khối lượng cọc bê tông ly tâm dự ứng lực móng sâu.',
+        },
+        {
+          id: 'photo-4',
+          time: '07/2026',
+          title: 'Đào đất tầng hầm',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-dao-dat-tang-ham.webp',
+          desc: 'Xe cơ giới đào và vận chuyển đất tầng hầm, thi công hệ giằng chống shoring an toàn tuyệt đối.',
+        },
+        {
+          id: 'photo-5',
+          time: '06/2026',
+          title: 'Chuẩn bị mặt bằng',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-chuan-bi-mat-bang.webp',
+          desc: 'San lấp mặt bằng sạch gần 3 ha, quây hàng rào tôn bảo vệ và xây dựng văn phòng ban chỉ huy công trường.',
+        },
+        {
+          id: 'photo-6',
+          time: '27/05/2026',
+          title: 'Lễ khởi công dự án',
+          imageSrc: '/images/progress/bcons-central-park-tien-do-khoi-cong.webp',
+          desc: 'Lễ động thổ chính thức dự án Bcons Central Park Tam Hiệp với sự tham gia của lãnh đạo tỉnh và Tập đoàn Bcons.',
+        },
+      ]
+
+  // 4. Kế Hoạch Triển Khai Tiếp Theo
+  const UPCOMING_PHASES = isEn
+    ? [
+        {
+          title: 'Basement Construction',
+          time: 'Q4/2026 – Q1/2027',
+          desc: 'Complete 2 interconnected basement parking levels across all 5 residential blocks.',
+          icon: Building2,
+        },
+        {
+          title: 'Superstructure Works',
+          time: '2027 – 2028',
+          desc: 'Rising 22-storey towers with a standard slab cycle of 6–7 days per floor.',
+          icon: HardHat,
+        },
+        {
+          title: 'Topping Out',
+          time: 'Est. 2028',
+          desc: 'Project-wide structural topping out, transitioning to exterior finishes and MEP installation.',
+          icon: Sparkles,
+        },
+        {
+          title: 'Finishing & Handover',
+          time: 'By Q2/2029',
+          desc: 'Deliver standard interior fit-outs, pass state fire safety acceptance, and hand over keys to owners.',
+          icon: Home,
+        },
+      ]
+    : [
+        {
+          title: 'Thi công tầng hầm',
+          time: 'Quý IV/2026 – Quý I/2027',
+          desc: 'Hoàn thiện 2 tầng hầm để xe kết nối liên thông toàn bộ 5 block căn hộ.',
+          icon: Building2,
+        },
+        {
+          title: 'Thi công phần thân',
+          time: '2027 – 2028',
+          desc: 'Lên tầng lần lượt 5 block cao 22 tầng với chu kỳ đổ sàn trung bình 6–7 ngày/tầng.',
+          icon: HardHat,
+        },
+        {
+          title: 'Cất nóc',
+          time: 'Dự kiến 2028',
+          desc: 'Cất nóc toàn dự án, chuyển sang giai đoạn thi công hoàn thiện mặt ngoài và hệ thống cơ điện MEP.',
+          icon: Sparkles,
+        },
+        {
+          title: 'Hoàn thiện & bàn giao',
+          time: 'Đến Quý II/2029',
+          desc: 'Hoàn thiện nội thất tiêu chuẩn bàn giao, nghiệm thu PCCC và bàn giao nhà đón cư dân.',
+          icon: Home,
+        },
+      ]
+
+  // 5. Tài Liệu Tiến Độ Download
+  const PROGRESS_DOCUMENTS = isEn
+    ? [
+        { title: 'Latest Progress Report', format: 'PDF' as const, size: '2.4 MB' },
+        { title: 'Master Construction Schedule', format: 'PDF' as const, size: '4.8 MB' },
+        { title: 'Site Photo Compilation', format: 'PDF' as const, size: '12.5 MB' },
+        { title: 'Flycam Drone Video', format: 'MP4' as const, size: '35.0 MB' },
+      ]
+    : [
+        { title: 'Báo cáo tiến độ mới nhất', format: 'PDF' as const, size: '2.4 MB' },
+        { title: 'Kế hoạch tiến độ tổng thể', format: 'PDF' as const, size: '4.8 MB' },
+        { title: 'Ảnh thực tế công trường', format: 'PDF' as const, size: '12.5 MB' },
+        { title: 'Video flycam tiến độ', format: 'MP4' as const, size: '35.0 MB' },
+      ]
 
   // Lightbox State
-  const [activePhoto, setActivePhoto] = useState<ProgressPhoto | null>(null)
+  const [activePhoto, setActivePhoto] = useState<typeof PROGRESS_PHOTOS[0] | null>(null)
   const [zoomLevel, setZoomLevel] = useState<number>(1)
 
-  const openLightbox = (photo: ProgressPhoto) => {
+  const openLightbox = (photo: typeof PROGRESS_PHOTOS[0]) => {
     setActivePhoto(photo)
     setZoomLevel(1)
   }
@@ -256,14 +367,14 @@ export function ProgressDetail() {
   return (
     <>
       {/* =====================================================================
-          1. HERO BANNER — CINEMATIC LUXURY (media_1788984716416.png)
+          1. HERO BANNER — CINEMATIC LUXURY
       ===================================================================== */}
       <section className="relative min-h-[480px] lg:min-h-[540px] flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-36 lg:pb-20">
         {/* Background Image with Dark Vignette */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/bcons-central-park-tam-hiep-phoi-canh.webp"
-            alt="Tiến độ dự án Bcons Central Park Tam Hiệp"
+            alt={isEn ? 'Bcons Central Park Tam Hiep construction progress' : 'Tiến độ dự án Bcons Central Park Tam Hiệp'}
             className="size-full object-cover object-center scale-105 transition-transform duration-1000"
           />
           {/* Deep Forest Emerald Gradient Overlay */}
@@ -274,13 +385,13 @@ export function ProgressDetail() {
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 lg:px-8 w-full text-white">
           {/* Breadcrumb Frosted Glass */}
-          <nav aria-label="Đường dẫn" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-white/80 mb-6 shadow-sm">
+          <nav aria-label={isEn ? 'Breadcrumb' : 'Đường dẫn'} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-white/80 mb-6 shadow-sm">
             <Link href="/" className="hover:text-[#e6c887] transition-colors flex items-center gap-1.5">
               <Home className="size-3.5 text-[#e6c887]" />
-              Trang chủ
+              {isEn ? 'Home' : 'Trang chủ'}
             </Link>
             <ChevronRight className="size-3.5 text-white/40" />
-            <span className="text-[#e6c887] font-semibold">Tiến độ dự án</span>
+            <span className="text-[#e6c887] font-semibold">{isEn ? 'Construction Progress' : 'Tiến độ dự án'}</span>
           </nav>
 
           <Reveal>
@@ -288,7 +399,7 @@ export function ProgressDetail() {
             <div className="flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887] text-xs font-bold tracking-widest uppercase">
                 <Sparkles className="size-3" />
-                TIẾN ĐỘ DỰ ÁN
+                {isEn ? 'PROJECT PROGRESS' : 'TIẾN ĐỘ DỰ ÁN'}
               </span>
             </div>
 
@@ -299,22 +410,24 @@ export function ProgressDetail() {
 
             {/* Subtitle Italic */}
             <p className="mt-3 font-serif text-xl sm:text-2xl md:text-3xl italic text-[#e6c887] tracking-wide font-normal">
-              Xây dựng đúng tiến độ – Cam kết chất lượng
+              {isEn ? 'Building on Schedule – Committed to Quality' : 'Xây dựng đúng tiến độ – Cam kết chất lượng'}
             </p>
 
             {/* Lead Description */}
             <p className="mt-5 max-w-3xl text-sm sm:text-base md:text-lg text-white/85 leading-relaxed font-sans">
-              Cập nhật tiến độ dự án Bcons Central Park mới nhất. Chúng tôi cam kết minh bạch thông tin, đảm bảo dự án được triển khai đúng kế hoạch và bàn giao đúng thời hạn.
+              {isEn
+                ? 'Latest construction updates for Bcons Central Park. We are committed to complete transparency, ensuring on-schedule execution and timely handover.'
+                : 'Cập nhật tiến độ dự án Bcons Central Park mới nhất. Chúng tôi cam kết minh bạch thông tin, đảm bảo dự án được triển khai đúng kế hoạch và bàn giao đúng thời hạn.'}
             </p>
 
             {/* Metadata bar */}
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/70 font-sans border-t border-white/15 pt-4">
-              <span>Cập nhật ngày <strong className="text-white font-medium">05/09/2026</strong></span>
+              <span>{isEn ? 'Updated: ' : 'Cập nhật ngày '}<strong className="text-white font-medium">05/09/2026</strong></span>
               <span className="text-white/30">•</span>
-              <span>Biên soạn bởi <strong className="text-[#e6c887] font-semibold">Lê Ngọc Long</strong></span>
+              <span>{isEn ? 'Compiled by ' : 'Biên soạn bởi '}<strong className="text-[#e6c887] font-semibold">Lê Ngọc Long</strong></span>
               <span className="text-white/30">•</span>
               <span className="text-emerald-300 font-medium flex items-center gap-1">
-                <CheckCircle2 className="size-3.5" /> Quy trình biên tập độc lập & đối chiếu thực địa
+                <CheckCircle2 className="size-3.5" /> {isEn ? 'Independent editorial process & on-site verification' : 'Quy trình biên tập độc lập & đối chiếu thực địa'}
               </span>
             </div>
           </Reveal>
@@ -322,7 +435,7 @@ export function ProgressDetail() {
       </section>
 
       {/* =====================================================================
-          2. 4 TOP KPI SUMMARY CARDS (media_1788984716416.png)
+          2. 4 TOP KPI SUMMARY CARDS
       ===================================================================== */}
       <section className="bg-background py-8 border-b border-border/60 dark:border-white/10 transition-colors">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -390,20 +503,20 @@ export function ProgressDetail() {
                 LEFT MAIN COLUMN (8 COLS)
             =============================================================== */}
             <div className="lg:col-span-8 space-y-12">
-              {/* SECTION A: TIẾN ĐỘ THỰC TẾ DỰ ÁN (media_1788984726896.png) */}
+              {/* SECTION A: TIẾN ĐỘ THỰC TẾ DỰ ÁN */}
               <Reveal>
                 <div className="p-6 sm:p-8 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-md">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 pb-4 border-b border-border/60 dark:border-white/10">
                     <div>
                       <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887]">
-                        LỘ TRÌNH THI CÔNG
+                        {isEn ? 'CONSTRUCTION ROADMAP' : 'LỘ TRÌNH THI CÔNG'}
                       </span>
                       <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                        TIẾN ĐỘ THỰC TẾ DỰ ÁN
+                        {isEn ? 'ACTUAL CONSTRUCTION PROGRESS' : 'TIẾN ĐỘ THỰC TẾ DỰ ÁN'}
                       </h2>
                     </div>
                     <span className="text-xs text-muted-foreground font-medium">
-                      Cập nhật mới nhất: <strong className="text-foreground">05/09/2026</strong>
+                      {isEn ? 'Latest update: ' : 'Cập nhật mới nhất: '}<strong className="text-foreground">05/09/2026</strong>
                     </span>
                   </div>
 
@@ -470,7 +583,7 @@ export function ProgressDetail() {
                   <div className="mt-8 p-6 rounded-2xl bg-secondary/40 dark:bg-[#0c241b] border border-border/80 dark:border-white/10 grid sm:grid-cols-12 gap-6 items-center">
                     <div className="sm:col-span-5 border-b sm:border-b-0 sm:border-r border-border/80 dark:border-white/10 pb-5 sm:pb-0 sm:pr-6">
                       <span className="text-[11px] font-bold tracking-wider uppercase text-muted-foreground">
-                        TỔNG TIẾN ĐỘ DỰ ÁN
+                        {isEn ? 'OVERALL PROJECT PROGRESS' : 'TỔNG TIẾN ĐỘ DỰ ÁN'}
                       </span>
                       <div className="font-serif text-4xl sm:text-5xl font-bold text-primary dark:text-[#e6c887] mt-1">
                         9%
@@ -480,20 +593,30 @@ export function ProgressDetail() {
                         <div className="h-full bg-gradient-to-r from-emerald-500 to-[#e6c887] rounded-full w-[9%]" />
                       </div>
                       <p className="text-[11px] text-muted-foreground mt-2 leading-tight">
-                        Ước tính theo thời gian thi công đã trôi qua trên tổng 36 tháng kế hoạch.
+                        {isEn
+                          ? 'Estimated based on elapsed construction time against the 36-month master plan.'
+                          : 'Ước tính theo thời gian thi công đã trôi qua trên tổng 36 tháng kế hoạch.'}
                       </p>
                     </div>
 
                     <div className="sm:col-span-7 space-y-3">
                       <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                        Dự án đang triển khai đúng tiến độ cam kết. Công tác thi công phần ngầm đang tập trung toàn lực để đảm bảo lên tầng đúng kế hoạch. Đối chiếu thêm <Link href="/chu-dau-tu" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">năng lực chủ đầu tư Bcons</Link> và <Link href="/phap-ly" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">pháp lý Bcons Tam Hiệp</Link>.
+                        {isEn ? (
+                          <>
+                            The project is progressing strictly on schedule. Substructure works are operating at full capacity to ensure timely superstructure ascent. Also cross-reference <Link href="/chu-dau-tu" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">Bcons developer profile</Link> and <Link href="/phap-ly" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">Bcons Tam Hiep legal dossier</Link>.
+                          </>
+                        ) : (
+                          <>
+                            Dự án đang triển khai đúng tiến độ cam kết. Công tác thi công phần ngầm đang tập trung toàn lực để đảm bảo lên tầng đúng kế hoạch. Đối chiếu thêm <Link href="/chu-dau-tu" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">năng lực chủ đầu tư Bcons</Link> và <Link href="/phap-ly" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">pháp lý Bcons Tam Hiệp</Link>.
+                          </>
+                        )}
                       </p>
                       <div>
                         <Link
                           href="#ke-hoach"
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-primary dark:text-[#e6c887] hover:underline uppercase tracking-wider"
                         >
-                          XEM CHI TIẾT KẾ HOẠCH
+                          {isEn ? 'VIEW DETAILED PLAN' : 'XEM CHI TIẾT KẾ HOẠCH'}
                           <ArrowRight className="size-3.5" />
                         </Link>
                       </div>
@@ -502,20 +625,20 @@ export function ProgressDetail() {
                 </div>
               </Reveal>
 
-              {/* SECTION B: HÌNH ẢNH TIẾN ĐỘ THỰC TẾ (media_1788984738123.png) */}
+              {/* SECTION B: HÌNH ẢNH TIẾN ĐỘ THỰC TẾ */}
               <Reveal>
                 <div className="p-6 sm:p-8 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-md">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
                     <div>
                       <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887]">
-                        THỰC TẾ CÔNG TRƯỜNG
+                        {isEn ? 'SITE REALITY' : 'THỰC TẾ CÔNG TRƯỜNG'}
                       </span>
                       <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                        HÌNH ẢNH TIẾN ĐỘ THỰC TẾ
+                        {isEn ? 'ACTUAL SITE PHOTOGRAPHS' : 'HÌNH ẢNH TIẾN ĐỘ THỰC TẾ'}
                       </h2>
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      Nhấn vào ảnh để phóng to chi tiết
+                      {isEn ? 'Click any photo to enlarge' : 'Nhấn vào ảnh để phóng to chi tiết'}
                     </span>
                   </div>
 
@@ -536,14 +659,14 @@ export function ProgressDetail() {
                           />
                           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium border border-white/30">
-                              <Eye className="size-3.5" /> Phóng to
+                              <Eye className="size-3.5" /> {isEn ? 'Enlarge' : 'Phóng to'}
                             </span>
                           </div>
 
                           {/* Latest Tag */}
                           {photo.isLatest && (
                             <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-md text-[10px] font-bold tracking-wider uppercase bg-[#e6c887] text-[#072018] shadow-md">
-                              MỚI NHẤT
+                              {isEn ? 'LATEST' : 'MỚI NHẤT'}
                             </span>
                           )}
                         </div>
@@ -572,22 +695,22 @@ export function ProgressDetail() {
                       className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold border border-border dark:border-white/20 hover:border-primary dark:hover:border-[#e6c887] text-foreground bg-secondary/40 hover:bg-secondary transition-all"
                     >
                       <Eye className="size-4 text-[#e6c887]" />
-                      XEM THÊM HÌNH ẢNH CÔNG TRƯỜNG
+                      {isEn ? 'VIEW MORE SITE PHOTOS' : 'XEM THÊM HÌNH ẢNH CÔNG TRƯỜNG'}
                     </button>
                   </div>
                 </div>
               </Reveal>
 
-              {/* SECTION C: KẾ HOẠCH TRIỂN KHAI TIẾP THEO (media_1788984747442.png) */}
+              {/* SECTION C: KẾ HOẠCH TRIỂN KHAI TIẾP THEO */}
               <div id="ke-hoach">
                 <Reveal>
                   <div className="p-6 sm:p-8 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-md">
                     <div className="mb-6">
                       <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887]">
-                        MỤC TIÊU BÀN GIAO
+                        {isEn ? 'HANDOVER MILESTONES' : 'MỤC TIÊU BÀN GIAO'}
                       </span>
                       <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                        KẾ HOẠCH TRIỂN KHAI TIẾP THEO
+                        {isEn ? 'UPCOMING IMPLEMENTATION PLAN' : 'KẾ HOẠCH TRIỂN KHAI TIẾP THEO'}
                       </h2>
                     </div>
 
@@ -621,20 +744,38 @@ export function ProgressDetail() {
 
                     {/* Payment linkage notice */}
                     <div className="mt-6 p-4 rounded-2xl bg-secondary/40 dark:bg-white/5 border border-border dark:border-white/10 text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                      Tiến độ thi công là căn cứ để đối chiếu với <Link href="/gia-ban#lich-thanh-toan" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">tiến độ thanh toán Bcons Central Park</Link> — người mua nên thanh toán theo đúng đợt hoàn thành trong hợp đồng thay vì nộp vượt trước. Xem thêm <Link href="/gia-ban" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">giá bán Bcons Central Park theo từng đợt</Link>.
+                      {isEn ? (
+                        <>
+                          Construction progress forms the legal baseline for matching the <Link href="/gia-ban#lich-thanh-toan" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">Bcons Central Park payment schedule</Link> — purchasers are advised to remit payments aligned strictly with completed contractual phases rather than prepaying prematurely. See also <Link href="/gia-ban" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">unit pricing by phase</Link>.
+                        </>
+                      ) : (
+                        <>
+                          Tiến độ thi công là căn cứ để đối chiếu với <Link href="/gia-ban#lich-thanh-toan" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">tiến độ thanh toán Bcons Central Park</Link> — người mua nên thanh toán theo đúng đợt hoàn thành trong hợp đồng thay vì nộp vượt trước. Xem thêm <Link href="/gia-ban" className="text-primary dark:text-[#e6c887] font-semibold underline underline-offset-2">giá bán Bcons Central Park theo từng đợt</Link>.
+                        </>
+                      )}
                     </div>
 
                     {/* Disclaimer Footnote */}
                     <div className="mt-6 pt-4 border-t border-border/60 dark:border-white/10 text-[11px] text-muted-foreground leading-relaxed">
-                      * Thời gian có thể thay đổi theo điều kiện thi công thực tế; các mốc chưa diễn ra là kế hoạch dự kiến của chủ đầu tư. Hình ảnh trong mục tiến độ là ảnh minh hoạ từng giai đoạn thi công, sẽ được thay bằng ảnh công trường ngay khi chủ đầu tư phát hành.
+                      {isEn
+                        ? '* Timelines may vary according to actual site conditions; upcoming milestones represent developer target dates. Representative phase photos will be updated as soon as official site updates are released.'
+                        : '* Thời gian có thể thay đổi theo điều kiện thi công thực tế; các mốc chưa diễn ra là kế hoạch dự kiến của chủ đầu tư. Hình ảnh trong mục tiến độ là ảnh minh hoạ từng giai đoạn thi công, sẽ được thay bằng ảnh công trường ngay khi chủ đầu tư phát hành.'}
                     </div>
 
                     <div className="mt-4 p-3.5 rounded-xl bg-background border border-border/80 dark:border-white/10 text-xs text-muted-foreground flex flex-col sm:flex-row sm:items-center gap-2">
                       <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
-                        CHÍNH THỨC
+                        {isEn ? 'OFFICIAL' : 'CHÍNH THỨC'}
                       </span>
                       <div>
-                        <strong>Nguồn:</strong> Lễ khởi công dự án ngày 27/05/2026 — thông tin do chủ đầu tư Bcons Group công bố. Đối chiếu lần cuối: 28/08/2026.
+                        {isEn ? (
+                          <>
+                            <strong>Source:</strong> Groundbreaking ceremony May 27, 2026 — official information released by Bcons Group. Last cross-referenced: August 28, 2026.
+                          </>
+                        ) : (
+                          <>
+                            <strong>Nguồn:</strong> Lễ khởi công dự án ngày 27/05/2026 — thông tin do chủ đầu tư Bcons Group công bố. Đối chiếu lần cuối: 28/08/2026.
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -652,32 +793,40 @@ export function ProgressDetail() {
                   <div className="absolute -top-12 -right-12 size-36 rounded-full bg-[#e6c887]/15 dark:bg-[#e6c887]/10 blur-2xl pointer-events-none" />
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary dark:bg-[#e6c887]/15 dark:text-[#e6c887] border border-primary/20 dark:border-[#e6c887]/30">
                     <Sparkles className="size-3" />
-                    BẢN TIN CÔNG TRƯỜNG ĐỊNH KỲ
+                    {isEn ? 'PERIODIC SITE NEWSLETTER' : 'BẢN TIN CÔNG TRƯỜNG ĐỊNH KỲ'}
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-foreground mt-2.5 mb-1.5">
-                    Nhận Cập Nhật Tiến Độ
+                    {isEn ? 'Receive Progress Updates' : 'Nhận Cập Nhật Tiến Độ'}
                   </h3>
                   <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
-                    Chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ gửi file PDF báo cáo kỹ thuật, video flycam 4K và hình ảnh nghiệm thu thực địa hàng tháng trực tiếp qua Zalo.
+                    {isEn ? (
+                      <>
+                        Property consultant <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> will send technical PDF reports, 4K flycam videos, and on-site acceptance photos monthly directly via Zalo/WhatsApp.
+                      </>
+                    ) : (
+                      <>
+                        Chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ gửi file PDF báo cáo kỹ thuật, video flycam 4K và hình ảnh nghiệm thu thực địa hàng tháng trực tiếp qua Zalo.
+                      </>
+                    )}
                   </p>
 
                   <button
                     type="button"
                     onClick={() =>
                       openConsultation({
-                        source: 'Trang Tiến Độ - Nhận báo cáo tiến độ mới nhất',
+                        source: isEn ? 'Progress Page - Receive latest progress report' : 'Trang Tiến Độ - Nhận báo cáo tiến độ mới nhất',
                       })
                     }
                     className="w-full py-3.5 px-4 rounded-xl font-sans font-bold text-xs sm:text-sm tracking-wide uppercase shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 bg-primary text-white hover:bg-primary/90 dark:bg-gradient-to-r dark:from-[#e6c887] dark:via-[#f7e4b5] dark:to-[#e6c887] dark:text-[#072018] cursor-pointer group/btn"
                   >
-                    <span>Đăng ký nhận báo cáo tiến độ</span>
+                    <span>{isEn ? 'Subscribe to Progress Reports' : 'Đăng ký nhận báo cáo tiến độ'}</span>
                     <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
 
                   <div className="mt-4 pt-3 border-t border-border/60 dark:border-white/10 flex items-center justify-between text-xs">
                     <span className="text-muted-foreground flex items-center gap-1.5">
                       <PhoneCall className="size-3.5 text-primary dark:text-[#e6c887]" />
-                      Hotline trực tiếp:
+                      {isEn ? 'Direct Hotline:' : 'Hotline trực tiếp:'}
                     </span>
                     <a
                       href="tel:0376671776"
@@ -689,11 +838,11 @@ export function ProgressDetail() {
                 </div>
               </Reveal>
 
-              {/* WIDGET 2: TÀI LIỆU TIẾN ĐỘ (media_1788984738123.png) */}
+              {/* WIDGET 2: TÀI LIỆU TIẾN ĐỘ */}
               <Reveal delay={0.15}>
                 <div className="rounded-3xl border border-border/80 dark:border-white/10 bg-card p-6 shadow-md">
                   <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center justify-between">
-                    <span>TÀI LIỆU TIẾN ĐỘ</span>
+                    <span>{isEn ? 'PROGRESS DOCUMENTS' : 'TÀI LIỆU TIẾN ĐỘ'}</span>
                     <Download className="size-4 text-[#e6c887]" />
                   </h3>
 
@@ -703,7 +852,7 @@ export function ProgressDetail() {
                         key={idx}
                         onClick={() =>
                           openConsultation({
-                            source: `Trang Tiến Độ - Tải tài liệu: ${doc.title}`,
+                            source: `${isEn ? 'Progress Page - Download document: ' : 'Trang Tiến Độ - Tải tài liệu: '}${doc.title}`,
                           })
                         }
                         className="p-3 rounded-xl border border-border/80 dark:border-white/10 bg-secondary/30 hover:bg-secondary/60 flex items-center justify-between transition-colors group cursor-pointer"
@@ -733,17 +882,17 @@ export function ProgressDetail() {
                 </div>
               </Reveal>
 
-              {/* WIDGET 3: THỜI TIẾT TẠI CÔNG TRƯỜNG (media_1788984747442.png) */}
+              {/* WIDGET 3: THỜI TIẾT TẠI CÔNG TRƯỜNG */}
               <Reveal delay={0.2}>
                 <div className="rounded-3xl border border-border/80 dark:border-white/10 bg-card p-6 shadow-md">
                   <span className="text-[10px] font-bold tracking-wider uppercase text-primary dark:text-[#e6c887]">
-                    ĐIỀU KIỆN THI CÔNG
+                    {isEn ? 'SITE CONDITIONS' : 'ĐIỀU KIỆN THI CÔNG'}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-foreground mt-0.5 mb-1">
-                    THỜI TIẾT TẠI CÔNG TRƯỜNG
+                    {isEn ? 'SITE WEATHER TODAY' : 'THỜI TIẾT TẠI CÔNG TRƯỜNG'}
                   </h3>
                   <p className="text-xs text-muted-foreground mb-4">
-                    Phường Tam Hiệp, Thành phố Biên Hòa, Đồng Nai
+                    {isEn ? 'Tam Hiep Ward, Bien Hoa City, Dong Nai' : 'Phường Tam Hiệp, Thành phố Biên Hòa, Đồng Nai'}
                   </p>
 
                   <div className="p-4 rounded-2xl bg-secondary/40 dark:bg-[#0c241b] border border-border/60 dark:border-white/10">
@@ -753,7 +902,7 @@ export function ProgressDetail() {
                           28°C
                         </div>
                         <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                          Nắng ráo · Thuận lợi đổ bê tông
+                          {isEn ? 'Sunny & Clear · Ideal for Concrete Pour' : 'Nắng ráo · Thuận lợi đổ bê tông'}
                         </span>
                       </div>
                       <CloudSun className="size-10 text-amber-500" />
@@ -762,39 +911,41 @@ export function ProgressDetail() {
                     <div className="mt-4 pt-3 border-t border-border/60 dark:border-white/10 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1.5">
                         <Droplets className="size-3.5 text-sky-500" />
-                        <span>Độ ẩm: 76%</span>
+                        <span>{isEn ? 'Humidity: 76%' : 'Độ ẩm: 76%'}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Wind className="size-3.5 text-teal-500" />
-                        <span>Gió: 5 km/h</span>
+                        <span>{isEn ? 'Wind: 5 km/h' : 'Gió: 5 km/h'}</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </Reveal>
 
-              {/* WIDGET 4: THAM QUAN CÔNG TRƯỜNG (media_1788984747442.png) */}
+              {/* WIDGET 4: THAM QUAN CÔNG TRƯỜNG */}
               <Reveal delay={0.25}>
                 <div className="rounded-3xl border border-border/80 dark:border-white/10 bg-card p-6 shadow-md">
                   <h3 className="font-serif text-lg font-bold text-foreground mb-2">
-                    THAM QUAN CÔNG TRƯỜNG
+                    {isEn ? 'SITE TOUR INVITATION' : 'THAM QUAN CÔNG TRƯỜNG'}
                   </h3>
                   <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                    Trải nghiệm thực tế tiến độ dự án cùng đội ngũ kỹ sư và chuyên viên tư vấn chuyên nghiệp.
+                    {isEn
+                      ? 'Experience on-site construction progress accompanied by project engineers and professional property consultants.'
+                      : 'Trải nghiệm thực tế tiến độ dự án cùng đội ngũ kỹ sư và chuyên viên tư vấn chuyên nghiệp.'}
                   </p>
 
                   <ul className="space-y-2 mb-5 text-xs text-foreground/90 font-medium">
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="size-3.5 text-primary dark:text-[#e6c887] shrink-0" />
-                      <span>Tham quan thực tế công trường 236 Phan Trung</span>
+                      <span>{isEn ? 'Direct inspection of active site at 236 Phan Trung' : 'Tham quan thực tế công trường 236 Phan Trung'}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="size-3.5 text-primary dark:text-[#e6c887] shrink-0" />
-                      <span>Tư vấn tiến độ và đối chiếu hồ sơ pháp lý</span>
+                      <span>{isEn ? 'Consultation on construction milestones & legal approvals' : 'Tư vấn tiến độ và đối chiếu hồ sơ pháp lý'}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="size-3.5 text-primary dark:text-[#e6c887] shrink-0" />
-                      <span>Hỗ trợ xe đưa đón tận nơi miễn phí</span>
+                      <span>{isEn ? 'Complimentary private round-trip transportation support' : 'Hỗ trợ xe đưa đón tận nơi miễn phí'}</span>
                     </li>
                   </ul>
 
@@ -802,7 +953,7 @@ export function ProgressDetail() {
                     href="tel:0376671776"
                     className="w-full py-2.5 rounded-xl font-sans font-bold text-xs tracking-wide uppercase shadow-md transition-all flex items-center justify-center gap-2 bg-[#e6c887] text-[#072018] hover:opacity-90"
                   >
-                    ĐẶT LỊCH NGAY: 0376 671 776
+                    {isEn ? 'BOOK A TOUR: 0376 671 776' : 'ĐẶT LỊCH NGAY: 0376 671 776'}
                   </a>
                 </div>
               </Reveal>
@@ -826,7 +977,7 @@ export function ProgressDetail() {
             <div className="flex items-center justify-between z-10 max-w-5xl mx-auto w-full pt-2">
               <div className="text-white">
                 <span className="text-xs text-[#e6c887] font-bold tracking-wider uppercase">
-                  {activePhoto.time} · HÌNH ẢNH CÔNG TRƯỜNG THỰC TẾ
+                  {activePhoto.time} · {isEn ? 'ON-SITE PHOTOGRAPH' : 'HÌNH ẢNH CÔNG TRƯỜNG THỰC TẾ'}
                 </span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
                   {activePhoto.title}
@@ -839,7 +990,7 @@ export function ProgressDetail() {
                   type="button"
                   onClick={() => setZoomLevel((prev) => Math.min(prev + 0.25, 2.5))}
                   className="size-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-                  title="Phóng to"
+                  title={isEn ? 'Zoom in' : 'Phóng to'}
                 >
                   <ZoomIn className="size-4" />
                 </button>
@@ -847,7 +998,7 @@ export function ProgressDetail() {
                   type="button"
                   onClick={() => setZoomLevel((prev) => Math.max(prev - 0.25, 0.75))}
                   className="size-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-                  title="Thu nhỏ"
+                  title={isEn ? 'Zoom out' : 'Thu nhỏ'}
                 >
                   <ZoomOut className="size-4" />
                 </button>
@@ -855,7 +1006,7 @@ export function ProgressDetail() {
                   type="button"
                   onClick={() => setZoomLevel(1)}
                   className="size-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-                  title="Đặt lại kích thước"
+                  title={isEn ? 'Reset size' : 'Đặt lại kích thước'}
                 >
                   <RotateCcw className="size-4" />
                 </button>
@@ -863,7 +1014,7 @@ export function ProgressDetail() {
                   type="button"
                   onClick={closeLightbox}
                   className="size-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors ml-2"
-                  title="Đóng (ESC)"
+                  title={isEn ? 'Close (ESC)' : 'Đóng (ESC)'}
                 >
                   <X className="size-5 stroke-[2.5]" />
                 </button>

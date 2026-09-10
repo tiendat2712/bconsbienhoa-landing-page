@@ -89,7 +89,7 @@ Hai trang `/gia-ban` va `/vi-tri` da duoc chuan hoa lam mau (Golden Reference). 
 
 ### B. Cac Section Common bat buoc o cuoi trang (Bottom Common Sections Sequence)
 Moi subpage trong `app/[slug]/page.tsx` bat buoc phai co day du 4 khoi common cuoi trang theo dung thu tu:
-1. `<DirectorConsultation id="tu-van" />`: Khoi tu van truc tiep tu chuyen gia / Giam doc F1 (kem avatar, bang thong tin va nut lien he).
+1. `<DirectorConsultation id="tu-van" />`: Khối tư vấn trực tiếp từ Giám đốc Sàn Kinh Doanh Bcons PS Land (kèm avatar, bảng thông tin và nút liên hệ).
 2. `<[Feature]Faq />`: Khoi cau hoi thuong gap danh rieng cho chuyen muc (Accordion tieu chuan).
 3. `<[Feature]Related />`: Khoi lien ket cac trang chuyen muc lien quan (The cards + chips chuyen huong nhanh).
 4. `<Contact />`: Form dang ky tu van & nhan bang gia goc cuoi trang (`@/components/home/contact`).

@@ -17,28 +17,28 @@ export function FinancialCalculator() {
       id: 'studio',
       name: 'Studio',
       area: '37 – 40 m²',
-      priceRange: '1,85 – 2,00 tỷ',
+      priceRange: isEn ? '1.85 – 2.00 B' : '1,85 – 2,00 tỷ',
       defaultPrice: 1900000000,
     },
     {
       id: '1pn',
       name: isEn ? '1 Bedroom' : '1 Phòng ngủ',
       area: '42 – 43 m²',
-      priceRange: '2,10 – 2,15 tỷ',
+      priceRange: isEn ? '2.10 – 2.15 B' : '2,10 – 2,15 tỷ',
       defaultPrice: 2120000000,
     },
     {
       id: '2pn',
       name: isEn ? '2 Bedrooms' : '2 Phòng ngủ',
       area: '53 – 73 m²',
-      priceRange: '2,65 – 3,64 tỷ',
+      priceRange: isEn ? '2.65 – 3.64 B' : '2,65 – 3,64 tỷ',
       defaultPrice: 2650000000,
     },
     {
       id: '3pn',
       name: isEn ? '3 Bedrooms' : '3 Phòng ngủ',
       area: '87 – 88 m²',
-      priceRange: '4,34 – 4,39 tỷ',
+      priceRange: isEn ? '4.34 – 4.39 B' : '4,34 – 4,39 tỷ',
       defaultPrice: 4360000000,
     },
   ]
@@ -297,7 +297,7 @@ export function FinancialCalculator() {
                           {t.financeTool.loanTermLabel}
                         </label>
                         <span className="font-serif text-sm font-bold text-primary dark:text-[#e6c887]">
-                          {loanTermYears} năm
+                          {loanTermYears} {isEn ? 'years' : 'năm'}
                         </span>
                       </div>
                       <input
@@ -328,7 +328,7 @@ export function FinancialCalculator() {
                         {t.financeTool.eyebrow}
                       </span>
                       <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-200">
-                        {loanTermYears * 12} kỳ trả
+                        {loanTermYears * 12} {isEn ? 'installments' : 'kỳ trả'}
                       </span>
                     </div>
 

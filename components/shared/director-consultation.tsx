@@ -32,18 +32,18 @@ export function DirectorConsultation({
 
   const advisorBulletPoints = isEn
     ? [
-        'Direct consultation at official developer prices from Bcons Group, exclusive F1 inventory, no price markups, zero hidden fees.',
-        'In-depth cash flow modeling and selecting the most financially optimal payment schedule for your profile.',
-        'Licensed real estate broker certificate certified by HCMC Department of Construction.',
-        'Fast-track appraisal and loan approval support with partner banks (Vietcombank, MB Bank, ACB, Public Bank) at maximum limits within 24h.',
-        'Dedicated 1-on-1 legal guardianship from initial booking, SPA signing, construction monitoring to home handover and title deed issuance.',
+        '6+ years of specialized real estate advisory experience in HCMC & Dong Nai',
+        'Sales Director at Bcons PS Land – Direct Distribution Unit of Developer Bcons Group',
+        'Licensed Real Estate Broker certified by HCMC Department of Construction',
+        'Accurate bank loan structuring, safe leverage and cashflow optimization',
+        'Comprehensive legal due diligence and turnkey documentation until ownership title (Pink Book)',
       ]
     : [
-        'Tư vấn đúng giá niêm yết chủ đầu tư Bcons Group, rổ hàng F1 độc quyền, không chênh lệch, không phí phát sinh.',
-        'Phân tích chi tiết dòng tiền, chọn phương thức thanh toán tối ưu tài chính cá nhân.',
-        'Chứng chỉ hành nghề môi giới BĐS do Sở Xây Dựng TP.HCM cấp.',
-        'Hỗ trợ thẩm định hồ sơ vay ngân hàng đối tác (Vietcombank, MB Bank, ACB, Public Bank) hạn mức tối đa, giải ngân nhanh chóng trong 24h.',
-        'Đồng hành pháp lý 1-1 từ thời điểm đặt cọc giữ chỗ, ký HĐMB đến khi nhận bàn giao nhà và trao sổ hồng tận tay.',
+        '6 năm kinh nghiệm tư vấn bất động sản tại TP.HCM & Đồng Nai',
+        'Giám đốc Sàn Kinh Doanh Bcons PS Land – Đơn vị phân phối trực tiếp từ Chủ đầu tư Bcons',
+        'Chứng chỉ hành nghề môi giới BĐS do Sở Xây Dựng TP.HCM cấp',
+        'Tính toán phương án vay ngân hàng an toàn, tối ưu dòng tiền theo thu nhập',
+        'Đồng hành đối chiếu pháp lý thực tế và hỗ trợ thủ tục trọn gói đến khi nhận sổ',
       ]
 
   return (
@@ -54,15 +54,15 @@ export function DirectorConsultation({
             <Reveal>
               <div className="text-center md:text-left mb-10">
                 <span className="text-xs font-bold tracking-[0.18em] uppercase text-primary dark:text-[#e6c887]">
-                  {isEn ? 'OFFICIAL F1 CONSULTATION' : 'TƯ VẤN CHUYÊN GIA F1'}
+                  {isEn ? 'OFFICIAL DEVELOPER CONSULTATION' : 'TƯ VẤN TRỰC TIẾP CHỦ ĐẦU TƯ'}
                 </span>
                 <h2 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-bold uppercase text-foreground">
-                  {isEn ? 'Direct Support from Official F1 Distributor' : 'ĐỒNG HÀNH TRỰC TIẾP TỪ ĐẠI LÝ F1'}
+                  {isEn ? 'Direct Support from Developer Sales Unit' : 'ĐỒNG HÀNH TRỰC TIẾP TỪ CHỦ ĐẦU TƯ BCONS'}
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-muted-foreground">
                   {isEn
                     ? 'Transparent price quotation, direct developer inventory, comprehensive legal and mortgage guidance'
-                    : 'Tư vấn đúng giá niêm yết chủ đầu tư Bcons Group, rổ hàng F1 trực tiếp, hỗ trợ vay ngân hàng nhanh gọn'}
+                    : 'Tư vấn đúng giá niêm yết chủ đầu tư Bcons Group, rổ hàng trực tiếp từ CĐT, hỗ trợ vay ngân hàng nhanh gọn'}
                 </p>
               </div>
             </Reveal>
@@ -87,7 +87,7 @@ export function DirectorConsultation({
                     />
                   </div>
                   <span
-                    title={isEn ? 'Verified F1 Strategic Advisor' : 'Tư vấn F1 CĐT chính thức'}
+                    title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
                     className="absolute -bottom-1 -right-1 size-6 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
                   >
                     <ShieldCheck className="size-3.5 stroke-[2.5]" />
@@ -239,7 +239,7 @@ export function DirectorConsultation({
 
             <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
               <span>
-                Họ tên: <strong>Lê Ngọc Long</strong>
+                {isEn ? 'Full name: ' : 'Họ tên: '}<strong>Lê Ngọc Long</strong>
               </span>
               <a
                 href="https://zalo.me/0376671776"
@@ -247,7 +247,7 @@ export function DirectorConsultation({
                 rel="noopener noreferrer"
                 className="text-primary dark:text-[#e6c887] font-bold hover:underline inline-flex items-center gap-1"
               >
-                <span>Liên hệ tư vấn trực tiếp</span>
+                <span>{isEn ? 'Direct Consultation' : 'Liên hệ tư vấn trực tiếp'}</span>
                 <ChevronRight className="size-3.5" />
               </a>
             </div>

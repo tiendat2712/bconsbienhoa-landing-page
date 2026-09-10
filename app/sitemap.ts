@@ -28,54 +28,63 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
+      images: [`${baseUrl}/images/hero-towers.png`],
     },
     {
       url: `${baseUrl}/gia-ban`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
+      images: [`${baseUrl}/images/hero-towers.png`],
     },
     {
       url: `${baseUrl}/mat-bang`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
+      images: [`${baseUrl}/images/floorplans/masterplan-all-blocks.webp`],
     },
     {
       url: `${baseUrl}/vi-tri`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
+      images: [`${baseUrl}/images/news/bcons-central-park-ban-do-lien-ket-vung.webp`],
     },
     {
       url: `${baseUrl}/tien-ich`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
+      images: [`${baseUrl}/images/amenities/masterplan-60-tien-ich.webp`],
     },
     {
       url: `${baseUrl}/phap-ly`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
+      images: [`${baseUrl}/images/news/bcons-central-park-checklist-phap-ly.webp`],
     },
     {
       url: `${baseUrl}/chu-dau-tu`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
+      images: [`${baseUrl}/images/bcons-central-park-chu-dau-tu-bcons.webp`],
     },
     {
       url: `${baseUrl}/tien-do`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
+      images: [`${baseUrl}/images/hero-towers.png`],
     },
     {
       url: `${baseUrl}/tin-tuc`,
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 0.85,
+      images: [`${baseUrl}/images/news/bcons-central-park-tam-hiep-phoi-canh.webp`],
     },
   ]
 
@@ -85,6 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: parseVnDate(article.date),
     changeFrequency: 'weekly',
     priority: article.featured ? 0.8 : 0.75,
+    images: article.thumbnail ? [`${baseUrl}${article.thumbnail}`] : undefined,
   }))
 
   return [...staticRoutes, ...articleRoutes]

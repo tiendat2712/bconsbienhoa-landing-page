@@ -42,7 +42,7 @@ export const CATEGORIES: { id: FloorPlanCategory; labelVi: string; labelEn: stri
   { id: '3pn-2wc', labelVi: 'Căn hộ 3PN - 2WC', labelEn: '3-Bedroom (3B-2B)' },
   { id: '2pn-2wc', labelVi: 'Căn hộ 2PN - 2WC', labelEn: '2-Bedroom (2B-2B)' },
   { id: '2pn-1wc', labelVi: 'Căn hộ 2PN - 1WC', labelEn: '2-Bedroom (2B-1B)' },
-  { id: '1pn', labelVi: 'Căn hộ 1PN', labelEn: 'Căn hộ 1PN' },
+  { id: '1pn', labelVi: 'Căn hộ 1PN', labelEn: '1-Bedroom (1PN)' },
 ]
 
 export const FLOOR_PLANS: FloorPlanItem[] = [
@@ -618,7 +618,7 @@ export function FloorPlans() {
                       type="button"
                       suppressHydrationWarning
                       onClick={handleZoomOut}
-                      aria-label="Zoom out"
+                      aria-label={isEn ? 'Zoom out' : 'Thu nhỏ'}
                       className="size-7 rounded-full hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
                     >
                       <Minus className="size-3.5 stroke-[2.5]" />
@@ -630,7 +630,7 @@ export function FloorPlans() {
                       type="button"
                       suppressHydrationWarning
                       onClick={handleZoomIn}
-                      aria-label="Zoom in"
+                      aria-label={isEn ? 'Zoom in' : 'Phóng to'}
                       className="size-7 rounded-full hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
                     >
                       <Plus className="size-3.5 stroke-[2.5]" />

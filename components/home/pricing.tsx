@@ -82,8 +82,8 @@ export function Pricing() {
       ? '6+ years of specialized real estate advisory experience in HCMC & Dong Nai'
       : '6 năm kinh nghiệm tư vấn bất động sản tại TP.HCM & Đồng Nai',
     isEn
-      ? 'Sales Director at Bcons PS Land – Primary Strategic F1 Distributor'
-      : 'Giám đốc Sàn Kinh Doanh Bcons PS Land – Đơn vị phân phối chiến lược F1 Bcons',
+      ? 'Sales Director at Bcons PS Land – Direct Distribution Unit of Developer Bcons Group'
+      : 'Giám đốc Sàn Kinh Doanh Bcons PS Land – Đơn vị phân phối trực tiếp từ Chủ đầu tư Bcons',
     isEn
       ? 'Licensed Real Estate Broker certified by HCMC Department of Construction'
       : 'Chứng chỉ hành nghề môi giới BĐS do Sở Xây Dựng TP.HCM cấp',
@@ -110,7 +110,7 @@ export function Pricing() {
             align="center"
             eyebrow={isEn ? 'PRICE LIST & POLICIES' : 'BẢNG GIÁ & CHÍNH SÁCH'}
             title={isEn ? 'Bcons Central Park Pricing' : 'Bảng Giá Bcons Central Park'}
-            subtitle={isEn ? 'Direct From F1 Sales Director' : 'Chính Sách Bán Hàng Trực Tiếp Từ CĐT & F1'}
+            subtitle={isEn ? 'Direct From Developer Sales Director' : 'Chính Sách Bán Hàng Trực Tiếp Từ Chủ Đầu Tư Bcons'}
             description={
               isEn
                 ? 'Official estimated price list across apartment categories and strategic advisory by Director Le Ngoc Long.'
@@ -244,7 +244,7 @@ export function Pricing() {
                     />
                   </div>
                   <span
-                    title={isEn ? 'Verified F1 Strategic Advisor' : 'Tư vấn F1 CĐT chính thức'}
+                    title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
                     className="absolute -bottom-1 -right-1 size-5 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
                   >
                     <ShieldCheck className="size-3 stroke-[2.5]" />
@@ -392,14 +392,14 @@ export function Pricing() {
             </div>
 
             <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-              <span>Họ tên: <strong>Lê Ngọc Long</strong></span>
+              <span>{isEn ? 'Full name: ' : 'Họ tên: '}<strong>Lê Ngọc Long</strong></span>
               <a
                 href="https://zalo.me/0376671776"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary dark:text-[#e6c887] font-bold hover:underline inline-flex items-center gap-1"
               >
-                <span>Liên hệ tư vấn trực tiếp</span>
+                <span>{isEn ? 'Direct Consultation' : 'Liên hệ tư vấn trực tiếp'}</span>
                 <ArrowRight className="size-3.5" />
               </a>
             </div>

@@ -36,8 +36,9 @@ interface Props {
 }
 
 export function NewsArticleDetail({ article }: Props) {
-  const { theme, openConsultation } = useSitePreferences()
+  const { theme, openConsultation, locale, t } = useSitePreferences()
   const isDark = theme === 'dark'
+  const isEn = locale === 'en'
 
   const [activeTocId, setActiveTocId] = useState<string>('')
   const [copied, setCopied] = useState(false)
@@ -120,6 +121,11 @@ export function NewsArticleDetail({ article }: Props) {
     }
   }
 
+  // Format read time for English vs Vietnamese
+  const formattedReadTime = isEn
+    ? article.readTime.replace('phút đọc', 'min read')
+    : article.readTime
+
   return (
     <article className="relative min-h-screen bg-background transition-colors duration-300">
       {/* 1. TOP READING PROGRESS BAR */}
@@ -138,14 +144,14 @@ export function NewsArticleDetail({ article }: Props) {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/70">
+          <nav aria-label={isEn ? 'Breadcrumb' : 'Đường dẫn'} className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/70">
             <Link href="/" className="inline-flex items-center gap-1 hover:text-[#e6c887] transition-colors">
               <Home className="size-3.5" />
-              <span>Trang chủ</span>
+              <span>{isEn ? 'Home' : 'Trang chủ'}</span>
             </Link>
             <ChevronRight className="size-3 text-white/40" />
             <Link href="/tin-tuc" className="hover:text-[#e6c887] transition-colors">
-              Tin tức
+              {isEn ? 'News' : 'Tin tức'}
             </Link>
             <ChevronRight className="size-3 text-white/40" />
             <span className="text-[#e6c887] font-medium">{article.categoryLabel}</span>
@@ -162,7 +168,7 @@ export function NewsArticleDetail({ article }: Props) {
             </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/80 bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
               <Clock className="size-3.5 text-[#e6c887]" />
-              {article.readTime}
+              {formattedReadTime}
             </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/80 bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
               <User className="size-3.5 text-[#e6c887]" />
@@ -186,7 +192,7 @@ export function NewsArticleDetail({ article }: Props) {
 
           {/* Quick Action Share Row */}
           <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
-            <span className="text-xs text-white/60">Chia sẻ bài viết:</span>
+            <span className="text-xs text-white/60">{isEn ? 'Share article:' : 'Chia sẻ bài viết:'}</span>
             <button
               onClick={handleCopyLink}
               type="button"
@@ -195,12 +201,12 @@ export function NewsArticleDetail({ article }: Props) {
               {copied ? (
                 <>
                   <Check className="size-3.5 text-emerald-400" />
-                  <span className="text-emerald-400">Đã sao chép link!</span>
+                  <span className="text-emerald-400">{isEn ? 'Link copied!' : 'Đã sao chép link!'}</span>
                 </>
               ) : (
                 <>
                   <Copy className="size-3.5 text-[#e6c887]" />
-                  <span>Sao chép link</span>
+                  <span>{isEn ? 'Copy link' : 'Sao chép link'}</span>
                 </>
               )}
             </button>
@@ -222,7 +228,7 @@ export function NewsArticleDetail({ article }: Props) {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-[#0068ff]/80 text-white transition-all ml-auto"
             >
               <MessageSquare className="size-3.5 text-[#e6c887]" />
-              <span>Tư vấn qua Zalo</span>
+              <span>{isEn ? 'Consult on Zalo' : 'Tư vấn qua Zalo'}</span>
             </a>
           </div>
         </div>
@@ -235,7 +241,8 @@ export function NewsArticleDetail({ article }: Props) {
           <main className="lg:col-span-8 min-w-0">
             {/* Featured Hero Image */}
             {article.thumbnail && (
-              <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-border/80 dark:border-white/10 shadow-lg bg-muted mb-8 group cursor-pointer"
+              <div
+                className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-border/80 dark:border-white/10 shadow-lg bg-muted mb-8 group cursor-pointer"
                 onClick={() => setLightboxImg(article.thumbnail)}
               >
                 <img
@@ -246,7 +253,7 @@ export function NewsArticleDetail({ article }: Props) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-end p-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-black/70 text-white text-xs font-medium backdrop-blur-md">
                     <Maximize2 className="size-3.5" />
-                    Xem ảnh lớn
+                    {isEn ? 'Enlarge image' : 'Xem ảnh lớn'}
                   </span>
                 </div>
               </div>
@@ -257,7 +264,7 @@ export function NewsArticleDetail({ article }: Props) {
               <div className="lg:hidden mb-8 p-5 rounded-2xl border border-border/80 dark:border-white/15 bg-secondary/30 dark:bg-card/70">
                 <div className="flex items-center gap-2 font-serif font-bold text-foreground mb-3 text-base">
                   <ListOrdered className="size-4 text-primary dark:text-[#e6c887]" />
-                  <span>Nội dung chính bài viết</span>
+                  <span>{isEn ? 'Article Table of Contents' : 'Nội dung chính bài viết'}</span>
                 </div>
                 <nav className="space-y-1.5 max-h-60 overflow-y-auto pr-2 text-sm">
                   {article.toc.map((item, idx) => (
@@ -288,13 +295,15 @@ export function NewsArticleDetail({ article }: Props) {
               </div>
               <div className="flex-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-primary dark:text-[#e6c887]">
-                  Ban Biên Tập & Phân Tích Bất Động Sản
+                  {isEn ? 'Editorial & Real Estate Analytics Board' : 'Ban Biên Tập & Phân Tích Bất Động Sản'}
                 </span>
                 <h3 className="font-serif text-lg font-bold text-foreground mt-0.5">
                   Bcons Central Park Tam Hiệp
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Các thông tin, bảng giá và phân tích chuyên sâu được tổng hợp từ hồ sơ pháp lý, sổ tay thiết kế và bảng vật liệu tiêu chuẩn của Tập đoàn Bcons.
+                  {isEn
+                    ? 'Information, pricing, and analytical insights are curated from official legal records, architectural blueprints, and standard materials schedules of Bcons Group.'
+                    : 'Các thông tin, bảng giá và phân tích chuyên sâu được tổng hợp từ hồ sơ pháp lý, sổ tay thiết kế và bảng vật liệu tiêu chuẩn của Tập đoàn Bcons.'}
                 </p>
               </div>
               <a
@@ -313,7 +322,7 @@ export function NewsArticleDetail({ article }: Props) {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary dark:text-[#e6c887] hover:underline"
               >
                 <ArrowLeft className="size-4" />
-                <span>Quay lại trang tin tức</span>
+                <span>{isEn ? 'Back to News Listing' : 'Quay lại trang tin tức'}</span>
               </Link>
 
               <button
@@ -322,7 +331,7 @@ export function NewsArticleDetail({ article }: Props) {
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               >
                 <Copy className="size-3.5" />
-                <span>{copied ? 'Đã sao chép link!' : 'Chia sẻ bài này'}</span>
+                <span>{copied ? (isEn ? 'Link copied!' : 'Đã sao chép link!') : (isEn ? 'Share this article' : 'Chia sẻ bài này')}</span>
               </button>
             </div>
           </main>
@@ -334,7 +343,7 @@ export function NewsArticleDetail({ article }: Props) {
               <div className="hidden lg:block p-6 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
                 <div className="flex items-center gap-2 font-serif font-bold text-foreground mb-4 pb-3 border-b border-border/60 dark:border-white/10 text-base">
                   <ListOrdered className="size-4 text-primary dark:text-[#e6c887]" />
-                  <span>Mục lục bài viết</span>
+                  <span>{isEn ? 'Table of Contents' : 'Mục lục bài viết'}</span>
                 </div>
                 <nav className="space-y-1.5 max-h-[380px] overflow-y-auto pr-2 text-xs">
                   {article.toc.map((item, idx) => {
@@ -362,29 +371,34 @@ export function NewsArticleDetail({ article }: Props) {
               <div className="absolute -top-12 -right-12 size-36 rounded-full bg-[#e6c887]/15 dark:bg-[#e6c887]/10 blur-2xl pointer-events-none" />
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary dark:bg-[#e6c887]/15 dark:text-[#e6c887] border border-primary/20 dark:border-[#e6c887]/30">
                 <Sparkles className="size-3" />
-                TƯ VẤN CHUYÊN VIÊN 1:1
+                {isEn ? '1-ON-1 SPECIALIST CONSULTATION' : 'TƯ VẤN CHUYÊN VIÊN 1:1'}
               </span>
               <h3 className="font-serif text-lg font-bold text-foreground mt-2.5 mb-1.5">
-                Nhận Bảng Giá & Phân Tích
+                {isEn ? 'Get Price Sheet & Analysis' : 'Nhận Bảng Giá & Phân Tích'}
               </h3>
               <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
-                Chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ hỗ trợ gửi file PDF bảng giá chi tiết, tiến độ thanh toán và tư vấn chọn căn đẹp trực tiếp.
+                {isEn ? (
+                  <>
+                    Senior consultant <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> will directly provide full PDF price schedules, payment milestones, and optimal unit recommendations.
+                  </>
+                ) : (
+                  <>
+                    Chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ hỗ trợ gửi file PDF bảng giá chi tiết, tiến độ thanh toán và tư vấn chọn căn đẹp trực tiếp.
+                  </>
+                )}
               </p>
 
               <button
                 type="button"
-                onClick={() => openConsultation({ source: `Bài viết: ${article.title}` })}
+                onClick={() => openConsultation({ source: isEn ? `Article: ${article.title}` : `Bài viết: ${article.title}` })}
                 className="w-full py-3 px-4 rounded-xl font-bold text-xs bg-primary text-white hover:bg-primary/90 dark:bg-gradient-to-r dark:from-[#e6c887] dark:via-[#f7e4b5] dark:to-[#e6c887] dark:text-[#072018] shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group/btn"
               >
-                <span>Đăng ký nhận báo giá ngay</span>
+                <span>{isEn ? 'Request Price Sheet Now' : 'Đăng ký nhận báo giá ngay'}</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover/btn:translate-x-1" />
               </button>
 
               <div className="mt-4 pt-3 border-t border-border/60 dark:border-white/10 flex items-center justify-between text-xs">
-                <span className="text-muted-foreground flex items-center gap-1.5">
-                  <PhoneCall className="size-3.5 text-primary dark:text-[#e6c887]" />
-                  Hotline 24/7:
-                </span>
+                <span className="text-muted-foreground">{isEn ? '24/7 Hotline:' : 'Hotline 24/7:'}</span>
                 <a
                   href="tel:0376671776"
                   className="font-bold text-primary dark:text-[#e6c887] hover:underline"
@@ -397,27 +411,27 @@ export function NewsArticleDetail({ article }: Props) {
             {/* SIDEBAR WIDGET 3: PROJECT QUICK FACTS */}
             <div className="p-6 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-sm space-y-3 text-xs">
               <h4 className="font-serif font-bold text-sm text-foreground pb-2 border-b border-border/60 dark:border-white/10">
-                THÔNG TIN BCONS CENTRAL PARK
+                {isEn ? 'BCONS CENTRAL PARK FACTS' : 'THÔNG TIN BCONS CENTRAL PARK'}
               </h4>
               <div className="flex items-start gap-2.5">
                 <MapPin className="size-4 text-primary dark:text-[#e6c887] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-foreground">Vị trí:</span>
-                  <p className="text-muted-foreground">236 Phan Trung, P. Tam Hiệp, TP. Biên Hòa</p>
+                  <span className="font-semibold text-foreground">{isEn ? 'Location:' : 'Vị trí:'}</span>
+                  <p className="text-muted-foreground">{t.location.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Building className="size-4 text-primary dark:text-[#e6c887] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-foreground">Quy mô:</span>
-                  <p className="text-muted-foreground">2 Tháp Orchid & Bamboo, 7.700m² công viên</p>
+                  <span className="font-semibold text-foreground">{isEn ? 'Scale:' : 'Quy mô:'}</span>
+                  <p className="text-muted-foreground">{isEn ? '5 residential blocks (~2,820 units), ~7,700m² park' : '5 block căn hộ (~2.820 căn), ~7.700m² công viên'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <ShieldCheck className="size-4 text-primary dark:text-[#e6c887] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-foreground">Pháp lý:</span>
-                  <p className="text-muted-foreground">Sổ hồng lâu dài, GPXD số 12/GPXD</p>
+                  <span className="font-semibold text-foreground">{isEn ? 'Legality:' : 'Pháp lý:'}</span>
+                  <p className="text-muted-foreground">{isEn ? 'Long-term ownership, 1/500 zoning approved' : 'Sổ hồng lâu dài, phê duyệt quy hoạch 1/500'}</p>
                 </div>
               </div>
               <div className="pt-2">
@@ -425,7 +439,7 @@ export function NewsArticleDetail({ article }: Props) {
                   href="/mat-bang"
                   className="inline-flex items-center gap-1 font-bold text-primary dark:text-[#e6c887] hover:underline"
                 >
-                  Xem mặt bằng căn hộ &rarr;
+                  {isEn ? 'View floor plans →' : 'Xem mặt bằng căn hộ →'}
                 </Link>
               </div>
             </div>
@@ -441,17 +455,17 @@ export function NewsArticleDetail({ article }: Props) {
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
                 <div>
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary dark:bg-[#e6c887]/15 dark:text-[#e6c887] border border-primary/20 dark:border-[#e6c887]/30">
-                    BÀI VIẾT CÙNG CHUYÊN MỤC
+                    {isEn ? 'RELATED ARTICLES' : 'BÀI VIẾT CÙNG CHUYÊN MỤC'}
                   </span>
                   <h2 className="mt-3 font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                    Khám Phá Thêm Thông Tin
+                    {isEn ? 'Explore More Insights' : 'Khám Phá Thêm Thông Tin'}
                   </h2>
                 </div>
                 <Link
                   href="/tin-tuc"
                   className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary dark:text-[#e6c887] hover:underline"
                 >
-                  <span>Xem tất cả bài viết</span>
+                  <span>{isEn ? 'View all articles' : 'Xem tất cả bài viết'}</span>
                   <ArrowRight className="size-4" />
                 </Link>
               </div>
@@ -493,7 +507,7 @@ export function NewsArticleDetail({ article }: Props) {
                       </p>
 
                       <div className="mt-auto pt-4 border-t border-border/60 dark:border-white/10 flex items-center justify-between text-xs font-bold text-primary dark:text-[#e6c887]">
-                        <span>Đọc tiếp</span>
+                        <span>{isEn ? 'Read more' : 'Đọc tiếp'}</span>
                         <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
@@ -521,13 +535,13 @@ export function NewsArticleDetail({ article }: Props) {
             <button
               onClick={() => setLightboxImg(null)}
               className="absolute top-4 right-4 size-10 rounded-full bg-white/10 text-white hover:bg-white/20 flex items-center justify-center cursor-pointer transition-colors"
-              aria-label="Đóng"
+              aria-label={isEn ? 'Close' : 'Đóng'}
             >
               <X className="size-6" />
             </button>
             <img
               src={lightboxImg}
-              alt="Phóng to"
+              alt={isEn ? 'Enlarged image' : 'Phóng to'}
               className="max-h-[90vh] max-w-[95vw] rounded-xl object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />

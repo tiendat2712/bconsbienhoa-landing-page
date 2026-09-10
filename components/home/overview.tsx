@@ -88,7 +88,7 @@ export function Overview() {
                       />
                     </div>
                     <span
-                      title={isEn ? 'F1 Official Strategic Advisor' : 'Đại diện tư vấn F1 CĐT'}
+                      title={isEn ? 'Official Developer Sales Advisor' : 'Đại diện tư vấn trực tiếp CĐT'}
                       className="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow-md ring-1 ring-background"
                     >
                       <ShieldCheck className="size-2.5 stroke-[2.5]" />
@@ -140,7 +140,7 @@ export function Overview() {
                         <span>Chat Zalo</span>
                       </a>
                       <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-medium text-primary dark:text-[#e6c887]">
-                        ✓ Tư vấn 1-1 trực tiếp CĐT
+                        {isEn ? '✓ Direct 1-on-1 developer consultation' : '✓ Tư vấn 1-1 trực tiếp CĐT'}
                       </span>
                     </div>
                   </div>
