@@ -122,49 +122,49 @@ export function Pricing() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-start">
           {/* ===================== CỘT TRÁI: BẢNG GIÁ & PHÂN TÍCH ===================== */}
           <Reveal delay={0.1} className="h-full">
-            <div className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
+            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
               {/* Card Title */}
-              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-[#072018] dark:text-white mb-5 sm:mb-6">
+              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-5 sm:mb-6">
                 {isEn
                   ? 'Bcons Central Park Price List & Sales Policy'
                   : 'BẢNG GIÁ BCONS CENTRAL PARK & CHÍNH SÁCH BÁN HÀNG'}
               </h3>
 
               {/* Table Container */}
-              <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-white/10 shadow-sm">
+              <div className="overflow-x-auto rounded-xl border border-border/80 dark:border-white/10 shadow-sm">
                 <table className="w-full text-left border-collapse min-w-[480px]">
                   <thead>
-                    <tr className="bg-[#fdf8ee] dark:bg-[#e6c887]/15 border-b border-slate-200 dark:border-white/10">
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-slate-900 dark:text-[#e6c887]">
+                    <tr className="bg-[#fdf8ee] dark:bg-[#e6c887]/15 border-b border-border/80 dark:border-white/10">
+                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
                         {isEn ? 'Unit Type' : 'LOẠI CĂN'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-slate-900 dark:text-[#e6c887]">
+                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
                         {isEn ? 'Area' : 'DIỆN TÍCH'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-slate-900 dark:text-[#e6c887] whitespace-nowrap">
+                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887] whitespace-nowrap">
                         {isEn ? 'Est. Price' : 'GIÁ BÁN (TỶ)'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-slate-900 dark:text-[#e6c887]">
+                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
                         {isEn ? 'Incentive Policy' : 'CHÍNH SÁCH ƯU ĐÃI'}
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-white/5 text-xs sm:text-sm">
+                  <tbody className="divide-y divide-border/60 dark:divide-white/5 text-xs sm:text-sm">
                     {priceRows.map((row, idx) => (
                       <tr
                         key={idx}
-                        className="hover:bg-slate-50/80 dark:hover:bg-white/[0.03] transition-colors"
+                        className="hover:bg-secondary/40 dark:hover:bg-white/[0.03] transition-colors"
                       >
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 font-bold text-foreground dark:text-white whitespace-nowrap">
                           {row.type}
                         </td>
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-slate-600 dark:text-slate-300 whitespace-nowrap font-sans">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-muted-foreground dark:text-slate-300 whitespace-nowrap font-sans">
                           {row.area}
                         </td>
                         <td className="py-3 sm:py-3.5 px-3 sm:px-4 font-serif text-sm sm:text-base font-bold text-[#d93829] dark:text-[#f87171] whitespace-nowrap">
                           {row.price}
                         </td>
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-muted-foreground dark:text-slate-300 leading-relaxed font-sans">
                           {row.policy}
                         </td>
                       </tr>
@@ -174,16 +174,16 @@ export function Pricing() {
               </div>
 
               {/* Analysis Box */}
-              <div className="mt-5 rounded-xl bg-[#f4f7fa] dark:bg-[#0c241b]/60 border border-slate-200/80 dark:border-white/10 p-4 sm:p-5">
-                <h4 className="font-bold text-xs sm:text-sm tracking-wide text-[#072018] dark:text-white uppercase mb-2.5 font-sans">
+              <div className="mt-5 rounded-xl bg-secondary/40 dark:bg-[#0c241b]/60 border border-border/80 dark:border-white/10 p-4 sm:p-5">
+                <h4 className="font-bold text-xs sm:text-sm tracking-wide text-foreground dark:text-white uppercase mb-2.5 font-sans">
                   {isEn ? 'QUICK BUYER ANALYSIS:' : 'PHÂN TÍCH NHANH DÀNH CHO NGƯỜI MUA:'}
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-[13px] leading-relaxed text-slate-700 dark:text-[#c2d3cb] font-sans">
+                <ul className="space-y-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-[#c2d3cb] font-sans">
                   {analysisPoints.map((pt, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-slate-800 dark:text-white font-bold">•</span>
+                      <span className="text-foreground dark:text-white font-bold">•</span>
                       <span>
-                        <strong className="font-bold text-slate-900 dark:text-white">
+                        <strong className="font-bold text-foreground dark:text-white">
                           {pt.title}:
                         </strong>{' '}
                         {pt.desc}
@@ -224,9 +224,9 @@ export function Pricing() {
 
           {/* ===================== CỘT PHẢI: TƯ VẤN DỰ ÁN - LÊ NGỌC LONG ===================== */}
           <Reveal delay={0.2} className="h-full">
-            <div className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
+            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
               {/* Card Title */}
-              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-[#072018] dark:text-white mb-5 sm:mb-6">
+              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-5 sm:mb-6">
                 {isEn
                   ? 'Bcons Central Park Project Consultation'
                   : 'TƯ VẤN DỰ ÁN BCONS CENTRAL PARK'}
@@ -236,7 +236,7 @@ export function Pricing() {
               <div className="flex items-center gap-4 pb-4">
                 {/* Portrait photo of Director Long */}
                 <div className="relative size-20 sm:size-24 shrink-0">
-                  <div className="size-full rounded-xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-sm bg-slate-100 dark:bg-black/40">
+                  <div className="size-full rounded-xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-sm bg-secondary dark:bg-black/40">
                     <img
                       src="/images/manager_avt.jpg"
                       alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
@@ -245,7 +245,7 @@ export function Pricing() {
                   </div>
                   <span
                     title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
-                    className="absolute -bottom-1 -right-1 size-5 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
+                    className="absolute -bottom-1 -right-1 size-5 rounded-full bg-[#FFC100] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
                   >
                     <ShieldCheck className="size-3 stroke-[2.5]" />
                   </span>
@@ -253,10 +253,10 @@ export function Pricing() {
 
                 {/* Name, Title & Credentials */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold uppercase text-[#072018] dark:text-white tracking-wide">
+                  <h4 className="font-serif text-lg sm:text-xl font-bold uppercase text-foreground dark:text-white tracking-wide">
                     {isEn ? 'Le Ngoc Long' : 'LÊ NGỌC LONG'}
                   </h4>
-                  <p className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 mt-1 font-sans">
+                  <p className="text-xs sm:text-sm font-medium text-muted-foreground dark:text-slate-300 mt-1 font-sans">
                     {isEn
                       ? 'Sales Director – Bcons PS Land'
                       : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
@@ -272,7 +272,7 @@ export function Pricing() {
               {/* Checklist of Professional Competencies */}
               <div className="mt-2 space-y-2.5">
                 {advisorBulletPoints.map((text, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 dark:text-slate-200 leading-relaxed font-sans">
                     <Check className="size-4 shrink-0 text-emerald-600 dark:text-[#e6c887] stroke-[2.5] mt-0.5" />
                     <div className="flex-1">
                       <span>{text}</span>
@@ -321,7 +321,7 @@ export function Pricing() {
                     href="https://zalo.me/0376671776"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-1 rounded-lg bg-white border border-slate-200 shadow-sm hover:scale-105 transition-transform"
+                    className="block p-1 rounded-lg bg-card border border-border shadow-sm hover:scale-105 transition-transform"
                     title={isEn ? 'Scan Zalo QR to connect with Le Ngoc Long' : 'Quét mã Zalo kết bạn Lê Ngọc Long'}
                   >
                     <img
@@ -383,7 +383,7 @@ export function Pricing() {
               </button>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-border/80 dark:border-white/10 shadow-inner bg-slate-50 dark:bg-black/50">
+            <div className="rounded-xl overflow-hidden border border-border/80 dark:border-white/10 shadow-inner bg-secondary/30 dark:bg-black/50">
               <img
                 src="/images/material_info.jpg"
                 alt="Chứng chỉ hành nghề môi giới BĐS Lê Ngọc Long"

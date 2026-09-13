@@ -13,7 +13,7 @@ export function SiteFooter() {
       className={`border-t transition-all duration-500 ${
         isDark
           ? 'bg-[#071712] text-[#d1dcd6] border-white/10'
-          : 'bg-[#f3f7f5] text-[#2c3e35] border-slate-200'
+          : 'bg-secondary/70 text-foreground border-border'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 py-14 sm:py-16 lg:px-8 lg:py-20">
@@ -249,8 +249,8 @@ export function SiteFooter() {
               {/* Khung QR Zalo (Double-Bezel) */}
               <div className="flex flex-col items-center gap-2">
                 <div
-                  className={`size-24 sm:size-28 overflow-hidden rounded-2xl bg-white p-2 shadow-sm transition-all ${
-                    isDark ? 'border border-white/20 ring-1 ring-white/10' : 'border border-slate-200 ring-1 ring-black/5'
+                  className={`size-24 sm:size-28 overflow-hidden rounded-2xl p-2 shadow-sm transition-all ${
+                    isDark ? 'border border-white/20 ring-1 ring-white/10 bg-white' : 'border border-border ring-1 ring-black/5 bg-card'
                   }`}
                 >
                   <img
@@ -259,7 +259,7 @@ export function SiteFooter() {
                     className="size-full object-contain"
                   />
                 </div>
-                <p className={`text-[11px] text-center font-medium ${isDark ? 'text-[#8ea59b]' : 'text-[#556d61]'}`}>
+                <p className={`text-[11px] text-center font-medium ${isDark ? 'text-[#8ea59b]' : 'text-muted-foreground'}`}>
                   {t.footer.scanQr}
                 </p>
               </div>
@@ -270,7 +270,7 @@ export function SiteFooter() {
         {/* Dòng phân cách & Bản quyền */}
         <div
           className={`mt-12 sm:mt-14 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:pt-8 text-xs sm:text-[12.5px] transition-colors duration-500 sm:flex-row ${
-            isDark ? 'border-white/10 text-[#8ea59b]' : 'border-slate-200 text-[#556d61]'
+            isDark ? 'border-white/10 text-[#8ea59b]' : 'border-border text-muted-foreground'
           }`}
         >
           <p>{t.footer.copyright}</p>

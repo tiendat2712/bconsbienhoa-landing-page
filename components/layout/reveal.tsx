@@ -55,7 +55,7 @@ export function SectionHeading({
     >
       <span
         className={[
-          'inline-flex items-center gap-2 text-xs font-semibold tracking-[0.22em] uppercase transition-colors duration-500',
+          'inline-flex items-center gap-2 text-xs font-semibold tracking-[0.1em] uppercase transition-colors duration-500',
           isDark ? 'text-[#e6c887]' : 'text-[#b88728]',
         ].join(' ')}
       >

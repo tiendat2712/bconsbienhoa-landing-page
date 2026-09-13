@@ -23,7 +23,7 @@ export function VirtualTour() {
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <Reveal>
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 mb-3.5">
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 mb-3.5">
               {isEn ? 'INTERACTIVE 360° EXPERIENCE' : 'TRẢI NGHIỆM THỰC TẾ ẢO 360°'}
             </div>
 
@@ -74,7 +74,7 @@ export function VirtualTour() {
             <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
               <div className="group/pill inline-flex items-center gap-3.5 sm:gap-4 rounded-full bg-white/95 dark:bg-[#072018]/95 group-hover:bg-white dark:group-hover:bg-[#0c2e22] px-5 py-3 sm:px-6 sm:py-3.5 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-xl border border-white/80 dark:border-[#e6c887]/40 ring-1 ring-black/5 transition-all duration-500 group-hover:scale-105 group-active:scale-95 text-left pointer-events-auto">
                 {/* Eye 360 Icon */}
-                <div className="relative size-10 sm:size-11 rounded-full bg-[#061e38] dark:bg-[#e6c887] text-white dark:text-[#072018] flex items-center justify-center shrink-0 shadow-inner group-hover/pill:scale-110 transition-transform duration-300">
+                <div className="relative size-10 sm:size-11 rounded-full bg-[#072018] dark:bg-[#e6c887] text-white dark:text-[#072018] flex items-center justify-center shrink-0 shadow-inner group-hover/pill:scale-110 transition-transform duration-300">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -91,7 +91,7 @@ export function VirtualTour() {
 
                 {/* Text labels */}
                 <div>
-                  <div className="text-sm sm:text-base font-bold text-[#061e38] dark:text-white leading-tight font-sans group-hover/pill:text-primary dark:group-hover/pill:text-[#e6c887] transition-colors">
+                  <div className="text-sm sm:text-base font-bold text-[#072018] dark:text-white leading-tight font-sans group-hover/pill:text-[#b88728] dark:group-hover/pill:text-[#e6c887] transition-colors">
                     {isEn ? 'Start 360° Virtual Tour' : 'Bắt đầu tham quan 360°'}
                   </div>
                   <div className="text-[11px] sm:text-xs text-muted-foreground dark:text-[#a8beba] mt-0.5 font-sans">
@@ -121,7 +121,7 @@ export function VirtualTour() {
             {/* Book Model Unit Visit Button */}
             <a
               href="#dang-ky"
-              className="inline-flex items-center gap-2 rounded-full bg-[#f5b82e] hover:bg-[#e5a820] text-[#072018] dark:bg-[#e6c887] dark:hover:bg-[#d6b772] px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFC100] via-[#FEC01D] to-[#F59E0B] hover:brightness-105 text-[#072018] dark:bg-none dark:bg-[#e6c887] dark:hover:bg-[#d6b772] px-6 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <CalendarCheck className="size-3.5 sm:size-4 stroke-[2.5]" />
               <span>{isEn ? 'SCHEDULE MODEL UNIT TOUR' : 'ĐẶT LỊCH XEM NHÀ MẪU'}</span>

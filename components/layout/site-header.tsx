@@ -129,7 +129,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="h-1 w-full transition-colors duration-500 bg-primary dark:bg-[#e6c887]" />
+      <div className="h-1 w-full transition-colors duration-500 bg-gradient-to-r from-primary via-[#b88728] to-primary dark:from-[#07130f] dark:via-[#e6c887] dark:to-[#07130f]" />
       <div
         className={`transition-all duration-300 ${
           scrolled

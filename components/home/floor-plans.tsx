@@ -472,24 +472,28 @@ export function FloorPlans() {
                   key={item.id}
                   className="rounded-[2rem] p-1.5 bg-black/5 dark:bg-white/5 border border-border/70 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col"
                 >
-                  <div className="rounded-[calc(2rem-0.375rem)] overflow-hidden bg-white dark:bg-[#0c241b] flex flex-col h-full">
+                  <div className="rounded-[calc(2rem-0.375rem)] overflow-hidden bg-card dark:bg-[#0c241b] flex flex-col h-full">
                     {/* Top Poster Image Area */}
                     <div
                       onClick={() => openLightbox(item)}
-                      className="relative w-full aspect-[3/4] bg-neutral-50 dark:bg-black/20 overflow-hidden cursor-pointer flex items-center justify-center p-3 sm:p-4 border-b border-border/40 dark:border-white/10"
+                      className="relative w-full aspect-[3/4] bg-[#FDF9F0] dark:bg-black/20 overflow-hidden cursor-pointer flex items-center justify-center p-3 sm:p-4 border-b border-border/40 dark:border-white/10"
                     >
                       <img
                         src={item.image}
-                        alt={isEn ? item.titleEn : item.titleVi}
+                        alt={
+                          isEn
+                            ? `${item.titleEn} Floor Plan - Bcons Central Park Tam Hiep`
+                            : `Mặt bằng ${item.titleVi} dự án Bcons Central Park Tam Hiệp Biên Hòa`
+                        }
                         className="w-full h-full object-contain object-top transition-transform duration-700 group-hover:scale-[1.03]"
                         loading="lazy"
                       />
                     </div>
 
                     {/* Bottom Info Area */}
-                    <div className="bg-[#FAF7F0] dark:bg-[#081e17] p-5 sm:p-6 flex flex-col justify-between flex-1 transition-colors">
+                    <div className="bg-secondary/40 dark:bg-[#081e17] p-5 sm:p-6 flex flex-col justify-between flex-1 transition-colors">
                       <div>
-                        <span className="block font-sans font-bold text-xs tracking-wider text-[#c59b27] dark:text-[#e6c887]">
+                        <span className="block font-sans font-bold text-xs tracking-wider text-[#b88728] dark:text-[#e6c887]">
                           {item.indexTag}
                         </span>
                         <h3 className="font-serif text-lg sm:text-xl font-bold text-[#072018] dark:text-white mt-1.5 leading-snug group-hover:text-primary dark:group-hover:text-[#e6c887] transition-colors">
@@ -505,9 +509,9 @@ export function FloorPlans() {
                         type="button"
                         suppressHydrationWarning
                         onClick={() => openLightbox(item)}
-                        className="mt-5 inline-flex items-center gap-2 self-start text-[#c59b27] dark:text-[#e6c887] hover:opacity-85 transition-opacity cursor-pointer"
+                        className="mt-5 inline-flex items-center gap-2 self-start text-[#b88728] dark:text-[#e6c887] hover:opacity-85 transition-opacity cursor-pointer"
                       >
-                        <span className="size-6 rounded-full border border-[#c59b27] dark:border-[#e6c887] flex items-center justify-center text-inherit group-hover:bg-[#c59b27] group-hover:text-white dark:group-hover:bg-[#e6c887] dark:group-hover:text-[#072018] transition-all">
+                        <span className="size-6 rounded-full border border-[#b88728] dark:border-[#e6c887] flex items-center justify-center text-inherit group-hover:bg-[#b88728] group-hover:text-white dark:group-hover:bg-[#e6c887] dark:group-hover:text-[#072018] transition-all">
                           <Plus className="size-3.5 stroke-[2.5]" />
                         </span>
                         <span className="font-sans font-bold text-xs sm:text-sm">
@@ -553,7 +557,7 @@ export function FloorPlans() {
               suppressHydrationWarning
               onClick={handlePrevItem}
               aria-label={isEn ? 'Previous plan' : 'Mặt bằng trước'}
-              className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[115] size-11 sm:size-13 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center hover:bg-[#f5b82e] hover:text-[#072018] hover:border-[#f5b82e] transition-all duration-300 cursor-pointer shadow-2xl"
+              className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[115] size-11 sm:size-13 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center hover:bg-[#FFC100] hover:text-[#072018] hover:border-[#FFC100] transition-all duration-300 cursor-pointer shadow-2xl"
             >
               <ChevronLeft className="size-6 stroke-[2.5]" />
             </button>
@@ -564,7 +568,7 @@ export function FloorPlans() {
               suppressHydrationWarning
               onClick={handleNextItem}
               aria-label={isEn ? 'Next plan' : 'Mặt bằng tiếp theo'}
-              className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[115] size-11 sm:size-13 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center hover:bg-[#f5b82e] hover:text-[#072018] hover:border-[#f5b82e] transition-all duration-300 cursor-pointer shadow-2xl"
+              className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[115] size-11 sm:size-13 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center hover:bg-[#FFC100] hover:text-[#072018] hover:border-[#FFC100] transition-all duration-300 cursor-pointer shadow-2xl"
             >
               <ChevronRight className="size-6 stroke-[2.5]" />
             </button>
@@ -575,7 +579,7 @@ export function FloorPlans() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-6xl max-h-[92vh] bg-white dark:bg-[#071d15] rounded-3xl overflow-hidden shadow-2xl border border-border/80 dark:border-white/10 flex flex-col lg:flex-row z-[105]"
+              className="relative w-full max-w-6xl max-h-[92vh] bg-card dark:bg-[#071d15] rounded-3xl overflow-hidden shadow-2xl border border-border/80 dark:border-white/10 flex flex-col lg:flex-row z-[105]"
             >
               {/* Left Column: Interactive Zoomable Image Area */}
               <div
@@ -675,7 +679,7 @@ export function FloorPlans() {
 
                   {/* Specification Details Cards */}
                   <div className="mt-6 grid grid-cols-2 gap-2.5 sm:gap-3">
-                    <div className="rounded-xl p-3 bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/10">
+                    <div className="rounded-xl p-3 bg-secondary/60 dark:bg-white/5 border border-border/60 dark:border-white/10">
                       <div className="flex items-center gap-1.5 text-[#c59b27] dark:text-[#e6c887]">
                         <Maximize2 className="size-3.5" />
                         <span className="text-[10px] font-bold uppercase tracking-wider">
@@ -687,7 +691,7 @@ export function FloorPlans() {
                       </p>
                     </div>
 
-                    <div className="rounded-xl p-3 bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/10">
+                    <div className="rounded-xl p-3 bg-secondary/60 dark:bg-white/5 border border-border/60 dark:border-white/10">
                       <div className="flex items-center gap-1.5 text-[#c59b27] dark:text-[#e6c887]">
                         <Maximize2 className="size-3.5" />
                         <span className="text-[10px] font-bold uppercase tracking-wider">
@@ -699,7 +703,7 @@ export function FloorPlans() {
                       </p>
                     </div>
 
-                    <div className="rounded-xl p-3 bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/10">
+                    <div className="rounded-xl p-3 bg-secondary/60 dark:bg-white/5 border border-border/60 dark:border-white/10">
                       <div className="flex items-center gap-1.5 text-[#c59b27] dark:text-[#e6c887]">
                         <BedDouble className="size-3.5" />
                         <span className="text-[10px] font-bold uppercase tracking-wider">
@@ -711,7 +715,7 @@ export function FloorPlans() {
                       </p>
                     </div>
 
-                    <div className="rounded-xl p-3 bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/10">
+                    <div className="rounded-xl p-3 bg-secondary/60 dark:bg-white/5 border border-border/60 dark:border-white/10">
                       <div className="flex items-center gap-1.5 text-[#c59b27] dark:text-[#e6c887]">
                         <Layers className="size-3.5" />
                         <span className="text-[10px] font-bold uppercase tracking-wider">

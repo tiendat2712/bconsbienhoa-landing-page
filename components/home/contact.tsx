@@ -297,7 +297,7 @@ export function Contact() {
               className={`rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500 ${
                 isDark
                   ? 'border border-[#e6c887]/30 bg-[#122820]/90 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-[#e6c887]/20'
-                  : 'border border-border bg-white text-slate-900 shadow-2xl'
+                  : 'border border-[#e6c887]/30 bg-card text-foreground shadow-2xl ring-1 ring-[#e6c887]/15'
               }`}
             >
               {sent ? (
@@ -307,7 +307,7 @@ export function Contact() {
                     <div className={`relative p-3.5 sm:p-4 rounded-2xl border transition-all duration-500 ${
                       isDark
                         ? 'bg-gradient-to-b from-white/10 to-white/[0.02] border-[#e6c887]/30 shadow-[0_12px_30px_rgba(230,200,135,0.15)] ring-1 ring-[#e6c887]/20'
-                        : 'bg-gradient-to-b from-[#f8faf9] to-white border-emerald-950/10 shadow-xl ring-1 ring-black/5'
+                        : 'bg-gradient-to-b from-card to-secondary/50 border-[#e6c887]/30 shadow-xl ring-1 ring-[#e6c887]/15'
                     }`}>
                       <img
                         src="/images/bcons-central-park-logo.png"
@@ -366,7 +366,7 @@ export function Contact() {
                       className={`h-12 rounded-xl px-4 text-sm font-medium transition-all duration-200 outline-none ${
                         isDark
                           ? 'border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-[#e6c887] focus:bg-white/15 focus:ring-2 focus:ring-[#e6c887]/25'
-                          : 'border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-600/20'
+                          : 'border border-border/80 bg-secondary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20'
                       } ${errors.name ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
                     />
                     {errors.name && (
@@ -381,7 +381,7 @@ export function Contact() {
                     <label
                       htmlFor="contact-phone"
                       className={`text-xs font-bold tracking-[0.16em] uppercase transition-colors duration-300 ${
-                        isDark ? 'text-[#e6c887]' : 'text-slate-600'
+                        isDark ? 'text-[#e6c887]' : 'text-foreground/80'
                       }`}
                     >
                       {t.contact.phone} <span className="text-red-400">*</span>
@@ -398,7 +398,7 @@ export function Contact() {
                       className={`h-12 rounded-xl px-4 text-sm font-medium transition-all duration-200 outline-none ${
                         isDark
                           ? 'border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-[#e6c887] focus:bg-white/15 focus:ring-2 focus:ring-[#e6c887]/25'
-                          : 'border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-600/20'
+                          : 'border border-border/80 bg-secondary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20'
                       } ${errors.phone ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
                     />
                     {errors.phone && (
@@ -413,7 +413,7 @@ export function Contact() {
                     <label
                       id="unit-select-label"
                       className={`text-xs font-bold tracking-[0.16em] uppercase transition-colors duration-300 ${
-                        isDark ? 'text-[#e6c887]' : 'text-slate-600'
+                        isDark ? 'text-[#e6c887]' : 'text-foreground/80'
                       }`}
                     >
                       {t.contact.type} <span className="text-red-400">*</span>
@@ -429,7 +429,7 @@ export function Contact() {
                       className={`h-12 w-full rounded-xl px-4 text-left text-sm font-semibold flex items-center justify-between transition-all duration-200 cursor-pointer outline-none ${
                         isDark
                           ? 'border border-white/20 bg-white/10 text-white hover:bg-white/15'
-                          : 'border border-slate-200 bg-slate-50 text-slate-900 hover:bg-slate-100'
+                          : 'border border-border/80 bg-secondary/30 text-foreground hover:bg-secondary/60'
                       } ${isDropdownOpen ? (isDark ? 'ring-2 ring-[#e6c887] border-[#e6c887]' : 'ring-2 ring-emerald-500 border-emerald-500') : ''}`}
                     >
                       <div className="flex items-center gap-3 overflow-hidden">
@@ -453,7 +453,7 @@ export function Contact() {
                         className={`absolute top-[calc(100%+6px)] left-0 w-full z-50 rounded-2xl p-1.5 shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-200 ${
                           isDark
                             ? 'border border-[#e6c887]/30 bg-[#163328] text-white shadow-[0_20px_40px_rgba(0,0,0,0.8)]'
-                            : 'border border-slate-200 bg-white text-slate-900 shadow-xl'
+                            : 'border border-border bg-card text-foreground shadow-xl'
                         }`}
                       >
                         <div className="flex flex-col gap-1">
@@ -471,10 +471,10 @@ export function Contact() {
                                   isSelected
                                     ? isDark
                                       ? 'bg-[#e6c887] text-[#072018] font-bold shadow-md'
-                                      : 'bg-emerald-600 text-white font-bold shadow-md'
+                                      : 'bg-primary text-white font-bold shadow-md'
                                     : isDark
                                     ? 'text-white/90 hover:bg-white/10 hover:translate-x-1'
-                                    : 'text-slate-800 hover:bg-slate-100 hover:translate-x-1'
+                                    : 'text-foreground hover:bg-secondary/60 hover:translate-x-1'
                                 }`}
                               >
                                 <div className="flex items-center gap-3">
@@ -486,7 +486,7 @@ export function Contact() {
                                           : 'bg-white/20 text-white'
                                         : isDark
                                         ? 'bg-white/10 text-[#e6c887] group-hover:bg-[#e6c887] group-hover:text-[#072018]'
-                                        : 'bg-slate-100 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white'
+                                        : 'bg-secondary text-primary group-hover:bg-primary group-hover:text-white'
                                     }`}
                                   >
                                     <IconComponent className="size-4" />
@@ -501,7 +501,7 @@ export function Contact() {
                                             : 'text-white/80'
                                           : isDark
                                           ? 'text-white/60'
-                                          : 'text-slate-500'
+                                          : 'text-muted-foreground'
                                       }`}
                                     >
                                       {opt.desc}
@@ -511,7 +511,7 @@ export function Contact() {
                                 {isSelected && (
                                   <span
                                     className={`size-5 rounded-full flex items-center justify-center shrink-0 shadow-xs ${
-                                      isDark ? 'bg-[#072018] text-[#e6c887]' : 'bg-white text-emerald-700'
+                                      isDark ? 'bg-[#072018] text-[#e6c887]' : 'bg-white text-primary'
                                     }`}
                                   >
                                     <Check className="size-3.5 stroke-[3]" />
@@ -535,7 +535,7 @@ export function Contact() {
                     <label
                       htmlFor="contact-note"
                       className={`text-xs font-bold tracking-[0.16em] uppercase transition-colors duration-300 ${
-                        isDark ? 'text-[#e6c887]' : 'text-slate-600'
+                        isDark ? 'text-[#e6c887]' : 'text-foreground/80'
                       }`}
                     >
                       {t.contact.note}
@@ -549,7 +549,7 @@ export function Contact() {
                       className={`rounded-xl p-4 text-sm font-medium transition-all duration-200 outline-none resize-none ${
                         isDark
                           ? 'border border-white/20 bg-white/10 text-white placeholder:text-white/40 focus:border-[#e6c887] focus:bg-white/15 focus:ring-2 focus:ring-[#e6c887]/25'
-                          : 'border border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-600/20'
+                          : 'border border-border/80 bg-secondary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20'
                       } ${errors.note ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
                     />
                     {errors.note && (

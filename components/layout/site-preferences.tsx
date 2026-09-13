@@ -32,7 +32,17 @@ const copy = {
     hero: {
       location: 'Mặt tiền đường Phan Trung, Tam Hiệp, Biên Hòa, Đồng Nai',
       title: 'Bcons Central Park',
+      eyebrow: 'BCONS CENTRAL PARK · 236 PHAN TRUNG',
       subtitle: 'Sống xanh | Sống an lành | Sống thịnh vượng',
+      lead: 'Kiệt tác không gian sống sinh thái 5 block cao 29 tầng tại mặt tiền Phan Trung, Tam Hiệp. Giá bán trực tiếp CĐT từ 1,85 tỷ/căn, sổ hồng lâu dài.',
+      exploreBtn: 'Khám phá dự án',
+      tourBtn: 'Đăng ký xem nhà mẫu',
+      metric1Value: '236 Phan Trung',
+      metric1Label: 'Mặt tiền trung tâm',
+      metric2Value: '1,85 Tỷ/Căn',
+      metric2Label: 'Giá gốc CĐT',
+      metric3Value: 'Sở hữu lâu dài',
+      metric3Label: 'Sổ hồng vĩnh viễn',
       description:
         'Căn hộ hiện đại sở hữu lâu dài ngay lõi trung tâm sầm uất Biên Hòa. Quỹ đất gần 3 ha với 5 block ~2.820 căn hộ, công viên xanh nội khu và hệ tiện ích chuẩn resort.',
       scale: 'Quy mô dự án',
@@ -400,6 +410,7 @@ const copy = {
       title: 'Xem thêm về Bcons Central Park Tam Hiệp',
       desc: 'Khám phá các chuyên mục liên quan để tìm hiểu chi tiết trước khi đưa ra quyết định.',
       allCategories: 'Toàn bộ chuyên mục Bcons Central Park',
+      allSections: 'Toàn bộ chuyên mục Bcons Central Park',
       kind: 'Chi tiết dự án',
     },
   },
@@ -429,7 +440,17 @@ const copy = {
     hero: {
       location: 'Phan Trung Frontage, Tam Hiep, Bien Hoa, Dong Nai',
       title: 'Bcons Central Park',
+      eyebrow: 'BCONS CENTRAL PARK · 236 PHAN TRUNG',
       subtitle: 'Green Living | Peaceful Living | Prosperous Living',
+      lead: 'An eco-luxe living landmark of 5 towers (29 storeys) on prime Phan Trung street, Tam Hiep. Direct developer price from 1.85B VND, long-term freehold.',
+      exploreBtn: 'Explore Project',
+      tourBtn: 'Register Model Tour',
+      metric1Value: '236 Phan Trung',
+      metric1Label: 'Prime Frontage',
+      metric2Value: 'From 1.85B VND',
+      metric2Label: 'Direct Price',
+      metric3Value: 'Freehold Title',
+      metric3Label: 'Pink Book Title',
       description:
         'Modern freehold condominiums in prime central Bien Hoa. Nearly 3 ha parcel with 5 blocks, ~2,820 units, lush central park and resort amenities.',
       scale: 'Project Scale',
@@ -797,6 +818,7 @@ const copy = {
       title: 'Explore More About Bcons Central Park Tam Hiep',
       desc: 'Discover related project aspects to make an informed residential or investment decision.',
       allCategories: 'All Bcons Central Park Categories',
+      allSections: 'All Bcons Central Park Sections',
       kind: 'Project Detail',
     },
   },
@@ -816,6 +838,7 @@ type SiteContextValue = {
   theme: Theme
   toggleTheme: () => void
   t: (typeof copy)[Locale]
+  dictionary: (typeof copy)[Locale]
   isConsultationOpen: boolean
   consultationOptions: ConsultationModalOptions
   openConsultation: (options?: ConsultationModalOptions) => void
@@ -883,6 +906,7 @@ function SitePreferencesProviderInternal({ children }: { children: ReactNode }) 
       theme,
       toggleTheme,
       t: copy[locale],
+      dictionary: copy[locale],
       isConsultationOpen,
       consultationOptions,
       openConsultation,

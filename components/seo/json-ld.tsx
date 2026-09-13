@@ -73,7 +73,7 @@ export function RealEstateProjectSchema() {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'VND',
-      lowPrice: '1900000000',
+      lowPrice: '1850000000',
       highPrice: '3800000000',
       offerCount: '2820',
     },

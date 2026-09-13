@@ -607,7 +607,7 @@ export function FloorPlanDetail() {
                     setLightbox('/images/floorplans/masterplan-all-blocks.webp')
                     setLightboxCaption(isEn ? 'Overall Master Plan - All 5 Blocks' : 'Mặt bằng tầng căn hộ điển hình tổng thể 5 block')
                   }}
-                  className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-white dark:bg-slate-950 cursor-pointer border border-slate-200/80 dark:border-white/10 flex items-center justify-center p-3 sm:p-6"
+                  className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-card dark:bg-[#0c241b] cursor-pointer border border-border/80 dark:border-white/10 flex items-center justify-center p-3 sm:p-6"
                 >
                   <img
                     src="/images/floorplans/masterplan-all-blocks.webp"
@@ -917,7 +917,7 @@ export function FloorPlanDetail() {
                         })`
                   )
                 }}
-                className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-white dark:bg-slate-950 p-4 sm:p-8 cursor-pointer border border-slate-200/80 dark:border-white/10"
+                className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-card dark:bg-[#0c241b] p-4 sm:p-8 cursor-pointer border border-border/80 dark:border-white/10"
               >
                 {/* Surrounding Orientation Direction Indicators */}
                 <div className="mb-4 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 gap-2">
@@ -1038,7 +1038,7 @@ export function FloorPlanDetail() {
                 setLightbox(undergroundData[activeUndergroundTab].image)
                 setLightboxCaption(undergroundData[activeUndergroundTab].title)
               }}
-              className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-white dark:bg-slate-950 p-4 sm:p-8 cursor-pointer border border-slate-200/80 dark:border-white/10 flex flex-col items-center"
+              className="group relative rounded-[calc(2rem-0.625rem)] overflow-hidden bg-card dark:bg-[#0c241b] p-4 sm:p-8 cursor-pointer border border-border/80 dark:border-white/10 flex flex-col items-center"
             >
               <div className="w-full flex items-center justify-between pb-4 border-b border-border/50 text-xs font-semibold text-muted-foreground mb-4">
                 <span className="font-serif font-bold text-sm sm:text-base text-primary dark:text-[#e6c887]">
@@ -1225,13 +1225,13 @@ export function FloorPlanDetail() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] bg-white dark:bg-[#071d15] rounded-2xl sm:rounded-3xl shadow-2xl border border-border/80 dark:border-white/10 flex flex-col overflow-hidden"
+              className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] bg-card dark:bg-[#071d15] rounded-2xl sm:rounded-3xl shadow-2xl border border-border/80 dark:border-white/10 flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Top Modal Header */}
-              <div className="px-5 sm:px-8 py-3.5 sm:py-4 border-b border-border/60 dark:border-white/10 bg-white/95 dark:bg-[#071d15]/95 backdrop-blur-sm flex items-center justify-between shrink-0 z-10">
+              <div className="px-5 sm:px-8 py-3.5 sm:py-4 border-b border-border/60 dark:border-white/10 bg-card/95 dark:bg-[#071d15]/95 backdrop-blur-sm flex items-center justify-between shrink-0 z-10">
                 <div>
-                  <h3 className="font-serif text-lg sm:text-2xl font-bold text-[#072018] dark:text-[#e6c887]">
+                  <h3 className="font-serif text-lg sm:text-2xl font-bold text-foreground dark:text-[#e6c887]">
                     {isEn ? `Unit ${selectedUnitForModal.badge}` : `Căn ${selectedUnitForModal.badge}`}
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-muted-foreground mt-0.5">
@@ -1271,8 +1271,8 @@ export function FloorPlanDetail() {
               </div>
 
               {/* Scrollable Modal Content: Image stretches to fill width horizontally */}
-              <div className="flex-1 overflow-y-auto p-2 sm:p-6 bg-slate-50/70 dark:bg-black/25">
-                <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-border/40 dark:border-white/5 shadow-sm">
+              <div className="flex-1 overflow-y-auto p-2 sm:p-6 bg-secondary/30 dark:bg-black/25">
+                <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-card dark:bg-slate-900 border border-border/40 dark:border-white/5 shadow-sm">
                   <img
                     src={selectedUnitForModal.image}
                     alt={`Bản vẽ mặt bằng Căn ${selectedUnitForModal.badge} - Bcons Central Park`}
@@ -1304,11 +1304,11 @@ export function FloorPlanDetail() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] bg-white dark:bg-[#071d15] rounded-2xl sm:rounded-3xl shadow-2xl border border-border/80 dark:border-white/10 flex flex-col overflow-hidden"
+              className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] bg-card dark:bg-[#071d15] rounded-2xl sm:rounded-3xl shadow-2xl border border-border/80 dark:border-white/10 flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="px-5 sm:px-8 py-3.5 sm:py-4 border-b border-border/60 dark:border-white/10 bg-white/95 dark:bg-[#071d15]/95 backdrop-blur-sm flex items-center justify-between shrink-0 z-10">
+              <div className="px-5 sm:px-8 py-3.5 sm:py-4 border-b border-border/60 dark:border-white/10 bg-card/95 dark:bg-[#071d15]/95 backdrop-blur-sm flex items-center justify-between shrink-0 z-10">
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground truncate pr-4">
                   {lightboxCaption || (isEn ? 'Detailed Floor Plan' : 'Bản vẽ mặt bằng chi tiết')}
                 </h3>

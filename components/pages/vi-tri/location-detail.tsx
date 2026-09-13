@@ -473,7 +473,7 @@ export function LocationDetail() {
 
           {/* Interactive Map Hub: Double-Bezel Nested Architecture */}
           <Reveal delay={0.1}>
-            <div className="mt-8 rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-slate-200/70 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 shadow-xl overflow-hidden transition-all">
+            <div className="mt-8 rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-xl overflow-hidden transition-all">
               <div className="rounded-[calc(1rem-2px)] sm:rounded-[calc(1.5rem-2px)] overflow-hidden bg-card border border-border/50 dark:border-white/5 flex flex-col">
                 {/* Header Bar: Brand Identity & Directions Button */}
                 <div className="bg-[#072018] dark:bg-[#071712] px-4 py-3.5 sm:px-6 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-950/40 dark:border-white/10">
@@ -503,14 +503,14 @@ export function LocationDetail() {
                 </div>
 
                 {/* 3-Mode View Switcher Tabs Bar */}
-                <div className="bg-slate-100/90 dark:bg-black/40 px-3 py-2.5 flex items-center gap-2 border-b border-border/50 dark:border-white/10 overflow-x-auto">
+                <div className="bg-secondary/70 dark:bg-black/40 px-3 py-2.5 flex items-center gap-2 border-b border-border/50 dark:border-white/10 overflow-x-auto">
                   <button
                     type="button"
                     onClick={() => setActiveMapTab('google')}
                     className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer ${
                       activeMapTab === 'google'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Navigation className="size-3.5" />
@@ -523,7 +523,7 @@ export function LocationDetail() {
                     className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer ${
                       activeMapTab === 'regional'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Map className="size-3.5" />
@@ -536,7 +536,7 @@ export function LocationDetail() {
                     className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer ${
                       activeMapTab === 'satellite'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Layers className="size-3.5" />
@@ -849,7 +849,7 @@ export function LocationDetail() {
                     desc: `${item.title} — Khoảng cách ${item.distance}, thời gian di chuyển ước tính ${item.time} từ vị trí Bcons Central Park 236 Phan Trung.`,
                   })
                 }
-                className="group relative rounded-2xl sm:rounded-3xl p-1 sm:p-1.5 bg-slate-200/70 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 hover:border-primary/50 dark:hover:border-[#e6c887]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="group relative rounded-2xl sm:rounded-3xl p-1 sm:p-1.5 bg-[#e6c887]/15 dark:bg-white/[0.04] border border-border/80 dark:border-white/10 hover:border-primary/50 dark:hover:border-[#e6c887]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
                 {/* Inner Card Core */}
                 <div className="rounded-[calc(1rem-2px)] sm:rounded-[calc(1.5rem-2px)] p-2.5 sm:p-3 bg-card h-full flex flex-col justify-between overflow-hidden border border-border/40 dark:border-white/5">
@@ -1231,7 +1231,7 @@ export function LocationDetail() {
           onClick={() => setActiveLightbox(null)}
         >
           <div
-            className="relative w-[min(96vw,78rem)] max-h-[94vh] flex flex-col bg-card rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/20 shadow-2xl overflow-hidden"
+            className="relative w-[min(96vw,78rem)] max-h-[94vh] flex flex-col bg-card rounded-2xl sm:rounded-3xl border border-border/80 dark:border-white/20 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header Bar */}

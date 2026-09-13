@@ -525,7 +525,7 @@ export function PricingDetail() {
           <Reveal delay={0.1}>
             <div
               className={`mt-8 overflow-hidden rounded-2xl sm:rounded-3xl border shadow-xl transition-all ${
-                isDark ? 'border-white/15 bg-card/85' : 'border-slate-200/90 bg-card'
+                isDark ? 'border-white/15 bg-card/85' : 'border-border/80 bg-card'
               }`}
             >
               <div className="overflow-x-auto">
@@ -677,7 +677,7 @@ export function PricingDetail() {
                     className={`relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border p-6 transition-all duration-300 hover:translate-y-[-4px] ${
                       isDark
                         ? 'border-white/15 bg-card/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:border-[#e6c887]/50'
-                        : 'border-slate-200 bg-card shadow-sm hover:shadow-md hover:border-primary/40'
+                        : 'border-border/80 bg-card shadow-sm hover:shadow-md hover:border-primary/40'
                     }`}
                   >
                     <div>
@@ -760,13 +760,13 @@ export function PricingDetail() {
                   className={`relative overflow-hidden rounded-2xl sm:rounded-3xl border transition-all duration-300 ${
                     isDark
                       ? 'border-white/15 bg-card/85 shadow-2xl'
-                      : 'border-slate-200 bg-card shadow-md hover:shadow-lg'
+                      : 'border-border/80 bg-card shadow-md hover:shadow-lg'
                   }`}
                 >
                   {/* Card Header */}
                   <div
                     className={`flex flex-wrap items-center justify-between gap-3 border-b px-6 py-4 sm:px-8 sm:py-5 ${
-                      isDark ? 'border-white/10 bg-white/[0.02]' : 'border-slate-100 bg-secondary/30'
+                      isDark ? 'border-white/10 bg-white/[0.02]' : 'border-border/60 bg-secondary/30'
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -839,7 +839,7 @@ export function PricingDetail() {
                         className={`mt-4 rounded-xl p-3.5 sm:p-4 border text-xs sm:text-sm ${
                           isDark
                             ? 'border-white/10 bg-white/[0.03] text-slate-300'
-                            : 'border-slate-200 bg-secondary/30 text-slate-700'
+                            : 'border-border/80 bg-secondary/30 text-muted-foreground'
                         }`}
                       >
                         <strong className="text-foreground">
@@ -851,7 +851,7 @@ export function PricingDetail() {
 
                     {/* Right: Diagram Image Thumbnail with Click-to-Zoom (5 columns) */}
                     <div className="lg:col-span-5 flex flex-col justify-center">
-                      <div className="group relative overflow-hidden rounded-2xl border border-border/80 dark:border-white/15 bg-slate-50 dark:bg-black/40 shadow-sm transition-all hover:shadow-md">
+                      <div className="group relative overflow-hidden rounded-2xl border border-border/80 dark:border-white/15 bg-secondary/30 dark:bg-black/40 shadow-sm transition-all hover:shadow-md">
                         <img
                           src={method.image}
                           alt={method.title}
@@ -962,7 +962,7 @@ export function PricingDetail() {
                 {paymentMilestones.map((item) => (
                   <div
                     key={item.step}
-                    className="relative flex items-start gap-3.5 sm:gap-4.5 rounded-2xl border border-slate-200/70 dark:border-white/5 bg-slate-50/70 dark:bg-white/[0.02] p-4 sm:p-5 hover:border-[#b88728]/40 dark:hover:border-[#e6c887]/30 transition-colors"
+                    className="relative flex items-start gap-3.5 sm:gap-4.5 rounded-2xl border border-border/70 dark:border-white/5 bg-secondary/30 dark:bg-white/[0.02] p-4 sm:p-5 hover:border-[#b88728]/40 dark:hover:border-[#e6c887]/30 transition-colors"
                   >
                     {/* Numbered Circle Badge */}
                     <span className="flex size-8 sm:size-9 shrink-0 items-center justify-center rounded-full bg-[#072018] text-[#e6c887] dark:bg-[#e6c887] dark:text-[#072018] font-serif font-extrabold text-sm sm:text-base shadow-sm">
@@ -1057,7 +1057,7 @@ export function PricingDetail() {
           onClick={() => setActiveDiagramIndex(null)}
         >
           <div
-            className="relative w-[min(96vw,76rem)] max-h-[94vh] flex flex-col bg-card rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/20 shadow-2xl overflow-hidden"
+            className="relative w-[min(96vw,76rem)] max-h-[94vh] flex flex-col bg-card rounded-2xl sm:rounded-3xl border border-border/80 dark:border-white/20 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header Bar: Clean single-line header matching reference design */}

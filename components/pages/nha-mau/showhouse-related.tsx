@@ -127,7 +127,7 @@ export function ShowhouseRelated() {
         <Reveal delay={0.25}>
           <div className="mt-12">
             <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
-              {t.related.allSections}
+              {t.related.allCategories}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {chips.map((chip) => (

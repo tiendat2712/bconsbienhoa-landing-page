@@ -49,7 +49,7 @@ export function Overview() {
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center relative z-20">
             <Reveal delay={0.15}>
               {/* Eyebrow badge */}
-              <div className="inline-flex items-center gap-2 rounded-full px-3 py-0.5 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 w-fit">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-0.5 text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 w-fit">
                 {isEn ? 'OFFICIAL PROJECT INTRODUCTION' : 'GIỚI THIỆU DỰ ÁN & ĐƠN VỊ TƯ VẤN'}
               </div>
 
@@ -80,7 +80,7 @@ export function Overview() {
                 <div className="flex items-start gap-3 sm:gap-3.5">
                   {/* Director Avatar with Verified Ring */}
                   <div className="relative size-12 sm:size-13 shrink-0 mt-0.5">
-                    <div className="size-full rounded-full overflow-hidden ring-2 ring-[#e6c887] shadow-md bg-slate-100 dark:bg-black/40">
+                    <div className="size-full rounded-full overflow-hidden ring-2 ring-[#e6c887] shadow-md bg-secondary dark:bg-black/40">
                       <img
                         src="/images/manager_avt.jpg"
                         alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
@@ -89,7 +89,7 @@ export function Overview() {
                     </div>
                     <span
                       title={isEn ? 'Official Developer Sales Advisor' : 'Đại diện tư vấn trực tiếp CĐT'}
-                      className="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow-md ring-1 ring-background"
+                      className="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-[#FFC100] text-[#072018] flex items-center justify-center shadow-md ring-1 ring-background"
                     >
                       <ShieldCheck className="size-2.5 stroke-[2.5]" />
                     </span>

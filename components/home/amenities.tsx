@@ -214,7 +214,7 @@ export function Amenities() {
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.22em] uppercase text-[#b88728] dark:text-[#e6c887]">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.1em] uppercase text-[#b88728] dark:text-[#e6c887]">
                 <span className="h-px w-8 bg-[#b88728]/60 dark:bg-[#e6c887]/70" />
                 {t.amenities.eyebrow}
               </span>
@@ -365,7 +365,7 @@ export function Amenities() {
                 className={`transition-all duration-300 rounded-full ${
                   idx === activeIndex
                     ? 'w-7 sm:w-8 h-2 sm:h-2.5 bg-[#e6c887]'
-                    : 'size-2 sm:size-2.5 bg-slate-300 dark:bg-white/25 hover:bg-slate-400 dark:hover:bg-white/50'
+                    : 'size-2 sm:size-2.5 bg-border dark:bg-white/25 hover:bg-primary/40 dark:hover:bg-white/50'
                 }`}
               />
             ))}

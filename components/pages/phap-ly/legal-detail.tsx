@@ -524,7 +524,7 @@ export function LegalDetail() {
 
               {/* Phase 3 */}
               <div className="rounded-2xl border border-border bg-card/60 p-4 sm:p-5 flex items-start gap-3.5 dark:border-white/10 dark:bg-card/60 opacity-80">
-                <span className="flex size-7 items-center justify-center rounded-full bg-slate-200 text-slate-600 font-bold text-[11px] shrink-0 mt-0.5 dark:bg-white/10 dark:text-white/70">
+                <span className="flex size-7 items-center justify-center rounded-full bg-secondary text-muted-foreground font-bold text-[11px] shrink-0 mt-0.5 dark:bg-white/10 dark:text-white/70">
                   5-6
                 </span>
                 <div>
@@ -566,7 +566,7 @@ export function LegalDetail() {
                                 ? 'bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/25 dark:text-emerald-400'
                                 : isOngoing
                                 ? 'bg-[#e6c887] text-[#072018]'
-                                : 'bg-slate-100 text-slate-500 dark:bg-white/10 dark:text-white/60'
+                                : 'bg-secondary text-muted-foreground dark:bg-white/10 dark:text-white/60'
                             }`}
                           >
                             {stepItem.step}
@@ -583,7 +583,7 @@ export function LegalDetail() {
                               ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20 dark:bg-emerald-500/20 dark:text-emerald-400'
                               : isOngoing
                               ? 'bg-[#e6c887]/20 text-[#b88728] border-[#e6c887]/50 dark:text-[#e6c887]'
-                              : 'bg-slate-100 text-slate-600 border-slate-200 dark:bg-white/5 dark:text-white/60 dark:border-white/10'
+                              : 'bg-secondary text-muted-foreground border-border dark:bg-white/5 dark:text-white/60 dark:border-white/10'
                           }`}
                         >
                           {isEn ? stepItem.statusEn : stepItem.statusVi}

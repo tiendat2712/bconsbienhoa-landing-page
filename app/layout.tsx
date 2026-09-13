@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Playfair_Display, Be_Vietnam_Pro } from 'next/font/google'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import {
@@ -181,8 +182,9 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)" />
         <meta name="twitter:image" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
 
-        <script
+        <Script
           id="bcons-theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {

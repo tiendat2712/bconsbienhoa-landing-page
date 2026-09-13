@@ -190,7 +190,7 @@ export function Location() {
         <div className="mt-10 sm:mt-12 lg:mt-16 grid gap-6 lg:grid-cols-[1.1fr_1.15fr] items-stretch">
           {/* Left Column: Interactive Map Hub (Doppelrand Double-Bezel Architecture) */}
           <Reveal>
-            <div className="group relative rounded-3xl p-1.5 sm:p-2 bg-slate-200/60 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 shadow-xl flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
+            <div className="group relative rounded-3xl p-1.5 sm:p-2 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-xl flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
               {/* Inner Core */}
               <div className="rounded-[calc(1.5rem-0.25rem)] overflow-hidden bg-card flex flex-col h-full border border-border/40 dark:border-white/5">
                 {/* Header Bar: Brand Identity & View Switcher */}
@@ -224,14 +224,14 @@ export function Location() {
                 </div>
 
                 {/* Switcher Tabs Bar */}
-                <div className="bg-slate-100/90 dark:bg-black/40 px-3 py-2 flex items-center gap-1.5 border-b border-border/50 dark:border-white/10 overflow-x-auto">
+                <div className="bg-secondary/80 dark:bg-black/40 px-3 py-2 flex items-center gap-1.5 border-b border-border/50 dark:border-white/10 overflow-x-auto">
                   <button
                     type="button"
                     onClick={() => setActiveMapTab('google')}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
                       activeMapTab === 'google'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Navigation className="size-3.5" />
@@ -241,10 +241,10 @@ export function Location() {
                   <button
                     type="button"
                     onClick={() => setActiveMapTab('regional')}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
                       activeMapTab === 'regional'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Map className="size-3.5" />
@@ -254,10 +254,10 @@ export function Location() {
                   <button
                     type="button"
                     onClick={() => setActiveMapTab('satellite')}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
                       activeMapTab === 'satellite'
                         ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-slate-200/60 dark:hover:bg-white/5'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
                     }`}
                   >
                     <Layers className="size-3.5" />
@@ -351,7 +351,7 @@ export function Location() {
                 return (
                   <div
                     key={item.title}
-                    className="group relative rounded-2xl p-1 bg-slate-200/50 dark:bg-white/[0.04] border border-border/70 dark:border-white/10 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-xl hover:border-[#e6c887]/70 dark:hover:border-[#e6c887]/60 overflow-hidden flex flex-col h-full"
+                    className="group relative rounded-2xl p-1 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-xl hover:border-[#e6c887]/70 dark:hover:border-[#e6c887]/60 overflow-hidden flex flex-col h-full"
                   >
                     {/* Background Subtle Watermark Icon for Rich Depth & Texture */}
                     <IconComponent className="absolute -right-3 -bottom-3 size-24 text-[#072018]/[0.04] dark:text-[#e6c887]/[0.06] group-hover:text-primary/10 dark:group-hover:text-[#e6c887]/15 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-none" />
@@ -393,7 +393,7 @@ export function Location() {
                           <span className="font-semibold text-foreground dark:text-white truncate">{item.time}</span>
                         </div>
 
-                        <span className="text-[10px] sm:text-[10.5px] font-medium text-muted-foreground dark:text-slate-400 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-md border border-border/40 dark:border-white/5 shrink-0">
+                        <span className="text-[10px] sm:text-[10.5px] font-medium text-muted-foreground dark:text-slate-400 bg-secondary dark:bg-white/5 px-2 py-0.5 rounded-md border border-border/40 dark:border-white/5 shrink-0">
                           {ext.mode}
                         </span>
                       </div>
@@ -432,7 +432,7 @@ export function Location() {
                       desc: card.desc,
                     })
                   }
-                  className="group relative rounded-3xl p-1.5 bg-slate-200/50 dark:bg-white/[0.04] border border-border/70 dark:border-white/10 shadow-md transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#e6c887]/60 cursor-pointer flex flex-col h-full"
+                  className="group relative rounded-3xl p-1.5 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-md transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#e6c887]/60 cursor-pointer flex flex-col h-full"
                 >
                   {/* Inner Core */}
                   <div className="rounded-[calc(1.5rem-0.25rem)] overflow-hidden bg-card flex flex-col h-full border border-border/30 dark:border-white/5">

@@ -112,8 +112,8 @@ export function FinancialCalculator() {
 
         {/* Double-Bezel Architectural Container */}
         <Reveal delay={0.1}>
-          <div className="mt-12 rounded-[2.5rem] p-2 sm:p-3 ring-1 ring-black/5 dark:ring-white/10 bg-stone-200/40 dark:bg-white/[0.03] shadow-2xl backdrop-blur-sm">
-            <div className="rounded-[2rem] bg-white dark:bg-[#071712] p-6 sm:p-9 lg:p-11 border border-border/60 dark:border-white/10 shadow-sm">
+          <div className="mt-12 rounded-[2.5rem] p-2 sm:p-3 ring-1 ring-black/5 dark:ring-white/10 bg-[#e6c887]/20 dark:bg-white/[0.03] shadow-2xl backdrop-blur-sm">
+            <div className="rounded-[2rem] bg-card dark:bg-[#071712] p-6 sm:p-9 lg:p-11 border border-border/60 dark:border-white/10 shadow-sm">
               <div className="grid gap-10 lg:grid-cols-12 items-stretch">
                 
                 {/* CỘT TRÁI (7 Cột): BẢNG ĐIỀU KHIỂN THAM SỐ VAY */}
@@ -137,12 +137,12 @@ export function FinancialCalculator() {
                             className={`rounded-2xl border p-3 sm:p-3.5 lg:p-4 text-center transition-all duration-200 cursor-pointer flex flex-col items-center justify-center ${
                               isSelected
                                 ? 'bg-[#072018] text-white border-[#e6c887]/70 shadow-md ring-2 ring-[#e6c887]/40 dark:bg-[#0c2e22] dark:border-[#e6c887] dark:ring-2 dark:ring-[#e6c887]/50 scale-[1.02]'
-                                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-900 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:border-white/10 dark:text-white shadow-sm'
+                                : 'bg-card hover:bg-secondary/60 border-border hover:border-[#e6c887]/60 text-foreground dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:border-white/10 dark:text-white shadow-sm'
                             }`}
                           >
                             <span
                               className={`font-bold text-xs sm:text-sm lg:text-base leading-tight ${
-                                isSelected ? 'text-white' : 'text-slate-900 dark:text-white'
+                                isSelected ? 'text-white' : 'text-foreground dark:text-white'
                               }`}
                             >
                               {unit.name}
@@ -151,7 +151,7 @@ export function FinancialCalculator() {
                               className={`text-[11px] sm:text-xs mt-1 font-sans ${
                                 isSelected
                                   ? 'text-slate-200 dark:text-slate-300'
-                                  : 'text-slate-500 dark:text-slate-400'
+                                  : 'text-muted-foreground dark:text-slate-400'
                               }`}
                             >
                               {unit.area}

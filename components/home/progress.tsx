@@ -91,7 +91,7 @@ export function Progress() {
   return (
     <section
       id="tien-do"
-      className="scroll-mt-24 bg-[#f8fafc] dark:bg-[#07130f] py-16 sm:py-20 lg:py-24 transition-colors duration-500 relative overflow-hidden"
+      className="scroll-mt-24 bg-secondary/40 dark:bg-[#07130f] py-16 sm:py-20 lg:py-24 transition-colors duration-500 relative overflow-hidden"
     >
       {/* Ambient background accents */}
       <div className="pointer-events-none absolute -left-40 top-1/3 size-[450px] rounded-full bg-primary/5 dark:bg-[#e6c887]/5 blur-[120px]" />
@@ -123,19 +123,19 @@ export function Progress() {
             const Icon = kpi.icon
             return (
               <Reveal key={idx} delay={0.05 * idx}>
-                <div className="h-full rounded-2xl bg-white dark:bg-[#071912] p-5 sm:p-6 border border-slate-200/90 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
-                  <div className="size-12 sm:size-13 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center shrink-0 border border-slate-200/60 dark:border-white/5">
+                <div className="h-full rounded-2xl bg-card dark:bg-[#071912] p-5 sm:p-6 border border-border/80 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                  <div className="size-12 sm:size-13 rounded-xl bg-secondary dark:bg-white/5 flex items-center justify-center shrink-0 border border-border/50 dark:border-white/5">
                     <Icon className="size-6 text-primary dark:text-[#e6c887]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 font-sans line-clamp-1">
+                    <p className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-muted-foreground font-sans line-clamp-1">
                       {kpi.label}
                     </p>
                     <p
                       className={`text-base sm:text-lg font-bold font-serif tracking-tight mt-0.5 ${
                         kpi.isHighlighted
                           ? 'text-emerald-700 dark:text-emerald-400'
-                          : 'text-[#072018] dark:text-white'
+                          : 'text-foreground dark:text-white'
                       }`}
                     >
                       {kpi.value}
@@ -149,10 +149,10 @@ export function Progress() {
 
         {/* 2. MAIN HORIZONTAL STEPPER TIMELINE CARD */}
         <Reveal delay={0.2} className="mt-6 sm:mt-8">
-          <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-[#071912] border border-slate-200/90 dark:border-white/10 p-6 sm:p-8 lg:p-10 shadow-md">
+          <div className="rounded-2xl sm:rounded-3xl bg-card dark:bg-[#071912] border border-border/80 dark:border-white/10 p-6 sm:p-8 lg:p-10 shadow-md">
             {/* Card Header: Title + Latest Update Date */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-100 dark:border-white/10">
-              <h3 className="font-serif text-lg sm:text-xl font-bold uppercase tracking-normal text-[#072018] dark:text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-border/60 dark:border-white/10">
+              <h3 className="font-serif text-lg sm:text-xl font-bold uppercase tracking-normal text-foreground dark:text-white">
                 {isEn ? 'LIVE PROJECT CONSTRUCTION TIMELINE' : 'TIẾN ĐỘ THỰC TẾ DỰ ÁN'}
               </h3>
               <div className="flex items-center gap-2 text-xs text-muted-foreground font-sans">
@@ -168,7 +168,7 @@ export function Progress() {
             <div className="mt-8 overflow-x-auto pb-4 pt-2 -mx-2 px-2 scrollbar-thin">
               <div className="min-w-[760px] sm:min-w-[850px] relative">
                 {/* Horizontal Progress Track Lines */}
-                <div className="absolute top-[22px] left-[7%] right-[7%] h-[3px] bg-slate-200 dark:bg-white/10 -z-0">
+                <div className="absolute top-[22px] left-[7%] right-[7%] h-[3px] bg-border dark:bg-white/10 -z-0">
                   {/* Completed Green Line spanning milestones 1 to 4 */}
                   <div className="h-full bg-emerald-500 w-[50%]" />
                 </div>
@@ -196,7 +196,7 @@ export function Progress() {
                           )}
 
                           {!isCompleted && !isActive && (
-                            <div className="size-11 rounded-full bg-slate-100 dark:bg-white/10 text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-white/10 flex items-center justify-center shadow-inner">
+                            <div className="size-11 rounded-full bg-secondary dark:bg-white/10 text-muted-foreground dark:text-slate-500 border border-border dark:border-white/10 flex items-center justify-center shadow-inner">
                               {item.id === 7 ? (
                                 <Home className="size-5 stroke-[1.8]" />
                               ) : (
@@ -210,10 +210,10 @@ export function Progress() {
                         <h4
                           className={`text-xs sm:text-[13px] font-bold leading-tight font-sans ${
                             isActive
-                              ? 'text-[#072018] dark:text-[#e6c887]'
+                              ? 'text-primary dark:text-[#e6c887]'
                               : isCompleted
-                              ? 'text-slate-900 dark:text-white'
-                              : 'text-slate-700 dark:text-slate-300'
+                              ? 'text-foreground dark:text-white'
+                              : 'text-muted-foreground dark:text-slate-300'
                           }`}
                         >
                           {item.title}
@@ -239,7 +239,7 @@ export function Progress() {
                           )}
 
                           {!isCompleted && !isActive && (
-                            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10.5px] font-medium bg-slate-100 text-slate-600 dark:bg-white/5 dark:text-slate-400 font-sans">
+                            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10.5px] font-medium bg-secondary text-muted-foreground dark:bg-white/5 dark:text-slate-400 font-sans">
                               {item.status}
                             </span>
                           )}
@@ -252,7 +252,7 @@ export function Progress() {
             </div>
 
             {/* Card Footer: Detailed Link to dedicated progress page */}
-            <div className="mt-8 pt-5 border-t border-slate-100 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground font-sans">
+            <div className="mt-8 pt-5 border-t border-border/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground font-sans">
               <p>
                 {isEn ? (
                   <>

@@ -69,7 +69,7 @@ export function DirectorConsultation({
           )}
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/15 bg-card p-6 sm:p-8 lg:p-10 shadow-xl">
+            <div className="rounded-2xl sm:rounded-3xl border border-border/80 dark:border-white/15 bg-card p-6 sm:p-8 lg:p-10 shadow-xl">
               {/* Card Title */}
               <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-[#072018] dark:text-white mb-6 sm:mb-8">
                 {isEn ? 'BCONS CENTRAL PARK PROJECT CONSULTATION' : 'TƯ VẤN DỰ ÁN BCONS CENTRAL PARK'}
@@ -79,7 +79,7 @@ export function DirectorConsultation({
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-6 border-b border-border/70 dark:border-white/10 text-center sm:text-left">
                 {/* Portrait photo of Director Long */}
                 <div className="relative size-24 sm:size-28 shrink-0">
-                  <div className="size-full rounded-2xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-md bg-slate-100 dark:bg-black/40">
+                  <div className="size-full rounded-2xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-md bg-secondary dark:bg-black/40">
                     <img
                       src="/images/manager_avt.jpg"
                       alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
@@ -117,7 +117,7 @@ export function DirectorConsultation({
                 {advisorBulletPoints.map((text, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans"
+                    className="flex items-start gap-3 text-xs sm:text-sm text-foreground/90 dark:text-slate-200 leading-relaxed font-sans"
                   >
                     <Check className="size-4 shrink-0 text-emerald-600 dark:text-[#e6c887] stroke-[2.5] mt-0.5" />
                     <div className="flex-1">
@@ -229,7 +229,7 @@ export function DirectorConsultation({
               </button>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-border/80 dark:border-white/10 shadow-inner bg-slate-50 dark:bg-black/50">
+            <div className="rounded-xl overflow-hidden border border-border/80 dark:border-white/10 shadow-inner bg-secondary/30 dark:bg-black/50">
               <img
                 src="/images/material_info.jpg"
                 alt="Chứng chỉ hành nghề môi giới BĐS Lê Ngọc Long"
