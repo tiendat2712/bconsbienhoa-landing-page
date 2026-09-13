@@ -1,0 +1,272 @@
+﻿[
+    {
+        "id":  "a1-1",
+        "type":  "a1",
+        "caption":  "Phòng khách – vách TV",
+        "src":  "/images/nha-mau/a1-01-bcons-central-park-nha-mau-a1-phong-khach.wQVLyslN_ZSqv2q.webp"
+    },
+    {
+        "id":  "a1-2",
+        "type":  "a1",
+        "caption":  "Phòng khách nhìn từ bàn ăn",
+        "src":  "/images/nha-mau/a1-02-bcons-central-park-nha-mau-a1-phong-khach-ban-an.D0yg04J-_1OUPXP.webp"
+    },
+    {
+        "id":  "a1-3",
+        "type":  "a1",
+        "caption":  "Bàn ăn \u0026 sinh hoạt chung",
+        "src":  "/images/nha-mau/a1-03-bcons-central-park-nha-mau-a1-ban-an.CVkKuknL_gQlBF.webp"
+    },
+    {
+        "id":  "a1-4",
+        "type":  "a1",
+        "caption":  "Lối vào \u0026 tủ giày",
+        "src":  "/images/nha-mau/a1-04-bcons-central-park-nha-mau-a1-loi-vao-tu-giay.Bi8cq_Bx_1oVWIR.webp"
+    },
+    {
+        "id":  "a1-5",
+        "type":  "a1",
+        "caption":  "Bếp \u0026 khu giặt",
+        "src":  "/images/nha-mau/a1-05-bcons-central-park-nha-mau-a1-bep.BQH20pMX_JVsKQ.webp"
+    },
+    {
+        "id":  "a1-6",
+        "type":  "a1",
+        "caption":  "Phòng ngủ chính",
+        "src":  "/images/nha-mau/a1-06-bcons-central-park-nha-mau-a1-phong-ngu-chinh-01.xvNy-wID_4tTAD.webp"
+    },
+    {
+        "id":  "a1-7",
+        "type":  "a1",
+        "caption":  "Phòng ngủ chính – góc trang điểm",
+        "src":  "/images/nha-mau/a1-07-bcons-central-park-nha-mau-a1-phong-ngu-chinh-02.C4-9z7tX_IIr8b.webp"
+    },
+    {
+        "id":  "a1-8",
+        "type":  "a1",
+        "caption":  "Phòng ngủ chính – tủ áo \u0026 vách TV",
+        "src":  "/images/nha-mau/a1-08-bcons-central-park-nha-mau-a1-phong-ngu-chinh-03.I_NhK2eU_Z1j1wgB.webp"
+    },
+    {
+        "id":  "a1-9",
+        "type":  "a1",
+        "caption":  "Phòng ngủ 2",
+        "src":  "/images/nha-mau/a1-09-bcons-central-park-nha-mau-a1-phong-ngu-2-01.YbJLEujh_Z1z6hEz.webp"
+    },
+    {
+        "id":  "a1-10",
+        "type":  "a1",
+        "caption":  "Phòng ngủ 2 – góc làm việc",
+        "src":  "/images/nha-mau/a1-10-bcons-central-park-nha-mau-a1-phong-ngu-2-ban-lam-viec.Nx_gOwlM_29Jm0z.webp"
+    },
+    {
+        "id":  "a1-11",
+        "type":  "a1",
+        "caption":  "Phòng ngủ 2 – tủ áo",
+        "src":  "/images/nha-mau/a1-11-bcons-central-park-nha-mau-a1-phong-ngu-2-tu-ao.ght1dX9J_Z2hSpQ3.webp"
+    },
+    {
+        "id":  "a1-12",
+        "type":  "a1",
+        "caption":  "Phòng ngủ bé",
+        "src":  "/images/nha-mau/a1-12-bcons-central-park-nha-mau-a1-phong-ngu-be-01.DPXJCyQ4_ZhB32q.webp"
+    },
+    {
+        "id":  "a1-13",
+        "type":  "a1",
+        "caption":  "Phòng ngủ bé – tủ áo \u0026 bàn học",
+        "src":  "/images/nha-mau/a1-13-bcons-central-park-nha-mau-a1-phong-ngu-be-tu-ao.BWEoc8HH_1xyAEN.webp"
+    },
+    {
+        "id":  "a1-14",
+        "type":  "a1",
+        "caption":  "Phòng ngủ bé – góc chơi",
+        "src":  "/images/nha-mau/a1-14-bcons-central-park-nha-mau-a1-phong-ngu-be-goc-choi.BxpjHtlb_ZFaTbB.webp"
+    },
+    {
+        "id":  "b4-15",
+        "type":  "b4",
+        "caption":  "Phòng khách",
+        "src":  "/images/nha-mau/b4-15-bcons-central-park-nha-mau-b4-phong-khach.KiaCBx3v_Z207Okl.webp"
+    },
+    {
+        "id":  "b4-16",
+        "type":  "b4",
+        "caption":  "Phòng khách \u0026 bàn ăn",
+        "src":  "/images/nha-mau/b4-16-bcons-central-park-nha-mau-b4-phong-khach-ban-an.DFDJFZqp_ZbnQ0M.webp"
+    },
+    {
+        "id":  "b4-17",
+        "type":  "b4",
+        "caption":  "Bếp \u0026 bàn ăn",
+        "src":  "/images/nha-mau/b4-17-bcons-central-park-nha-mau-b4-bep-ban-an.C9tMIcqS_bw0L3.webp"
+    },
+    {
+        "id":  "b4-18",
+        "type":  "b4",
+        "caption":  "Lối vào – tủ giày \u0026 tủ rượu",
+        "src":  "/images/nha-mau/b4-18-bcons-central-park-nha-mau-b4-loi-vao-tu-ruou.DiE2CdsM_1gQi4.webp"
+    },
+    {
+        "id":  "b4-19",
+        "type":  "b4",
+        "caption":  "Phòng ngủ chính",
+        "src":  "/images/nha-mau/b4-19-bcons-central-park-nha-mau-b4-phong-ngu-chinh-01.DKiZnRC0_1L9b8c.webp"
+    },
+    {
+        "id":  "b4-20",
+        "type":  "b4",
+        "caption":  "Phòng ngủ chính – tủ áo",
+        "src":  "/images/nha-mau/b4-20-bcons-central-park-nha-mau-b4-phong-ngu-chinh-tu-ao.DxXPS8to_Z1CDVyh.webp"
+    },
+    {
+        "id":  "b4-21",
+        "type":  "b4",
+        "caption":  "Phòng ngủ chính – góc cửa sổ",
+        "src":  "/images/nha-mau/b4-21-bcons-central-park-nha-mau-b4-phong-ngu-chinh-cua-so.Dk-njOYd_7UkRw.webp"
+    },
+    {
+        "id":  "b4-22",
+        "type":  "b4",
+        "caption":  "Phòng ngủ chính – vách TV",
+        "src":  "/images/nha-mau/b4-22-bcons-central-park-nha-mau-b4-phong-ngu-chinh-vach-tv.DI9hhAbv_Zl1qAu.webp"
+    },
+    {
+        "id":  "b4-23",
+        "type":  "b4",
+        "caption":  "Phòng ngủ bé",
+        "src":  "/images/nha-mau/b4-23-bcons-central-park-nha-mau-b4-phong-ngu-be-01.D9WmPRbM_jS12l.webp"
+    },
+    {
+        "id":  "b4-24",
+        "type":  "b4",
+        "caption":  "Phòng ngủ bé – bàn học \u0026 tủ áo",
+        "src":  "/images/nha-mau/b4-24-bcons-central-park-nha-mau-b4-phong-ngu-be-ban-hoc.6-bnuta6_Z20uNry.webp"
+    },
+    {
+        "id":  "b4-25",
+        "type":  "b4",
+        "caption":  "Phòng ngủ bé – tranh tường",
+        "src":  "/images/nha-mau/b4-25-bcons-central-park-nha-mau-b4-phong-ngu-be-tranh-tuong.gwolBwUC_1DJyg5.webp"
+    },
+    {
+        "id":  "b4-26",
+        "type":  "b4",
+        "caption":  "Phòng tắm",
+        "src":  "/images/nha-mau/b4-26-bcons-central-park-nha-mau-b4-phong-tam-01.BbRMfn2Y_8Codp.webp"
+    },
+    {
+        "id":  "b4-27",
+        "type":  "b4",
+        "caption":  "Phòng tắm – bồn rửa \u0026 gương",
+        "src":  "/images/nha-mau/b4-27-bcons-central-park-nha-mau-b4-phong-tam-02.CjKNKifZ_Z1wV81g.webp"
+    },
+    {
+        "id":  "b4-28",
+        "type":  "b4",
+        "caption":  "Khu giặt tại lô gia",
+        "src":  "/images/nha-mau/b4-28-bcons-central-park-nha-mau-b4-khu-giat-lo-gia.CXp5Mif4_2saIoX.webp"
+    },
+    {
+        "id":  "c1-29",
+        "type":  "c1",
+        "caption":  "Tổng thể bếp – bàn ăn – phòng khách",
+        "src":  "/images/nha-mau/c1-29-bcons-central-park-nha-mau-c1-tong-the-bep-ban-an-phong-khach.BmSQVhvr_ZQz4ki.webp"
+    },
+    {
+        "id":  "c1-30",
+        "type":  "c1",
+        "caption":  "Phòng khách nhìn ra ban công",
+        "src":  "/images/nha-mau/c1-30-bcons-central-park-nha-mau-c1-phong-khach-ban-cong.nmx6hH0t_2goYyC.webp"
+    },
+    {
+        "id":  "c1-31",
+        "type":  "c1",
+        "caption":  "Phòng khách \u0026 bàn ăn",
+        "src":  "/images/nha-mau/c1-31-bcons-central-park-nha-mau-c1-phong-khach-ban-an.MkNpoWxG_1oCFWO.webp"
+    },
+    {
+        "id":  "c1-32",
+        "type":  "c1",
+        "caption":  "Bàn ăn",
+        "src":  "/images/nha-mau/c1-32-bcons-central-park-nha-mau-c1-ban-an.B7nyQUAj_Oq14u.webp"
+    },
+    {
+        "id":  "c1-33",
+        "type":  "c1",
+        "caption":  "Phòng khách nhìn về lối vào",
+        "src":  "/images/nha-mau/c1-33-bcons-central-park-nha-mau-c1-phong-khach-loi-vao.IVgxhjc8_Z1ka9Jv.webp"
+    },
+    {
+        "id":  "c1-34",
+        "type":  "c1",
+        "caption":  "Bếp \u0026 khu giặt",
+        "src":  "/images/nha-mau/c1-34-bcons-central-park-nha-mau-c1-bep.DQkLSJr2_Z1I5Pfd.webp"
+    },
+    {
+        "id":  "c1-35",
+        "type":  "c1",
+        "caption":  "Lối vào \u0026 vách gỗ trang trí",
+        "src":  "/images/nha-mau/c1-35-bcons-central-park-nha-mau-c1-loi-vao-vach-go.B-Bk8xQO_Z1cul8g.webp"
+    },
+    {
+        "id":  "c1-36",
+        "type":  "c1",
+        "caption":  "Phòng ngủ chính – vách shoji",
+        "src":  "/images/nha-mau/c1-36-bcons-central-park-nha-mau-c1-phong-ngu-chinh-vach-shoji.B21niOb4_LVlFr.webp"
+    },
+    {
+        "id":  "c1-37",
+        "type":  "c1",
+        "caption":  "Phòng ngủ chính – bàn trang điểm",
+        "src":  "/images/nha-mau/c1-37-bcons-central-park-nha-mau-c1-phong-ngu-chinh-ban-trang-diem.DNM-4Gxo_kCL1u.webp"
+    },
+    {
+        "id":  "c1-38",
+        "type":  "c1",
+        "caption":  "Phòng ngủ chính",
+        "src":  "/images/nha-mau/c1-38-bcons-central-park-nha-mau-c1-phong-ngu-chinh-01.Osh24Jmf_Zak5Xm.webp"
+    },
+    {
+        "id":  "c1-39",
+        "type":  "c1",
+        "caption":  "Phòng ngủ chính – tủ áo \u0026 gương",
+        "src":  "/images/nha-mau/c1-39-bcons-central-park-nha-mau-c1-phong-ngu-chinh-02.BjxxhpX6_Z1jYibD.webp"
+    },
+    {
+        "id":  "c1-40",
+        "type":  "c1",
+        "caption":  "Phòng ngủ – vách TV",
+        "src":  "/images/nha-mau/c1-40-bcons-central-park-nha-mau-c1-phong-ngu-vach-tv.Ch9iI0vo_Z1D68MT.webp"
+    },
+    {
+        "id":  "c1-41",
+        "type":  "c1",
+        "caption":  "Phòng ngủ nhìn ra bàn ăn",
+        "src":  "/images/nha-mau/c1-41-bcons-central-park-nha-mau-c1-phong-ngu-nhin-ra-ban-an.CLYKSTER_Z11tFfI.webp"
+    },
+    {
+        "id":  "c1-42",
+        "type":  "c1",
+        "caption":  "Phòng ngủ bé",
+        "src":  "/images/nha-mau/c1-42-bcons-central-park-nha-mau-c1-phong-ngu-be-01.C-NDTQNN_ZRftIg.webp"
+    },
+    {
+        "id":  "c1-43",
+        "type":  "c1",
+        "caption":  "Phòng ngủ bé – giường bục",
+        "src":  "/images/nha-mau/c1-43-bcons-central-park-nha-mau-c1-phong-ngu-be-giuong-buc.9klMhEA6_Z1aYrgu.webp"
+    },
+    {
+        "id":  "c1-44",
+        "type":  "c1",
+        "caption":  "Phòng ngủ bé – tường xanh",
+        "src":  "/images/nha-mau/c1-44-bcons-central-park-nha-mau-c1-phong-ngu-be-tuong-xanh.BhxhAk02_26RDvh.webp"
+    },
+    {
+        "id":  "c1-45",
+        "type":  "c1",
+        "caption":  "Phòng tắm \u0026 khu giặt",
+        "src":  "/images/nha-mau/c1-45-bcons-central-park-nha-mau-c1-phong-tam-khu-giat.tV3cCz2__1DzjbO.webp"
+    }
+]

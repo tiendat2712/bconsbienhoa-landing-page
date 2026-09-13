@@ -627,8 +627,8 @@ export function PricingDetail() {
                     source: 'Trang Giá Bán - Bảng Giá Chi Tiết',
                     title: isEn ? 'Receive Detailed Price Sheet' : 'Nhận Bảng Giá Chi Tiết & CSBH',
                     subtitle: isEn
-                      ? 'Leave your phone number, Le Ngoc Long will send the latest official developer price sheet.'
-                      : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ gửi trọn bộ bảng giá gốc từ Chủ đầu tư Bcons.',
+                      ? 'Leave your phone number, Sales Director Le Ngoc Long will send the latest official developer price sheet.'
+                      : 'Để lại số điện thoại, Giám đốc Sàn Lê Ngọc Long sẽ gửi trọn bộ bảng giá gốc từ Chủ đầu tư Bcons.',
                   })
                 }
                 className={`inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-xs sm:text-sm font-bold tracking-[0.14em] uppercase transition-all duration-300 hover:scale-[1.02] active:scale-98 shadow-lg cursor-pointer ${

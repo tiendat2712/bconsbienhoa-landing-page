@@ -272,27 +272,39 @@ export function ConsultationModal() {
                   : 'bg-card text-foreground border border-border/80'
               }`}
             >
-              {/* Top Bar: Eyebrow + Close Button */}
+              {/* Top Bar: Brand Logo + Eyebrow + Close Button */}
               <div className="flex items-start justify-between gap-4 pb-4 border-b border-border/60 dark:border-white/10">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-primary dark:text-[#e6c887]">
-                    <Sparkles className="size-3.5" />
-                    {consultationOptions?.title
-                      ? 'BCONS CENTRAL PARK'
-                      : isEn
-                      ? 'DIRECT CONSULTATION'
-                      : 'ĐĂNG KÝ TƯ VẤN TRỰC TIẾP'}
-                  </span>
-                  <h3 className="mt-1 font-serif text-xl sm:text-2xl font-bold uppercase tracking-tight text-foreground dark:text-white">
-                    {consultationOptions?.title ||
-                      (isEn ? 'Get Full Pricing & Floor Plans' : 'Nhận Bảng Giá & Tư Vấn Căn Hộ')}
-                  </h3>
-                  <p className="mt-1 font-sans text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {consultationOptions?.subtitle ||
-                      (isEn
-                        ? 'Leave your phone number, Developer Sales Director Le Ngoc Long will contact you in 15 minutes.'
-                        : 'Giám đốc Kinh doanh Bcons PS Land Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong vòng 15 phút.')}
-                  </p>
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className={`p-2 rounded-xl border shrink-0 transition-all ${
+                    isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-border/80'
+                  }`}>
+                    <img
+                      src="/images/bcons-central-park-logo.png"
+                      alt="Bcons Central Park Logo"
+                      className="h-7 sm:h-8 w-auto object-contain dark-gold-logo"
+                      decoding="async"
+                    />
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-primary dark:text-[#e6c887]">
+                      <Sparkles className="size-3.5" />
+                      {consultationOptions?.title
+                        ? 'BCONS CENTRAL PARK'
+                        : isEn
+                        ? 'DIRECT CONSULTATION'
+                        : 'ĐĂNG KÝ TƯ VẤN TRỰC TIẾP'}
+                    </span>
+                    <h3 className="mt-1 font-serif text-lg sm:text-2xl font-bold uppercase tracking-tight text-foreground dark:text-white">
+                      {consultationOptions?.title ||
+                        (isEn ? 'Get Full Pricing & Floor Plans' : 'Nhận Bảng Giá & Tư Vấn Căn Hộ')}
+                    </h3>
+                    <p className="mt-1 font-sans text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {consultationOptions?.subtitle ||
+                        (isEn
+                          ? 'Leave your phone number, Developer Sales Director Le Ngoc Long will contact you in 15 minutes.'
+                          : 'Giám đốc Kinh doanh Bcons PS Land Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong vòng 15 phút.')}
+                    </p>
+                  </div>
                 </div>
 
                 <button
@@ -307,33 +319,106 @@ export function ConsultationModal() {
 
               {/* Form or Success State */}
               {sent ? (
-                <div className="py-8 text-center flex flex-col items-center">
-                  <div className="size-16 rounded-full bg-emerald-500/20 text-emerald-500 border border-emerald-500/30 flex items-center justify-center mb-4">
-                    <Check className="size-8" />
+                <div className="py-6 sm:py-8 text-center flex flex-col items-center">
+                  {/* Concentric Double-Bezel Luxury Logo Plaque */}
+                  <div className="relative mb-5 flex flex-col items-center">
+                    <div className={`relative p-3.5 sm:p-4 rounded-2xl border transition-all duration-500 ${
+                      isDark
+                        ? 'bg-gradient-to-b from-white/10 to-white/[0.02] border-[#e6c887]/30 shadow-[0_12px_30px_rgba(230,200,135,0.15)] ring-1 ring-[#e6c887]/20'
+                        : 'bg-gradient-to-b from-[#f8faf9] to-white border-emerald-950/10 shadow-xl ring-1 ring-black/5'
+                    }`}>
+                      <img
+                        src="/images/bcons-central-park-logo.png"
+                        alt="Bcons Central Park Logo"
+                        className="h-10 sm:h-12 w-auto object-contain dark-gold-logo transition-transform duration-500 hover:scale-105"
+                        decoding="async"
+                      />
+                      {/* Floating Concentric Success Check Badge */}
+                      <div className={`absolute -bottom-2 -right-2 size-7 rounded-full flex items-center justify-center shadow-lg border-2 ${
+                        isDark
+                          ? 'bg-[#e6c887] text-[#072018] border-[#071d15]'
+                          : 'bg-emerald-600 text-white border-white'
+                      }`}>
+                        <Check className="size-4 stroke-[3]" />
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="font-serif text-xl font-bold text-foreground dark:text-white">
+
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10.5px] font-bold uppercase tracking-[0.2em] mb-2.5 ${
+                    isDark
+                      ? 'bg-[#e6c887]/15 text-[#e6c887] border border-[#e6c887]/30'
+                      : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                  }`}>
+                    <Sparkles className="size-3" />
+                    {isEn ? 'VERIFIED CONSULTATION' : 'XÁC NHẬN ĐĂNG KÝ'}
+                  </span>
+
+                  <h4 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-foreground dark:text-white">
                     {isEn ? 'Registration Successful!' : 'Đăng Ký Thành Công!'}
                   </h4>
-                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-sm leading-relaxed">
+
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-md leading-relaxed">
                     {isEn
-                      ? 'Thank you! Specialist Le Ngoc Long has received your request and will call you shortly.'
-                      : 'Cảm ơn bạn! Chuyên viên Lê Ngọc Long đã nhận được thông tin và sẽ liên hệ hỗ trợ bạn ngay qua SĐT/Zalo.'}
+                      ? 'Thank you! Developer Sales Director Le Ngoc Long has received your inquiry and will contact you directly within 15 minutes.'
+                      : 'Cảm ơn bạn! Giám đốc Kinh doanh Bcons PS Land Lê Ngọc Long đã tiếp nhận thông tin và sẽ trực tiếp liên hệ tư vấn chuyên sâu trong vòng 15 phút.'}
                   </p>
+
+                  {/* Submitted Confirmation Ticket */}
+                  <div className={`mt-5 w-full max-w-sm rounded-xl border p-3.5 text-left text-xs transition-all ${
+                    isDark
+                      ? 'bg-white/[0.03] border-white/10 text-white/90'
+                      : 'bg-slate-50/80 border-slate-200/80 text-slate-800'
+                  }`}>
+                    <div className="flex items-center justify-between pb-2 border-b border-border/60 dark:border-white/10">
+                      <span className="text-muted-foreground">{isEn ? 'Customer' : 'Khách hàng'}:</span>
+                      <span className="font-bold text-foreground dark:text-white">
+                        {formData.name || (isEn ? 'Valued Customer' : 'Quý khách')}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="text-muted-foreground">{isEn ? 'Contact Phone' : 'Số điện thoại'}:</span>
+                      <span className="font-bold text-emerald-600 dark:text-[#e6c887] font-mono text-sm">
+                        {formData.phone}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
                   <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                     <a
                       href="tel:0376671776"
-                      className="px-5 py-2.5 rounded-full text-xs font-bold uppercase bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-md hover:opacity-90 transition-opacity"
+                      className={`group inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer ${
+                        isDark
+                          ? 'bg-gradient-to-r from-[#e6c887] via-[#f7e4b5] to-[#e6c887] text-[#072018] shadow-[#e6c887]/20 hover:shadow-[#e6c887]/30'
+                          : 'bg-emerald-600 text-white hover:bg-emerald-500 shadow-emerald-600/25 hover:shadow-emerald-600/35'
+                      }`}
                     >
-                      {isEn ? 'Call Hotline: 0376 671 776' : 'Gọi Hotline: 0376 671 776'}
+                      <Phone className="size-3.5" />
+                      <span>{isEn ? 'Call Hotline: 0376 671 776' : 'Gọi Hotline: 0376 671 776'}</span>
                     </a>
-                    <button
-                      type="button"
-                      onClick={closeConsultation}
-                      className="px-5 py-2.5 rounded-full text-xs font-bold uppercase bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+
+                    <a
+                      href="https://zalo.me/0376671776"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
+                        isDark
+                          ? 'border-[#e6c887]/40 text-[#e6c887] hover:bg-[#e6c887]/10'
+                          : 'border-slate-300 bg-white text-slate-800 hover:bg-slate-50'
+                      }`}
                     >
-                      {isEn ? 'Close Window' : 'Đóng cửa sổ'}
-                    </button>
+                      <MessageSquare className="size-3.5" />
+                      <span>{isEn ? 'Chat Zalo' : 'Nhắn Zalo'}</span>
+                    </a>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={closeConsultation}
+                    className="mt-3 text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 cursor-pointer"
+                  >
+                    {isEn ? 'Close Window' : 'Đóng cửa sổ'}
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-4" noValidate>

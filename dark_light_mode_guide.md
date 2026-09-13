@@ -50,8 +50,8 @@ Mọi tiêu đề section phải dùng component `<SectionHeading />`.
 
 ### 3.4. Footer (`components/layout/site-footer.tsx`)
 - Phải liên kết trực tiếp reactive `theme` state từ `useSitePreferences()`.
-- **Light Mode:** Nền kem ngà `#f3f7f5`, viền `border-slate-200`, tên chuyên viên tư vấn **Lê Ngọc Long** màu than đậm `#072018`.
-- **Dark Mode:** Nền tối sâu `#071712`, viền `border-white/10`, tên chuyên viên tư vấn **Lê Ngọc Long** màu **Trắng sáng `text-white`**, icon Hotline/Zalo/Facebook vàng kim `#e6c887`.
+- **Light Mode:** Nền kem ngà `#f3f7f5`, viền `border-slate-200`, tên Giám đốc Sàn **Lê Ngọc Long** màu than đậm `#072018`.
+- **Dark Mode:** Nền tối sâu `#071712`, viền `border-white/10`, tên Giám đốc Sàn **Lê Ngọc Long** màu **Trắng sáng `text-white`**, icon Hotline/Zalo/Facebook vàng kim `#e6c887`.
 
 ---
 
@@ -60,5 +60,5 @@ Trước khi kết thúc bất kỳ tác vụ giao diện nào, bắt buộc ph�
 1. [ ] Bật/tắt nút Theme (Mặt trời ☀️ / Mặt trăng 🌙) trên thanh Navbar: toàn bộ trang chuyển đổi ngay lập tức mà không bị giật hay trắng bệch.
 2. [ ] Các dòng Eyebrow (`—— TỔNG QUAN`, `—— NHÀ MẪU`, `—— MẶT BẰNG`...) ở Dark Mode đều mang sắc vàng kim `#e6c887`.
 3. [ ] Các nhãn form và nút CTA chính ở Dark Mode đều mang sắc vàng kim `#e6c887`.
-4. [ ] Tên chuyên viên **Lê Ngọc Long** ở Footer hiển thị đậm nét và rõ ràng ở cả 2 chế độ.
+4. [ ] Tên Giám đốc Sàn **Lê Ngọc Long** ở Footer hiển thị đậm nét và rõ ràng ở cả 2 chế độ.
 5. [ ] Chạy `npm run build` hoặc `next build` đảm bảo 100% routes biên dịch thành công (0 errors).

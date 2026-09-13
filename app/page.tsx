@@ -4,6 +4,7 @@ import { Overview } from '@/components/home/overview'
 import { Location } from '@/components/home/location'
 import { Amenities } from '@/components/home/amenities'
 import { FloorPlans } from '@/components/home/floor-plans'
+import { ShowhouseShowcase } from '@/components/home/showhouse-showcase'
 import { VirtualTour } from '@/components/home/virtual-tour'
 import { Pricing } from '@/components/home/pricing'
 import { FinancialCalculator } from '@/components/home/financial-calculator'
@@ -26,6 +27,7 @@ export default function Page() {
         <Location />
         <Amenities />
         <FloorPlans />
+        <ShowhouseShowcase />
         <VirtualTour />
         <Pricing />
         <FinancialCalculator />

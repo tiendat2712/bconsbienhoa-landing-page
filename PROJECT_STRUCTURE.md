@@ -30,7 +30,7 @@ real-estate-landing/
 │   │
 │   ├── layout/                          # 1. Cụm Layout & Điều hướng chung
 │   │   ├── site-header.tsx              # Header chính, logo Bcons, menu điều hướng, Drawer mobile
-│   │   ├── site-footer.tsx              # Footer, logo Bcons, thông tin chuyên viên, bản quyền
+│   │   ├── site-footer.tsx              # Footer, logo Bcons, thông tin Giám đốc Sàn, bản quyền
 │   │   ├── floating-contact.tsx         # Cụm nút liên hệ nổi góc phải (Zalo, Hotline, Messenger)
 │   │   ├── site-preferences.tsx         # Bộ quản lý Theme (Dark/Light) & Đa ngôn ngữ (VN/EN)
 │   │   └── reveal.tsx                   # Hiệu ứng chuyển động mượt mà (Framer Motion)

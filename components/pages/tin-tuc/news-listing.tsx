@@ -332,15 +332,15 @@ export function NewsListing() {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance text-white drop-shadow-md uppercase">
-              {isEn ? 'NEWS & MARKET INSIGHTS' : 'TIN TỨC & CẬP NHẬT'}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              {isEn ? 'BCONS CENTRAL PARK NEWS' : 'TIN TỨC BCONS CENTRAL PARK'}
             </h1>
 
-            <p className="mt-3 font-serif text-xl sm:text-2xl italic text-[#e6c887] tracking-wide font-normal">
+            <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">
               {isEn ? 'Official Announcements – Homebuyer Guides – Market Analytics' : 'Thông tin chính thống – Cẩm nang chọn nhà – Phân tích thị trường'}
             </p>
 
-            <p className="mt-5 max-w-3xl text-sm sm:text-base md:text-lg text-white/85 leading-relaxed font-sans">
+            <p className="mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-white/85 font-sans font-normal drop-shadow-sm">
               {isEn
                 ? 'Stay updated with verified news on Bcons Central Park, Bien Hoa real estate dynamics, and exclusive launch incentives.'
                 : 'Cập nhật thông tin mới nhất về dự án Bcons Central Park, thị trường bất động sản Biên Hòa và các chính sách bán hàng hấp dẫn.'}
@@ -672,11 +672,11 @@ export function NewsListing() {
                 <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
                   {isEn ? (
                     <>
-                      Contact senior consultant <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> directly to receive the complete project dossier, phase 1 price sheet, and detailed cash flow models.
+                      Contact Sales Director <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> directly to receive the complete project dossier, phase 1 price sheet, and detailed cash flow models.
                     </>
                   ) : (
                     <>
-                      Đăng ký trực tiếp với chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> để nhận trọn bộ tài liệu, bảng giá gốc đợt 1 và phân tích dòng tiền chuyên sâu.
+                      Đăng ký trực tiếp với Giám đốc Sàn <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> để nhận trọn bộ tài liệu, bảng giá gốc đợt 1 và phân tích dòng tiền chuyên sâu.
                     </>
                   )}
                 </p>

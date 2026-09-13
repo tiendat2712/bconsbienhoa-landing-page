@@ -18,7 +18,7 @@ export function SiteFooter() {
     >
       <div className="mx-auto max-w-7xl px-4 py-14 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
-          {/* Cột 1: Logo Bcons Central Park & Giới thiệu chuyên viên tư vấn (5 cols) */}
+          {/* Cột 1: Logo Bcons Central Park & Giới thiệu Giám đốc Sàn Kinh Doanh (5 cols) */}
           <div className="flex flex-col gap-4 lg:col-span-5">
             <Link href="/" className="group flex items-center gap-2.5 w-fit" aria-label="Bcons Central Park Trang chủ">
               <img
@@ -100,6 +100,9 @@ export function SiteFooter() {
               <div className="flex flex-col gap-3">
                 <Link href="/vi-tri" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.location}
+                </Link>
+                <Link href="/nha-mau" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
+                  {t.nav.showhouse}
                 </Link>
                 <Link href="/tien-ich" className={`transition-all duration-200 hover:translate-x-1 ${isDark ? 'hover:text-[#e6c887]' : 'hover:text-primary'}`}>
                   {t.nav.amenities}

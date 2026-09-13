@@ -392,12 +392,12 @@ export function InvestorDetail() {
             </div>
 
             {/* Main H1 Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-balance text-white drop-shadow-md uppercase">
-              {isEn ? 'INVESTOR & DEVELOPER — BCONS CENTRAL PARK' : 'CHỦ ĐẦU TƯ DỰ ÁN BCONS CENTRAL PARK TAM HIỆP'}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              {isEn ? 'INVESTOR & DEVELOPER BCONS CENTRAL PARK' : 'CHỦ ĐẦU TƯ BCONS CENTRAL PARK'}
             </h1>
 
             {/* Subtitle Italic */}
-            <p className="mt-4 font-serif text-xl sm:text-2xl md:text-3xl italic text-[#e6c887] tracking-wide font-normal">
+            <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">
               {isEn ? 'Real Work – Real Delivery – Lasting Value' : 'Làm thật – Giao thật – Bền vững'}
             </p>
 
@@ -871,7 +871,7 @@ export function InvestorDetail() {
                   {isEn ? (
                     'Our consulting team is ready to provide official price lists, construction updates, and legal dossiers.'
                   ) : (
-                    'Đội ngũ chuyên viên Bcons luôn sẵn sàng cung cấp bảng giá chi tiết, tiến độ mới nhất và giải đáp hồ sơ pháp lý.'
+                    'Đội ngũ Bcons PS Land luôn sẵn sàng cung cấp bảng giá chi tiết, tiến độ mới nhất và giải đáp hồ sơ pháp lý.'
                   )}
                 </p>
               </div>

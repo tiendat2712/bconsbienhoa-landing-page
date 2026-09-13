@@ -28,7 +28,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
-      images: [`${baseUrl}/images/og-share.jpg`],
+      images: [
+        `${baseUrl}/images/bcons-central-park-thumbnail.jpg`,
+        `${baseUrl}/images/og-share.jpg`,
+      ],
     },
     {
       url: `${baseUrl}/gia-ban`,
@@ -50,6 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.85,
       images: [`${baseUrl}/images/news/bcons-central-park-ban-do-lien-ket-vung.webp`],
+    },
+    {
+      url: `${baseUrl}/nha-mau`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      images: [
+        `${baseUrl}/images/nha-mau/a1-01-bcons-central-park-nha-mau-a1-phong-khach.wQVLyslN_ZSqv2q.webp`,
+        `${baseUrl}/images/nha-mau/b4-15-bcons-central-park-nha-mau-b4-phong-khach.KiaCBx3v_Z207Okl.webp`,
+        `${baseUrl}/images/nha-mau/c1-29-bcons-central-park-nha-mau-c1-tong-the-bep-ban-an-phong-khach.BmSQVhvr_ZQz4ki.webp`,
+      ],
     },
     {
       url: `${baseUrl}/tien-ich`,

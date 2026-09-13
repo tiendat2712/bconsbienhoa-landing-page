@@ -83,7 +83,7 @@ export function DirectorConsultation({
                     <img
                       src="/images/manager_avt.jpg"
                       alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
-                      className="size-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                      className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
                     />
                   </div>
                   <span
@@ -99,10 +99,10 @@ export function DirectorConsultation({
                   <h4 className="font-serif text-xl sm:text-2xl font-bold uppercase text-[#072018] dark:text-white tracking-wide">
                     {isEn ? 'LE NGOC LONG' : 'LÊ NGỌC LONG'}
                   </h4>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 mt-1 font-sans">
+                  <p className="mt-1 text-xs sm:text-sm font-sans font-medium text-primary dark:text-[#e6c887]">
                     {isEn
                       ? 'Sales Director – Bcons PS Land'
-                      : 'Chuyên viên tư vấn bất động sản – Giám đốc Sàn Kinh Doanh Bcons PS Land'}
+                      : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
                   </p>
                   <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-400 mt-0.5 font-sans">
                     {isEn
@@ -186,11 +186,11 @@ export function DirectorConsultation({
               <p className="mt-6 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-slate-400 font-sans">
                 {isEn ? (
                   <>
-                    I am a professional consultant/broker, not the project developer. Tam Hiep Urban Development Joint Stock Company is the investor and Bcons Group is the developer of Bcons Central Park Tam Hiep. The content on this page is for reference only and does not replace official legal documents from the investor.
+                    I am Sales Director at Bcons PS Land (official project distribution unit), not the project developer. Tam Hiep Urban Development Joint Stock Company is the investor and Bcons Group is the developer of Bcons Central Park Tam Hiep. The content on this page is for reference only and does not replace official legal documents from the investor.
                   </>
                 ) : (
                   <>
-                    Tôi là chuyên viên tư vấn/môi giới, không phải chủ đầu tư dự án. Công ty Cổ phần Phát triển Đô thị Tam Hiệp là chủ đầu tư và Tập đoàn Bcons (Bcons Group) là đơn vị phát triển Bcons Central Park Tam Hiệp. Nội dung trên trang mang tính tham khảo và không thay thế hồ sơ pháp lý chính thức từ chủ đầu tư.
+                    Tôi là Giám đốc Sàn Kinh Doanh Bcons PS Land (đơn vị phân phối trực tiếp từ Chủ đầu tư), không phải chủ đầu tư dự án. Công ty Cổ phần Phát triển Đô thị Tam Hiệp là chủ đầu tư và Tập đoàn Bcons (Bcons Group) là đơn vị phát triển Bcons Central Park Tam Hiệp. Nội dung trên trang mang tính tham khảo và không thay thế hồ sơ pháp lý chính thức từ chủ đầu tư.
                   </>
                 )}
               </p>

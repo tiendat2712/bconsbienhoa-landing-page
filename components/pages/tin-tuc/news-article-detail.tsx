@@ -371,7 +371,7 @@ export function NewsArticleDetail({ article }: Props) {
               <div className="absolute -top-12 -right-12 size-36 rounded-full bg-[#e6c887]/15 dark:bg-[#e6c887]/10 blur-2xl pointer-events-none" />
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary dark:bg-[#e6c887]/15 dark:text-[#e6c887] border border-primary/20 dark:border-[#e6c887]/30">
                 <Sparkles className="size-3" />
-                {isEn ? '1-ON-1 SPECIALIST CONSULTATION' : 'TƯ VẤN CHUYÊN VIÊN 1:1'}
+                {isEn ? 'DIRECT 1-ON-1 CONSULTATION' : 'TƯ VẤN TRỰC TIẾP 1:1'}
               </span>
               <h3 className="font-serif text-lg font-bold text-foreground mt-2.5 mb-1.5">
                 {isEn ? 'Get Price Sheet & Analysis' : 'Nhận Bảng Giá & Phân Tích'}
@@ -379,11 +379,11 @@ export function NewsArticleDetail({ article }: Props) {
               <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
                 {isEn ? (
                   <>
-                    Senior consultant <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> will directly provide full PDF price schedules, payment milestones, and optimal unit recommendations.
+                    Sales Director <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> will directly provide full PDF price schedules, payment milestones, and optimal unit recommendations.
                   </>
                 ) : (
                   <>
-                    Chuyên viên <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ hỗ trợ gửi file PDF bảng giá chi tiết, tiến độ thanh toán và tư vấn chọn căn đẹp trực tiếp.
+                    Giám đốc Sàn <strong className="text-foreground dark:text-[#e6c887]">Lê Ngọc Long</strong> sẽ hỗ trợ gửi file PDF bảng giá chi tiết, tiến độ thanh toán và tư vấn chọn căn đẹp trực tiếp.
                   </>
                 )}
               </p>

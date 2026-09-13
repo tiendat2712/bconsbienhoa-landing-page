@@ -228,7 +228,7 @@ export function Contact() {
               tone="dark"
               eyebrow={t.contact.eyebrow}
               title={isEn ? 'Consultation Registration' : 'Đăng Ký Tư Vấn & Báo Giá'}
-              subtitle={isEn ? 'Direct Support From Developer Specialist' : 'Đồng Hành Trực Tiếp Từ Chuyên Viên CĐT'}
+              subtitle={isEn ? 'Direct Support From Sales Director' : 'Đồng Hành Trực Tiếp Từ Giám Đốc Sàn Bcons PS Land'}
               description={t.contact.desc}
             />
 
@@ -301,15 +301,32 @@ export function Contact() {
               }`}
             >
               {sent ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <span
-                    className={`flex size-16 items-center justify-center rounded-full shadow-lg ${
-                      isDark ? 'bg-[#e6c887] text-[#072018]' : 'bg-emerald-600 text-white'
-                    }`}
-                  >
-                    <Check className="size-8 stroke-[2.5]" />
-                  </span>
-                  <h3 className={`mt-6 font-serif text-2xl font-bold ${isDark ? 'text-[#e6c887]' : 'text-slate-900'}`}>
+                <div className="flex flex-col items-center justify-center py-10 text-center">
+                  {/* Concentric Double-Bezel Luxury Logo Plaque */}
+                  <div className="relative mb-5 flex flex-col items-center">
+                    <div className={`relative p-3.5 sm:p-4 rounded-2xl border transition-all duration-500 ${
+                      isDark
+                        ? 'bg-gradient-to-b from-white/10 to-white/[0.02] border-[#e6c887]/30 shadow-[0_12px_30px_rgba(230,200,135,0.15)] ring-1 ring-[#e6c887]/20'
+                        : 'bg-gradient-to-b from-[#f8faf9] to-white border-emerald-950/10 shadow-xl ring-1 ring-black/5'
+                    }`}>
+                      <img
+                        src="/images/bcons-central-park-logo.png"
+                        alt="Bcons Central Park Logo"
+                        className="h-10 sm:h-12 w-auto object-contain dark-gold-logo transition-transform duration-500 hover:scale-105"
+                        decoding="async"
+                      />
+                      {/* Floating Concentric Success Check Badge */}
+                      <div className={`absolute -bottom-2 -right-2 size-7 rounded-full flex items-center justify-center shadow-lg border-2 ${
+                        isDark
+                          ? 'bg-[#e6c887] text-[#072018] border-[#071d15]'
+                          : 'bg-emerald-600 text-white border-white'
+                      }`}>
+                        <Check className="size-4 stroke-[3]" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 className={`mt-2 font-serif text-2xl font-bold ${isDark ? 'text-[#e6c887]' : 'text-slate-900'}`}>
                     {t.contact.successTitle}
                   </h3>
                   <p className={`mt-2 max-w-md text-sm ${isDark ? 'text-[#c2d3cb]' : 'text-slate-600'}`}>

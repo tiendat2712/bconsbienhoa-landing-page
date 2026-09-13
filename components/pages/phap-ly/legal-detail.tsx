@@ -378,10 +378,10 @@ export function LegalDetail() {
               <span className="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#e6c887] mb-2">
                 BCONS CENTRAL PARK
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase leading-tight">
-                {isEn ? 'Legal Dossier of Bcons Central Park Tam Hiep' : 'Pháp Lý Dự Án Bcons Central Park Tam Hiệp'}
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+                {isEn ? 'LEGAL DOSSIER BCONS CENTRAL PARK' : 'PHÁP LÝ BCONS CENTRAL PARK'}
               </h1>
-              <p className="mt-2 font-serif italic text-xl sm:text-2xl text-[#e6c887] font-semibold tracking-wide">
+              <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">
                 {isEn ? 'Long-term Freehold — Absolute Transparency' : 'Sổ hồng lâu dài – Pháp lý rõ ràng'}
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/70 font-sans">

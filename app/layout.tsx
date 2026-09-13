@@ -6,6 +6,7 @@ import {
   RealEstateAgentSchema,
   OrganizationSchema,
   LocalBusinessSchema,
+  WebPageSchema,
 } from '@/components/seo/json-ld'
 import './globals.css'
 
@@ -104,6 +105,14 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
+        url: 'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+        secureUrl: 'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+        width: 1200,
+        height: 1200,
+        type: 'image/jpeg',
+        alt: 'Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)',
+      },
+      {
         url: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
         secureUrl: 'https://www.canhobconstamhiep.com/images/og-share.jpg',
         width: 1200,
@@ -118,7 +127,7 @@ export const metadata: Metadata = {
     title: 'Căn Hộ Bcons Tam Hiệp (Bcons Central Park) | Bảng Giá & Ưu Đãi CĐT',
     description:
       'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bcons Central Park Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
-    images: ['https://www.canhobconstamhiep.com/images/og-share.jpg'],
+    images: ['https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg'],
   },
   robots: {
     index: true,
@@ -153,14 +162,24 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning className={`bg-background ${display.variable} ${body.variable}`}>
       <head>
-        {/* Explicit Open Graph Image Fallbacks for Crawlers (Zalo, Facebook, Telegram) */}
+        {/* Explicit Google Search Thumbnail & Fallback Meta */}
+        <meta name="thumbnail" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
+        <link rel="image_src" href="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
+        <meta property="og:image" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
+        <meta property="og:image:secure_url" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:alt" content="Phối cảnh Căn Hộ Bcons Tam Hiệp (Bcons Central Park)" />
+
+        {/* Social Sharing 1.91:1 Horizontal Image (Facebook, Zalo, Telegram) */}
         <meta property="og:image" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
         <meta property="og:image:secure_url" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)" />
-        <meta name="twitter:image" content="https://www.canhobconstamhiep.com/images/og-share.jpg" />
+        <meta name="twitter:image" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
 
         <script
           id="bcons-theme-init"
@@ -181,6 +200,7 @@ export default function RootLayout({
         <RealEstateAgentSchema />
         <OrganizationSchema />
         <LocalBusinessSchema />
+        <WebPageSchema />
       </head>
       <body className="font-sans antialiased">
         <SitePreferencesProvider>

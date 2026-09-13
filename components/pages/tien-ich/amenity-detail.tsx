@@ -553,15 +553,15 @@ export function AmenityDetail() {
           {/* Heading and Intro */}
           <Reveal delay={0.06}>
             <div className="mt-6 max-w-3xl">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase leading-tight">
-                {isEn ? 'Bcons Central Park Amenities' : 'Tiện Ích Bcons Central Park'}
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+                {isEn ? 'BCONS CENTRAL PARK AMENITIES' : 'TIỆN ÍCH BCONS CENTRAL PARK'}
               </h1>
-              <p className="mt-2 font-serif italic text-xl sm:text-2xl text-[#e6c887] font-semibold tracking-wide">
+              <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">
                 {isEn
                   ? 'Modern Living Standard — Fulfilling Every Moment'
                   : 'Chuẩn sống hiện đại – Trọn vẹn từng khoảnh khắc'}
               </p>
-              <p className="mt-4 font-sans text-sm sm:text-base leading-relaxed text-white/80">
+              <p className="mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-white/85 font-sans font-normal drop-shadow-sm">
                 {isEn
                   ? 'Bcons Central Park Tam Hiep is planned with a diverse system of internal amenities and regional connections, bringing a convenient, lush green and fulfilling lifestyle to all residents.'
                   : 'Bcons Central Park Tam Hiệp được quy hoạch hệ thống tiện ích nội khu và liên kết ngoại khu đa dạng, mang đến cuộc sống tiện nghi, xanh mát và trọn vẹn cho cư dân.'}
@@ -1003,8 +1003,8 @@ export function AmenityDetail() {
 
                   <p className="mt-2 font-sans text-xs sm:text-sm text-white/80 leading-relaxed">
                     {isEn
-                      ? 'Register to receive the complete 60-amenity layout diagram and landscape analysis dossier of Bcons Central Park from specialist Le Ngoc Long!'
-                      : 'Đăng ký nhận trọn bộ sơ đồ bố trí 60 tiện ích và tài liệu phân tích không gian cảnh quan dự án Bcons Central Park từ chuyên viên Lê Ngọc Long!'}
+                      ? 'Register to receive the complete 60-amenity layout diagram and landscape analysis dossier of Bcons Central Park from Sales Director Le Ngoc Long!'
+                      : 'Đăng ký nhận trọn bộ sơ đồ bố trí 60 tiện ích và tài liệu phân tích không gian cảnh quan dự án Bcons Central Park từ Giám đốc Sàn Lê Ngọc Long!'}
                   </p>
 
                   <div className="mt-6 space-y-3 font-sans">

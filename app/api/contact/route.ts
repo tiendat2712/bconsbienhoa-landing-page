@@ -98,7 +98,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Gửi thông tin thành công! Chuyên viên sẽ liên hệ lại ngay.',
+      message: 'Gửi thông tin thành công! Giám đốc Sàn Lê Ngọc Long sẽ liên hệ lại ngay.',
       id: data?.id,
     })
   } catch (err: any) {

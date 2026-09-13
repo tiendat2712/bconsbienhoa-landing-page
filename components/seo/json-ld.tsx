@@ -19,6 +19,15 @@ export function RealEstateProjectSchema() {
     description:
       'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bcons Central Park Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
     url: 'https://www.canhobconstamhiep.com',
+    image: [
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-tam-hiep-phoi-canh.webp',
+      'https://www.canhobconstamhiep.com/images/og-share.jpg',
+    ],
+    photo: [
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-tam-hiep-phoi-canh.webp',
+    ],
     telephone: '+84376671776',
     address: {
       '@type': 'PostalAddress',
@@ -88,7 +97,7 @@ export function RealEstateAgentSchema() {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Lê Ngọc Long',
-    jobTitle: 'Chuyên viên tư vấn dự án Căn Hộ Bcons Central Park Tam Hiệp',
+    jobTitle: 'Giám đốc Sàn Kinh Doanh Bcons PS Land',
     telephone: '+84376671776',
     email: 'longqt2701@gmail.com',
     url: 'https://www.canhobconstamhiep.com',
@@ -119,6 +128,7 @@ export function OrganizationSchema() {
     alternateName: ['Bcons Group', 'Tập đoàn Bcons', 'Bcons Central Park', 'Bcons Tam Hiệp'],
     url: 'https://www.canhobconstamhiep.com',
     logo: 'https://www.canhobconstamhiep.com/images/bcons-central-park-logo.png',
+    image: 'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
     description:
       'Tập đoàn Bcons — Chủ đầu tư và phát triển chuỗi dự án căn hộ chất lượng cao tại TP.HCM, Bình Dương và Đồng Nai với hơn 15 dự án đã bàn giao và trao sổ hồng.',
     founder: {
@@ -162,7 +172,10 @@ export function LocalBusinessSchema() {
     '@type': 'RealEstateAgency',
     name: 'Văn Phòng Tư Vấn Dự Án Bcons Central Park Tam Hiệp',
     alternateName: 'Văn Phòng Bcons Tam Hiệp 236 Phan Trung',
-    image: 'https://www.canhobconstamhiep.com/images/bcons-central-park-tam-hiep-phoi-canh.webp',
+    image: [
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-tam-hiep-phoi-canh.webp',
+    ],
     telephone: '+84376671776',
     email: 'longqt2701@gmail.com',
     url: 'https://www.canhobconstamhiep.com',
@@ -244,7 +257,7 @@ export function NewsArticleSchema({
     author: {
       '@type': 'Person',
       name: authorName,
-      jobTitle: 'Chuyên viên tư vấn dự án Bcons',
+      jobTitle: 'Giám đốc Sàn Kinh Doanh Bcons PS Land',
       url: baseUrl,
     },
     publisher: {
@@ -314,3 +327,44 @@ export function BreadcrumbSchema({
     />
   )
 }
+
+export function WebPageSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://www.canhobconstamhiep.com/#webpage',
+    url: 'https://www.canhobconstamhiep.com',
+    name: 'Căn Hộ Bcons Tam Hiệp (Bcons Central Park) | Bảng Giá & Ưu Đãi CĐT',
+    description:
+      'Thông tin chính thức dự án căn hộ Bcons Tam Hiệp (Bcons Central Park Biên Hòa). Cập nhật vị trí 236 Phan Trung, mặt bằng, bảng giá và chính sách ưu đãi mới nhất từ chủ đầu tư Tập đoàn Bcons.',
+    inLanguage: 'vi-VN',
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      '@id': 'https://www.canhobconstamhiep.com/#primaryimage',
+      url: 'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      contentUrl: 'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      width: 1200,
+      height: 1200,
+      caption: 'Phối cảnh Căn Hộ Bcons Tam Hiệp (Bcons Central Park)',
+    },
+    image: [
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg',
+      'https://www.canhobconstamhiep.com/images/bcons-central-park-tam-hiep-phoi-canh.webp',
+      'https://www.canhobconstamhiep.com/images/og-share.jpg',
+    ],
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://www.canhobconstamhiep.com/#website',
+      url: 'https://www.canhobconstamhiep.com',
+      name: 'Căn Hộ Bcons Tam Hiệp (Bcons Central Park)',
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+

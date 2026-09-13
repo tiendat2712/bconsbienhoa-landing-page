@@ -689,8 +689,8 @@ export function FloorPlanDetail() {
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
                     {isEn
-                      ? 'Register for high-res vector floor plans, unit selection analysis, and feng shui orientation guidance from specialist Le Ngoc Long.'
-                      : 'Chuyên viên Lê Ngọc Long sẽ gửi trọn bộ file PDF bản vẽ thiết kế mặt bằng chi tiết 5 block, sơ đồ bố trí căn hộ và tư vấn chọn tầng đẹp hợp phong thủy.'}
+                      ? 'Register for high-res vector floor plans, unit selection analysis, and feng shui orientation guidance from Sales Director Le Ngoc Long.'
+                      : 'Giám đốc Sàn Lê Ngọc Long sẽ gửi trọn bộ file PDF bản vẽ thiết kế mặt bằng chi tiết 5 block, sơ đồ bố trí căn hộ và tư vấn chọn tầng đẹp hợp phong thủy.'}
                   </p>
                 </div>
 

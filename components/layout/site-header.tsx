@@ -25,8 +25,8 @@ export function SiteHeader() {
         title: locale === 'en' ? 'Register for Direct Consultation' : 'Nhận Tư Vấn Trực Tiếp Dự Án',
         subtitle:
           locale === 'en'
-            ? 'Leave your phone number, Le Ngoc Long will contact you within 15 minutes.'
-            : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
+            ? 'Leave your phone number, Sales Director Le Ngoc Long will contact you within 15 minutes.'
+            : 'Để lại số điện thoại, Giám đốc Sàn Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
       })
     }
   }, [onHome, pathname, locale, openConsultation])
@@ -45,8 +45,8 @@ export function SiteHeader() {
       title: locale === 'en' ? 'Register for Direct Consultation' : 'Nhận Tư Vấn Trực Tiếp Dự Án',
       subtitle:
         locale === 'en'
-          ? 'Leave your phone number, Le Ngoc Long will contact you within 15 minutes.'
-          : 'Để lại số điện thoại, chuyên viên Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
+          ? 'Leave your phone number, Sales Director Le Ngoc Long will contact you within 15 minutes.'
+          : 'Để lại số điện thoại, Giám đốc Sàn Lê Ngọc Long sẽ liên hệ tư vấn chuyên sâu trong 15 phút.',
     })
   }
 
@@ -65,6 +65,7 @@ export function SiteHeader() {
           '#vi-tri',
           '#tien-ich',
           '#mat-bang',
+          '#nha-mau',
           '#tham-quan-3d',
           '#gia-ban',
           '#tien-do',
@@ -94,7 +95,7 @@ export function SiteHeader() {
     [t.nav.location, '#vi-tri'],
     [t.nav.amenities, '#tien-ich'],
     [t.nav.plans, '#mat-bang'],
-    [t.nav.showUnit, '#tham-quan-3d'],
+    [t.nav.showhouse, '#nha-mau'],
     [t.nav.pricing, '#gia-ban'],
     [t.nav.progress, '#tien-do'],
     [t.nav.news, '#tin-tuc'],
@@ -102,8 +103,10 @@ export function SiteHeader() {
 
   // 2. Options trong dropdown "Chi tiết": Router điều hướng đến các Trang con độc lập (/page)
   const detailLinks = [
+    [t.nav.showUnit, onHome ? '#tham-quan-3d' : '/#tham-quan-3d'],
     [t.nav.pricing, '/gia-ban'],
     [t.nav.location, '/vi-tri'],
+    [t.nav.showhouse, '/nha-mau'],
     [t.nav.plans, '/mat-bang'],
     [t.nav.amenities, '/tien-ich'],
     [t.nav.legal, '/phap-ly'],
@@ -112,7 +115,17 @@ export function SiteHeader() {
     [t.nav.news, '/tin-tuc'],
   ] as const
 
-  const isDetailActive = ['/gia-ban', '/vi-tri', '/mat-bang', '/tien-ich', '/phap-ly', '/chu-dau-tu', '/tien-do', '/tin-tuc'].includes(pathname)
+  const isDetailActive = [
+    '/gia-ban',
+    '/vi-tri',
+    '/nha-mau',
+    '/mat-bang',
+    '/tien-ich',
+    '/phap-ly',
+    '/chu-dau-tu',
+    '/tien-do',
+    '/tin-tuc',
+  ].includes(pathname)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -124,11 +137,11 @@ export function SiteHeader() {
             : 'bg-background/70 backdrop-blur-md'
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 md:h-20 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2.5 px-4 md:h-20 lg:px-6 xl:px-8">
           {/* Logo with Pure Luxury Gold Filter in Dark Mode via CSS */}
           <Link
             href={onHome ? '#top' : '/'}
-            className="group flex shrink-0 items-center transition-transform hover:opacity-90"
+            className="group flex shrink-0 items-center transition-transform hover:opacity-90 mr-1"
             aria-label={locale === 'en' ? 'Bcons Central Park Home' : 'Bcons Central Park Trang chủ'}
           >
             <img
@@ -139,7 +152,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation Links (Section Anchor Jump) */}
-          <nav className="hidden items-center gap-1 xl:flex xl:gap-1.5" aria-label={t.nav.main}>
+          <nav className="hidden items-center gap-0.5 xl:flex 2xl:gap-1" aria-label={t.nav.main}>
             {navLinks.map(([label, href]) => {
               const targetHref = onHome ? href : `/${href}`
               const isActive = onHome ? activeSection === href : false
@@ -147,7 +160,7 @@ export function SiteHeader() {
                 <a
                   key={href}
                   href={targetHref}
-                  className={`group relative rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
+                  className={`group relative rounded-lg px-2 py-1.5 2xl:px-2.5 2xl:py-2 text-xs 2xl:text-[13.5px] font-medium transition-colors whitespace-nowrap shrink-0 ${
                     isActive
                       ? 'text-primary dark:text-[#e6c887] gold-text-active font-bold'
                       : 'text-foreground/80 hover:text-primary dark:hover:text-[#e6c887]'
@@ -155,7 +168,7 @@ export function SiteHeader() {
                 >
                   {label}
                   <span
-                    className={`absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left rounded-full transition-transform duration-200 ${
+                    className={`absolute inset-x-2 -bottom-0.5 h-0.5 origin-left rounded-full transition-transform duration-200 ${
                       isActive
                         ? 'scale-x-100 bg-primary dark:bg-[#e6c887]'
                         : 'scale-x-0 bg-primary dark:bg-[#e6c887] group-hover:scale-x-100'
@@ -167,7 +180,7 @@ export function SiteHeader() {
 
             {/* Dropdown Chi tiết */}
             <div
-              className="relative"
+              className="relative shrink-0"
               onMouseEnter={() => setDetailOpen(true)}
               onMouseLeave={() => setDetailOpen(false)}
             >
@@ -176,7 +189,7 @@ export function SiteHeader() {
                 aria-expanded={detailOpen}
                 aria-haspopup="true"
                 onClick={() => setDetailOpen((v) => !v)}
-                className={`flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors cursor-pointer ${
+                className={`flex items-center gap-1 rounded-lg px-2 py-1.5 2xl:px-2.5 2xl:py-2 text-xs 2xl:text-[13.5px] font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                   detailOpen || isDetailActive
                     ? 'text-primary dark:text-[#e6c887] gold-text-active font-bold'
                     : 'text-foreground/80 hover:text-primary dark:hover:text-[#e6c887]'
@@ -261,7 +274,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={handleConsultClick}
-              className="gold-cta-btn hidden md:inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="gold-cta-btn hidden md:inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shrink-0"
             >
               <Phone className="size-3.5" />
               <span>{t.nav.consult}</span>
@@ -298,6 +311,7 @@ export function SiteHeader() {
               </a>
             ))}
             {[
+              [t.nav.showhouse, '/nha-mau'],
               [t.nav.investor, '/chu-dau-tu'],
               [t.nav.legal, '/phap-ly'],
             ].map(([label, href]) => (

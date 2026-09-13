@@ -84,7 +84,7 @@ export function Overview() {
                       <img
                         src="/images/manager_avt.jpg"
                         alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
-                        className="size-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                        className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
                       />
                     </div>
                     <span

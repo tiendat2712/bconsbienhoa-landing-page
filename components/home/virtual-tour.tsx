@@ -15,9 +15,6 @@ export function VirtualTour() {
       id="tham-quan-3d"
       className="scroll-mt-24 relative py-16 sm:py-20 lg:py-24 bg-background dark:bg-[#07130f] transition-colors overflow-hidden"
     >
-      {/* Anchor for backward-compatible #nha-mau links */}
-      <span id="nha-mau" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
-
       {/* Subtle ambient lighting */}
       <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 size-[600px] rounded-full bg-primary/10 dark:bg-[#e6c887]/5 blur-[140px]" />
 
