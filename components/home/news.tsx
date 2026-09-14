@@ -13,7 +13,9 @@ interface NewsPostItem {
   tag: string
   image: string
   url: string
+  summary?: string
   excerpt?: string
+  [key: string]: any
 }
 
 export function News() {
