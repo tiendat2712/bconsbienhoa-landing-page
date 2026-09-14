@@ -8,7 +8,7 @@ export function Reveal({
   children,
   delay = 0,
   y = 24,
-  className,
+  className = '',
 }: {
   children: ReactNode
   delay?: number
@@ -17,10 +17,10 @@ export function Reveal({
 }) {
   return (
     <motion.div
-      className={className}
+      className={`min-w-0 ${className}`}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
@@ -49,7 +49,7 @@ export function SectionHeading({
   return (
     <Reveal
       className={[
-        'flex flex-col gap-3 sm:gap-4',
+        'flex flex-col gap-3.5 sm:gap-4.5',
         align === 'center' ? 'items-center text-center' : 'items-start',
       ].join(' ')}
     >
@@ -69,7 +69,7 @@ export function SectionHeading({
       </span>
       <h2
         className={[
-          'font-serif text-3xl leading-tight text-balance md:text-4xl lg:text-[2.75rem] font-bold tracking-tight transition-colors duration-500',
+          'font-serif text-3xl leading-[1.18] sm:leading-[1.2] pb-0.5 text-balance md:text-4xl lg:text-[2.75rem] font-bold tracking-tight transition-colors duration-500',
           isDark ? 'text-white' : 'text-[#072018]',
         ].join(' ')}
       >
@@ -77,7 +77,7 @@ export function SectionHeading({
         {subtitle ? (
           <span
             className={[
-              'block mt-1 sm:mt-1.5 font-serif italic font-semibold text-2xl sm:text-3xl lg:text-[2.25rem] transition-colors duration-500',
+              'block mt-1.5 sm:mt-2 font-serif italic font-semibold text-2xl sm:text-3xl lg:text-[2.25rem] leading-[1.2] transition-colors duration-500',
               isDark ? 'text-[#e6c887]' : 'text-[#b88728]',
             ].join(' ')}
           >

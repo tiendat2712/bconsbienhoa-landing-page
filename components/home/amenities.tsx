@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
+import { CinematicVideo } from '@/components/shared/cinematic-video'
 
 export interface AmenityImage {
   id: number
@@ -207,7 +208,7 @@ export function Amenities() {
   return (
     <section
       id="tien-ich"
-      className="scroll-mt-24 bg-background py-16 sm:py-20 lg:py-24 transition-colors border-b border-border/60 dark:border-white/5"
+      className="scroll-mt-24 bg-background py-16 sm:py-20 lg:py-24 transition-colors border-b border-border/60 dark:border-white/5 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         {/* Header with Title on Left & Category Tabs on Right */}
@@ -218,9 +219,9 @@ export function Amenities() {
                 <span className="h-px w-8 bg-[#b88728]/60 dark:bg-[#e6c887]/70" />
                 {t.amenities.eyebrow}
               </span>
-              <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground dark:text-white leading-tight">
+              <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground dark:text-white leading-[1.18] sm:leading-[1.2] pb-0.5">
                 {t.amenities.headingMain}
-                <span className="block mt-1 font-serif italic text-[#b88728] dark:text-[#e6c887] font-semibold">
+                <span className="block mt-1.5 sm:mt-2 font-serif italic text-[#b88728] dark:text-[#e6c887] font-semibold leading-[1.2]">
                   {t.amenities.headingSub}
                 </span>
               </h2>
@@ -370,6 +371,31 @@ export function Amenities() {
               />
             ))}
           </div>
+        </Reveal>
+
+        {/* Cinematic Video Showcase: Không gian sống xanh Bcons Central Park */}
+        <Reveal delay={0.16} className="mt-12 sm:mt-16 max-w-5xl mx-auto">
+          <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.16em] uppercase text-[#b88728] dark:text-[#e6c887]">
+              <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              {isEn ? 'OFFICIAL LIVING SPACES VIDEO' : 'THƯỚC PHIM TOÀN CẢNH DỰ ÁN'}
+            </span>
+            <h3 className="mt-1 font-serif text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-foreground">
+              {isEn ? 'Experience Eco-Luxe Life in Motion' : 'Trải Nghiệm Không Gian Sống Chuẩn Xanh'}
+            </h3>
+          </div>
+
+          <CinematicVideo
+            src="/videos/video-1.mp4"
+            poster="/videos/poster-1.webp"
+            badge={isEn ? 'CINEMATIC 720P HD' : 'VIDEO TOÀN CẢNH 720P HD'}
+            title={isEn ? 'Bcons Central Park Overview' : 'Kiến Trúc & Đại Công Viên 7.700m²'}
+            subtitle={
+              isEn
+                ? 'Lush green compound landscape, resort infinity pool, and 60+ synchronous amenities'
+                : 'Đại công viên 7.700m², hồ bơi tràn bờ resort và hệ sinh thái 60+ tiện ích đỉnh cao'
+            }
+          />
         </Reveal>
       </div>
 

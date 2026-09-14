@@ -44,6 +44,7 @@ import {
 } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
+import { CinematicVideo } from '@/components/shared/cinematic-video'
 
 // =============================================================================
 // 1. DATA MODELS & CONSTANTS
@@ -553,7 +554,7 @@ export function AmenityDetail() {
           {/* Heading and Intro */}
           <Reveal delay={0.06}>
             <div className="mt-6 max-w-3xl">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
                 {isEn ? 'BCONS CENTRAL PARK AMENITIES' : 'TIỆN ÍCH BCONS CENTRAL PARK'}
               </h1>
               <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">
@@ -605,6 +606,39 @@ export function AmenityDetail() {
             {/* LEFT COLUMN: 4 CORE AMENITY SECTIONS (Col-span 8)                 */}
             {/* ----------------------------------------------------------------- */}
             <div className="lg:col-span-8 space-y-16 sm:space-y-20">
+              {/* =============================================================== */}
+              {/* FEATURE: THƯỚC PHIM ĐIỆN ẢNH KHÔNG GIAN SỐNG & TIỆN ÍCH          */}
+              {/* =============================================================== */}
+              <div id="video-khong-gian" className="scroll-mt-28">
+                <Reveal>
+                  <div className="border-l-4 border-[#e6c887] pl-4 mb-3">
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887] font-sans block mb-1">
+                      {isEn ? 'CINEMATIC LIVING SPACE TOUR' : 'TRẢI NGHIỆM ĐIỆN ẢNH THỰC TẾ'}
+                    </span>
+                    <h2 className="font-serif text-2xl sm:text-3xl font-bold uppercase tracking-tight text-foreground dark:text-white">
+                      {isEn ? 'Panoramic Living Spaces & Compound Amenities' : 'Thước Phim Không Gian Sống & Tiện Ích Chuẩn Resort'}
+                    </h2>
+                  </div>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed text-muted-foreground mt-2 mb-6">
+                    {isEn
+                      ? 'Experience the panoramic architectural master plan, 7,700m² central park, infinity pool, and the vibrant life of Bcons Central Park in crisp 720p HD.'
+                      : 'Cảm nhận trực tiếp nhịp sống xanh chuẩn nghỉ dưỡng, không gian công viên trung tâm 7.700m², hồ bơi resort và chuỗi tiện ích đẳng cấp Bcons Central Park qua thước phim toàn cảnh độ nét cao.'}
+                  </p>
+
+                  <CinematicVideo
+                    src="/videos/video-1.mp4"
+                    poster="/videos/poster-1.webp"
+                    badge={isEn ? 'PROJECT TOUR 720P HD' : 'VIDEO TOÀN CẢNH 720P HD'}
+                    title={isEn ? 'Bcons Central Park Architecture' : 'Kiến Trúc & Đại Công Viên 7.700m²'}
+                    subtitle={
+                      isEn
+                        ? 'Actual model showcase: Compound living, lush vegetation, and synchronous resort amenities'
+                        : 'Toàn cảnh Bcons Central Park: Không gian sống xanh compound, công viên 7.700m² và hồ bơi resort'
+                    }
+                  />
+                </Reveal>
+              </div>
+
               {/* =============================================================== */}
               {/* SECTION 1: MẶT BẰNG TỔNG THỂ TIỆN ÍCH (60 HẠNG MỤC)             */}
               {/* =============================================================== */}

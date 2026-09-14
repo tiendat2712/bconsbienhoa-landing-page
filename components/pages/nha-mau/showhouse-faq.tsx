@@ -20,7 +20,7 @@ export function ShowhouseFaq() {
             <span className="h-1.5 w-5 rounded-full bg-primary dark:bg-[#e6c887]" />
             <span>{isEn ? 'FREQUENTLY ASKED QUESTIONS' : 'HỎI ĐÁP THƯỜNG GẶP'}</span>
           </div>
-          <h2 className="mt-2 font-serif text-3xl leading-tight text-balance text-foreground md:text-4xl font-bold">
+          <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl leading-[1.2] text-balance text-foreground md:text-4xl font-bold">
             {isEn
               ? 'Frequently Asked Questions About the Show Unit'
               : 'Câu hỏi thường gặp về nhà mẫu & tiêu chuẩn bàn giao'}

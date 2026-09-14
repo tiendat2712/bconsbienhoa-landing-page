@@ -384,7 +384,7 @@ export function InvestorDetail() {
 
           <Reveal>
             {/* Eyebrow Pill */}
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887] text-xs font-bold tracking-widest uppercase">
                 <Sparkles className="size-3" />
                 BCONS CENTRAL PARK
@@ -392,7 +392,7 @@ export function InvestorDetail() {
             </div>
 
             {/* Main H1 Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+            <h1 className="mt-2 sm:mt-3 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
               {isEn ? 'INVESTOR & DEVELOPER BCONS CENTRAL PARK' : 'CHỦ ĐẦU TƯ BCONS CENTRAL PARK'}
             </h1>
 
@@ -469,7 +469,7 @@ export function InvestorDetail() {
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887]">
                 {isEn ? 'DEVELOPER PROFILE' : 'CHỦ ĐẦU TƯ'}
               </span>
-              <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+              <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-[1.2]">
                 {isEn ? 'WHY CHOOSE BCONS GROUP?' : 'VÌ SAO CHỌN BCONS?'}
               </h2>
               <div className="mt-4 h-1 w-20 bg-[#e6c887] rounded-full" />

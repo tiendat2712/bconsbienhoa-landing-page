@@ -408,7 +408,7 @@ export function FloorPlans() {
   return (
     <section
       id="mat-bang"
-      className="scroll-mt-24 py-16 sm:py-20 lg:py-24 transition-colors bg-secondary/30 dark:bg-[#072018]"
+      className="scroll-mt-24 py-16 sm:py-20 lg:py-24 transition-colors bg-secondary/30 dark:bg-[#072018] overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
@@ -423,7 +423,7 @@ export function FloorPlans() {
           <div
             role="tablist"
             aria-label={t.plans.tabs}
-            className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 p-1.5 rounded-full"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 p-1 sm:p-1.5 rounded-full"
           >
             {CATEGORIES.map((cat) => {
               const isActive = cat.id === activeCategory
@@ -435,7 +435,7 @@ export function FloorPlans() {
                   suppressHydrationWarning
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-sans transition-all duration-300 cursor-pointer ${
+                  className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-sans transition-all duration-300 cursor-pointer ${
                     isActive
                       ? isDark
                         ? 'bg-[#f5b82e] text-[#072018] font-bold shadow-lg scale-105'
@@ -491,7 +491,7 @@ export function FloorPlans() {
                     </div>
 
                     {/* Bottom Info Area */}
-                    <div className="bg-secondary/40 dark:bg-[#081e17] p-5 sm:p-6 flex flex-col justify-between flex-1 transition-colors">
+                    <div className="bg-secondary/40 dark:bg-[#081e17] p-4 sm:p-6 flex flex-col justify-between flex-1 transition-colors">
                       <div>
                         <span className="block font-sans font-bold text-xs tracking-wider text-[#b88728] dark:text-[#e6c887]">
                           {item.indexTag}

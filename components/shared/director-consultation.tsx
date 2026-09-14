@@ -9,6 +9,12 @@ import {
   ExternalLink,
   X,
   ChevronRight,
+  Sparkles,
+  Award,
+  FileCheck,
+  Building2,
+  Calculator,
+  Shield,
 } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
@@ -30,25 +36,69 @@ export function DirectorConsultation({
 
   const [certModalOpen, setCertModalOpen] = useState(false)
 
-  const advisorBulletPoints = isEn
+  const competencies = isEn
     ? [
-        '6+ years of specialized real estate advisory experience in HCMC & Dong Nai',
-        'Sales Director at Bcons PS Land – Direct Distribution Unit of Developer Bcons Group',
-        'Licensed Real Estate Broker certified by HCMC Department of Construction',
-        'Accurate bank loan structuring, safe leverage and cashflow optimization',
-        'Comprehensive legal due diligence and turnkey documentation until ownership title (Pink Book)',
+        {
+          icon: Award,
+          title: '6+ Years Real Estate Expertise',
+          desc: 'Specialized residential investment and consultancy across HCMC and Dong Nai key projects.',
+        },
+        {
+          icon: Building2,
+          title: 'Direct Developer Sales Unit',
+          desc: 'Sales Director at Bcons PS Land – authorized primary distributor directly under Bcons Group.',
+        },
+        {
+          icon: FileCheck,
+          title: 'HCMC Certified Real Estate Broker',
+          desc: 'Official Real Estate Brokerage License issued by HCMC Department of Construction.',
+          hasCert: true,
+        },
+        {
+          icon: Calculator,
+          title: 'Mortgage & Cash Flow Structuring',
+          desc: 'Accurate bank loan structuring, grace period planning, and safe financial leverage calculation.',
+        },
+        {
+          icon: Shield,
+          title: 'Turnkey Legal Due Diligence & Pink Book Ownership Guarantee',
+          desc: 'Comprehensive document audit, contract examination, and turnkey paperwork guidance until official Pink Book title handover.',
+          fullWidth: true,
+        },
       ]
     : [
-        '6 năm kinh nghiệm tư vấn bất động sản tại TP.HCM & Đồng Nai',
-        'Giám đốc Sàn Kinh Doanh Bcons PS Land – Đơn vị phân phối trực tiếp từ Chủ đầu tư Bcons',
-        'Chứng chỉ hành nghề môi giới BĐS do Sở Xây Dựng TP.HCM cấp',
-        'Tính toán phương án vay ngân hàng an toàn, tối ưu dòng tiền theo thu nhập',
-        'Đồng hành đối chiếu pháp lý thực tế và hỗ trợ thủ tục trọn gói đến khi nhận sổ',
+        {
+          icon: Award,
+          title: '6 Năm Kinh Nghiệm Chuyên Sâu',
+          desc: 'Kinh nghiệm tư vấn chuyên sâu các dự án BĐS tại thị trường trọng điểm TP.HCM & Đồng Nai.',
+        },
+        {
+          icon: Building2,
+          title: 'Phân Phối Trực Tiếp Chủ Đầu Tư',
+          desc: 'Giám đốc Sàn Kinh Doanh Bcons PS Land – Đơn vị phân phối trực tiếp từ Tập đoàn Bcons.',
+        },
+        {
+          icon: FileCheck,
+          title: 'Chứng Chỉ Hành Nghề Sở Xây Dựng',
+          desc: 'Chứng chỉ hành nghề môi giới BĐS chính quy do Sở Xây Dựng TP.HCM cấp.',
+          hasCert: true,
+        },
+        {
+          icon: Calculator,
+          title: 'Phương Án Vay & Tối Ưu Dòng Tiền',
+          desc: 'Tính toán phương án vay ngân hàng an toàn, tối ưu lịch trả gốc lãi theo thu nhập thực tế.',
+        },
+        {
+          icon: Shield,
+          title: 'Đồng Hành Pháp Lý Trọn Gói Tới Khi Nhận Sổ Hồng',
+          desc: 'Đồng hành đối chiếu pháp lý thực tế, thẩm định hồ sơ và hỗ trợ thủ tục trọn gói đến khi nhận sổ.',
+          fullWidth: true,
+        },
       ]
 
   return (
     <>
-      <section id={id} className={`scroll-mt-20 bg-background py-16 lg:py-24 transition-colors ${className}`}>
+      <section id={id} className={`scroll-mt-20 overflow-hidden bg-background py-16 lg:py-24 transition-colors ${className}`}>
         <div className="mx-auto max-w-5xl px-4 lg:px-8">
           {!hideHeader && (
             <Reveal>
@@ -69,82 +119,133 @@ export function DirectorConsultation({
           )}
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl sm:rounded-3xl border border-border/80 dark:border-white/15 bg-card p-6 sm:p-8 lg:p-10 shadow-xl">
+            <div className="min-w-0 rounded-2xl sm:rounded-3xl border border-border/80 dark:border-white/15 bg-card p-4 sm:p-8 lg:p-10 shadow-xl">
               {/* Card Title */}
               <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-[#072018] dark:text-white mb-6 sm:mb-8">
                 {isEn ? 'BCONS CENTRAL PARK PROJECT CONSULTATION' : 'TƯ VẤN DỰ ÁN BCONS CENTRAL PARK'}
               </h3>
 
-              {/* Director Profile Header */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-6 border-b border-border/70 dark:border-white/10 text-center sm:text-left">
-                {/* Portrait photo of Director Long */}
-                <div className="relative size-24 sm:size-28 shrink-0">
-                  <div className="size-full rounded-2xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-md bg-secondary dark:bg-black/40">
-                    <img
-                      src="/images/manager_avt.jpg"
-                      alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
-                      className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
-                    />
+              {/* Director Profile Header: Balanced Two-Column Hero with Official Bcons Hallmark */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border/70 dark:border-white/10">
+                {/* Left: Avatar + Identification + Credential Badges */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 text-center sm:text-left">
+                  {/* Portrait photo of Director Long */}
+                  <div className="relative size-24 sm:size-28 shrink-0">
+                    <div className="size-full rounded-2xl overflow-hidden ring-2 ring-[#e6c887] shadow-md bg-secondary dark:bg-black/40">
+                      <img
+                        src="/images/manager_avt.jpg"
+                        alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
+                        className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
+                      />
+                    </div>
+                    <span
+                      title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
+                      className="absolute -bottom-1 -right-1 size-6 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
+                    >
+                      <ShieldCheck className="size-3.5 stroke-[2.5]" />
+                    </span>
                   </div>
-                  <span
-                    title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
-                    className="absolute -bottom-1 -right-1 size-6 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
-                  >
-                    <ShieldCheck className="size-3.5 stroke-[2.5]" />
-                  </span>
+
+                  {/* Name, Title & Credentials */}
+                  <div className="min-w-0">
+                    <div className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] sm:text-[10.5px] uppercase tracking-wider font-bold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 mb-1.5 shadow-xs">
+                      <Sparkles className="size-3 text-[#b88728] dark:text-[#e6c887]" />
+                      <span>{isEn ? 'DIRECT DEVELOPER CONSULTATION' : 'ĐẠI DIỆN TƯ VẤN TRỰC TIẾP TỪ CĐT'}</span>
+                    </div>
+                    <h4 className="font-serif text-2xl sm:text-3xl font-bold uppercase text-[#072018] dark:text-white tracking-wide">
+                      {isEn ? 'LE NGOC LONG' : 'LÊ NGỌC LONG'}
+                    </h4>
+                    <p className="mt-1 text-sm sm:text-[15px] font-sans font-semibold text-primary dark:text-[#e6c887]">
+                      {isEn
+                        ? 'Sales Director – Bcons PS Land'
+                        : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
+                    </p>
+                    {/* Quick Trust Tags */}
+                    <div className="mt-2.5 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/85 dark:text-slate-200 bg-secondary/60 dark:bg-white/5 px-2.5 py-1 rounded-lg border border-border/60 dark:border-white/10">
+                        <Award className="size-3 text-[#b88728] dark:text-[#e6c887]" />
+                        <span>{isEn ? '6+ Years Experience' : '6+ Năm Kinh Nghiệm'}</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/85 dark:text-slate-200 bg-secondary/60 dark:bg-white/5 px-2.5 py-1 rounded-lg border border-border/60 dark:border-white/10">
+                        <FileCheck className="size-3 text-emerald-600 dark:text-[#e6c887]" />
+                        <span>{isEn ? 'Licensed Broker' : 'Chứng chỉ Sở Xây Dựng'}</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Name, Title & Credentials */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-serif text-xl sm:text-2xl font-bold uppercase text-[#072018] dark:text-white tracking-wide">
-                    {isEn ? 'LE NGOC LONG' : 'LÊ NGỌC LONG'}
-                  </h4>
-                  <p className="mt-1 text-xs sm:text-sm font-sans font-medium text-primary dark:text-[#e6c887]">
-                    {isEn
-                      ? 'Sales Director – Bcons PS Land'
-                      : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-400 mt-0.5 font-sans">
-                    {isEn
-                      ? 'Strategic advisory specialist – Bcons Central Park'
-                      : 'Chuyên gia tư vấn chiến lược – Dự án Bcons Central Park'}
-                  </p>
+                {/* Right: Official Bcons Distribution Seal & Hallmark */}
+                <div className="flex items-center justify-center sm:justify-start gap-3.5 rounded-2xl p-3.5 sm:p-4 bg-gradient-to-br from-[#e6c887]/15 via-secondary/30 to-[#e6c887]/10 dark:from-white/[0.06] dark:via-white/[0.02] dark:to-transparent border border-[#e6c887]/35 dark:border-white/15 shadow-sm self-center lg:self-auto shrink-0 w-full sm:w-auto">
+                  <div className="h-12 sm:h-14 px-2.5 py-1.5 rounded-xl bg-white dark:bg-white/10 border border-[#e6c887]/30 flex items-center justify-center shrink-0 shadow-xs">
+                    <img
+                      src="/images/bcons-central-park-logo.png"
+                      alt="Bcons Central Park Logo"
+                      className="h-9 sm:h-10 w-auto object-contain dark-gold-logo"
+                    />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="flex items-center gap-1 text-[10px] sm:text-[10.5px] uppercase font-bold tracking-wider text-[#b88728] dark:text-[#e6c887]">
+                      <ShieldCheck className="size-3.5 stroke-[2.5]" />
+                      <span>{isEn ? 'OFFICIAL DISTRIBUTOR' : 'ĐƠN VỊ PHÂN PHỐI CHÍNH THỨC'}</span>
+                    </div>
+                    <div className="font-serif text-sm sm:text-base font-bold text-[#072018] dark:text-white tracking-tight">
+                      BCONS PS LAND · BCONS GROUP
+                    </div>
+                    <div className="text-[11px] text-muted-foreground dark:text-slate-300">
+                      {isEn ? 'Direct developer inventory & official prices' : 'Rổ hàng trực tiếp & chính sách gốc từ CĐT'}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Checklist of Professional Competencies */}
-              <div className="mt-6 space-y-3.5">
-                {advisorBulletPoints.map((text, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3 text-xs sm:text-sm text-foreground/90 dark:text-slate-200 leading-relaxed font-sans"
-                  >
-                    <Check className="size-4 shrink-0 text-emerald-600 dark:text-[#e6c887] stroke-[2.5] mt-0.5" />
-                    <div className="flex-1">
-                      <span>{text}</span>
-                      {/* Certificate link modal trigger for item index 2 */}
-                      {idx === 2 && (
-                        <button
-                          type="button"
-                          onClick={() => setCertModalOpen(true)}
-                          className="inline-flex items-center gap-1 ml-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e6c887]/20 text-primary dark:text-[#e6c887] hover:bg-[#e6c887]/30 transition-colors cursor-pointer border border-[#e6c887]/40 align-middle"
-                        >
-                          <span>{isEn ? 'View Certificate' : 'Xem chứng chỉ'}</span>
-                          <ExternalLink className="size-2.5" />
-                        </button>
-                      )}
+              {/* Core Competencies: 2-Column Balanced Micro-Card Dossier */}
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3.5">
+                {competencies.map((item, idx) => {
+                  const IconComponent = item.icon
+                  return (
+                    <div
+                      key={idx}
+                      className={`group rounded-xl sm:rounded-2xl p-3.5 sm:p-4 bg-[#e6c887]/8 dark:bg-white/[0.03] border border-border/70 dark:border-white/10 hover:border-[#e6c887]/60 dark:hover:border-[#e6c887]/40 hover:bg-[#e6c887]/15 dark:hover:bg-white/[0.06] transition-all duration-300 flex items-start gap-3.5 shadow-xs ${
+                        item.fullWidth
+                          ? 'md:col-span-2 bg-gradient-to-r from-[#e6c887]/12 via-card to-[#e6c887]/8 dark:from-white/[0.04] dark:to-transparent'
+                          : ''
+                      }`}
+                    >
+                      <div className="size-9 rounded-xl bg-primary/10 dark:bg-[#e6c887]/15 text-primary dark:text-[#e6c887] border border-[#e6c887]/25 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                        <IconComponent className="size-4.5 stroke-[2]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h5 className="font-sans font-bold text-xs sm:text-[13.5px] text-[#072018] dark:text-white leading-snug">
+                            {item.title}
+                          </h5>
+                          {item.hasCert && (
+                            <button
+                              type="button"
+                              onClick={() => setCertModalOpen(true)}
+                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold bg-[#e6c887]/25 text-[#072018] dark:text-[#e6c887] hover:bg-[#e6c887]/40 transition-colors cursor-pointer border border-[#e6c887]/40 align-middle"
+                            >
+                              <span>{isEn ? 'View Certificate' : 'Xem chứng chỉ'}</span>
+                              <ExternalLink className="size-2.5" />
+                            </button>
+                          )}
+                        </div>
+                        <p className="mt-1 text-xs text-muted-foreground dark:text-slate-300 leading-relaxed font-sans">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               {/* Contact Actions & Zalo QR Code Section */}
-              <div className="mt-8 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 pt-6 border-t border-border/70 dark:border-white/10">
+              <div className="mt-8 flex flex-col lg:flex-row items-center justify-between gap-5 pt-6 border-t border-border/70 dark:border-white/10">
                 {/* Direct Call & Zalo Buttons */}
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
+                <div className="flex flex-col sm:flex-row w-full lg:w-auto items-stretch sm:items-center gap-3">
                   <a
                     href="tel:0376671776"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#072018] hover:bg-black text-white dark:bg-[#e6c887] dark:hover:bg-[#d6b772] dark:text-[#072018] px-6 py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#072018] hover:bg-black text-white dark:bg-[#e6c887] dark:hover:bg-[#d6b772] dark:text-[#072018] px-6 py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap w-full sm:w-auto"
                   >
                     <PhoneCall className="size-4 stroke-[2.5]" />
                     <span>0376 671 776</span>
@@ -154,11 +255,22 @@ export function DirectorConsultation({
                     href="https://zalo.me/0376671776"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0068ff] hover:bg-[#0054cc] text-white px-6 py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0068ff] hover:bg-[#0054cc] text-white px-6 py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap w-full sm:w-auto"
                   >
                     <MessageCircle className="size-4" />
                     <span>{isEn ? 'CONNECT ZALO' : 'ZALO KẾT BẠN'}</span>
                   </a>
+                </div>
+
+                {/* Center Reassurance Badges on Desktop */}
+                <div className="hidden lg:flex flex-col items-center text-center px-4 text-xs font-sans text-muted-foreground dark:text-slate-300 space-y-1">
+                  <div className="inline-flex items-center gap-1.5 font-semibold text-[#072018] dark:text-[#e6c887]">
+                    <Check className="size-3.5 text-emerald-600 dark:text-[#e6c887]" />
+                    <span>{isEn ? 'Direct 1-on-1 developer consultation' : 'Tư vấn 1-1 trực tiếp Giám đốc Sàn'}</span>
+                  </div>
+                  <div className="text-[11px] text-muted-foreground">
+                    {isEn ? 'Fast 15-minute response · No intermediaries' : 'Phản hồi trong 15 phút · Không qua trung gian'}
+                  </div>
                 </div>
 
                 {/* QR Code Container */}
@@ -183,7 +295,7 @@ export function DirectorConsultation({
               </div>
 
               {/* Disclaimer Text */}
-              <p className="mt-6 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-slate-400 font-sans">
+              <p className="mt-6 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-slate-400 font-sans break-words">
                 {isEn ? (
                   <>
                     I am Sales Director at Bcons PS Land (official project distribution unit), not the project developer. Tam Hiep Urban Development Joint Stock Company is the investor and Bcons Group is the developer of Bcons Central Park Tam Hiep. The content on this page is for reference only and does not replace official legal documents from the investor.

@@ -439,7 +439,7 @@ export function ProgressDetail() {
 
           <Reveal>
             {/* Eyebrow Pill */}
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887] text-xs font-bold tracking-widest uppercase">
                 <Sparkles className="size-3" />
                 {isEn ? 'PROJECT PROGRESS' : 'TIẾN ĐỘ DỰ ÁN'}
@@ -447,7 +447,7 @@ export function ProgressDetail() {
             </div>
 
             {/* Main H1 Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+            <h1 className="mt-2 sm:mt-3 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
               {isEn ? 'BCONS CENTRAL PARK PROGRESS' : 'TIẾN ĐỘ BCONS CENTRAL PARK'}
             </h1>
 
@@ -539,16 +539,16 @@ export function ProgressDetail() {
       {/* =====================================================================
           3. MAIN CONTENT — 2 COLUMNS (LEFT: PROGRESS & PHOTOS | RIGHT: SIDEBAR)
       ===================================================================== */}
-      <section className="bg-secondary/20 dark:bg-[#071712] py-14 lg:py-20 transition-colors">
+      <section className="overflow-hidden bg-secondary/20 dark:bg-[#071712] py-14 lg:py-20 transition-colors">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start min-w-0">
             {/* ===============================================================
                 LEFT MAIN COLUMN (8 COLS)
             =============================================================== */}
-            <div className="lg:col-span-8 space-y-12">
+            <div className="lg:col-span-8 space-y-12 min-w-0 w-full">
               {/* SECTION A: TIẾN ĐỘ THỰC TẾ DỰ ÁN */}
               <Reveal>
-                <div className="p-6 sm:p-8 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-md">
+                <div className="p-4 sm:p-8 rounded-3xl border border-border/80 dark:border-white/10 bg-card shadow-md min-w-0 w-full overflow-hidden">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 pb-4 border-b border-border/60 dark:border-white/10">
                     <div>
                       <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887]">
@@ -564,7 +564,7 @@ export function ProgressDetail() {
                   </div>
 
                   {/* Horizontal Timeline */}
-                  <div className="overflow-x-auto pb-4">
+                  <div className="overflow-x-auto pb-4 no-scrollbar">
                     <div className="min-w-[700px] flex items-center justify-between relative px-2">
                       {/* Timeline connecting line */}
                       <div className="absolute left-8 right-8 top-5 h-0.5 bg-border dark:bg-white/15 z-0" />

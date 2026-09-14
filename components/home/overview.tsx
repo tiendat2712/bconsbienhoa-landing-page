@@ -29,10 +29,10 @@ export function Overview() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+        <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-12 min-w-0 w-full">
           {/* Left Column: Majestic Towers Cutout - Enlarged & Anchored */}
-          <div className="relative lg:col-span-6 xl:col-span-6 flex items-end justify-center lg:justify-start">
-            <Reveal delay={0.1} className="w-full flex items-end justify-center lg:justify-start">
+          <div className="relative lg:col-span-6 xl:col-span-6 flex items-end justify-center lg:justify-start min-w-0">
+            <Reveal delay={0.1} className="w-full flex items-end justify-center lg:justify-start min-w-0">
               <img
                 src="/images/hinh-copy-2-3.png"
                 alt={
@@ -46,7 +46,7 @@ export function Overview() {
           </div>
 
           {/* Right Column: Title + Verbatim Description + Integrated Strategic Advisor Bar */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center relative z-20">
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center relative z-20 min-w-0">
             <Reveal delay={0.15}>
               {/* Eyebrow badge */}
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-0.5 text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 w-fit">

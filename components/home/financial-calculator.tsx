@@ -100,7 +100,7 @@ export function FinancialCalculator() {
   return (
     <section
       id="cong-cu-tai-chinh"
-      className="scroll-mt-24 bg-gradient-to-b from-secondary/30 via-background to-secondary/20 dark:from-background dark:via-card/30 dark:to-background py-16 sm:py-20 lg:py-24 transition-colors duration-500"
+      className="scroll-mt-24 bg-gradient-to-b from-secondary/30 via-background to-secondary/20 dark:from-background dark:via-card/30 dark:to-background py-16 sm:py-20 lg:py-24 transition-colors duration-500 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <SectionHeading
@@ -111,22 +111,22 @@ export function FinancialCalculator() {
         />
 
         {/* Double-Bezel Architectural Container */}
-        <Reveal delay={0.1}>
-          <div className="mt-12 rounded-[2.5rem] p-2 sm:p-3 ring-1 ring-black/5 dark:ring-white/10 bg-[#e6c887]/20 dark:bg-white/[0.03] shadow-2xl backdrop-blur-sm">
-            <div className="rounded-[2rem] bg-card dark:bg-[#071712] p-6 sm:p-9 lg:p-11 border border-border/60 dark:border-white/10 shadow-sm">
-              <div className="grid gap-10 lg:grid-cols-12 items-stretch">
+        <Reveal delay={0.1} className="min-w-0 w-full">
+          <div className="mt-10 sm:mt-12 rounded-[2rem] sm:rounded-[2.5rem] p-1.5 sm:p-3 ring-1 ring-black/5 dark:ring-white/10 bg-[#e6c887]/20 dark:bg-white/[0.03] shadow-2xl backdrop-blur-sm min-w-0 overflow-hidden">
+            <div className="rounded-[calc(2rem-0.375rem)] sm:rounded-[2rem] bg-card dark:bg-[#071712] p-4 sm:p-7 lg:p-11 border border-border/60 dark:border-white/10 shadow-sm min-w-0">
+              <div className="grid gap-8 lg:gap-10 lg:grid-cols-12 items-stretch min-w-0 w-full">
                 
                 {/* CỘT TRÁI (7 Cột): BẢNG ĐIỀU KHIỂN THAM SỐ VAY */}
-                <div className="lg:col-span-7 space-y-7 flex flex-col justify-between">
+                <div className="lg:col-span-7 space-y-6 sm:space-y-7 flex flex-col justify-between min-w-0">
                   
                   {/* 1. CHỌN LOẠI CĂN HỘ */}
-                  <div className="space-y-3.5">
-                    <h4 className="text-sm sm:text-base font-bold tracking-wider uppercase text-primary dark:text-[#e6c887] font-sans">
+                  <div className="space-y-3 sm:space-y-3.5">
+                    <h4 className="text-xs sm:text-base font-bold tracking-wider uppercase text-primary dark:text-[#e6c887] font-sans">
                       {isEn ? '1. SELECT APARTMENT TYPE' : '1. CHỌN LOẠI CĂN HỘ'}
                     </h4>
 
                     {/* 4 Apartment Option Cards matching media_1788972105358.png */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                       {apartmentUnits.map((unit) => {
                         const isSelected = selectedUnitId === unit.id
                         return (
@@ -134,7 +134,7 @@ export function FinancialCalculator() {
                             key={unit.id}
                             type="button"
                             onClick={() => handleSelectUnit(unit)}
-                            className={`rounded-2xl border p-3 sm:p-3.5 lg:p-4 text-center transition-all duration-200 cursor-pointer flex flex-col items-center justify-center ${
+                            className={`rounded-xl sm:rounded-2xl border p-2.5 sm:p-3.5 lg:p-4 text-center transition-all duration-200 cursor-pointer flex flex-col items-center justify-center ${
                               isSelected
                                 ? 'bg-[#072018] text-white border-[#e6c887]/70 shadow-md ring-2 ring-[#e6c887]/40 dark:bg-[#0c2e22] dark:border-[#e6c887] dark:ring-2 dark:ring-[#e6c887]/50 scale-[1.02]'
                                 : 'bg-card hover:bg-secondary/60 border-border hover:border-[#e6c887]/60 text-foreground dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:border-white/10 dark:text-white shadow-sm'
@@ -240,7 +240,7 @@ export function FinancialCalculator() {
                     />
 
                     {/* Presets including 15%, 30%, 50%, 70%, 75% with exact VND formatting */}
-                    <div className="flex flex-wrap gap-2 pt-1">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
                       {downPaymentPresets.map((preset) => {
                         const isActive = Math.abs(downPaymentPercent - preset.percent) <= 1
                         const amount = Math.round(price * preset.ratio)
@@ -249,7 +249,7 @@ export function FinancialCalculator() {
                             key={preset.percent}
                             type="button"
                             onClick={() => handleSelectDownPaymentPreset(preset.ratio)}
-                            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                            className={`rounded-full px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold transition-all cursor-pointer ${
                               isActive
                                 ? 'bg-primary text-white dark:bg-[#e6c887] dark:text-[#072018] shadow-sm scale-105'
                                 : 'bg-secondary/70 text-muted-foreground hover:bg-secondary dark:bg-white/5 dark:hover:bg-white/10'
@@ -316,7 +316,7 @@ export function FinancialCalculator() {
               </div>
 
                 {/* CỘT PHẢI (5 Cột): THẺ KẾT QUẢ SANG TRỌNG (AWWWARDS TIER) */}
-                <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#072018] via-[#0a2c22] to-[#041610] p-7 sm:p-9 text-white shadow-2xl border border-[#e6c887]/25 relative overflow-hidden">
+                <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#072018] via-[#0a2c22] to-[#041610] p-5 sm:p-7 lg:p-9 text-white shadow-2xl border border-[#e6c887]/25 relative overflow-hidden">
                   {/* Subtle luxury ambient gold glow */}
                   <div className="absolute -top-16 -right-16 size-48 rounded-full bg-[#e6c887]/15 blur-3xl pointer-events-none" />
                   

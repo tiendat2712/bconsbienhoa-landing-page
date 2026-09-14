@@ -84,7 +84,7 @@ export function ShowhouseRelated() {
             <span className="h-1.5 w-5 rounded-full bg-primary dark:bg-[#e6c887]" />
             <span>{isEn ? 'RELATED SECTIONS' : 'XEM THÊM VỀ DỰ ÁN'}</span>
           </div>
-          <h2 className="mt-2 font-serif text-3xl leading-tight text-balance text-foreground md:text-4xl font-bold">
+          <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl leading-[1.2] text-balance text-foreground md:text-4xl font-bold">
             {t.related.title}
           </h2>
           <p className="mt-3 max-w-xl leading-relaxed text-pretty text-muted-foreground">

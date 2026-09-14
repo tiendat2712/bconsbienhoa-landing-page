@@ -21,7 +21,7 @@ export default function Page() {
   return (
     <SitePreferencesProvider>
       <SiteHeader />
-      <main>
+      <main className="overflow-x-hidden w-full max-w-full">
         <Hero />
         <Overview />
         <Location />

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, Globe, Menu, Moon, Phone, Sun, X } from 'lucide-react'
+import { ChevronDown, Globe, Menu, Moon, Phone, Sun, X, ArrowUpRight, Compass, Sparkles, Layers } from 'lucide-react'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
 export function SiteHeader() {
@@ -13,8 +13,15 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [detailOpen, setDetailOpen] = useState(false)
+  const [mobileTab, setMobileTab] = useState<'sections' | 'details'>(onHome ? 'sections' : 'details')
 
   const [activeSection, setActiveSection] = useState<string>('#tong-quan')
+
+  useEffect(() => {
+    if (!onHome) {
+      setMobileTab('details')
+    }
+  }, [onHome, pathname])
 
   // Listen for #dang-ky hash on subpages (e.g. from previous navigation or external link)
   useEffect(() => {
@@ -115,6 +122,12 @@ export function SiteHeader() {
     [t.nav.news, '/tin-tuc'],
   ] as const
 
+  // 3. Toàn bộ các Section trên trang chủ (bao gồm cả Sa bàn 3D)
+  const onPageSections = [
+    ...navLinks,
+    [t.nav.showUnit, '#tham-quan-3d'],
+  ] as const
+
   const isDetailActive = [
     '/gia-ban',
     '/vi-tri',
@@ -152,7 +165,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation Links (Section Anchor Jump) */}
-          <nav className="hidden items-center gap-0.5 xl:flex 2xl:gap-1" aria-label={t.nav.main}>
+          <nav className="hidden items-center gap-0.5 xl:flex 2xl:gap-1.5 shrink-0" aria-label={t.nav.main}>
             {navLinks.map(([label, href]) => {
               const targetHref = onHome ? href : `/${href}`
               const isActive = onHome ? activeSection === href : false
@@ -160,7 +173,7 @@ export function SiteHeader() {
                 <a
                   key={href}
                   href={targetHref}
-                  className={`group relative rounded-lg px-2 py-1.5 2xl:px-2.5 2xl:py-2 text-xs 2xl:text-[13.5px] font-medium transition-colors whitespace-nowrap shrink-0 ${
+                  className={`group relative rounded-lg px-2 py-1.5 xl:px-2.5 xl:py-2 text-[13.5px] 2xl:text-[14.5px] font-medium transition-colors whitespace-nowrap shrink-0 ${
                     isActive
                       ? 'text-primary dark:text-[#e6c887] gold-text-active font-bold'
                       : 'text-foreground/80 hover:text-primary dark:hover:text-[#e6c887]'
@@ -189,7 +202,7 @@ export function SiteHeader() {
                 aria-expanded={detailOpen}
                 aria-haspopup="true"
                 onClick={() => setDetailOpen((v) => !v)}
-                className={`flex items-center gap-1 rounded-lg px-2 py-1.5 2xl:px-2.5 2xl:py-2 text-xs 2xl:text-[13.5px] font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                className={`flex items-center gap-1 rounded-lg px-2 py-1.5 xl:px-2.5 xl:py-2 text-[13.5px] 2xl:text-[14.5px] font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                   detailOpen || isDetailActive
                     ? 'text-primary dark:text-[#e6c887] gold-text-active font-bold'
                     : 'text-foreground/80 hover:text-primary dark:hover:text-[#e6c887]'
@@ -204,7 +217,7 @@ export function SiteHeader() {
               </button>
 
               <div
-                className={`absolute top-full left-0 w-44 pt-2 transition-all duration-200 ${
+                className={`absolute top-full left-0 w-48 pt-2 transition-all duration-200 ${
                   detailOpen
                     ? 'pointer-events-auto translate-y-0 opacity-100'
                     : 'pointer-events-none -translate-y-2 opacity-0'
@@ -219,7 +232,7 @@ export function SiteHeader() {
                         href={href}
                         onClick={() => setDetailOpen(false)}
                         aria-current={isItemActive ? 'page' : undefined}
-                        className={`block rounded-xl px-3.5 py-2.5 text-xs font-medium transition-colors ${
+                        className={`block rounded-xl px-3.5 py-2.5 text-[13px] font-medium transition-colors ${
                           isItemActive
                             ? 'bg-secondary dark:bg-[#e6c887]/15 text-primary dark:text-[#e6c887] gold-bg-active font-bold'
                             : 'text-foreground/85 hover:bg-secondary dark:hover:bg-white/10 hover:text-primary dark:hover:text-[#e6c887]'
@@ -295,44 +308,140 @@ export function SiteHeader() {
 
         {/* Mobile Navigation Drawer */}
         <div
-          className={`overflow-hidden border-t border-border/60 bg-background/98 backdrop-blur-2xl transition-[max-height,opacity] duration-300 xl:hidden ${
-            mobileOpen ? 'max-h-[36rem] opacity-100' : 'max-h-0 opacity-0'
+          className={`overflow-hidden border-t border-border/70 dark:border-white/10 bg-background/98 dark:bg-[#07130f]/98 backdrop-blur-2xl transition-[max-height,opacity] duration-300 xl:hidden ${
+            mobileOpen ? 'max-h-[85vh] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
           }`}
         >
-          <nav className="mx-auto grid max-w-7xl grid-cols-2 gap-1.5 px-4 py-5" aria-label={t.nav.mobile}>
-            {navLinks.map(([label, href]) => (
-              <a
-                key={href}
-                href={onHome ? href : `/${href}`}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-3.5 py-2.5 text-xs font-medium text-foreground/85 hover:bg-secondary hover:text-primary transition-colors"
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:py-5">
+            {/* Segmented Switcher: Đồng bộ 100% giữa Section Trang Chủ & 10 Trang Chi Tiết */}
+            <div className="flex items-center p-1 rounded-2xl bg-secondary/80 dark:bg-white/5 border border-border/80 dark:border-white/10 mb-3.5">
+              <button
+                type="button"
+                onClick={() => setMobileTab('sections')}
+                className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer text-center flex items-center justify-center gap-1.5 ${
+                  mobileTab === 'sections'
+                    ? 'bg-card text-primary dark:text-[#e6c887] shadow-sm font-bold border border-border/50 dark:border-white/10'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
-                {label}
-              </a>
-            ))}
-            {[
-              [t.nav.showhouse, '/nha-mau'],
-              [t.nav.investor, '/chu-dau-tu'],
-              [t.nav.legal, '/phap-ly'],
-            ].map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-3.5 py-2.5 text-xs font-medium text-foreground/85 hover:bg-secondary hover:text-primary transition-colors"
+                <Compass className="size-3.5" />
+                <span>{locale === 'en' ? 'Quick Sections' : 'Mục Trang Chủ'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileTab('details')}
+                className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 ${
+                  mobileTab === 'details'
+                    ? 'bg-card text-primary dark:text-[#e6c887] shadow-sm font-bold border border-border/50 dark:border-white/10'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
-                {label}
-              </Link>
-            ))}
-            <button
-              type="button"
-              onClick={handleMobileConsultClick}
-              className="gold-cta-btn col-span-2 mt-3 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold shadow-md cursor-pointer"
-            >
-              <Phone className="size-4" />
-              <span>{t.nav.consult}</span>
-            </button>
-          </nav>
+                <Layers className="size-3.5" />
+                <span>{t.nav.details}</span>
+                <span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 dark:bg-[#e6c887]/20 text-primary dark:text-[#e6c887]">
+                  10
+                </span>
+              </button>
+            </div>
+
+            {/* TAB 1: On-Page Sections (8 sections + 3D virtual tour) */}
+            {mobileTab === 'sections' && (
+              <nav className="space-y-1" aria-label={t.nav.mobile}>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {onPageSections.map(([label, href]) => {
+                    const isActive = onHome && activeSection === href
+                    const targetHref = onHome ? href : `/${href}`
+                    return (
+                      <a
+                        key={href}
+                        href={targetHref}
+                        onClick={() => setMobileOpen(false)}
+                        className={`rounded-xl px-3 py-2.5 text-[13px] font-medium transition-colors flex items-center justify-between gap-1.5 ${
+                          isActive
+                            ? 'bg-secondary dark:bg-[#e6c887]/15 text-primary dark:text-[#e6c887] font-bold border border-primary/20 dark:border-[#e6c887]/30'
+                            : 'text-foreground/85 hover:bg-secondary dark:hover:bg-white/5 hover:text-primary dark:hover:text-[#e6c887] border border-transparent'
+                        }`}
+                      >
+                        <span className="truncate">{label}</span>
+                        {isActive && (
+                          <span className="size-1.5 rounded-full bg-primary dark:bg-[#e6c887] shrink-0" />
+                        )}
+                      </a>
+                    )
+                  })}
+                </div>
+
+                {/* Switch to detailed subpages suggestion button */}
+                <button
+                  type="button"
+                  onClick={() => setMobileTab('details')}
+                  className="w-full mt-2.5 py-2 px-3 rounded-xl bg-secondary/50 dark:bg-white/[0.03] border border-border/60 dark:border-white/10 text-xs font-medium text-primary dark:text-[#e6c887] flex items-center justify-center gap-1.5 cursor-pointer hover:bg-secondary transition-colors"
+                >
+                  <Sparkles className="size-3 text-[#b88728] dark:text-[#e6c887]" />
+                  <span>{locale === 'en' ? 'Explore 10 Detailed Subpages →' : 'Khám phá 10 trang con chi tiết chuyên sâu →'}</span>
+                </button>
+              </nav>
+            )}
+
+            {/* TAB 2: Detailed Dedicated Subpages (100% synchronized with Desktop "Chi tiết" dropdown) */}
+            {mobileTab === 'details' && (
+              <nav className="space-y-1" aria-label={t.nav.details}>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {detailLinks.map(([label, href]) => {
+                    const isItemActive = pathname === href
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setMobileOpen(false)}
+                        aria-current={isItemActive ? 'page' : undefined}
+                        className={`rounded-xl px-3 py-2.5 text-[13px] font-medium transition-colors flex items-center justify-between gap-1.5 ${
+                          isItemActive
+                            ? 'bg-secondary dark:bg-[#e6c887]/15 text-primary dark:text-[#e6c887] font-bold border border-primary/20 dark:border-[#e6c887]/30'
+                            : 'text-foreground/85 hover:bg-secondary dark:hover:bg-white/5 hover:text-primary dark:hover:text-[#e6c887] border border-transparent'
+                        }`}
+                      >
+                        <span className="truncate">{label}</span>
+                        <ArrowUpRight className="size-3 text-muted-foreground dark:text-[#e6c887]/70 shrink-0" />
+                      </Link>
+                    )
+                  })}
+                </div>
+
+                {/* Switch back to on-page sections suggestion button */}
+                <button
+                  type="button"
+                  onClick={() => setMobileTab('sections')}
+                  className="w-full mt-2.5 py-2 px-3 rounded-xl bg-secondary/50 dark:bg-white/[0.03] border border-border/60 dark:border-white/10 text-[11.5px] font-medium text-muted-foreground dark:text-slate-300 flex items-center justify-center gap-1.5 cursor-pointer hover:bg-secondary transition-colors"
+                >
+                  <span>{locale === 'en' ? '← Back to Homepage Sections' : '← Quay lại các mục trên trang chủ'}</span>
+                </button>
+              </nav>
+            )}
+
+            {/* CTA & Direct Hotline Contact Footer */}
+            <div className="mt-3.5 pt-3 border-t border-border/70 dark:border-white/10 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={handleMobileConsultClick}
+                className="gold-cta-btn w-full flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold shadow-md cursor-pointer transition-transform active:scale-95"
+              >
+                <Phone className="size-4" />
+                <span>{t.nav.consult}</span>
+              </button>
+
+              <div className="flex items-center justify-between px-2 pt-1 text-[11px] text-muted-foreground dark:text-slate-400 font-sans">
+                <span>{locale === 'en' ? 'Director Hotline:' : 'Hotline Giám đốc Sàn:'}</span>
+                <a
+                  href="tel:0376671776"
+                  onClick={() => setMobileOpen(false)}
+                  className="font-bold text-primary dark:text-[#e6c887] hover:underline"
+                >
+                  0376 671 776
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>

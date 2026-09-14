@@ -10,7 +10,7 @@ export function SiteFooter() {
 
   return (
     <footer
-      className={`border-t transition-all duration-500 ${
+      className={`overflow-hidden border-t transition-all duration-500 ${
         isDark
           ? 'bg-[#071712] text-[#d1dcd6] border-white/10'
           : 'bg-secondary/70 text-foreground border-border'

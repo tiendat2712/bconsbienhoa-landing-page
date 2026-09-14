@@ -148,8 +148,8 @@ export function Progress() {
         </div>
 
         {/* 2. MAIN HORIZONTAL STEPPER TIMELINE CARD */}
-        <Reveal delay={0.2} className="mt-6 sm:mt-8">
-          <div className="rounded-2xl sm:rounded-3xl bg-card dark:bg-[#071912] border border-border/80 dark:border-white/10 p-6 sm:p-8 lg:p-10 shadow-md">
+        <Reveal delay={0.2} className="mt-6 sm:mt-8 min-w-0 w-full">
+          <div className="rounded-2xl sm:rounded-3xl bg-card dark:bg-[#071912] border border-border/80 dark:border-white/10 p-4 sm:p-8 lg:p-10 shadow-md min-w-0 overflow-hidden">
             {/* Card Header: Title + Latest Update Date */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-border/60 dark:border-white/10">
               <h3 className="font-serif text-lg sm:text-xl font-bold uppercase tracking-normal text-foreground dark:text-white">
@@ -164,8 +164,8 @@ export function Progress() {
               </div>
             </div>
 
-            {/* Stepper Timeline: Horizontally Scrollable on small screens */}
-            <div className="mt-8 overflow-x-auto pb-4 pt-2 -mx-2 px-2 scrollbar-thin">
+            {/* Stepper Timeline: Horizontally Scrollable on small screens with clean touch scroll */}
+            <div className="mt-8 overflow-x-auto pb-4 pt-2 -mx-1 px-1 no-scrollbar w-full max-w-full">
               <div className="min-w-[760px] sm:min-w-[850px] relative">
                 {/* Horizontal Progress Track Lines */}
                 <div className="absolute top-[22px] left-[7%] right-[7%] h-[3px] bg-border dark:bg-white/10 -z-0">
@@ -250,6 +250,11 @@ export function Progress() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile Horizontal Swipe Indicator Hint */}
+            <p className="block sm:hidden text-center text-[11px] text-muted-foreground font-sans mt-2">
+              {isEn ? '← Swipe horizontally to view all 7 milestones →' : '← Vuốt ngang để xem toàn bộ 7 mốc tiến độ →'}
+            </p>
 
             {/* Card Footer: Detailed Link to dedicated progress page */}
             <div className="mt-8 pt-5 border-t border-border/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground font-sans">

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { PhoneCall, MessageCircle, Check, ArrowRight, ExternalLink, X, ShieldCheck } from 'lucide-react'
+import { PhoneCall, MessageCircle, Check, ArrowRight, ExternalLink, X, ShieldCheck, Sparkles } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
@@ -119,32 +119,39 @@ export function Pricing() {
           />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-start">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-start min-w-0 w-full">
           {/* ===================== CỘT TRÁI: BẢNG GIÁ & PHÂN TÍCH ===================== */}
-          <Reveal delay={0.1} className="h-full">
-            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
+          <Reveal delay={0.1} className="h-full min-w-0">
+            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-4 sm:p-6 lg:p-8 shadow-md min-w-0">
               {/* Card Title */}
-              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-5 sm:mb-6">
+              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-4 sm:mb-6">
                 {isEn
                   ? 'Bcons Central Park Price List & Sales Policy'
                   : 'BẢNG GIÁ BCONS CENTRAL PARK & CHÍNH SÁCH BÁN HÀNG'}
               </h3>
 
+              {/* Mobile Table Swipe Hint */}
+              <div className="sm:hidden flex items-center justify-between text-[11px] text-muted-foreground font-sans mb-2 px-1">
+                <span className="flex items-center gap-1 font-medium text-primary dark:text-[#e6c887]">
+                  {isEn ? '← Swipe horizontally to see full price table →' : '← Vuốt ngang để xem đầy đủ bảng giá →'}
+                </span>
+              </div>
+
               {/* Table Container */}
-              <div className="overflow-x-auto rounded-xl border border-border/80 dark:border-white/10 shadow-sm">
-                <table className="w-full text-left border-collapse min-w-[480px]">
+              <div className="overflow-x-auto rounded-xl border border-border/80 dark:border-white/10 shadow-sm w-full max-w-full scrollbar-thin">
+                <table className="w-full text-left border-collapse min-w-[460px]">
                   <thead>
                     <tr className="bg-[#fdf8ee] dark:bg-[#e6c887]/15 border-b border-border/80 dark:border-white/10">
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
+                      <th className="py-2.5 sm:py-3 px-2.5 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
                         {isEn ? 'Unit Type' : 'LOẠI CĂN'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
+                      <th className="py-2.5 sm:py-3 px-2.5 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
                         {isEn ? 'Area' : 'DIỆN TÍCH'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887] whitespace-nowrap">
+                      <th className="py-2.5 sm:py-3 px-2.5 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887] whitespace-nowrap">
                         {isEn ? 'Est. Price' : 'GIÁ BÁN (TỶ)'}
                       </th>
-                      <th className="py-3 px-3 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887]">
+                      <th className="py-2.5 sm:py-3 px-2.5 sm:px-4 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-foreground dark:text-[#e6c887] min-w-[150px]">
                         {isEn ? 'Incentive Policy' : 'CHÍNH SÁCH ƯU ĐÃI'}
                       </th>
                     </tr>
@@ -155,16 +162,16 @@ export function Pricing() {
                         key={idx}
                         className="hover:bg-secondary/40 dark:hover:bg-white/[0.03] transition-colors"
                       >
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 font-bold text-foreground dark:text-white whitespace-nowrap">
+                        <td className="py-2.5 sm:py-3.5 px-2.5 sm:px-4 font-bold text-foreground dark:text-white whitespace-nowrap">
                           {row.type}
                         </td>
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-muted-foreground dark:text-slate-300 whitespace-nowrap font-sans">
+                        <td className="py-2.5 sm:py-3.5 px-2.5 sm:px-4 text-muted-foreground dark:text-slate-300 whitespace-nowrap font-sans">
                           {row.area}
                         </td>
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 font-serif text-sm sm:text-base font-bold text-[#d93829] dark:text-[#f87171] whitespace-nowrap">
+                        <td className="py-2.5 sm:py-3.5 px-2.5 sm:px-4 font-serif text-sm sm:text-base font-bold text-[#d93829] dark:text-[#f87171] whitespace-nowrap">
                           {row.price}
                         </td>
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 text-muted-foreground dark:text-slate-300 leading-relaxed font-sans">
+                        <td className="py-2.5 sm:py-3.5 px-2.5 sm:px-4 text-muted-foreground dark:text-slate-300 leading-relaxed font-sans min-w-[150px]">
                           {row.policy}
                         </td>
                       </tr>
@@ -174,15 +181,15 @@ export function Pricing() {
               </div>
 
               {/* Analysis Box */}
-              <div className="mt-5 rounded-xl bg-secondary/40 dark:bg-[#0c241b]/60 border border-border/80 dark:border-white/10 p-4 sm:p-5">
+              <div className="mt-5 rounded-xl bg-secondary/40 dark:bg-[#0c241b]/60 border border-border/80 dark:border-white/10 p-3.5 sm:p-5 min-w-0">
                 <h4 className="font-bold text-xs sm:text-sm tracking-wide text-foreground dark:text-white uppercase mb-2.5 font-sans">
                   {isEn ? 'QUICK BUYER ANALYSIS:' : 'PHÂN TÍCH NHANH DÀNH CHO NGƯỜI MUA:'}
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-[#c2d3cb] font-sans">
+                <ul className="space-y-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-[#c2d3cb] font-sans break-words">
                   {analysisPoints.map((pt, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-foreground dark:text-white font-bold">•</span>
-                      <span>
+                      <span className="text-foreground dark:text-white font-bold shrink-0">•</span>
+                      <span className="min-w-0">
                         <strong className="font-bold text-foreground dark:text-white">
                           {pt.title}:
                         </strong>{' '}
@@ -223,49 +230,69 @@ export function Pricing() {
           </Reveal>
 
           {/* ===================== CỘT PHẢI: TƯ VẤN DỰ ÁN - LÊ NGỌC LONG ===================== */}
-          <Reveal delay={0.2} className="h-full">
-            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-6 sm:p-7 lg:p-8 shadow-md">
+          <Reveal delay={0.2} className="h-full min-w-0">
+            <div className="rounded-2xl border border-border/80 dark:border-white/10 bg-card p-4 sm:p-6 lg:p-8 shadow-md min-w-0">
               {/* Card Title */}
-              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-5 sm:mb-6">
+              <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold uppercase text-center tracking-normal text-foreground dark:text-white mb-4 sm:mb-6">
                 {isEn
                   ? 'Bcons Central Park Project Consultation'
                   : 'TƯ VẤN DỰ ÁN BCONS CENTRAL PARK'}
               </h3>
 
               {/* Director Profile Header */}
-              <div className="flex items-center gap-4 pb-4">
-                {/* Portrait photo of Director Long */}
-                <div className="relative size-20 sm:size-24 shrink-0">
-                  <div className="size-full rounded-xl overflow-hidden ring-2 ring-[#e6c887]/60 shadow-sm bg-secondary dark:bg-black/40">
-                    <img
-                      src="/images/manager_avt.jpg"
-                      alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
-                      className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
-                    />
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border/70 dark:border-white/10">
+                <div className="flex items-center gap-3.5 sm:gap-4">
+                  {/* Portrait photo of Director Long */}
+                  <div className="relative size-20 sm:size-22 shrink-0">
+                    <div className="size-full rounded-2xl overflow-hidden ring-2 ring-[#e6c887] shadow-sm bg-secondary dark:bg-black/40">
+                      <img
+                        src="/images/manager_avt.jpg"
+                        alt="Lê Ngọc Long - Giám đốc Sàn Kinh Doanh Bcons PS Land"
+                        className="size-full object-cover object-center hover:scale-105 transition-transform duration-500 [image-rendering:-webkit-optimize-contrast]"
+                      />
+                    </div>
+                    <span
+                      title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
+                      className="absolute -bottom-1 -right-1 size-5 rounded-full bg-[#f5b82e] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
+                    >
+                      <ShieldCheck className="size-3 stroke-[2.5]" />
+                    </span>
                   </div>
-                  <span
-                    title={isEn ? 'Verified Developer Sales Director' : 'Tư vấn trực tiếp từ Chủ Đầu Tư Bcons'}
-                    className="absolute -bottom-1 -right-1 size-5 rounded-full bg-[#FFC100] text-[#072018] flex items-center justify-center shadow ring-2 ring-card"
-                  >
-                    <ShieldCheck className="size-3 stroke-[2.5]" />
-                  </span>
+
+                  {/* Name, Title & Credentials */}
+                  <div className="min-w-0">
+                    <div className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9.5px] uppercase tracking-wider font-bold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/25 dark:border-[#e6c887]/25 mb-1 shadow-xs">
+                      <Sparkles className="size-2.5 text-[#b88728] dark:text-[#e6c887]" />
+                      <span>{isEn ? 'DIRECT CĐT CONSULTANT' : 'ĐẠI DIỆN TRỰC TIẾP CĐT'}</span>
+                    </div>
+                    <h4 className="font-serif text-lg sm:text-xl font-bold uppercase text-foreground dark:text-white tracking-wide">
+                      {isEn ? 'Le Ngoc Long' : 'LÊ NGỌC LONG'}
+                    </h4>
+                    <p className="text-xs sm:text-[13px] font-semibold text-primary dark:text-[#e6c887] mt-0.5 font-sans">
+                      {isEn
+                        ? 'Sales Director – Bcons PS Land'
+                        : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Name, Title & Credentials */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold uppercase text-foreground dark:text-white tracking-wide">
-                    {isEn ? 'Le Ngoc Long' : 'LÊ NGỌC LONG'}
-                  </h4>
-                  <p className="text-xs sm:text-sm font-medium text-muted-foreground dark:text-slate-300 mt-1 font-sans">
-                    {isEn
-                      ? 'Sales Director – Bcons PS Land'
-                      : 'Giám đốc Sàn Kinh Doanh Bcons PS Land'}
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-400 mt-0.5 font-sans">
-                    {isEn
-                      ? 'Strategic advisory specialist – Bcons Central Park'
-                      : 'Chuyên gia tư vấn chiến lược – Dự án Bcons Central Park'}
-                  </p>
+                {/* Bcons Hallmark Badge */}
+                <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#e6c887]/10 dark:bg-white/5 border border-[#e6c887]/30 dark:border-white/10 self-start sm:self-center shrink-0">
+                  <div className="h-8 px-1.5 py-1 rounded-lg bg-white dark:bg-white/10 border border-[#e6c887]/25 flex items-center justify-center">
+                    <img
+                      src="/images/bcons-central-park-logo.png"
+                      alt="Bcons Logo"
+                      className="h-6 w-auto object-contain dark-gold-logo"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[9px] uppercase font-bold text-[#b88728] dark:text-[#e6c887]">
+                      {isEn ? 'OFFICIAL DISTRIBUTOR' : 'PHÂN PHỐI CHÍNH THỨC'}
+                    </div>
+                    <div className="font-serif text-[11px] font-bold text-foreground dark:text-white">
+                      BCONS PS LAND
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -293,12 +320,12 @@ export function Pricing() {
               </div>
 
               {/* Contact Actions & Zalo QR Code Section */}
-              <div className="mt-6 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-5">
                 {/* Direct Call & Zalo Buttons */}
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
+                <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center gap-3">
                   <a
                     href="tel:0376671776"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#072018] hover:bg-black text-white dark:bg-[#e6c887] dark:hover:bg-[#d6b772] dark:text-[#072018] px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#072018] hover:bg-black text-white dark:bg-[#e6c887] dark:hover:bg-[#d6b772] dark:text-[#072018] px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap w-full sm:w-auto"
                   >
                     <PhoneCall className="size-4 stroke-[2.5]" />
                     <span>0376 671 776</span>
@@ -308,7 +335,7 @@ export function Pricing() {
                     href="https://zalo.me/0376671776"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0068ff] hover:bg-[#0054cc] text-white px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0068ff] hover:bg-[#0054cc] text-white px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold font-sans shadow hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap w-full sm:w-auto"
                   >
                     <MessageCircle className="size-4" />
                     <span>{isEn ? 'CONNECT ZALO' : 'ZALO KẾT BẠN'}</span>
@@ -337,7 +364,7 @@ export function Pricing() {
               </div>
 
               {/* Disclaimer Text: Naturally elevated right below action bar */}
-              <p className="mt-5 sm:mt-6 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-slate-400 font-sans">
+              <p className="mt-5 sm:mt-6 text-xs sm:text-[13px] leading-relaxed text-muted-foreground dark:text-slate-400 font-sans break-words">
                 {isEn ? (
                   <>
                     I am Sales Director at Bcons PS Land (official project distribution unit), not the project developer. Tam Hiep Urban Development Joint Stock Company is the investor and Bcons Group is the developer of Bcons Central Park Tam Hiep. The content on this page is for reference only and does not replace official legal documents from the investor.

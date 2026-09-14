@@ -430,7 +430,7 @@ export function PricingDetail() {
           {/* Main Title and Intro matching user reference screenshot */}
           <Reveal>
             <div className="mt-6 text-left">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
                 {isEn ? 'Bcons Central Park Pricing' : 'GIÁ BÁN BCONS CENTRAL PARK'}
               </h1>
 

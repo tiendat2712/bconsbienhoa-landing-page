@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import Script from 'next/script'
 import { Playfair_Display, Be_Vietnam_Pro } from 'next/font/google'
 import { SitePreferencesProvider } from '@/components/layout/site-preferences'
 import {
@@ -148,6 +147,10 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
   colorScheme: 'light dark',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#F8FAFC' },
@@ -161,7 +164,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`bg-background ${display.variable} ${body.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`bg-background overflow-x-hidden w-full max-w-full ${display.variable} ${body.variable}`}>
       <head>
         {/* Explicit Google Search Thumbnail & Fallback Meta */}
         <meta name="thumbnail" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
@@ -182,9 +185,8 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Phối cảnh dự án Căn Hộ Bcons Tam Hiệp (Bcons Central Park)" />
         <meta name="twitter:image" content="https://www.canhobconstamhiep.com/images/bcons-central-park-thumbnail.jpg" />
 
-        <Script
+        <script
           id="bcons-theme-init"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -204,7 +206,7 @@ export default function RootLayout({
         <LocalBusinessSchema />
         <WebPageSchema />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased overflow-x-hidden w-full max-w-full">
         <SitePreferencesProvider>
           {children}
         </SitePreferencesProvider>

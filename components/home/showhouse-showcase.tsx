@@ -376,15 +376,15 @@ export function ShowhouseShowcase() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <Reveal>
             {/* Microscopic Pill Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/30 dark:border-[#e6c887]/30 mb-3.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.08em] font-semibold text-[#b88728] dark:text-[#e6c887] bg-[#b88728]/10 dark:bg-[#e6c887]/10 border border-[#b88728]/30 dark:border-[#e6c887]/30 mb-4 sm:mb-5 shadow-sm">
               <Sparkles className="size-3 text-[#b88728] dark:text-[#e6c887]" />
               <span>{isEn ? '1:1 LIVING REALITY SHOWHOUSE' : 'KHÔNG GIAN NHÀ MẪU THỰC TẾ 1:1'}</span>
             </div>
 
             {/* Main Section Heading */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground dark:text-white uppercase leading-tight">
+            <h2 className="mt-1.5 sm:mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground dark:text-white uppercase leading-[1.18] sm:leading-[1.2] pb-0.5">
               {isEn ? 'Bcons Central Park Model Units' : 'Nhà Mẫu Bcons Central Park'}
-              <span className="block mt-1.5 font-serif italic text-xl sm:text-2xl lg:text-3xl font-semibold normal-case text-[#b88728] dark:text-[#e6c887]">
+              <span className="block mt-2 sm:mt-2.5 font-serif italic text-xl sm:text-2xl lg:text-3xl font-semibold normal-case text-[#b88728] dark:text-[#e6c887] leading-[1.2]">
                 {isEn
                   ? 'Cinematic Interior Tour & Actual Handover Standards'
                   : 'Trải Nghiệm Nội Thất Điện Ảnh & Tiêu Chuẩn Bàn Giao Thực Tế'}

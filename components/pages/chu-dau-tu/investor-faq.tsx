@@ -61,7 +61,7 @@ export function InvestorFaq() {
     <section id="cau-hoi" className="scroll-mt-24 bg-background py-20 lg:py-24 transition-colors">
       <div className="mx-auto max-w-5xl px-4 lg:px-8">
         <Reveal>
-          <h2 className="font-serif text-3xl leading-tight text-balance text-foreground md:text-4xl font-bold">
+          <h2 className="font-serif text-3xl leading-[1.2] text-balance text-foreground md:text-4xl font-bold">
             {isEn ? 'Frequently Asked Questions About the Developer' : 'Câu hỏi thường gặp về chủ đầu tư'}
           </h2>
         </Reveal>

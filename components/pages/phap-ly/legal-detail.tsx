@@ -375,10 +375,10 @@ export function LegalDetail() {
           {/* Heading and Intro */}
           <Reveal delay={0.06}>
             <div className="mt-6 max-w-3xl">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#e6c887] mb-2">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#e6c887] mb-3.5 sm:mb-4">
                 BCONS CENTRAL PARK
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              <h1 className="mt-1.5 sm:mt-2.5 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
                 {isEn ? 'LEGAL DOSSIER BCONS CENTRAL PARK' : 'PHÁP LÝ BCONS CENTRAL PARK'}
               </h1>
               <p className="mt-2.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#e6c887] font-medium tracking-wide drop-shadow">

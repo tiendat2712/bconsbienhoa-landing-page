@@ -113,6 +113,72 @@ export function NewsArticleDetail({ article }: Props) {
     }
   }, [article.content])
 
+  // Attach submit listener to project spec request form if present in article HTML
+  useEffect(() => {
+    const form = document.querySelector('[data-spec-form]') as HTMLFormElement | null
+    if (!form) return
+
+    const handleSubmit = async (e: Event) => {
+      e.preventDefault()
+      const nameInput = form.querySelector('[name="name"]') as HTMLInputElement | null
+      const phoneInput = form.querySelector('[name="phone"]') as HTMLInputElement | null
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null
+      const successBox = form.querySelector('[data-form-success]') as HTMLElement | null
+      const fieldsBox = form.querySelector('[data-form-fields]') as HTMLElement | null
+      const errorBox = form.querySelector('[data-form-error]') as HTMLElement | null
+
+      const name = nameInput?.value?.trim() || ''
+      const phone = phoneInput?.value?.trim() || ''
+
+      if (!phone) {
+        phoneInput?.focus()
+        return
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true
+        submitBtn.innerHTML = '<span>Đang gửi yêu cầu...</span>'
+      }
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/longqt2701@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: name || 'Khách hàng xem bài viết',
+            phone,
+            form_name: 'Yêu cầu trọn bộ 8 trang danh mục vật tư Bcons Central Park',
+            article_title: article.title,
+            page_url: window.location.href,
+          }),
+        })
+
+        if (res.ok) {
+          if (fieldsBox) fieldsBox.classList.add('hidden')
+          if (successBox) successBox.classList.remove('hidden')
+        } else {
+          throw new Error('Submit failed')
+        }
+      } catch {
+        openConsultation({
+          source: `Yêu cầu 8 trang vật tư: ${article.title}`,
+          title: locale === 'en' ? 'Register for Full Materials Schedule' : 'Nhận Trọn Bộ 8 Trang Danh Mục Vật Tư',
+          subtitle: locale === 'en'
+            ? 'Leave your phone number, Sales Director Le Ngoc Long will send the complete 8-page document via Zalo.'
+            : 'Để lại số điện thoại, Giám đốc Sàn Lê Ngọc Long sẽ gửi bản scan 8 trang đầy đủ qua Zalo cho bạn.',
+        })
+        if (fieldsBox) fieldsBox.classList.add('hidden')
+        if (successBox) successBox.classList.remove('hidden')
+      }
+    }
+
+    form.addEventListener('submit', handleSubmit)
+    return () => form.removeEventListener('submit', handleSubmit)
+  }, [article.content, article.title, locale, openConsultation])
+
   const handleCopyLink = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(window.location.href)
@@ -212,7 +278,7 @@ export function NewsArticleDetail({ article }: Props) {
             </button>
 
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://www.canhobconstamhiep.com/tin-tuc/${article.slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/10 hover:bg-[#1877f2]/80 text-white transition-all"
@@ -290,8 +356,12 @@ export function NewsArticleDetail({ article }: Props) {
 
             {/* End of Article Signature & Author Box */}
             <div className="mt-12 p-6 sm:p-8 rounded-3xl border border-border/80 dark:border-white/15 bg-secondary/30 dark:bg-[#0c241b] flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <div className="size-16 rounded-2xl overflow-hidden bg-primary/10 dark:bg-[#072018] shrink-0 border border-primary/20 dark:border-[#e6c887]/30 flex items-center justify-center text-primary dark:text-[#e6c887] font-serif font-bold text-2xl">
-                BC
+              <div className="size-16 sm:size-20 rounded-2xl overflow-hidden bg-white/95 dark:bg-[#072018] shrink-0 border border-primary/20 dark:border-[#e6c887]/30 flex items-center justify-center p-2 shadow-xs">
+                <img
+                  src="/images/bcons-central-park-logo.png"
+                  alt="Bcons Central Park Logo"
+                  className="size-full object-contain transition-all duration-300 dark-gold-logo"
+                />
               </div>
               <div className="flex-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-primary dark:text-[#e6c887]">

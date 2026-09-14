@@ -325,14 +325,14 @@ export function NewsListing() {
           </nav>
 
           <Reveal>
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887] text-xs font-bold tracking-widest uppercase">
                 <Sparkles className="size-3" />
                 BCONS CENTRAL PARK
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+            <h1 className="mt-2 sm:mt-3 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
               {isEn ? 'BCONS CENTRAL PARK NEWS' : 'TIN TỨC BCONS CENTRAL PARK'}
             </h1>
 
@@ -366,15 +366,15 @@ export function NewsListing() {
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
                   {isEn
-                    ? 'Analytical features from VietnamFinance, CafeF, and Business & Integration on the 6,500 billion VND investment scale, ecosystem capacity, and sustainable development.'
-                    : 'Các bài viết phân tích từ VietnamFinance, CafeF và Doanh Nghiệp & Hội Nhập về quy mô đầu tư 6.500 tỷ đồng, năng lực hệ sinh thái và uy tín phát triển bền vững.'}
+                    ? 'Featured analytical coverage from Tien Phong, Bao Dau Tu, Kinh Te Moi 24h, CafeF, VietnamFinance, and leading national press on Bcons Central Park scale, model home launch, and corporate ecosystem.'
+                    : 'Các bài viết phân tích từ Tiền Phong, Báo Đầu Tư, Kinh Tế Mới 24h, CafeF, VietnamFinance và Doanh Nghiệp & Hội Nhập về quy mô dự án Bcons Central Park, khai trương nhà mẫu và năng lực hệ sinh thái Bcons Group.'}
                 </p>
               </div>
             </div>
           </Reveal>
 
-          {/* 3 Prestigious Press Cards */}
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* 6 Prestigious Press Cards */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {t.news.posts.map((post, idx) => (
               <Reveal key={post.title} delay={idx * 0.08}>
                 <a

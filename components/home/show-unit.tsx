@@ -9,7 +9,7 @@ export function ShowUnit() {
   const isDark = theme === 'dark'
 
   return (
-    <section id="nha-mau" className="scroll-mt-24 bg-background py-20 lg:py-28 transition-colors">
+    <section id="nha-mau" className="scroll-mt-24 overflow-hidden bg-background py-20 lg:py-28 transition-colors">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
         <Reveal>
           <div className="relative">

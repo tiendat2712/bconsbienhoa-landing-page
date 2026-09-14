@@ -149,14 +149,14 @@ export function ShowhouseDetail() {
           {/* Heading Block */}
           <div className="mt-6 max-w-4xl">
             <Reveal delay={0.06}>
-              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.2em] uppercase text-[#e6c887]">
+              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.2em] uppercase text-[#e6c887] mb-3.5 sm:mb-4">
                 <span className="h-1.5 w-6 rounded-full bg-[#e6c887]" />
                 <span>{isEn ? 'ACTUAL FINISHING & SPACE' : 'TIÊU CHUẨN BÀN GIAO & KHÔNG GIAN THỰC TẾ'}</span>
               </div>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              <h1 className="mt-2.5 sm:mt-3.5 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
                 {isEn
                   ? 'Bcons Central Park Model House'
                   : 'Nhà Mẫu Bcons Central Park Tam Hiệp'}
@@ -369,7 +369,7 @@ export function ShowhouseDetail() {
                 <span className="h-1.5 w-5 rounded-full bg-primary dark:bg-[#e6c887]" />
                 <span>{isEn ? 'INTERIOR PERSPECTIVE GALLERY' : 'BỘ SƯU TẬP PHỐI CẢNH NỘI THẤT'}</span>
               </div>
-              <h2 className="mt-2 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-[1.2]">
                 {isEn
                   ? 'Interior Renderings: Units A1, B4 & C1'
                   : 'Nội thất nhà mẫu ba căn A1, B4 và C1'}
@@ -682,7 +682,7 @@ export function ShowhouseDetail() {
                 <span className="h-1.5 w-5 rounded-full bg-primary dark:bg-[#e6c887]" />
                 <span>{isEn ? 'INSPECTION CHECKLIST' : 'CẨM NANG THỰC TẾ'}</span>
               </div>
-              <h2 className="mt-2 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="mt-3 sm:mt-3.5 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-[1.2]">
                 {isEn
                   ? '6 Critical Inspection Points for Your Show Unit Tour'
                   : 'Sáu điều cần kiểm tra khi đi xem nhà mẫu'}

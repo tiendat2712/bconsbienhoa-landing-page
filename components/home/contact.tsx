@@ -222,7 +222,7 @@ export function Contact() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072018]/90 via-[#072018]/95 to-[#072018]" />
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 items-center">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 items-center min-w-0 w-full">
           <div>
             <SectionHeading
               tone="dark"

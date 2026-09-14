@@ -19,9 +19,11 @@ import {
   Train,
   Plane,
   Navigation,
+  Film,
 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
+import { CinematicVideo } from '@/components/shared/cinematic-video'
 
 // Icon mapping for 6 connectivity cards
 const CONNECTIVITY_ICONS = [
@@ -105,8 +107,8 @@ export function Location() {
   const { t, locale } = useSitePreferences()
   const isEn = locale === 'en'
 
-  // Map Hub View Mode: 'google' | 'regional' | 'satellite'
-  const [activeMapTab, setActiveMapTab] = useState<'google' | 'regional' | 'satellite'>('google')
+  // Map Hub View Mode: 'google' | 'regional' | 'satellite' | 'video'
+  const [activeMapTab, setActiveMapTab] = useState<'google' | 'regional' | 'satellite' | 'video'>('google')
 
   // Lightbox modal state for full-screen photo viewing
   const [lightbox, setLightbox] = useState<{ src: string; title: string; desc: string } | null>(null)
@@ -187,23 +189,23 @@ export function Location() {
         {/* =========================================================
             MAIN BENTO: INTERACTIVE MAP HUB + 6 CONNECTIVITY CARDS
            ========================================================= */}
-        <div className="mt-10 sm:mt-12 lg:mt-16 grid gap-6 lg:grid-cols-[1.1fr_1.15fr] items-stretch">
+        <div className="mt-10 sm:mt-12 lg:mt-16 grid gap-6 lg:grid-cols-[1.1fr_1.15fr] items-stretch min-w-0 w-full">
           {/* Left Column: Interactive Map Hub (Doppelrand Double-Bezel Architecture) */}
-          <Reveal>
-            <div className="group relative rounded-3xl p-1.5 sm:p-2 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-xl flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
+          <Reveal className="min-w-0 h-full">
+            <div className="group relative rounded-3xl p-1.5 sm:p-2 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-xl flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] min-w-0">
               {/* Inner Core */}
               <div className="rounded-[calc(1.5rem-0.25rem)] overflow-hidden bg-card flex flex-col h-full border border-border/40 dark:border-white/5">
                 {/* Header Bar: Brand Identity & View Switcher */}
-                <div className="bg-[#072018] dark:bg-[#071712] px-4 py-3 sm:px-5 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-950/40 dark:border-white/10">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="size-8 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 flex items-center justify-center shrink-0">
-                      <MapPin className="size-4 text-[#e6c887]" />
+                <div className="bg-[#072018] dark:bg-[#071712] px-3.5 py-2.5 sm:px-5 sm:py-3.5 flex flex-row items-center justify-between gap-2.5 border-b border-emerald-950/40 dark:border-white/10">
+                  <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                    <div className="size-7 sm:size-8 rounded-full bg-[#e6c887]/15 border border-[#e6c887]/30 flex items-center justify-center shrink-0">
+                      <MapPin className="size-3.5 sm:size-4 text-[#e6c887]" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide truncate">
                         <span className="text-[#e6c887]">BCONS</span> CENTRAL PARK
                       </div>
-                      <div className="text-[11px] sm:text-xs font-sans text-emerald-100/75 dark:text-slate-300 truncate">
+                      <div className="text-[10.5px] sm:text-xs font-sans text-emerald-100/75 dark:text-slate-300 truncate max-w-[150px] sm:max-w-none">
                         {t.location.mapCardAddress}
                       </div>
                     </div>
@@ -214,11 +216,11 @@ export function Location() {
                     href={t.location.directionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn shrink-0 inline-flex items-center gap-2 rounded-full bg-[#e6c887] hover:bg-[#dfbd78] text-[#072018] pl-3.5 pr-1.5 py-1.5 text-xs font-sans font-bold shadow-sm transition-all duration-300 active:scale-95 self-start sm:self-auto"
+                    className="group/btn shrink-0 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#e6c887] hover:bg-[#dfbd78] text-[#072018] pl-2.5 sm:pl-3.5 pr-1.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-sans font-bold shadow-sm transition-all duration-300 active:scale-95"
                   >
                     <span>{t.location.directions}</span>
-                    <span className="size-5 rounded-full bg-[#072018]/10 dark:bg-black/20 flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
-                      <ExternalLink className="size-3" />
+                    <span className="size-4.5 sm:size-5 rounded-full bg-[#072018]/10 dark:bg-black/20 flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                      <ExternalLink className="size-2.5 sm:size-3" />
                     </span>
                   </a>
                 </div>
@@ -262,6 +264,19 @@ export function Location() {
                   >
                     <Layers className="size-3.5" />
                     <span>{isEn ? 'Surrounding Facilities' : 'Tiện Ích Ngoại Khu'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveMapTab('video')}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap ${
+                      activeMapTab === 'video'
+                        ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
+                    }`}
+                  >
+                    <Film className="size-3.5" />
+                    <span>{isEn ? 'Drone Flycam 720p' : 'Flycam Vị Trí 720p'}</span>
                   </button>
                 </div>
 
@@ -333,14 +348,34 @@ export function Location() {
                       </div>
                     </div>
                   )}
+
+                  {/* Tab 4: Live Drone Flycam Video 720p HD */}
+                  {activeMapTab === 'video' && (
+                    <div className="size-full absolute inset-0 bg-black flex items-center justify-center animate-in fade-in duration-300 overflow-hidden">
+                      <video
+                        src="/videos/video-2.mp4"
+                        poster="/videos/poster-2.webp"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="size-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-lg">
+                        <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>{isEn ? 'LIVE DRONE 720P' : 'FLYCAM THỰC TẾ 236 PHAN TRUNG'}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </Reveal>
 
           {/* Right Column: 6 Connectivity Destination Cards (Enriched Agency Doppelrand) */}
-          <Reveal delay={0.1}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4 h-full">
+          <Reveal delay={0.1} className="min-w-0 h-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 h-full min-w-0">
               {t.location.connectCards.map((item, index) => {
                 const IconComponent = CONNECTIVITY_ICONS[index] || MapPin
                 const ext = (isEn ? CONNECTIVITY_EXTENDED_DATA.en : CONNECTIVITY_EXTENDED_DATA.vi)[index] || {
@@ -351,7 +386,7 @@ export function Location() {
                 return (
                   <div
                     key={item.title}
-                    className="group relative rounded-2xl p-1 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-xl hover:border-[#e6c887]/70 dark:hover:border-[#e6c887]/60 overflow-hidden flex flex-col h-full"
+                    className="group relative rounded-2xl p-1 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 hover:shadow-xl hover:border-[#e6c887]/70 dark:hover:border-[#e6c887]/60 overflow-hidden flex flex-col h-full min-w-0"
                   >
                     {/* Background Subtle Watermark Icon for Rich Depth & Texture */}
                     <IconComponent className="absolute -right-3 -bottom-3 size-24 text-[#072018]/[0.04] dark:text-[#e6c887]/[0.06] group-hover:text-primary/10 dark:group-hover:text-[#e6c887]/15 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-none" />
@@ -485,50 +520,52 @@ export function Location() {
         </div>
 
         {/* =========================================================
-            STRATEGIC HIGHLIGHTS 3-COLUMN CARD
+            CINEMATIC DRONE FLYCAM VIDEO (REPLACING OLD STATIC CARD)
            ========================================================= */}
-        <Reveal delay={0.16} className="mt-10 sm:mt-12">
-          <div className="rounded-3xl border border-border/80 bg-card/80 p-6 sm:p-8 lg:p-10 shadow-sm dark:border-white/10 dark:bg-card/75 backdrop-blur-sm">
-            <div className="grid gap-6 md:grid-cols-3 md:gap-8">
-              {t.location.strategicHighlights.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className={[
-                    'flex flex-col',
-                    idx > 0
-                      ? 'pt-6 md:pt-0 border-t md:border-t-0 md:border-l border-border/70 dark:border-white/10 md:pl-8'
-                      : '',
-                  ].join(' ')}
-                >
-                  <h3 className="font-serif text-xs sm:text-sm lg:text-[15px] font-bold tracking-wider text-foreground dark:text-[#e6c887] uppercase">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2.5 text-xs sm:text-sm font-sans leading-relaxed text-muted-foreground dark:text-[#c2d3cb]">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <Reveal delay={0.16} className="mt-10 sm:mt-14 max-w-5xl mx-auto">
+          <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887] font-sans">
+              <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+              {isEn ? 'OFFICIAL LOCATION DRONE FOOTAGE' : 'THƯỚC PHIM FLYCAM THỰC TẾ'}
+            </span>
+            <h3 className="mt-1 font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase text-foreground tracking-tight">
+              {isEn ? 'Location & Traffic Infrastructure in Motion' : 'Toàn Cảnh Vị Trí & Hạ Tầng Giao Thông Thực Tế'}
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground dark:text-[#c2d3cb] max-w-2xl mx-auto font-sans leading-relaxed">
+              {isEn
+                ? 'High-definition 720p aerial drone footage over Phan Trung commercial avenue, direct gateway connecting Nguyen Ai Quoc, Pham Van Thuan, and key industrial clusters.'
+                : 'Thước phim flycam thực tế độ nét cao 720p bao quát trục đường thương mại 236 Phan Trung, tâm điểm kết nối giữa đại lộ Nguyễn Ái Quốc, Phạm Văn Thuận và các cụm KCN trọng điểm.'}
+            </p>
           </div>
-        </Reveal>
 
-        {/* =========================================================
-            DISCLAIMER & AGENCY BUTTON-IN-BUTTON CTA TO /vi-tri
-           ========================================================= */}
-        <Reveal delay={0.2} className="mt-8 sm:mt-10 text-center">
-          <p className="font-sans text-xs text-muted-foreground dark:text-slate-400 max-w-2xl mx-auto">
-            {t.location.disclaimer}
-          </p>
-          <div className="mt-5 sm:mt-6 flex justify-center">
-            <Link
-              href="/vi-tri"
-              className="group inline-flex items-center gap-3 rounded-full bg-primary hover:bg-[#0b2f24] text-white dark:bg-[#e6c887] dark:hover:bg-[#dfbd78] dark:text-[#072018] pl-6 sm:pl-8 pr-2 sm:pr-2.5 py-2.5 sm:py-3 text-xs sm:text-sm font-sans font-bold tracking-wider shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>{t.location.viewMoreBtn}</span>
-              <span className="size-7 sm:size-8 rounded-full bg-white/15 dark:bg-black/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
-                <ArrowRight className="size-3.5 sm:size-4 stroke-[2.5]" />
-              </span>
-            </Link>
+          <CinematicVideo
+            src="/videos/video-2.mp4"
+            poster="/videos/poster-2.webp"
+            badge={isEn ? 'DRONE FLYCAM 720P HD' : 'FLYCAM THỰC ĐỊA 720P HD'}
+            title={isEn ? '236 Phan Trung Commercial Corridor' : 'Mặt Tiền Cung Đường 236 Phan Trung'}
+            subtitle={
+              isEn
+                ? 'Actual drone footage: Direct access to Nguyen Ai Quoc, Pham Van Thuan, and Amata IP'
+                : 'Thước phim flycam thực tế: Kết nối trực tiếp đại lộ Nguyễn Ái Quốc, Phạm Văn Thuận và KCN Amata'
+            }
+          />
+
+          {/* CTA & Route Details to /vi-tri */}
+          <div className="mt-8 text-center">
+            <p className="font-sans text-xs text-muted-foreground dark:text-slate-400 max-w-2xl mx-auto">
+              {t.location.disclaimer}
+            </p>
+            <div className="mt-5 flex justify-center">
+              <Link
+                href="/vi-tri"
+                className="group inline-flex items-center gap-3 rounded-full bg-primary hover:bg-[#0b2f24] text-white dark:bg-[#e6c887] dark:hover:bg-[#dfbd78] dark:text-[#072018] pl-6 sm:pl-8 pr-2 sm:pr-2.5 py-2.5 sm:py-3 text-xs sm:text-sm font-sans font-bold tracking-wider shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>{t.location.viewMoreBtn}</span>
+                <span className="size-7 sm:size-8 rounded-full bg-white/15 dark:bg-black/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
+                  <ArrowRight className="size-3.5 sm:size-4 stroke-[2.5]" />
+                </span>
+              </Link>
+            </div>
           </div>
         </Reveal>
       </div>

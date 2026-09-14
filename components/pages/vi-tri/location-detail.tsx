@@ -33,17 +33,22 @@ import {
   Navigation,
   ZoomIn,
   ArrowRight,
+  Film,
 } from 'lucide-react'
 import { Reveal } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
+import { CinematicVideo } from '@/components/shared/cinematic-video'
 
 export function LocationDetail() {
   const { theme, locale, t, openConsultation } = useSitePreferences()
   const isDark = theme === 'dark'
   const isEn = locale === 'en'
 
-  // Map Hub View Mode: 'google' | 'regional' | 'satellite'
-  const [activeMapTab, setActiveMapTab] = useState<'google' | 'regional' | 'satellite'>('google')
+  // Map Hub View Mode: 'google' | 'regional' | 'satellite' | 'video'
+  const [activeMapTab, setActiveMapTab] = useState<'google' | 'regional' | 'satellite' | 'video'>('google')
+
+  // Dual Cinema Video Switcher: 'location' (video-2.mp4) | 'intro' (video-1.mp4)
+  const [activeCinemaVideo, setActiveCinemaVideo] = useState<'location' | 'intro'>('location')
 
   // Category filter for 12 destinations: 'all' | 'shopping' | 'health' | 'industry' | 'transit'
   const [activeCategoryFilter, setActiveCategoryFilter] = useState<'all' | 'shopping' | 'health' | 'industry' | 'transit'>('all')
@@ -351,7 +356,7 @@ export function LocationDetail() {
           {/* Main Title & Intro matching mockup */}
           <Reveal>
             <div className="mt-6 text-left">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase drop-shadow-md leading-[1.18] sm:leading-[1.2] pb-1">
                 {isEn ? 'Bcons Central Park Location' : 'VỊ TRÍ BCONS CENTRAL PARK'}
               </h1>
 
@@ -476,16 +481,16 @@ export function LocationDetail() {
             <div className="mt-8 rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-[#e6c887]/20 dark:bg-white/[0.04] border border-[#e6c887]/30 dark:border-white/10 shadow-xl overflow-hidden transition-all">
               <div className="rounded-[calc(1rem-2px)] sm:rounded-[calc(1.5rem-2px)] overflow-hidden bg-card border border-border/50 dark:border-white/5 flex flex-col">
                 {/* Header Bar: Brand Identity & Directions Button */}
-                <div className="bg-[#072018] dark:bg-[#071712] px-4 py-3.5 sm:px-6 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-950/40 dark:border-white/10">
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                    <span className="flex size-8 sm:size-9 shrink-0 items-center justify-center rounded-xl bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887]">
-                      <MapPin className="size-4.5 sm:size-5" />
+                <div className="bg-[#072018] dark:bg-[#071712] px-3.5 py-2.5 sm:px-6 sm:py-4 flex flex-row items-center justify-between gap-2.5 border-b border-emerald-950/40 dark:border-white/10">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <span className="flex size-7 sm:size-9 shrink-0 items-center justify-center rounded-xl bg-[#e6c887]/15 border border-[#e6c887]/30 text-[#e6c887]">
+                      <MapPin className="size-4 sm:size-5" />
                     </span>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm md:text-base font-serif font-bold text-white tracking-wide truncate">
                         <span className="text-[#e6c887]">BCONS</span> CENTRAL PARK
                       </div>
-                      <div className="text-[11px] sm:text-xs font-sans text-emerald-100/80 dark:text-slate-300 truncate">
+                      <div className="text-[10.5px] sm:text-xs font-sans text-emerald-100/80 dark:text-slate-300 truncate max-w-[140px] sm:max-w-none">
                         236 Phan Trung, Phường Tam Hiệp, Thành phố Đồng Nai
                       </div>
                     </div>
@@ -495,10 +500,10 @@ export function LocationDetail() {
                     href="https://maps.google.com/?q=236+Phan+Trung,+Tam+Hiep,+Bien+Hoa,+Dong+Nai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#e6c887] via-[#f0d8a0] to-[#e6c887] hover:brightness-105 text-[#072018] px-4 py-2 text-xs font-sans font-bold shadow-md transition-all active:scale-95 self-start sm:self-auto cursor-pointer"
+                    className="shrink-0 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[#e6c887] via-[#f0d8a0] to-[#e6c887] hover:brightness-105 text-[#072018] px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-sans font-bold shadow-md transition-all active:scale-95 cursor-pointer"
                   >
                     <span>{isEn ? 'Get Directions' : 'Chỉ đường Google Maps'}</span>
-                    <ExternalLink className="size-3.5" />
+                    <ExternalLink className="size-3 sm:size-3.5" />
                   </a>
                 </div>
 
@@ -541,6 +546,19 @@ export function LocationDetail() {
                   >
                     <Layers className="size-3.5" />
                     <span>{isEn ? 'Surrounding Facilities' : 'Tiện Ích Ngoại Khu'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveMapTab('video')}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-sans font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                      activeMapTab === 'video'
+                        ? 'bg-primary text-primary-foreground shadow-sm dark:bg-[#e6c887] dark:text-[#072018]'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary dark:hover:bg-white/5'
+                    }`}
+                  >
+                    <Film className="size-3.5" />
+                    <span>{isEn ? 'Drone Flycam 720p HD' : 'Flycam Thực Địa 720p'}</span>
                   </button>
                 </div>
 
@@ -613,6 +631,26 @@ export function LocationDetail() {
                           <ZoomIn className="size-4" />
                           <span>{isEn ? 'Click to zoom in high-res' : 'Phóng to xem chi tiết'}</span>
                         </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tab 4: Flycam Vị Trí Thực Địa 720p HD */}
+                  {activeMapTab === 'video' && (
+                    <div className="relative h-full w-full bg-black flex items-center justify-center animate-in fade-in duration-300">
+                      <video
+                        src="/videos/video-2.mp4"
+                        poster="/videos/poster-2.webp"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shadow-lg">
+                        <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>{isEn ? 'DRONE FLYCAM 720P HD' : 'FLYCAM THỰC ĐỊA 236 PHAN TRUNG'}</span>
                       </div>
                     </div>
                   )}
@@ -731,6 +769,147 @@ export function LocationDetail() {
       </section>
 
       {/* ========================================================================= */}
+      {/* 3.5 SECTION: THƯỚC PHIM ĐIỆN ẢNH VỊ TRÍ & KHÔNG GIAN DỰ ÁN               */}
+      {/* ========================================================================= */}
+      <section className="scroll-mt-24 bg-background py-16 sm:py-20 lg:py-24 transition-colors border-t border-border/60 dark:border-white/5 relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-32 right-1/4 w-[600px] h-[300px] bg-[#e6c887]/10 dark:bg-[#e6c887]/5 blur-3xl rounded-full" />
+
+        <div className="mx-auto max-w-6xl px-4 lg:px-8 relative">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
+              <div className="text-left max-w-2xl">
+                <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-primary dark:text-[#e6c887] font-sans">
+                  <span className="h-px w-8 bg-primary/60 dark:bg-[#e6c887]/60" />
+                  {isEn ? 'CINEMATIC REALITY TOUR' : 'THƯỚC PHIM ĐIỆN ẢNH THỰC TẾ'}
+                </span>
+                <h2 className="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase text-foreground tracking-tight">
+                  {isEn ? 'LOCATION FLYCAM & LIVING SPACES' : 'TOÀN CẢNH VỊ TRÍ & KHÔNG GIAN SỐNG'}
+                  <span className="block mt-1 font-serif italic text-xl sm:text-2xl lg:text-3xl font-normal text-[#b88728] dark:text-[#e6c887]">
+                    {isEn ? 'Actual Infrastructure & High-Definition Drone Footage' : 'Hạ Tầng Kết Nối Thực Tế & Thước Phim Độ Nét Cao 720p'}
+                  </span>
+                </h2>
+              </div>
+
+              {/* Segmented Switcher for Both Videos */}
+              <div className="inline-flex items-center p-1 rounded-full border border-border/80 dark:border-white/10 bg-card/80 backdrop-blur-md shadow-sm self-start md:self-auto">
+                <button
+                  type="button"
+                  onClick={() => setActiveCinemaVideo('location')}
+                  className={`px-4 py-2 rounded-full text-xs font-sans font-bold transition-all duration-300 cursor-pointer ${
+                    activeCinemaVideo === 'location'
+                      ? 'bg-[#e6c887] text-[#072018] shadow-md'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {isEn ? '1. Location Flycam' : '1. Flycam Vị Trí (236 Phan Trung)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveCinemaVideo('intro')}
+                  className={`px-4 py-2 rounded-full text-xs font-sans font-bold transition-all duration-300 cursor-pointer ${
+                    activeCinemaVideo === 'intro'
+                      ? 'bg-[#e6c887] text-[#072018] shadow-md'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {isEn ? '2. Project Living Spaces' : '2. Không Gian Sống Chuẩn Xanh'}
+                </button>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Active Cinema Video Frame */}
+          <Reveal delay={0.1}>
+            {activeCinemaVideo === 'location' ? (
+              <div className="space-y-6">
+                <CinematicVideo
+                  src="/videos/video-2.mp4"
+                  poster="/videos/poster-2.webp"
+                  badge={isEn ? 'DRONE FLYCAM 720P HD' : 'FLYCAM THỰC ĐỊA 720P HD'}
+                  title={isEn ? '236 Phan Trung Commercial Corridor' : 'Mặt Tiền Cung Đường 236 Phan Trung'}
+                  subtitle={
+                    isEn
+                      ? 'Actual drone footage: Direct access to Nguyen Ai Quoc, Pham Van Thuan and Amata Hub'
+                      : 'Thước phim flycam thực tế: Kết nối trực tiếp đại lộ Nguyễn Ái Quốc, Phạm Văn Thuận và KCN Amata'
+                  }
+                />
+
+                {/* 3 Value Badges for Location Video */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      Mặt Tiền Phan Trung
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Lộ giới hiện hữu thông thoáng, kết nối nhanh chóng 2 trục thương mại sầm uất nhất Biên Hòa.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      1 - 15 Phút Kết Nối Toàn Diện
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Tiếp cận tức thì Vincom Plaza, BV Hoàn Mỹ ITO, siêu thị Co.opmart và các trường học điểm.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      Tiềm Năng Gia Tăng Vượt Trội
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Lõi trung tâm quỹ đất sạch hiếm hoi, đón đầu quy hoạch hạ tầng và nhu cầu thuê ở thực cao.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <CinematicVideo
+                  src="/videos/video-1.mp4"
+                  poster="/videos/poster-1.webp"
+                  badge={isEn ? 'PROJECT OVERVIEW 720P HD' : 'GIỚI THIỆU TỔNG THỂ 720P HD'}
+                  title={isEn ? 'Bcons Central Park Architecture' : 'Kiến Trúc & Đại Công Viên 7.700m²'}
+                  subtitle={
+                    isEn
+                      ? 'Panoramic introduction: Synchronous compound living, resort pool and lush parkland'
+                      : 'Toàn cảnh Bcons Central Park: Không gian sống xanh compound, hồ bơi resort và tiện ích trọn vẹn'
+                  }
+                />
+
+                {/* 3 Value Badges for Intro Video */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      Công Viên Hơn 7.700m²
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Mật độ phủ xanh ấn tượng, không khí trong lành, đường dạo bộ rợp bóng mát giữa lòng đô thị.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      Hồ Bơi & Tiện Ích Resort
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Hồ bơi tràn bờ, hồ sục Jacuzzi, khu thể thao đa năng và sân chơi trẻ em an toàn compound.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border/80 dark:border-white/10 bg-card shadow-sm">
+                    <span className="text-xs font-bold text-primary dark:text-[#e6c887] uppercase tracking-wider block">
+                      113 Căn Shophouse Sầm Uất
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Phố thương mại khối đế sôi động, đáp ứng mọi nhu cầu mua sắm, ẩm thực và thư giãn 24/7.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
       {/* 4. SECTION: KẾT NỐI VÙNG HOÀN HẢO (PANORAMIC SHOWCASE + 12 ENRICHED CARDS)  */}
       {/* ========================================================================= */}
       <section id="ket-noi" className="scroll-mt-24 bg-background py-16 sm:py-20 lg:py-28 transition-colors border-t border-border/60 dark:border-white/5 relative overflow-hidden">
@@ -838,7 +1017,7 @@ export function LocationDetail() {
           </div>
 
           {/* 12 Destination Cards in High-End Visual Photo Grid */}
-          <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-5">
             {filteredDestinations.map((item) => (
               <div
                 key={item.id}
