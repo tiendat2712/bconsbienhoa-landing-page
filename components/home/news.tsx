@@ -6,22 +6,35 @@ import Link from 'next/link'
 import { SectionHeading } from '@/components/layout/reveal'
 import { useSitePreferences } from '@/components/layout/site-preferences'
 
+interface NewsPostItem {
+  title: string
+  source: string
+  date: string
+  tag: string
+  image: string
+  url: string
+  excerpt?: string
+}
+
 export function News() {
   const { t, theme, locale } = useSitePreferences()
   const isDark = theme === 'dark'
   const isEn = locale === 'en'
 
-  const posts = useMemo(() => t.news.posts || [], [t.news.posts])
-  const totalPosts = posts.length
+  const posts = useMemo<NewsPostItem[]>(
+    () => (t.news.posts ? [...t.news.posts] : []),
+    [t.news.posts]
+  )
+  const totalPosts: number = posts.length
 
   // Extended posts: 3 sets (Set 0, Set 1 [main], Set 2) for seamless infinite looping
-  const extendedPosts = useMemo(() => {
+  const extendedPosts = useMemo<NewsPostItem[]>(() => {
     if (totalPosts === 0) return []
     return [...posts, ...posts, ...posts]
   }, [posts, totalPosts])
 
   // Center on Set 1 (index = totalPosts)
-  const [currentIndex, setCurrentIndex] = useState(totalPosts)
+  const [currentIndex, setCurrentIndex] = useState<number>(totalPosts)
   const [withTransition, setWithTransition] = useState(false)
   const [cardWidth, setCardWidth] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
